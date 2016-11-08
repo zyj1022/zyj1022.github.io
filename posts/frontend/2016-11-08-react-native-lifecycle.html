@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>React Native 中组件的生命周期 | 我遇见你</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：
+
+如图，可以把组件生命周期大致分为三个阶段：
+
+第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；
+第二阶段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 中组件的生命周期">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2016-11-08-react-native-lifecycle.html">
+<meta property="og:site_name" content="我遇见你">
+<meta property="og:description" content="概述就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：
+
+如图，可以把组件生命周期大致分为三个阶段：
+
+第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；
+第二阶段">
+<meta property="og:image" content="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg">
+<meta property="og:updated_time" content="2016-11-08T05:48:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native 中组件的生命周期">
+<meta name="twitter:description" content="概述就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：
+
+如图，可以把组件生命周期大致分为三个阶段：
+
+第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；
+第二阶段">
+<meta name="twitter:image" content="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="我遇见你" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">我以及我所遇见的人</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">我以及我所遇见的人</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-react-native-lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2016-11-08-react-native-lifecycle.html" class="article-date">
+  	<time datetime="2016-11-08T04:23:46.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Native 中组件的生命周期
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
+<p>如图，可以把组件生命周期大致分为三个阶段：</p>
+<ul>
+<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
+<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
+<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
+</ul>
+<h1 id="生命周期回调函数"><a href="#生命周期回调函数" class="headerlink" title="生命周期回调函数"></a>生命周期回调函数</h1><p>下面来详细介绍生命周期中的各回调函数。</p>
+<h2 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h2><p>在组件创建之前，会先调用 <code>getDefaultProps()</code>，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 <code>getInitialState()</code>，来初始化组件的状态。</p>
+<h2 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h2><p>然后，准备加载组件，会调用 componentWillMount()，其原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void componentWillMount()</span><br></pre></td></tr></table></figure>
+<p>这个函数调用时机是在组件创建，并初始化了状态之后，在第一次绘制 render() 之前。可以在这里做一些业务初始化操作，也可以设置组件状态。这个函数在整个生命周期中只被调用一次。</p>
+<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h2><p>在组件第一次绘制之后，会调用 <code>componentDidMount()</code>，通知组件已经加载完成。函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void componentDidMount()</span><br></pre></td></tr></table></figure>
+<p>这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 <code>componentDidMount()</code>，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 <code>setTimeout</code> 或者 <code>setInterval</code>，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。</p>
+<h2 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h2><p>如果组件收到新的属性（props），就会调用 <code>componentWillReceiveProps()</code>，其原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void componentWillReceiveProps(  </span><br><span class="line">  object nextProps</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输入参数 <code>nextProps</code> 是即将被设置的属性，旧的属性还是可以通过 <code>this.props</code> 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 <code>this.setState()</code> 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 <code>render()</code> 调用。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps: function(nextProps) &#123;  </span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><p>当组件接收到新的属性和状态改变的话，都会触发调用 <code>shouldComponentUpdate(...)</code>，函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean shouldComponentUpdate(  </span><br><span class="line">  object nextProps, object nextState</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输入参数 nextProps 和上面的 <code>componentWillReceiveProps</code> 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。</p>
+<p>默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。</p>
+<h2 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h2><p>如果组件状态或者属性改变，并且上面的 <code>shouldComponentUpdate(...)</code> 返回为 true，就会开始准更新组件，并调用 <code>componentWillUpdate()</code>，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void componentWillUpdate(  </span><br><span class="line">  object nextProps, object nextState</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>输入参数与 <code>shouldComponentUpdate</code> 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 <code>nextProps</code> 和 <code>nextState</code> 分别设置到 <code>this.props</code> 和 <code>this.state</code> 中。紧接着这个函数，就会调用 <code>render()</code> 来更新界面了。</p>
+<p>##componentDidUpdate</p>
+<p>调用了 <code>render()</code> 更新完成界面之后，会调用 <code>componentDidUpdate()</code> 来得到通知，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void componentDidUpdate(  </span><br><span class="line">  object prevProps, object prevState</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 <code>prevProps</code> 和 <code>prevState</code>。</p>
+<p>##componentWillUnmount</p>
+<p>当组件要被从界面上移除的时候，就会调用 <code>componentWillUnmount()</code>，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void componentWillUnmount()</span><br></pre></td></tr></table></figure>
+<p>在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。</p>
+<p>总结<br>到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>生命周期</th>
+<th style="text-align:center">调用次数</th>
+<th style="text-align:right">能否setSate()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultProps</td>
+<td style="text-align:center">1(全局调用一次)</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>getInitialState</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillMount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>render</td>
+<td style="text-align:center">&gt;=1</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentDidMount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>componentWillReceiveProps</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>shouldComponentUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">否</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/frontend/2016-11-07-mac-u-format.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mac格式化U盘方法（解决win下只有200MB的问题）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
