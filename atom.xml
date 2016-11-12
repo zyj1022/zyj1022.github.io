@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2016-11-08T05:48:21.000Z</updated>
+  <updated>2016-11-12T05:54:11.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -16,11 +16,73 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</title>
+    <link href="http://www.imeetyou.net/posts/life/macos-usb-install-drive.html"/>
+    <id>http://www.imeetyou.net/posts/life/macos-usb-install-drive.html</id>
+    <published>2016-11-12T05:38:23.000Z</published>
+    <updated>2016-11-12T05:54:11.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，&lt;br&gt;在此做个记录教程，方便以后查看。&lt;/p&gt;
+&lt;h1 id=&quot;使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot;&gt;&lt;a href=&quot;#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot; class=&quot;headerlink&quot; title=&quot;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&quot;&gt;&lt;/a&gt;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&lt;/h1&gt;&lt;p&gt;苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。&lt;/li&gt;
+&lt;li&gt;下载好 macOS Sierra 正式版的安装程序&lt;/li&gt;
+&lt;li&gt;打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg&quot; alt=&quot;disk_ulitily_2x&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;打开 “应用程序→实用工具→终端”，将下面的一段命令复制并粘贴进去：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;回车并执行该命令，这时会提示让你输入管理员密码，便会开始制作过程了：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg&quot; alt=&quot;terminal_2x&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如上图，这时系统已经在制作中了，请耐心等待直到屏幕最后出现 Done. 字样即表示大功告成了！然后，就带着U盘出去浪吧……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法&quot;&gt;&lt;a href=&quot;#通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法&quot; class=&quot;headerlink&quot; title=&quot;通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法&quot;&gt;&lt;/a&gt;通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法&lt;/h1&gt;&lt;p&gt;当你制作好 macOS Sierra 的安装盘 U 盘之后，你就可以利用它来给 Mac 电脑格式化重装 (抹盘安装)了。操作的方法非常简单：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当然还是要想办法备份好 Mac 里所有的重要数据了。&lt;/li&gt;
+&lt;li&gt;插上制作好的安装U盘，如果系统能识别出来即可，这时我们先关机了。&lt;/li&gt;
+&lt;li&gt;按下电源键开机，当听到“噹”的一声时，按住 Option 键不放，直到出现启动菜单选项：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg&quot; alt=&quot;mac_option_boot&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;这时选择安装U盘 (黄色图标) 并回车，就可以开始安装了，在过程中你可以通过“磁盘工具”对 Mac 的磁盘式化或者重新分区等操作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;之后就是一步一步的安装直到完成了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更详细的或可以查看这里 &lt;a href=&quot;http://www.iplaysoft.com/macos-usb-install-drive.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;异次元&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，&lt;br&gt;在此做个记录教程，方便以后查看。&lt;/p&gt;
+&lt;h1 id=&quot;使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot;&gt;&lt;a href=&quot;#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot; class=&quot;headerlink&quot; title=&quot;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&quot;&gt;&lt;/a&gt;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&lt;/h1&gt;&lt;p&gt;苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。&lt;/li&gt;
+&lt;li&gt;下载好 macOS Sierra 正式版的安装程序&lt;/li&gt;
+&lt;li&gt;打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
+    
+    
+      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>React Native 中组件的生命周期</title>
     <link href="http://www.imeetyou.net/posts/frontend/react-native-lifecycle.html"/>
     <id>http://www.imeetyou.net/posts/frontend/react-native-lifecycle.html</id>
     <published>2016-11-08T04:23:46.000Z</published>
-    <updated>2016-11-08T05:48:21.000Z</updated>
+    <updated>2016-11-09T03:17:52.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg&quot; alt=&quot;Lifecycle&quot;&gt;&lt;/p&gt;
@@ -30,6 +92,7 @@
 &lt;li&gt;第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；&lt;/li&gt;
 &lt;li&gt;第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;生命周期回调函数&quot;&gt;&lt;a href=&quot;#生命周期回调函数&quot; class=&quot;headerlink&quot; title=&quot;生命周期回调函数&quot;&gt;&lt;/a&gt;生命周期回调函数&lt;/h1&gt;&lt;p&gt;下面来详细介绍生命周期中的各回调函数。&lt;/p&gt;
 &lt;h2 id=&quot;getDefaultProps&quot;&gt;&lt;a href=&quot;#getDefaultProps&quot; class=&quot;headerlink&quot; title=&quot;getDefaultProps&quot;&gt;&lt;/a&gt;getDefaultProps&lt;/h2&gt;&lt;p&gt;在组件创建之前，会先调用 &lt;code&gt;getDefaultProps()&lt;/code&gt;，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 &lt;code&gt;getInitialState()&lt;/code&gt;，来初始化组件的状态。&lt;/p&gt;
 &lt;h2 id=&quot;componentWillMount&quot;&gt;&lt;a href=&quot;#componentWillMount&quot; class=&quot;headerlink&quot; title=&quot;componentWillMount&quot;&gt;&lt;/a&gt;componentWillMount&lt;/h2&gt;&lt;p&gt;然后，准备加载组件，会调用 componentWillMount()，其原型如下：&lt;/p&gt;
@@ -39,25 +102,25 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentDidMount()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 &lt;code&gt;componentDidMount()&lt;/code&gt;，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 &lt;code&gt;setTimeout&lt;/code&gt; 或者 &lt;code&gt;setInterval&lt;/code&gt;，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。&lt;/p&gt;
 &lt;h2 id=&quot;componentWillReceiveProps&quot;&gt;&lt;a href=&quot;#componentWillReceiveProps&quot; class=&quot;headerlink&quot; title=&quot;componentWillReceiveProps&quot;&gt;&lt;/a&gt;componentWillReceiveProps&lt;/h2&gt;&lt;p&gt;如果组件收到新的属性（props），就会调用 &lt;code&gt;componentWillReceiveProps()&lt;/code&gt;，其原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillReceiveProps(  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillReceiveProps(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;输入参数 &lt;code&gt;nextProps&lt;/code&gt; 是即将被设置的属性，旧的属性还是可以通过 &lt;code&gt;this.props&lt;/code&gt; 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 &lt;code&gt;this.setState()&lt;/code&gt; 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 &lt;code&gt;render()&lt;/code&gt; 调用。如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;componentWillReceiveProps: function(nextProps) &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  this.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    likesIncreasing: nextProps.likeCount &amp;gt; this.props.likeCount&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;componentWillReceiveProps: function(nextProps) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  this.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    likesIncreasing: nextProps.likeCount &amp;gt; this.props.likeCount&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;shouldComponentUpdate&quot;&gt;&lt;a href=&quot;#shouldComponentUpdate&quot; class=&quot;headerlink&quot; title=&quot;shouldComponentUpdate&quot;&gt;&lt;/a&gt;shouldComponentUpdate&lt;/h2&gt;&lt;p&gt;当组件接收到新的属性和状态改变的话，都会触发调用 &lt;code&gt;shouldComponentUpdate(...)&lt;/code&gt;，函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;boolean shouldComponentUpdate(  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;boolean shouldComponentUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;输入参数 nextProps 和上面的 &lt;code&gt;componentWillReceiveProps&lt;/code&gt; 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。&lt;/p&gt;
 &lt;p&gt;默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。&lt;/p&gt;
 &lt;h2 id=&quot;componentWillUpdate&quot;&gt;&lt;a href=&quot;#componentWillUpdate&quot; class=&quot;headerlink&quot; title=&quot;componentWillUpdate&quot;&gt;&lt;/a&gt;componentWillUpdate&lt;/h2&gt;&lt;p&gt;如果组件状态或者属性改变，并且上面的 &lt;code&gt;shouldComponentUpdate(...)&lt;/code&gt; 返回为 true，就会开始准更新组件，并调用 &lt;code&gt;componentWillUpdate()&lt;/code&gt;，其函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillUpdate(  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;输入参数与 &lt;code&gt;shouldComponentUpdate&lt;/code&gt; 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 &lt;code&gt;nextProps&lt;/code&gt; 和 &lt;code&gt;nextState&lt;/code&gt; 分别设置到 &lt;code&gt;this.props&lt;/code&gt; 和 &lt;code&gt;this.state&lt;/code&gt; 中。紧接着这个函数，就会调用 &lt;code&gt;render()&lt;/code&gt; 来更新界面了。&lt;/p&gt;
 &lt;p&gt;##componentDidUpdate&lt;/p&gt;
 &lt;p&gt;调用了 &lt;code&gt;render()&lt;/code&gt; 更新完成界面之后，会调用 &lt;code&gt;componentDidUpdate()&lt;/code&gt; 来得到通知，其函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentDidUpdate(  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object prevProps, object prevState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentDidUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object prevProps, object prevState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 &lt;code&gt;prevProps&lt;/code&gt; 和 &lt;code&gt;prevState&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;##componentWillUnmount&lt;/p&gt;
 &lt;p&gt;当组件要被从界面上移除的时候，就会调用 &lt;code&gt;componentWillUnmount()&lt;/code&gt;，其函数原型如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillUnmount()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。&lt;/p&gt;
-&lt;p&gt;总结&lt;br&gt;到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：&lt;/p&gt;
+&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -123,16 +186,23 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，
+      &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg&quot; alt=&quot;Lifecycle&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如图，可以把组件生命周期大致分为三个阶段：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；&lt;/li&gt;
+&lt;li&gt;第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；&lt;/li&gt;
+&lt;li&gt;第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -141,13 +211,14 @@
     <link href="http://www.imeetyou.net/posts/frontend/mac-u-format.html"/>
     <id>http://www.imeetyou.net/posts/frontend/mac-u-format.html</id>
     <published>2016-11-07T01:44:34.000Z</published>
-    <updated>2016-11-07T02:01:45.000Z</updated>
+    <updated>2016-11-09T02:41:17.000Z</updated>
     
     <content type="html">&lt;p&gt;有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;将U盘插入Mac电脑，然后打开磁盘工具&lt;/li&gt;
 &lt;li&gt;注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/mac-u.jpg&quot; alt=&quot;mac-u&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;再插到win电脑上看一下，是不是成功了，就这么简单！&lt;/li&gt;
@@ -158,16 +229,18 @@
     
       &lt;p&gt;有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;将U盘插入Mac电脑，然后打开磁盘
+&lt;li&gt;将U盘插入Mac电脑，然后打开磁盘工具&lt;/li&gt;
+&lt;li&gt;注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -191,9 +264,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
     
   </entry>
   
