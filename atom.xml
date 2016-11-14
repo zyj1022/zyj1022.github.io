@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2016-11-12T05:54:11.000Z</updated>
+  <updated>2016-11-14T01:26:20.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,130 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac开机黑屏解决方法</title>
+    <link href="http://www.imeetyou.net/posts/life/mac-os-option.html"/>
+    <id>http://www.imeetyou.net/posts/life/mac-os-option.html</id>
+    <published>2016-11-13T07:34:23.000Z</published>
+    <updated>2016-11-14T01:26:20.000Z</updated>
+    
+    <content type="html">&lt;p&gt;真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，&lt;br&gt;传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，&lt;br&gt;红烧清炖各种方法都试过了。&lt;/p&gt;
+&lt;h1 id=&quot;mac开机黑屏解决方法&quot;&gt;&lt;a href=&quot;#mac开机黑屏解决方法&quot; class=&quot;headerlink&quot; title=&quot;mac开机黑屏解决方法&quot;&gt;&lt;/a&gt;mac开机黑屏解决方法&lt;/h1&gt;&lt;p&gt;通常来说开机速度慢或者开机黑屏&lt;/p&gt;
+&lt;p&gt;关闭电脑，开机，同时按住 &lt;code&gt;command+option+R+P&lt;/code&gt; 这个时候就会听到‘当‘一声，继续按着&lt;br&gt;再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。&lt;/p&gt;
+&lt;p&gt;PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～&lt;br&gt;这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;开机option-command-r都没反应&quot;&gt;&lt;a href=&quot;#开机option-command-r都没反应&quot; class=&quot;headerlink&quot; title=&quot;开机option command+r都没反应&quot;&gt;&lt;/a&gt;开机option command+r都没反应&lt;/h1&gt;&lt;p&gt;如题，mac 就这尿性了，按啥都不好使了，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开机按 option 出现不了让选择启动方式的界面&lt;/li&gt;
+&lt;li&gt;command+r 这个试过也没折&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;哇呀呀～ 这是要拆八块的节奏吗。无奈继续想折，神奇的有个方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关机，开机，按住option+command+r+p&lt;/li&gt;
+&lt;li&gt;按住option+command+r+p键开机，开机后不要松开这4个键&lt;/li&gt;
+&lt;li&gt;mac mini会一直重启，当重启到第10次（这个次数我是试了10次，其实不用10次，两次就可以，我又试过了)的时候&lt;/li&gt;
+&lt;li&gt;松开P键也就是继续按住option+command+r这三个键，久违的小地球就出现了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你以为这样就可以了吗？还不行～！！！我选择wifi，输入密码，想等待奇迹，可是真奇迹，&lt;br&gt;出现进度条走了一点点，就奔溃了。&lt;/p&gt;
+&lt;h1 id=&quot;重载系统-出现apple-com-cn-support-2104f&quot;&gt;&lt;a href=&quot;#重载系统-出现apple-com-cn-support-2104f&quot; class=&quot;headerlink&quot; title=&quot;重载系统  出现apple.com.cn/support -2104f&quot;&gt;&lt;/a&gt;重载系统  出现apple.com.cn/support -2104f&lt;/h1&gt;&lt;p&gt;如题，又出故障了，真是折腾啊，还不行，如上各种操作试了不下三遍，无奈呼叫苹果客服吧。&lt;br&gt;下周六去天才吧。&lt;/p&gt;
+&lt;h1 id=&quot;互联网资料整理&quot;&gt;&lt;a href=&quot;#互联网资料整理&quot; class=&quot;headerlink&quot; title=&quot;互联网资料整理&quot;&gt;&lt;/a&gt;互联网资料整理&lt;/h1&gt;&lt;p&gt;您可以按住COMMMAND+r进入选择语言，实用工具界面，在磁盘工具里面抹掉第一个主磁盘(选择抹掉,右下角抹掉),之后选择屏幕左上角小苹果旁边的”磁盘工具”,点击&lt;br&gt;“退出磁盘工具”,然后﻿选择“重装OSX系统”，即可重装。如果不行，就需要互联网恢复&lt;br&gt;osx关于恢复功能&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;关闭电脑，同时按住 command+option+R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;进度条走完后电脑会重启，进入 “OS X 实用工具”界面； &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;选择“磁盘工具”，然后点按“继续”；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择左边第一块总磁盘，  选择右边的 “分区”—当前选择“一个分区”    下面有个选项&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;并确保已选择“GUID 分区表”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;确保分区的格式为“Mac OS 扩展（日志式）”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;点按“应用”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;退出后请点击第二行的重新安装；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;然后根据提示步步进行下去，系统将会开始安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;互联网恢复方法：&quot;&gt;&lt;a href=&quot;#互联网恢复方法：&quot; class=&quot;headerlink&quot; title=&quot;互联网恢复方法：&quot;&gt;&lt;/a&gt;互联网恢复方法：&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;关闭电脑，同时按住 command option R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;进度条走完后电脑会重启，进入 “OS X 实用工具”界面； &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;选择“磁盘工具”，然后点按“继续”； &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;从左侧的列表中选择您的启动磁盘，然后点按“抹掉”标签；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;从“格式”弹出式菜单中，选取“Mac OS 扩展（日志式）”，输入磁盘的名称，然后点按“抹掉”；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;在磁盘已被抹掉后，请选取“磁盘工具”&amp;gt;“退出磁盘工具”；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;退出后请点击第二行的重新安装；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;然后根据提示步步进行下去，系统将会开始安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，&lt;br&gt;传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，&lt;br&gt;红烧清炖各种方法都试过了。&lt;/p&gt;
+&lt;h1 id=&quot;mac开机黑屏解决方法&quot;&gt;&lt;a href=&quot;#mac开机黑屏解决方法&quot; class=&quot;headerlink&quot; title=&quot;mac开机黑屏解决方法&quot;&gt;&lt;/a&gt;mac开机黑屏解决方法&lt;/h1&gt;&lt;p&gt;通常来说开机速度慢或者开机黑屏&lt;/p&gt;
+&lt;p&gt;关闭电脑，开机，同时按住 &lt;code&gt;command+option+R+P&lt;/code&gt; 这个时候就会听到‘当‘一声，继续按着&lt;br&gt;再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。&lt;/p&gt;
+&lt;p&gt;PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～&lt;br&gt;这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
+    
+    
+      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
+    
+  </entry>
   
   <entry>
     <title>简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</title>
@@ -200,9 +324,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
     
   </entry>
   
@@ -238,9 +362,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
     
   </entry>
   
@@ -264,9 +388,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
