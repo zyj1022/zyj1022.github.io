@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2016-11-14T01:26:20.000Z</updated>
+  <updated>2016-11-15T09:38:24.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,107 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在React Native中的使用自定义iconfont</title>
+    <link href="http://www.imeetyou.net/posts/frontend/react-native-iconfont.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/react-native-iconfont.html</id>
+    <published>2016-11-15T08:46:11.000Z</published>
+    <updated>2016-11-15T09:38:24.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;React-Native中的iconfont&quot;&gt;&lt;a href=&quot;#React-Native中的iconfont&quot; class=&quot;headerlink&quot; title=&quot;React Native中的iconfont&quot;&gt;&lt;/a&gt;React Native中的iconfont&lt;/h1&gt;&lt;p&gt;关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;react-native-vector-icons&lt;/a&gt;, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。&lt;/p&gt;
+&lt;p&gt;但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;如何生成自定义的iconfont文件&quot;&gt;&lt;a href=&quot;#如何生成自定义的iconfont文件&quot; class=&quot;headerlink&quot; title=&quot;如何生成自定义的iconfont文件&quot;&gt;&lt;/a&gt;如何生成自定义的iconfont文件&lt;/h1&gt;&lt;p&gt;这里我一般通过 &lt;a href=&quot;https://icomoon.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;icomoon&lt;/a&gt; 来实现,将设计好的图标字体一般为 &lt;code&gt;.svg&lt;/code&gt; 文件,导入到icomoon 里，&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/icomoon.png&quot; alt=&quot;icomoon&quot;&gt;&lt;/p&gt;
+&lt;p&gt;选择我们需要的字体图标，然后 &lt;code&gt;Generate Font&lt;/code&gt;, 之后 下载 demo 包 内含我们需要的 fonts 文件&lt;/p&gt;
+&lt;h1 id=&quot;IconFont的使用原理&quot;&gt;&lt;a href=&quot;#IconFont的使用原理&quot; class=&quot;headerlink&quot; title=&quot;IconFont的使用原理&quot;&gt;&lt;/a&gt;IconFont的使用原理&lt;/h1&gt;&lt;p&gt;其实IconFont就是一些文字，通过在web上的使用，我们可以大概猜出使用方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.指定字体集&lt;/li&gt;
+&lt;li&gt;2.把对应的16进制码当成文字写到文本中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在React Native中同样如此，我们可以通过 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;react-native-vector-icons&lt;/a&gt; 的源代码来验证我们的想法。&lt;/p&gt;
+&lt;p&gt;打开 &lt;code&gt;react-native-vector-icons/FontAweson.js&lt;/code&gt; 文件(&lt;a href=&quot;https://github.com/oblador/react-native-vector-icons/blob/master/FontAwesome.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;线上地址&lt;/a&gt;)可以看到一个大大的json对象&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var createIconSet = require(&amp;apos;./lib/create-icon-set&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var glyphMap = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;glass&amp;quot;: 61440,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;music&amp;quot;: 61441,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;search&amp;quot;: 61442,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  . // 此处省略500+行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var FontAwesome = createIconSet(glyphMap, &amp;apos;FontAwesome&amp;apos;, &amp;apos;FontAwesome.ttf&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = FontAwesome;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports.glyphMap = glyphMap;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;看到这些亲切的数字了吗，61440，这不就是传说中的16进制的FXXX的十进制吗？&lt;/p&gt;
+&lt;p&gt;16进制有了，写到哪里呢，继续看createIconSet方法。&lt;/p&gt;
+&lt;p&gt;其中的Icon组件的render方法：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;render: function() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var &amp;#123; name, size, color, style, ...props &amp;#125; = this.props;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var glyph = glyphMap[name] || &amp;apos;?&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  if(typeof glyph === &amp;apos;number&amp;apos;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    glyph = String.fromCharCode(glyph);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  size = size || DEFAULT_ICON_SIZE;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var styleDefaults:Object = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontSize: size,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontWeight: &amp;apos;normal&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontStyle: &amp;apos;normal&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    color,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  props.style = [styleDefaults, style];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  props.ref = (component) =&amp;gt; this._root = component;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  styleDefaults.fontFamily = fontReference;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.log(this.props.children)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return (&amp;lt;Text &amp;#123;...props&amp;#125;&amp;gt;&amp;#123;glyph&amp;#125;&amp;#123;this.props.children&amp;#125;&amp;lt;/Text&amp;gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中，最重要的四句话&lt;em&gt;(我本来写的是两句话，结果越看越多)&lt;/em&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var glyph = glyphMap[name] || &amp;#39;?&amp;#39;;&lt;/code&gt; 把刚才的&lt;code&gt;6xxxx&lt;/code&gt;找到；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;glyph = String.fromCharCode(glyph);&lt;/code&gt;转成Unicode编码字符串；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;styleDefaults.fontFamily = fontReference;&lt;/code&gt;指定字符集；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;return (&amp;lt;Text {...props}&amp;gt;{glyph}{this.props.children}&amp;lt;/Text&amp;gt;);&lt;/code&gt; 把Unicode字符写到&lt;code&gt;Text&lt;/code&gt;组件中。&lt;/p&gt;
+&lt;p&gt;基本和我们的猜想一样，哇哈哈哈。&lt;/p&gt;
+&lt;h1 id=&quot;Font的基本知识&quot;&gt;&lt;a href=&quot;#Font的基本知识&quot; class=&quot;headerlink&quot; title=&quot;Font的基本知识&quot;&gt;&lt;/a&gt;Font的基本知识&lt;/h1&gt;&lt;p&gt;由上可知，我们主要需要这个Icon所对应的Unicode码，那这个Unicode码又是神马呢？&lt;/p&gt;
+&lt;p&gt;实际上，一个字体通常由数个表(table)构成，字体的信息存储在表中。一个最基本的字体文件一定会包含以下表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cmap: Char­ac­ter to glyph map­ping&lt;/li&gt;
+&lt;li&gt;head: Font header&lt;/li&gt;
+&lt;li&gt;hhea: Hor­i­zon­tal header&lt;/li&gt;
+&lt;li&gt;hmtx: Hor­i­zon­tal met­rics&lt;/li&gt;
+&lt;li&gt;maxp: Max­i­mum pro­file&lt;/li&gt;
+&lt;li&gt;name: Nam­ing table&lt;/li&gt;
+&lt;li&gt;OS/​2: OS/​2 and Win­dows spe­cific met­rics&lt;/li&gt;
+&lt;li&gt;post: Post­Script in­for­ma­tion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而使用TrueType曲线绘制的字体则会包含如下表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cvt: Con­trol Value Table&lt;/li&gt;
+&lt;li&gt;fpgm: Font pro­gram&lt;/li&gt;
+&lt;li&gt;glyf: Glyph data&lt;/li&gt;
+&lt;li&gt;loca: In­dex to lo­ca­tion&lt;/li&gt;
+&lt;li&gt;prep: CVT Pro­gram&lt;/li&gt;
+&lt;li&gt;gasp: Grid​-​fit­ting/​Scan​-​con­ver­sion (op­tional table)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面列了很多，最重要的其实是第一个表看这高大上的说明Char­ac­ter to glyph map­ping。&lt;/p&gt;
+&lt;p&gt;如果把字体文件转成类xml格式，这个表类似：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;cmap&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;cmap_format_4 platformID=&amp;quot;3&amp;quot; platEncID=&amp;quot;1&amp;quot; language=&amp;quot;0&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf600&amp;quot; name=&amp;quot;uniF600&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf601&amp;quot; name=&amp;quot;uniF601&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf602&amp;quot; name=&amp;quot;uniF602&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf603&amp;quot; name=&amp;quot;uniF603&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/cmap_format_4&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/cmap&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里的0xf600不就是我们想要的吗，而后面的name就类似与每个字符的命名。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/font-baidu.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里最好给每个icon定一个易于理解的名字，可以使用 &lt;a href=&quot;http://font.baidu.com/editor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://font.baidu.com/editor&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;如何使用自定义的IconFont&quot;&gt;&lt;a href=&quot;#如何使用自定义的IconFont&quot; class=&quot;headerlink&quot; title=&quot;如何使用自定义的IconFont&quot;&gt;&lt;/a&gt;如何使用自定义的IconFont&lt;/h1&gt;&lt;p&gt;有了上面的摸索，要支持自己的IconFont并不难。只需要把字符对应表给整出来就可以了，代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var map = &amp;#123;&amp;quot;arrow&amp;quot;:&amp;quot;62976&amp;quot;,&amp;quot;checked&amp;quot;:&amp;quot;62977&amp;quot;,&amp;quot;checked-s&amp;quot;:&amp;quot;62978&amp;quot;,&amp;quot;tag-svip&amp;quot;:&amp;quot;62995&amp;quot;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = (name)=&amp;gt;String.fromCharCode(map[name]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用的时候：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import icon from &amp;quot;./fontConf&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export default class  IconExample extends Component &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;View style=&amp;#123;styles.container&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    arrow-icon:&amp;#123;icon(&amp;apos;arrow&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30, color:&amp;quot;#ff4444&amp;quot;&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    vip-icon:&amp;#123;icon(&amp;apos;tag-svip&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30, color:&amp;quot;#ff4444&amp;quot;&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    tag-svip:&amp;#123;icon(&amp;apos;tag-svip&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;/View&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;另外，在工程中，需要引入字体文件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Android： 把字体文件拷贝到&lt;code&gt;[project root]/android/app/src/main/assets/fonts/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;iOS: 把字体文件拖到对应的Xcode工程里面，勾选 &lt;code&gt;Add to targets&lt;/code&gt; 和 &lt;code&gt;Create groups&lt;/code&gt;，修改&lt;code&gt;Info.plist&lt;/code&gt; 文件，添加属性 &lt;code&gt;Fonts provided by application&lt;/code&gt;，在这个属性下添加相应字体文件名的&lt;code&gt;item&lt;/code&gt;，如下图：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/xcode.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
+&lt;p&gt;iOS上添加字体文件具体的流程可以参考 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons#option-manually&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/oblador/react-native-vector-icons#option-manually&lt;/a&gt;。 &lt;/p&gt;
+&lt;h1 id=&quot;如何提取字符对应表&quot;&gt;&lt;a href=&quot;#如何提取字符对应表&quot; class=&quot;headerlink&quot; title=&quot;如何提取字符对应表&quot;&gt;&lt;/a&gt;如何提取字符对应表&lt;/h1&gt;&lt;p&gt;打开 &lt;a href=&quot;http://font.baidu.com/editor/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度字体编辑器&lt;/a&gt;,导入我们的之前的自定义字体文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/baidueditor.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如下将上图中的 &lt;code&gt;E90C&lt;/code&gt;、&lt;code&gt;E90D&lt;/code&gt; 转换为十进制 &lt;code&gt;59660&lt;/code&gt;、&lt;code&gt;59661&lt;/code&gt; 就是我们想要的字符。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/hexconvert.png&quot; alt=&quot;hexconvert.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在线转换进制 &lt;a href=&quot;http://tool.oschina.net/hexconvert/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tool.oschina.net/hexconvert/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后新建 &lt;code&gt;iconfont.js&lt;/code&gt; &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;const map = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;angle-left&amp;quot;: &amp;quot;59648&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;angle-right&amp;quot;: &amp;quot;59649&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;ok&amp;quot;: &amp;quot;59650&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;alarm&amp;quot;: &amp;quot;59651&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;edit&amp;quot;: &amp;quot;59652&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eye-close&amp;quot;: &amp;quot;59653&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eye-open&amp;quot;: &amp;quot;59654&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = (name) =&amp;gt; String.fromCharCode(map[name]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports.map = map;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在 React-native 中使用的时候非常简单,首先导入&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import icon from &amp;apos;iconfont&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后在需要使用的地方,&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;Text style=&amp;#123;styles.icon&amp;#125;&amp;gt;&amp;#123;icon(&amp;apos;edit&amp;apos;)&amp;#125;&amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;看看是不是在界面中已经出现了你想要的图标，至于大小颜色，反正是字体嘛，用样式去控制咯～。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native中的iconfont&quot;&gt;&lt;a href=&quot;#React-Native中的iconfont&quot; class=&quot;headerlink&quot; title=&quot;React Native中的iconfont&quot;&gt;&lt;/a&gt;React Native中的iconfont&lt;/h1&gt;&lt;p&gt;关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot;&gt;react-native-vector-icons&lt;/a&gt;, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。&lt;/p&gt;
+&lt;p&gt;但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="react-native" scheme="http://www.imeetyou.net/tags/react-native/"/>
+    
+      <category term="iconfont" scheme="http://www.imeetyou.net/tags/iconfont/"/>
+    
+  </entry>
   
   <entry>
     <title>mac开机黑屏解决方法</title>
