@@ -212,12 +212,6 @@
 <h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ATAL Error: Module version mismatch. Expected 48, got 14.</div><div class="line">Template render error: Error: Module version mismatch. Expected 48, got 14.</div></pre></td></tr></table></figure>
 <p>错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --no-optional</div></pre></td></tr></table></figure>
-<h1 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h1><p>安装Hexo时，执行“npm install -g hexo-cli“出现错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">npm ERR! tar.unpack untar error /Users/Macx/.npm/hexo-cli/0.1.8/package.tgz</div><div class="line">npm ERR! Darwin 14.4.0</div><div class="line">npm ERR! argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;</div><div class="line">npm ERR! node v4.2.1</div><div class="line">npm ERR! npm v2.14.7</div><div class="line">npm ERR! path /usr/local/lib/node_modules/hexo-cli</div><div class="line">npm ERR! code EACCES</div><div class="line">npm ERR! errno -13</div><div class="line">npm ERR! syscall mkdir</div><div class="line"></div><div class="line">npm ERR! Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;</div><div class="line">npm ERR! at Error (native)</div><div class="line">npm ERR! &#123; [Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;]</div><div class="line">npm ERR! errno: -13,</div><div class="line">npm ERR! code: &apos;EACCES&apos;,</div><div class="line">npm ERR! syscall: &apos;mkdir&apos;,</div><div class="line">npm ERR! path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_type: &apos;Directory&apos;,</div><div class="line">npm ERR! fstream_path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_class: &apos;DirWriter&apos;,</div><div class="line">npm ERR! fstream_stack: </div><div class="line">npm ERR! [ &apos;/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25&apos;,</div><div class="line">npm ERR! &apos;/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53&apos;,</div><div class="line">npm ERR! &apos;FSReqWrap.oncomplete (fs.js:82:15)&apos; ] &#125;</div><div class="line">npm ERR! </div><div class="line">npm ERR! Please try running this command again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! Please include the following file with any support request:</div><div class="line">npm ERR! /Users/Macx/Desktop/GitHub/npm-debug.log</div></pre></td></tr></table></figure>
-<p>分析下错误，异常可能因为权限问题，所以我们执行一些安装命令是需要申请root执行权限。</p>
-<p>解决方法：执行以下代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install --unsafe-perm --verbose -g hexo</div></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -234,6 +228,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/hexo-node-err.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
