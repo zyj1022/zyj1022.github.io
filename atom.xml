@@ -48,9 +48,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
     
   </entry>
   
@@ -148,9 +148,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -628,9 +628,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
     
   </entry>
   
