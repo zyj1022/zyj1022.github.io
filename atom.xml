@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2016-11-17T01:27:49.000Z</updated>
+  <updated>2016-11-22T02:06:26.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -16,82 +16,129 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>重装node导致Hexo不能正常使用解决办法</title>
+    <link href="http://www.imeetyou.net/posts/frontend/hexo-node-err.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/hexo-node-err.html</id>
+    <published>2016-11-22T02:40:15.000Z</published>
+    <updated>2016-11-22T02:06:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：</p>
+<p>在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。</p>
+<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ATAL Error: Module version mismatch. Expected 48, got 14.</div><div class="line">Template render error: Error: Module version mismatch. Expected 48, got 14.</div></pre></td></tr></table></figure>
+<p>错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --no-optional</div></pre></td></tr></table></figure>
+<h1 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h1><p>安装Hexo时，执行“npm install -g hexo-cli“出现错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">npm ERR! tar.unpack untar error /Users/Macx/.npm/hexo-cli/0.1.8/package.tgz</div><div class="line">npm ERR! Darwin 14.4.0</div><div class="line">npm ERR! argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;</div><div class="line">npm ERR! node v4.2.1</div><div class="line">npm ERR! npm v2.14.7</div><div class="line">npm ERR! path /usr/local/lib/node_modules/hexo-cli</div><div class="line">npm ERR! code EACCES</div><div class="line">npm ERR! errno -13</div><div class="line">npm ERR! syscall mkdir</div><div class="line"></div><div class="line">npm ERR! Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;</div><div class="line">npm ERR! at Error (native)</div><div class="line">npm ERR! &#123; [Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;]</div><div class="line">npm ERR! errno: -13,</div><div class="line">npm ERR! code: &apos;EACCES&apos;,</div><div class="line">npm ERR! syscall: &apos;mkdir&apos;,</div><div class="line">npm ERR! path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_type: &apos;Directory&apos;,</div><div class="line">npm ERR! fstream_path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_class: &apos;DirWriter&apos;,</div><div class="line">npm ERR! fstream_stack: </div><div class="line">npm ERR! [ &apos;/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25&apos;,</div><div class="line">npm ERR! &apos;/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53&apos;,</div><div class="line">npm ERR! &apos;FSReqWrap.oncomplete (fs.js:82:15)&apos; ] &#125;</div><div class="line">npm ERR! </div><div class="line">npm ERR! Please try running this command again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! Please include the following file with any support request:</div><div class="line">npm ERR! /Users/Macx/Desktop/GitHub/npm-debug.log</div></pre></td></tr></table></figure>
+<p>分析下错误，异常可能因为权限问题，所以我们执行一些安装命令是需要申请root执行权限。</p>
+<p>解决方法：执行以下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install --unsafe-perm --verbose -g hexo</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：&lt;/p&gt;
+&lt;p&gt;在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。&lt;/p&gt;
+&lt;h1 id=&quot;问题一&quot;&gt;&lt;a href=
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端速查表Flex-Bootstrap4-es6</title>
     <link href="http://www.imeetyou.net/posts/frontend/Flex-Bootstrap4-es6.html"/>
     <id>http://www.imeetyou.net/posts/frontend/Flex-Bootstrap4-es6.html</id>
     <published>2016-11-17T00:53:24.000Z</published>
-    <updated>2016-11-17T01:27:49.000Z</updated>
+    <updated>2016-11-17T01:39:41.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Flexbox-属性速查表&quot;&gt;&lt;a href=&quot;#Flexbox-属性速查表&quot; class=&quot;headerlink&quot; title=&quot;Flexbox 属性速查表&quot;&gt;&lt;/a&gt;Flexbox 属性速查表&lt;/h1&gt;&lt;p&gt;Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：&lt;/p&gt;
+    <content type="html"><![CDATA[<h1 id="Flexbox-属性速查表"><a href="#Flexbox-属性速查表" class="headerlink" title="Flexbox 属性速查表"></a>Flexbox 属性速查表</h1><p>Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：</p>
+<h2 id="容器的属性有以下6个"><a href="#容器的属性有以下6个" class="headerlink" title="容器的属性有以下6个"></a>容器的属性有以下6个</h2><ul>
+<li>flex-direction属性决定主轴的方向（即项目的排列方向）<br><code>flex-direction: row | row-reverse | column | column-reverse;</code><ul>
+<li>row（默认值）：主轴为水平方向，起点在左端。</li>
+<li>row-reverse：主轴为水平方向，起点在右端。</li>
+<li>column：主轴为垂直方向，起点在上沿。</li>
+<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>flex-wrap属性定义，如果一条轴线排不下，如何换行。<br>  <code>flex-wrap: nowrap | wrap | wrap-reverse;</code></p>
+<ul>
+<li>nowrap（默认）：不换行。</li>
+<li>wrap：换行，第一行在上方。</li>
+<li>wrap-reverse：换行，第一行在下方。</li>
+</ul>
+</li>
+<li><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。<br>  <code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;</code></p>
+</li>
+<li><p>justify-content属性定义了项目在主轴上的对齐方式。<br>  <code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></p>
+<ul>
+<li>flex-start（默认值）：左对齐</li>
+<li>flex-end：右对齐</li>
+<li>center： 居中</li>
+<li>space-between：两端对齐，项目之间的间隔都相等。</li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
+</ul>
+</li>
+<li><p>align-items属性定义项目在交叉轴上如何对齐。</p>
+<p>  <code>align-items: flex-start | flex-end | center | baseline | stretch;</code></p>
+<ul>
+<li>flex-start：交叉轴的起点对齐。</li>
+<li>flex-end：交叉轴的终点对齐。</li>
+<li>center：交叉轴的中点对齐。</li>
+<li>baseline: 项目的第一行文字的基线对齐。</li>
+<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+</li>
+<li><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>  <code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></p>
+<ul>
+<li>flex-start：与交叉轴的起点对齐。</li>
+<li>flex-end：与交叉轴的终点对齐。</li>
+<li>center：与交叉轴的中点对齐。</li>
+<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li>stretch（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目的属性6个"><a href="#项目的属性6个" class="headerlink" title="项目的属性6个"></a>项目的属性6个</h2><ul>
+<li><code>order: &lt;integer&gt;;</code>  数值越小，排列越靠前，默认为0。</li>
+<li><code>flex-grow: &lt;number&gt;;</code>  定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</li>
+<li><code>flex-shrink: &lt;number&gt;;</code>  定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</li>
+<li><code>flex-basis: &lt;length&gt; | auto;</code>  定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小</li>
+<li><code>flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</li>
+<li><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</li>
+</ul>
+<p>属性不熟悉的可以查看阮氏教程 <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+<p>下面还有问答形式的图示，方便快速查看</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/flexboxsheet.png" alt="flexboxsheet"></p>
+<p>图片原文链接 <a href="http://jonibologna.com/flexbox-cheatsheet/" target="_blank" rel="external">http://jonibologna.com/flexbox-cheatsheet/</a></p>
+<h1 id="Flexbox-视觉指南"><a href="#Flexbox-视觉指南" class="headerlink" title="Flexbox 视觉指南"></a><a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/" target="_blank" rel="external">Flexbox 视觉指南</a></h1><p>这个特色就是有实时代码演示，当用户设置属性，DEMO 可以实时更新效果，这样用户更好更容易地理解 Flexbox 某个属性的作用。</p>
+<h1 id="Bootstrap-4-Cheat-Sheet"><a href="#Bootstrap-4-Cheat-Sheet" class="headerlink" title="Bootstrap 4 Cheat Sheet"></a><a href="https://hackerthemes.com/bootstrap-cheatsheet/" target="_blank" rel="external">Bootstrap 4 Cheat Sheet</a></h1><p>Bootstrap 4 有新的很多组件样式，熟记它不太可能，在官网找又太麻烦，那么这个Bootstrap 4是你最好的选择，流布布局分类，支持一件复制代码，超好用，小编正在用了。</p>
+<h1 id="es6-cheatsheet"><a href="#es6-cheatsheet" class="headerlink" title="es6-cheatsheet"></a><a href="https://github.com/DrkSephy/es6-cheatsheet/blob/master/README_zhCn.md" target="_blank" rel="external">es6-cheatsheet</a></h1><p>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Flexbox-属性速查表&quot;&gt;&lt;a href=&quot;#Flexbox-属性速查表&quot; class=&quot;headerlink&quot; title=&quot;Flexbox 属性速查表&quot;&gt;&lt;/a&gt;Flexbox 属性速查表&lt;/h1&gt;&lt;p&gt;Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：&lt;/p&gt;
 &lt;h2 id=&quot;容器的属性有以下6个&quot;&gt;&lt;a href=&quot;#容器的属性有以下6个&quot; class=&quot;headerlink&quot; title=&quot;容器的属性有以下6个&quot;&gt;&lt;/a&gt;容器的属性有以下6个&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;flex-direction属性决定主轴的方向（即项目的排列方向）&lt;br&gt;&lt;code&gt;flex-direction: row | row-reverse | column | column-reverse;&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;flex-direction属性决定主轴的方向（即项目的排列方向）&lt;br&gt;&lt;code&gt;flex-direction: row | row-reverse | column | column-reverse;&lt;/code&gt;&lt;ul&gt;
 &lt;li&gt;row（默认值）：主轴为水平方向，起点在左端。&lt;/li&gt;
 &lt;li&gt;row-reverse：主轴为水平方向，起点在右端。&lt;/li&gt;
 &lt;li&gt;column：主轴为垂直方向，起点在上沿。&lt;/li&gt;
 &lt;li&gt;column-reverse：主轴为垂直方向，起点在下沿。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;flex-wrap属性定义，如果一条轴线排不下，如何换行。&lt;br&gt;  &lt;code&gt;flex-wrap: nowrap | wrap | wrap-reverse;&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;nowrap（默认）：不换行。&lt;/li&gt;
-&lt;li&gt;wrap：换行，第一行在上方。&lt;/li&gt;
-&lt;li&gt;wrap-reverse：换行，第一行在下方。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。&lt;br&gt;  &lt;code&gt;flex-flow: &amp;lt;flex-direction&amp;gt; || &amp;lt;flex-wrap&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;justify-content属性定义了项目在主轴上的对齐方式。&lt;br&gt;  &lt;code&gt;justify-content: flex-start | flex-end | center | space-between | space-around;&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;flex-start（默认值）：左对齐&lt;/li&gt;
-&lt;li&gt;flex-end：右对齐&lt;/li&gt;
-&lt;li&gt;center： 居中&lt;/li&gt;
-&lt;li&gt;space-between：两端对齐，项目之间的间隔都相等。&lt;/li&gt;
-&lt;li&gt;space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;align-items属性定义项目在交叉轴上如何对齐。&lt;/p&gt;
-&lt;p&gt;  &lt;code&gt;align-items: flex-start | flex-end | center | baseline | stretch;&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;flex-start：交叉轴的起点对齐。&lt;/li&gt;
-&lt;li&gt;flex-end：交叉轴的终点对齐。&lt;/li&gt;
-&lt;li&gt;center：交叉轴的中点对齐。&lt;/li&gt;
-&lt;li&gt;baseline: 项目的第一行文字的基线对齐。&lt;/li&gt;
-&lt;li&gt;stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。&lt;/p&gt;
-&lt;p&gt;  &lt;code&gt;align-content: flex-start | flex-end | center | space-between | space-around | stretch;&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;flex-start：与交叉轴的起点对齐。&lt;/li&gt;
-&lt;li&gt;flex-end：与交叉轴的终点对齐。&lt;/li&gt;
-&lt;li&gt;center：与交叉轴的中点对齐。&lt;/li&gt;
-&lt;li&gt;space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。&lt;/li&gt;
-&lt;li&gt;space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。&lt;/li&gt;
-&lt;li&gt;stretch（默认值）：轴线占满整个交叉轴。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;项目的属性6个&quot;&gt;&lt;a href=&quot;#项目的属性6个&quot; class=&quot;headerlink&quot; title=&quot;项目的属性6个&quot;&gt;&lt;/a&gt;项目的属性6个&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;order: &amp;lt;integer&amp;gt;;&lt;/code&gt;  数值越小，排列越靠前，默认为0。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flex-grow: &amp;lt;number&amp;gt;;&lt;/code&gt;  定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flex-shrink: &amp;lt;number&amp;gt;;&lt;/code&gt;  定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flex-basis: &amp;lt;length&amp;gt; | auto;&lt;/code&gt;  定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;flex: none | [ &amp;lt;&amp;#39;flex-grow&amp;#39;&amp;gt; &amp;lt;&amp;#39;flex-shrink&amp;#39;&amp;gt;? || &amp;lt;&amp;#39;flex-basis&amp;#39;&amp;gt; ]&lt;/code&gt; flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;align-self: auto | flex-start | flex-end | center | baseline | stretch;&lt;/code&gt; align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;属性不熟悉的可以查看阮氏教程 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;下面还有问答形式的图示，方便快速查看&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/flexboxsheet.png&quot; alt=&quot;flexboxsheet&quot;&gt;&lt;/p&gt;
-&lt;p&gt;图片原文链接 &lt;a href=&quot;http://jonibologna.com/flexbox-cheatsheet/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://jonibologna.com/flexbox-cheatsheet/&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Flexbox-视觉指南&quot;&gt;&lt;a href=&quot;#Flexbox-视觉指南&quot; class=&quot;headerlink&quot; title=&quot;Flexbox 视觉指南&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Flexbox 视觉指南&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;这个特色就是有实时代码演示，当用户设置属性，DEMO 可以实时更新效果，这样用户更好更容易地理解 Flexbox 某个属性的作用。&lt;/p&gt;
-&lt;h1 id=&quot;Bootstrap-4-Cheat-Sheet&quot;&gt;&lt;a href=&quot;#Bootstrap-4-Cheat-Sheet&quot; class=&quot;headerlink&quot; title=&quot;Bootstrap 4 Cheat Sheet&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://hackerthemes.com/bootstrap-cheatsheet/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bootstrap 4 Cheat Sheet&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Bootstrap 4 有新的很多组件样式，熟记它不太可能，在官网找又太麻烦，那么这个Bootstrap 4是你最好的选择，流布布局分类，支持一件复制代码，超好用，小编正在用了。&lt;/p&gt;
-&lt;h1 id=&quot;es6-cheatsheet&quot;&gt;&lt;a href=&quot;#es6-cheatsheet&quot; class=&quot;headerlink&quot; title=&quot;es6-cheatsheet&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/DrkSephy/es6-cheatsheet/blob/master/README_zhCn.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;es6-cheatsheet&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Flexbox-属性速查表&quot;&gt;&lt;a href=&quot;#Flexbox-属性速查表&quot; class=&quot;headerlink&quot; title=&quot;Flexbox 属性速查表&quot;&gt;&lt;/a&gt;Flexbox 属性速查表&lt;/h1&gt;&lt;p&gt;Flex属性用多了自然记住,基本概念不再赘述不过还是
     
     </summary>
     
@@ -111,81 +158,81 @@
     <published>2016-11-15T08:46:11.000Z</published>
     <updated>2016-11-15T09:38:24.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;React-Native中的iconfont&quot;&gt;&lt;a href=&quot;#React-Native中的iconfont&quot; class=&quot;headerlink&quot; title=&quot;React Native中的iconfont&quot;&gt;&lt;/a&gt;React Native中的iconfont&lt;/h1&gt;&lt;p&gt;关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;react-native-vector-icons&lt;/a&gt;, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。&lt;/p&gt;
-&lt;p&gt;但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;如何生成自定义的iconfont文件&quot;&gt;&lt;a href=&quot;#如何生成自定义的iconfont文件&quot; class=&quot;headerlink&quot; title=&quot;如何生成自定义的iconfont文件&quot;&gt;&lt;/a&gt;如何生成自定义的iconfont文件&lt;/h1&gt;&lt;p&gt;这里我一般通过 &lt;a href=&quot;https://icomoon.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;icomoon&lt;/a&gt; 来实现,将设计好的图标字体一般为 &lt;code&gt;.svg&lt;/code&gt; 文件,导入到icomoon 里，&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/icomoon.png&quot; alt=&quot;icomoon&quot;&gt;&lt;/p&gt;
-&lt;p&gt;选择我们需要的字体图标，然后 &lt;code&gt;Generate Font&lt;/code&gt;, 之后 下载 demo 包 内含我们需要的 fonts 文件&lt;/p&gt;
-&lt;h1 id=&quot;IconFont的使用原理&quot;&gt;&lt;a href=&quot;#IconFont的使用原理&quot; class=&quot;headerlink&quot; title=&quot;IconFont的使用原理&quot;&gt;&lt;/a&gt;IconFont的使用原理&lt;/h1&gt;&lt;p&gt;其实IconFont就是一些文字，通过在web上的使用，我们可以大概猜出使用方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1.指定字体集&lt;/li&gt;
-&lt;li&gt;2.把对应的16进制码当成文字写到文本中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在React Native中同样如此，我们可以通过 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;react-native-vector-icons&lt;/a&gt; 的源代码来验证我们的想法。&lt;/p&gt;
-&lt;p&gt;打开 &lt;code&gt;react-native-vector-icons/FontAweson.js&lt;/code&gt; 文件(&lt;a href=&quot;https://github.com/oblador/react-native-vector-icons/blob/master/FontAwesome.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;线上地址&lt;/a&gt;)可以看到一个大大的json对象&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var createIconSet = require(&amp;apos;./lib/create-icon-set&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var glyphMap = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;glass&amp;quot;: 61440,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;music&amp;quot;: 61441,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;search&amp;quot;: 61442,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  . // 此处省略500+行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var FontAwesome = createIconSet(glyphMap, &amp;apos;FontAwesome&amp;apos;, &amp;apos;FontAwesome.ttf&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = FontAwesome;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports.glyphMap = glyphMap;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;看到这些亲切的数字了吗，61440，这不就是传说中的16进制的FXXX的十进制吗？&lt;/p&gt;
-&lt;p&gt;16进制有了，写到哪里呢，继续看createIconSet方法。&lt;/p&gt;
-&lt;p&gt;其中的Icon组件的render方法：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;render: function() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var &amp;#123; name, size, color, style, ...props &amp;#125; = this.props;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var glyph = glyphMap[name] || &amp;apos;?&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  if(typeof glyph === &amp;apos;number&amp;apos;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    glyph = String.fromCharCode(glyph);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  size = size || DEFAULT_ICON_SIZE;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var styleDefaults:Object = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontSize: size,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontWeight: &amp;apos;normal&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fontStyle: &amp;apos;normal&amp;apos;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    color,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  props.style = [styleDefaults, style];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  props.ref = (component) =&amp;gt; this._root = component;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  styleDefaults.fontFamily = fontReference;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  console.log(this.props.children)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return (&amp;lt;Text &amp;#123;...props&amp;#125;&amp;gt;&amp;#123;glyph&amp;#125;&amp;#123;this.props.children&amp;#125;&amp;lt;/Text&amp;gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中，最重要的四句话&lt;em&gt;(我本来写的是两句话，结果越看越多)&lt;/em&gt;：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;var glyph = glyphMap[name] || &amp;#39;?&amp;#39;;&lt;/code&gt; 把刚才的&lt;code&gt;6xxxx&lt;/code&gt;找到；&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;glyph = String.fromCharCode(glyph);&lt;/code&gt;转成Unicode编码字符串；&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;styleDefaults.fontFamily = fontReference;&lt;/code&gt;指定字符集；&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;return (&amp;lt;Text {...props}&amp;gt;{glyph}{this.props.children}&amp;lt;/Text&amp;gt;);&lt;/code&gt; 把Unicode字符写到&lt;code&gt;Text&lt;/code&gt;组件中。&lt;/p&gt;
-&lt;p&gt;基本和我们的猜想一样，哇哈哈哈。&lt;/p&gt;
-&lt;h1 id=&quot;Font的基本知识&quot;&gt;&lt;a href=&quot;#Font的基本知识&quot; class=&quot;headerlink&quot; title=&quot;Font的基本知识&quot;&gt;&lt;/a&gt;Font的基本知识&lt;/h1&gt;&lt;p&gt;由上可知，我们主要需要这个Icon所对应的Unicode码，那这个Unicode码又是神马呢？&lt;/p&gt;
-&lt;p&gt;实际上，一个字体通常由数个表(table)构成，字体的信息存储在表中。一个最基本的字体文件一定会包含以下表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;cmap: Char­ac­ter to glyph map­ping&lt;/li&gt;
-&lt;li&gt;head: Font header&lt;/li&gt;
-&lt;li&gt;hhea: Hor­i­zon­tal header&lt;/li&gt;
-&lt;li&gt;hmtx: Hor­i­zon­tal met­rics&lt;/li&gt;
-&lt;li&gt;maxp: Max­i­mum pro­file&lt;/li&gt;
-&lt;li&gt;name: Nam­ing table&lt;/li&gt;
-&lt;li&gt;OS/​2: OS/​2 and Win­dows spe­cific met­rics&lt;/li&gt;
-&lt;li&gt;post: Post­Script in­for­ma­tion&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;而使用TrueType曲线绘制的字体则会包含如下表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;cvt: Con­trol Value Table&lt;/li&gt;
-&lt;li&gt;fpgm: Font pro­gram&lt;/li&gt;
-&lt;li&gt;glyf: Glyph data&lt;/li&gt;
-&lt;li&gt;loca: In­dex to lo­ca­tion&lt;/li&gt;
-&lt;li&gt;prep: CVT Pro­gram&lt;/li&gt;
-&lt;li&gt;gasp: Grid​-​fit­ting/​Scan​-​con­ver­sion (op­tional table)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上面列了很多，最重要的其实是第一个表看这高大上的说明Char­ac­ter to glyph map­ping。&lt;/p&gt;
-&lt;p&gt;如果把字体文件转成类xml格式，这个表类似：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;cmap&amp;gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;cmap_format_4 platformID=&amp;quot;3&amp;quot; platEncID=&amp;quot;1&amp;quot; language=&amp;quot;0&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf600&amp;quot; name=&amp;quot;uniF600&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf601&amp;quot; name=&amp;quot;uniF601&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf602&amp;quot; name=&amp;quot;uniF602&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;lt;map code=&amp;quot;0xf603&amp;quot; name=&amp;quot;uniF603&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/cmap_format_4&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/cmap&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这里的0xf600不就是我们想要的吗，而后面的name就类似与每个字符的命名。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/font-baidu.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这里最好给每个icon定一个易于理解的名字，可以使用 &lt;a href=&quot;http://font.baidu.com/editor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://font.baidu.com/editor&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;如何使用自定义的IconFont&quot;&gt;&lt;a href=&quot;#如何使用自定义的IconFont&quot; class=&quot;headerlink&quot; title=&quot;如何使用自定义的IconFont&quot;&gt;&lt;/a&gt;如何使用自定义的IconFont&lt;/h1&gt;&lt;p&gt;有了上面的摸索，要支持自己的IconFont并不难。只需要把字符对应表给整出来就可以了，代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var map = &amp;#123;&amp;quot;arrow&amp;quot;:&amp;quot;62976&amp;quot;,&amp;quot;checked&amp;quot;:&amp;quot;62977&amp;quot;,&amp;quot;checked-s&amp;quot;:&amp;quot;62978&amp;quot;,&amp;quot;tag-svip&amp;quot;:&amp;quot;62995&amp;quot;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = (name)=&amp;gt;String.fromCharCode(map[name]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;使用的时候：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import icon from &amp;quot;./fontConf&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export default class  IconExample extends Component &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    render() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;View style=&amp;#123;styles.container&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    arrow-icon:&amp;#123;icon(&amp;apos;arrow&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30, color:&amp;quot;#ff4444&amp;quot;&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    vip-icon:&amp;#123;icon(&amp;apos;tag-svip&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;Text style=&amp;#123;&amp;#123;fontFamily: &amp;apos;FontIconQui&amp;apos;,fontSize:30, color:&amp;quot;#ff4444&amp;quot;&amp;#125;&amp;#125;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    tag-svip:&amp;#123;icon(&amp;apos;tag-svip&amp;apos;)&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;/View&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;另外，在工程中，需要引入字体文件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Android： 把字体文件拷贝到&lt;code&gt;[project root]/android/app/src/main/assets/fonts/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;iOS: 把字体文件拖到对应的Xcode工程里面，勾选 &lt;code&gt;Add to targets&lt;/code&gt; 和 &lt;code&gt;Create groups&lt;/code&gt;，修改&lt;code&gt;Info.plist&lt;/code&gt; 文件，添加属性 &lt;code&gt;Fonts provided by application&lt;/code&gt;，在这个属性下添加相应字体文件名的&lt;code&gt;item&lt;/code&gt;，如下图：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/xcode.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
-&lt;p&gt;iOS上添加字体文件具体的流程可以参考 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons#option-manually&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/oblador/react-native-vector-icons#option-manually&lt;/a&gt;。 &lt;/p&gt;
-&lt;h1 id=&quot;如何提取字符对应表&quot;&gt;&lt;a href=&quot;#如何提取字符对应表&quot; class=&quot;headerlink&quot; title=&quot;如何提取字符对应表&quot;&gt;&lt;/a&gt;如何提取字符对应表&lt;/h1&gt;&lt;p&gt;打开 &lt;a href=&quot;http://font.baidu.com/editor/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度字体编辑器&lt;/a&gt;,导入我们的之前的自定义字体文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/baidueditor.png&quot; alt=&quot;font-baidu&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如下将上图中的 &lt;code&gt;E90C&lt;/code&gt;、&lt;code&gt;E90D&lt;/code&gt; 转换为十进制 &lt;code&gt;59660&lt;/code&gt;、&lt;code&gt;59661&lt;/code&gt; 就是我们想要的字符。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/hexconvert.png&quot; alt=&quot;hexconvert.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在线转换进制 &lt;a href=&quot;http://tool.oschina.net/hexconvert/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tool.oschina.net/hexconvert/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然后新建 &lt;code&gt;iconfont.js&lt;/code&gt; &lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;const map = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;angle-left&amp;quot;: &amp;quot;59648&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;angle-right&amp;quot;: &amp;quot;59649&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;ok&amp;quot;: &amp;quot;59650&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;alarm&amp;quot;: &amp;quot;59651&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;edit&amp;quot;: &amp;quot;59652&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eye-close&amp;quot;: &amp;quot;59653&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eye-open&amp;quot;: &amp;quot;59654&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = (name) =&amp;gt; String.fromCharCode(map[name]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports.map = map;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在 React-native 中使用的时候非常简单,首先导入&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import icon from &amp;apos;iconfont&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后在需要使用的地方,&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;Text style=&amp;#123;styles.icon&amp;#125;&amp;gt;&amp;#123;icon(&amp;apos;edit&amp;apos;)&amp;#125;&amp;lt;/Text&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;看看是不是在界面中已经出现了你想要的图标，至于大小颜色，反正是字体嘛，用样式去控制咯～。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<h1 id="React-Native中的iconfont"><a href="#React-Native中的iconfont" class="headerlink" title="React Native中的iconfont"></a>React Native中的iconfont</h1><p>关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a>, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。</p>
+<p>但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。</p>
+<a id="more"></a>
+<h1 id="如何生成自定义的iconfont文件"><a href="#如何生成自定义的iconfont文件" class="headerlink" title="如何生成自定义的iconfont文件"></a>如何生成自定义的iconfont文件</h1><p>这里我一般通过 <a href="https://icomoon.io/" target="_blank" rel="external">icomoon</a> 来实现,将设计好的图标字体一般为 <code>.svg</code> 文件,导入到icomoon 里，</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/icomoon.png" alt="icomoon"></p>
+<p>选择我们需要的字体图标，然后 <code>Generate Font</code>, 之后 下载 demo 包 内含我们需要的 fonts 文件</p>
+<h1 id="IconFont的使用原理"><a href="#IconFont的使用原理" class="headerlink" title="IconFont的使用原理"></a>IconFont的使用原理</h1><p>其实IconFont就是一些文字，通过在web上的使用，我们可以大概猜出使用方法：</p>
+<ul>
+<li>1.指定字体集</li>
+<li>2.把对应的16进制码当成文字写到文本中</li>
+</ul>
+<p>在React Native中同样如此，我们可以通过 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a> 的源代码来验证我们的想法。</p>
+<p>打开 <code>react-native-vector-icons/FontAweson.js</code> 文件(<a href="https://github.com/oblador/react-native-vector-icons/blob/master/FontAwesome.js" target="_blank" rel="external">线上地址</a>)可以看到一个大大的json对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var createIconSet = require(&apos;./lib/create-icon-set&apos;);</div><div class="line">var glyphMap = &#123;</div><div class="line">  &quot;glass&quot;: 61440,</div><div class="line">  &quot;music&quot;: 61441,</div><div class="line">  &quot;search&quot;: 61442,</div><div class="line">  .</div><div class="line">  . // 此处省略500+行</div><div class="line">  .</div><div class="line">&#125;;</div><div class="line">var FontAwesome = createIconSet(glyphMap, &apos;FontAwesome&apos;, &apos;FontAwesome.ttf&apos;);</div><div class="line">module.exports = FontAwesome;</div><div class="line">module.exports.glyphMap = glyphMap;</div></pre></td></tr></table></figure>
+<p>看到这些亲切的数字了吗，61440，这不就是传说中的16进制的FXXX的十进制吗？</p>
+<p>16进制有了，写到哪里呢，继续看createIconSet方法。</p>
+<p>其中的Icon组件的render方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">render: function() &#123;</div><div class="line">  var &#123; name, size, color, style, ...props &#125; = this.props;</div><div class="line">  var glyph = glyphMap[name] || &apos;?&apos;;</div><div class="line">  if(typeof glyph === &apos;number&apos;) &#123;</div><div class="line">    glyph = String.fromCharCode(glyph);</div><div class="line">  &#125;</div><div class="line">  size = size || DEFAULT_ICON_SIZE;</div><div class="line">  var styleDefaults:Object = &#123;</div><div class="line">    fontSize: size,</div><div class="line">    fontWeight: &apos;normal&apos;,</div><div class="line">    fontStyle: &apos;normal&apos;,</div><div class="line">    color,</div><div class="line">  &#125;;</div><div class="line">  props.style = [styleDefaults, style];</div><div class="line">  props.ref = (component) =&gt; this._root = component;</div><div class="line">  styleDefaults.fontFamily = fontReference;</div><div class="line">  console.log(this.props.children)</div><div class="line">  return (&lt;Text &#123;...props&#125;&gt;&#123;glyph&#125;&#123;this.props.children&#125;&lt;/Text&gt;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中，最重要的四句话<em>(我本来写的是两句话，结果越看越多)</em>：</p>
+<p><code>var glyph = glyphMap[name] || &#39;?&#39;;</code> 把刚才的<code>6xxxx</code>找到；</p>
+<p><code>glyph = String.fromCharCode(glyph);</code>转成Unicode编码字符串；</p>
+<p><code>styleDefaults.fontFamily = fontReference;</code>指定字符集；</p>
+<p><code>return (&lt;Text {...props}&gt;{glyph}{this.props.children}&lt;/Text&gt;);</code> 把Unicode字符写到<code>Text</code>组件中。</p>
+<p>基本和我们的猜想一样，哇哈哈哈。</p>
+<h1 id="Font的基本知识"><a href="#Font的基本知识" class="headerlink" title="Font的基本知识"></a>Font的基本知识</h1><p>由上可知，我们主要需要这个Icon所对应的Unicode码，那这个Unicode码又是神马呢？</p>
+<p>实际上，一个字体通常由数个表(table)构成，字体的信息存储在表中。一个最基本的字体文件一定会包含以下表：</p>
+<ul>
+<li>cmap: Char­ac­ter to glyph map­ping</li>
+<li>head: Font header</li>
+<li>hhea: Hor­i­zon­tal header</li>
+<li>hmtx: Hor­i­zon­tal met­rics</li>
+<li>maxp: Max­i­mum pro­file</li>
+<li>name: Nam­ing table</li>
+<li>OS/​2: OS/​2 and Win­dows spe­cific met­rics</li>
+<li>post: Post­Script in­for­ma­tion</li>
+</ul>
+<p>而使用TrueType曲线绘制的字体则会包含如下表：</p>
+<ul>
+<li>cvt: Con­trol Value Table</li>
+<li>fpgm: Font pro­gram</li>
+<li>glyf: Glyph data</li>
+<li>loca: In­dex to lo­ca­tion</li>
+<li>prep: CVT Pro­gram</li>
+<li>gasp: Grid​-​fit­ting/​Scan​-​con­ver­sion (op­tional table)</li>
+</ul>
+<p>上面列了很多，最重要的其实是第一个表看这高大上的说明Char­ac­ter to glyph map­ping。</p>
+<p>如果把字体文件转成类xml格式，这个表类似：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;cmap&gt; </div><div class="line">    &lt;cmap_format_4 platformID=&quot;3&quot; platEncID=&quot;1&quot; language=&quot;0&quot;&gt;</div><div class="line">          &lt;map code=&quot;0xf600&quot; name=&quot;uniF600&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf601&quot; name=&quot;uniF601&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf602&quot; name=&quot;uniF602&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf603&quot; name=&quot;uniF603&quot;/&gt;</div><div class="line">    &lt;/cmap_format_4&gt;</div><div class="line">&lt;/cmap&gt;</div></pre></td></tr></table></figure>
+<p>这里的0xf600不就是我们想要的吗，而后面的name就类似与每个字符的命名。</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/font-baidu.png" alt="font-baidu"></p>
+<p>这里最好给每个icon定一个易于理解的名字，可以使用 <a href="http://font.baidu.com/editor" target="_blank" rel="external">http://font.baidu.com/editor</a></p>
+<h1 id="如何使用自定义的IconFont"><a href="#如何使用自定义的IconFont" class="headerlink" title="如何使用自定义的IconFont"></a>如何使用自定义的IconFont</h1><p>有了上面的摸索，要支持自己的IconFont并不难。只需要把字符对应表给整出来就可以了，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var map = &#123;&quot;arrow&quot;:&quot;62976&quot;,&quot;checked&quot;:&quot;62977&quot;,&quot;checked-s&quot;:&quot;62978&quot;,&quot;tag-svip&quot;:&quot;62995&quot;&#125;;</div><div class="line">module.exports = (name)=&gt;String.fromCharCode(map[name]);</div></pre></td></tr></table></figure>
+<p>使用的时候：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import icon from &quot;./fontConf&quot;;</div><div class="line">export default class  IconExample extends Component &#123;</div><div class="line">    render() &#123;</div><div class="line">        return (</div><div class="line">            &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30&#125;&#125;&gt;</div><div class="line">                    arrow-icon:&#123;icon(&apos;arrow&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30, color:&quot;#ff4444&quot;&#125;&#125;&gt;</div><div class="line">                    vip-icon:&#123;icon(&apos;tag-svip&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30, color:&quot;#ff4444&quot;&#125;&#125;&gt;</div><div class="line">                    tag-svip:&#123;icon(&apos;tag-svip&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外，在工程中，需要引入字体文件：</p>
+<ul>
+<li>Android： 把字体文件拷贝到<code>[project root]/android/app/src/main/assets/fonts/</code></li>
+<li>iOS: 把字体文件拖到对应的Xcode工程里面，勾选 <code>Add to targets</code> 和 <code>Create groups</code>，修改<code>Info.plist</code> 文件，添加属性 <code>Fonts provided by application</code>，在这个属性下添加相应字体文件名的<code>item</code>，如下图：</li>
+</ul>
+<p><img src="http://og8z552x2.bkt.clouddn.com/xcode.png" alt="font-baidu"></p>
+<p>iOS上添加字体文件具体的流程可以参考 <a href="https://github.com/oblador/react-native-vector-icons#option-manually" target="_blank" rel="external">https://github.com/oblador/react-native-vector-icons#option-manually</a>。 </p>
+<h1 id="如何提取字符对应表"><a href="#如何提取字符对应表" class="headerlink" title="如何提取字符对应表"></a>如何提取字符对应表</h1><p>打开 <a href="http://font.baidu.com/editor/" target="_blank" rel="external">百度字体编辑器</a>,导入我们的之前的自定义字体文件</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/baidueditor.png" alt="font-baidu"></p>
+<p>如下将上图中的 <code>E90C</code>、<code>E90D</code> 转换为十进制 <code>59660</code>、<code>59661</code> 就是我们想要的字符。</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/hexconvert.png" alt="hexconvert.png"></p>
+<p>在线转换进制 <a href="http://tool.oschina.net/hexconvert/" target="_blank" rel="external">http://tool.oschina.net/hexconvert/</a></p>
+<p>然后新建 <code>iconfont.js</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const map = &#123;</div><div class="line">    &quot;angle-left&quot;: &quot;59648&quot;,</div><div class="line">    &quot;angle-right&quot;: &quot;59649&quot;,</div><div class="line">    &quot;ok&quot;: &quot;59650&quot;,</div><div class="line">    &quot;alarm&quot;: &quot;59651&quot;,</div><div class="line">    &quot;edit&quot;: &quot;59652&quot;,</div><div class="line">    &quot;eye-close&quot;: &quot;59653&quot;,</div><div class="line">    &quot;eye-open&quot;: &quot;59654&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = (name) =&gt; String.fromCharCode(map[name]);</div><div class="line">module.exports.map = map;</div></pre></td></tr></table></figure>
+<p>在 React-native 中使用的时候非常简单,首先导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import icon from &apos;iconfont&apos;;</div></pre></td></tr></table></figure>
+<p>然后在需要使用的地方,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Text style=&#123;styles.icon&#125;&gt;&#123;icon(&apos;edit&apos;)&#125;&lt;/Text&gt;</div></pre></td></tr></table></figure>
+<p>看看是不是在界面中已经出现了你想要的图标，至于大小颜色，反正是字体嘛，用样式去控制咯～。</p>
+]]></content>
     
     <summary type="html">
     
@@ -212,106 +259,106 @@
     <published>2016-11-13T07:34:23.000Z</published>
     <updated>2016-11-14T01:26:20.000Z</updated>
     
-    <content type="html">&lt;p&gt;真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，&lt;br&gt;传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，&lt;br&gt;红烧清炖各种方法都试过了。&lt;/p&gt;
-&lt;h1 id=&quot;mac开机黑屏解决方法&quot;&gt;&lt;a href=&quot;#mac开机黑屏解决方法&quot; class=&quot;headerlink&quot; title=&quot;mac开机黑屏解决方法&quot;&gt;&lt;/a&gt;mac开机黑屏解决方法&lt;/h1&gt;&lt;p&gt;通常来说开机速度慢或者开机黑屏&lt;/p&gt;
-&lt;p&gt;关闭电脑，开机，同时按住 &lt;code&gt;command+option+R+P&lt;/code&gt; 这个时候就会听到‘当‘一声，继续按着&lt;br&gt;再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。&lt;/p&gt;
-&lt;p&gt;PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～&lt;br&gt;这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;开机option-command-r都没反应&quot;&gt;&lt;a href=&quot;#开机option-command-r都没反应&quot; class=&quot;headerlink&quot; title=&quot;开机option command+r都没反应&quot;&gt;&lt;/a&gt;开机option command+r都没反应&lt;/h1&gt;&lt;p&gt;如题，mac 就这尿性了，按啥都不好使了，&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;开机按 option 出现不了让选择启动方式的界面&lt;/li&gt;
-&lt;li&gt;command+r 这个试过也没折&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;哇呀呀～ 这是要拆八块的节奏吗。无奈继续想折，神奇的有个方法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;关机，开机，按住option+command+r+p&lt;/li&gt;
-&lt;li&gt;按住option+command+r+p键开机，开机后不要松开这4个键&lt;/li&gt;
-&lt;li&gt;mac mini会一直重启，当重启到第10次（这个次数我是试了10次，其实不用10次，两次就可以，我又试过了)的时候&lt;/li&gt;
-&lt;li&gt;松开P键也就是继续按住option+command+r这三个键，久违的小地球就出现了&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;你以为这样就可以了吗？还不行～！！！我选择wifi，输入密码，想等待奇迹，可是真奇迹，&lt;br&gt;出现进度条走了一点点，就奔溃了。&lt;/p&gt;
-&lt;h1 id=&quot;重载系统-出现apple-com-cn-support-2104f&quot;&gt;&lt;a href=&quot;#重载系统-出现apple-com-cn-support-2104f&quot; class=&quot;headerlink&quot; title=&quot;重载系统  出现apple.com.cn/support -2104f&quot;&gt;&lt;/a&gt;重载系统  出现apple.com.cn/support -2104f&lt;/h1&gt;&lt;p&gt;如题，又出故障了，真是折腾啊，还不行，如上各种操作试了不下三遍，无奈呼叫苹果客服吧。&lt;br&gt;下周六去天才吧。&lt;/p&gt;
-&lt;h1 id=&quot;互联网资料整理&quot;&gt;&lt;a href=&quot;#互联网资料整理&quot; class=&quot;headerlink&quot; title=&quot;互联网资料整理&quot;&gt;&lt;/a&gt;互联网资料整理&lt;/h1&gt;&lt;p&gt;您可以按住COMMMAND+r进入选择语言，实用工具界面，在磁盘工具里面抹掉第一个主磁盘(选择抹掉,右下角抹掉),之后选择屏幕左上角小苹果旁边的”磁盘工具”,点击&lt;br&gt;“退出磁盘工具”,然后﻿选择“重装OSX系统”，即可重装。如果不行，就需要互联网恢复&lt;br&gt;osx关于恢复功能&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;关闭电脑，同时按住 command+option+R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;进度条走完后电脑会重启，进入 “OS X 实用工具”界面； &lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;选择“磁盘工具”，然后点按“继续”；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;选择左边第一块总磁盘，  选择右边的 “分区”—当前选择“一个分区”    下面有个选项&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;并确保已选择“GUID 分区表”。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;确保分区的格式为“Mac OS 扩展（日志式）”。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;点按“应用”&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;退出后请点击第二行的重新安装；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;然后根据提示步步进行下去，系统将会开始安装。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;互联网恢复方法：&quot;&gt;&lt;a href=&quot;#互联网恢复方法：&quot; class=&quot;headerlink&quot; title=&quot;互联网恢复方法：&quot;&gt;&lt;/a&gt;互联网恢复方法：&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;关闭电脑，同时按住 command option R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;进度条走完后电脑会重启，进入 “OS X 实用工具”界面； &lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;选择“磁盘工具”，然后点按“继续”； &lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;从左侧的列表中选择您的启动磁盘，然后点按“抹掉”标签；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;从“格式”弹出式菜单中，选取“Mac OS 扩展（日志式）”，输入磁盘的名称，然后点按“抹掉”；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;在磁盘已被抹掉后，请选取“磁盘工具”&amp;gt;“退出磁盘工具”；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;退出后请点击第二行的重新安装；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;然后根据提示步步进行下去，系统将会开始安装。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，<br>传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，<br>红烧清炖各种方法都试过了。</p>
+<h1 id="mac开机黑屏解决方法"><a href="#mac开机黑屏解决方法" class="headerlink" title="mac开机黑屏解决方法"></a>mac开机黑屏解决方法</h1><p>通常来说开机速度慢或者开机黑屏</p>
+<p>关闭电脑，开机，同时按住 <code>command+option+R+P</code> 这个时候就会听到‘当‘一声，继续按着<br>再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。</p>
+<p>PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～<br>这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看</p>
+<a id="more"></a>
+<h1 id="开机option-command-r都没反应"><a href="#开机option-command-r都没反应" class="headerlink" title="开机option command+r都没反应"></a>开机option command+r都没反应</h1><p>如题，mac 就这尿性了，按啥都不好使了，</p>
+<ul>
+<li>开机按 option 出现不了让选择启动方式的界面</li>
+<li>command+r 这个试过也没折</li>
+</ul>
+<p>哇呀呀～ 这是要拆八块的节奏吗。无奈继续想折，神奇的有个方法</p>
+<ul>
+<li>关机，开机，按住option+command+r+p</li>
+<li>按住option+command+r+p键开机，开机后不要松开这4个键</li>
+<li>mac mini会一直重启，当重启到第10次（这个次数我是试了10次，其实不用10次，两次就可以，我又试过了)的时候</li>
+<li>松开P键也就是继续按住option+command+r这三个键，久违的小地球就出现了</li>
+</ul>
+<p>你以为这样就可以了吗？还不行～！！！我选择wifi，输入密码，想等待奇迹，可是真奇迹，<br>出现进度条走了一点点，就奔溃了。</p>
+<h1 id="重载系统-出现apple-com-cn-support-2104f"><a href="#重载系统-出现apple-com-cn-support-2104f" class="headerlink" title="重载系统  出现apple.com.cn/support -2104f"></a>重载系统  出现apple.com.cn/support -2104f</h1><p>如题，又出故障了，真是折腾啊，还不行，如上各种操作试了不下三遍，无奈呼叫苹果客服吧。<br>下周六去天才吧。</p>
+<h1 id="互联网资料整理"><a href="#互联网资料整理" class="headerlink" title="互联网资料整理"></a>互联网资料整理</h1><p>您可以按住COMMMAND+r进入选择语言，实用工具界面，在磁盘工具里面抹掉第一个主磁盘(选择抹掉,右下角抹掉),之后选择屏幕左上角小苹果旁边的”磁盘工具”,点击<br>“退出磁盘工具”,然后﻿选择“重装OSX系统”，即可重装。如果不行，就需要互联网恢复<br>osx关于恢复功能</p>
+<ul>
+<li><ol>
+<li>关闭电脑，同时按住 command+option+R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；</li>
+</ol>
+</li>
+<li><ol>
+<li>如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；</li>
+</ol>
+</li>
+<li><ol>
+<li>进度条走完后电脑会重启，进入 “OS X 实用工具”界面； </li>
+</ol>
+</li>
+<li><ol>
+<li>选择“磁盘工具”，然后点按“继续”；</li>
+</ol>
+</li>
+</ul>
+<p>选择左边第一块总磁盘，  选择右边的 “分区”—当前选择“一个分区”    下面有个选项</p>
+<ul>
+<li><ol>
+<li>并确保已选择“GUID 分区表”。</li>
+</ol>
+</li>
+<li><ol>
+<li>确保分区的格式为“Mac OS 扩展（日志式）”。</li>
+</ol>
+</li>
+<li><ol>
+<li>点按“应用”</li>
+</ol>
+</li>
+<li><ol>
+<li>退出后请点击第二行的重新安装；</li>
+</ol>
+</li>
+<li><ol>
+<li>然后根据提示步步进行下去，系统将会开始安装。</li>
+</ol>
+</li>
+</ul>
+<h1 id="互联网恢复方法："><a href="#互联网恢复方法：" class="headerlink" title="互联网恢复方法："></a>互联网恢复方法：</h1><ul>
+<li><ol>
+<li>关闭电脑，同时按住 command option R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；</li>
+</ol>
+</li>
+<li><ol>
+<li>如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；</li>
+</ol>
+</li>
+<li><ol>
+<li>进度条走完后电脑会重启，进入 “OS X 实用工具”界面； </li>
+</ol>
+</li>
+<li><ol>
+<li>选择“磁盘工具”，然后点按“继续”； </li>
+</ol>
+</li>
+<li><ol>
+<li>从左侧的列表中选择您的启动磁盘，然后点按“抹掉”标签；</li>
+</ol>
+</li>
+<li><ol>
+<li>从“格式”弹出式菜单中，选取“Mac OS 扩展（日志式）”，输入磁盘的名称，然后点按“抹掉”；</li>
+</ol>
+</li>
+<li><ol>
+<li>在磁盘已被抹掉后，请选取“磁盘工具”&gt;“退出磁盘工具”；</li>
+</ol>
+</li>
+<li><ol>
+<li>退出后请点击第二行的重新安装；</li>
+</ol>
+</li>
+<li><ol>
+<li>然后根据提示步步进行下去，系统将会开始安装。</li>
+</ol>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
@@ -336,41 +383,41 @@
     <published>2016-11-12T05:38:23.000Z</published>
     <updated>2016-11-12T05:54:11.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，&lt;br&gt;在此做个记录教程，方便以后查看。&lt;/p&gt;
-&lt;h1 id=&quot;使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot;&gt;&lt;a href=&quot;#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot; class=&quot;headerlink&quot; title=&quot;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&quot;&gt;&lt;/a&gt;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&lt;/h1&gt;&lt;p&gt;苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。&lt;/li&gt;
-&lt;li&gt;下载好 macOS Sierra 正式版的安装程序&lt;/li&gt;
-&lt;li&gt;打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg&quot; alt=&quot;disk_ulitily_2x&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;打开 “应用程序→实用工具→终端”，将下面的一段命令复制并粘贴进去：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;回车并执行该命令，这时会提示让你输入管理员密码，便会开始制作过程了：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg&quot; alt=&quot;terminal_2x&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如上图，这时系统已经在制作中了，请耐心等待直到屏幕最后出现 Done. 字样即表示大功告成了！然后，就带着U盘出去浪吧……&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法&quot;&gt;&lt;a href=&quot;#通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法&quot; class=&quot;headerlink&quot; title=&quot;通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法&quot;&gt;&lt;/a&gt;通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法&lt;/h1&gt;&lt;p&gt;当你制作好 macOS Sierra 的安装盘 U 盘之后，你就可以利用它来给 Mac 电脑格式化重装 (抹盘安装)了。操作的方法非常简单：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当然还是要想办法备份好 Mac 里所有的重要数据了。&lt;/li&gt;
-&lt;li&gt;插上制作好的安装U盘，如果系统能识别出来即可，这时我们先关机了。&lt;/li&gt;
-&lt;li&gt;按下电源键开机，当听到“噹”的一声时，按住 Option 键不放，直到出现启动菜单选项：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg&quot; alt=&quot;mac_option_boot&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;这时选择安装U盘 (黄色图标) 并回车，就可以开始安装了，在过程中你可以通过“磁盘工具”对 Mac 的磁盘式化或者重新分区等操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;之后就是一步一步的安装直到完成了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;更详细的或可以查看这里 &lt;a href=&quot;http://www.iplaysoft.com/macos-usb-install-drive.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;异次元&lt;/a&gt;&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，<br>在此做个记录教程，方便以后查看。</p>
+<h1 id="使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘"><a href="#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘" class="headerlink" title="使用命令行创建制作 macOS Sierra 正式版 USB 安装盘"></a>使用命令行创建制作 macOS Sierra 正式版 USB 安装盘</h1><p>苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的</p>
+<ul>
+<li>首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。</li>
+<li>下载好 macOS Sierra 正式版的安装程序</li>
+<li>打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg" alt="disk_ulitily_2x"></p>
+<ul>
+<li>打开 “应用程序→实用工具→终端”，将下面的一段命令复制并粘贴进去：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction</div></pre></td></tr></table></figure>
+<ul>
+<li>回车并执行该命令，这时会提示让你输入管理员密码，便会开始制作过程了：</li>
+</ul>
+<p><img src="http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg" alt="terminal_2x"></p>
+<ul>
+<li>如上图，这时系统已经在制作中了，请耐心等待直到屏幕最后出现 Done. 字样即表示大功告成了！然后，就带着U盘出去浪吧……</li>
+</ul>
+<h1 id="通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法"><a href="#通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法" class="headerlink" title="通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法"></a>通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法</h1><p>当你制作好 macOS Sierra 的安装盘 U 盘之后，你就可以利用它来给 Mac 电脑格式化重装 (抹盘安装)了。操作的方法非常简单：</p>
+<ul>
+<li>当然还是要想办法备份好 Mac 里所有的重要数据了。</li>
+<li>插上制作好的安装U盘，如果系统能识别出来即可，这时我们先关机了。</li>
+<li>按下电源键开机，当听到“噹”的一声时，按住 Option 键不放，直到出现启动菜单选项：</li>
+</ul>
+<p><img src="http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg" alt="mac_option_boot"></p>
+<ul>
+<li><p>这时选择安装U盘 (黄色图标) 并回车，就可以开始安装了，在过程中你可以通过“磁盘工具”对 Mac 的磁盘式化或者重新分区等操作。</p>
+</li>
+<li><p>之后就是一步一步的安装直到完成了。</p>
+</li>
+</ul>
+<p>更详细的或可以查看这里 <a href="http://www.iplaysoft.com/macos-usb-install-drive.html" target="_blank" rel="external">异次元</a></p>
+]]></content>
     
     <summary type="html">
     
@@ -398,105 +445,105 @@
     <published>2016-11-08T04:23:46.000Z</published>
     <updated>2016-11-09T03:17:52.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg&quot; alt=&quot;Lifecycle&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如图，可以把组件生命周期大致分为三个阶段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；&lt;/li&gt;
-&lt;li&gt;第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；&lt;/li&gt;
-&lt;li&gt;第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;生命周期回调函数&quot;&gt;&lt;a href=&quot;#生命周期回调函数&quot; class=&quot;headerlink&quot; title=&quot;生命周期回调函数&quot;&gt;&lt;/a&gt;生命周期回调函数&lt;/h1&gt;&lt;p&gt;下面来详细介绍生命周期中的各回调函数。&lt;/p&gt;
-&lt;h2 id=&quot;getDefaultProps&quot;&gt;&lt;a href=&quot;#getDefaultProps&quot; class=&quot;headerlink&quot; title=&quot;getDefaultProps&quot;&gt;&lt;/a&gt;getDefaultProps&lt;/h2&gt;&lt;p&gt;在组件创建之前，会先调用 &lt;code&gt;getDefaultProps()&lt;/code&gt;，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 &lt;code&gt;getInitialState()&lt;/code&gt;，来初始化组件的状态。&lt;/p&gt;
-&lt;h2 id=&quot;componentWillMount&quot;&gt;&lt;a href=&quot;#componentWillMount&quot; class=&quot;headerlink&quot; title=&quot;componentWillMount&quot;&gt;&lt;/a&gt;componentWillMount&lt;/h2&gt;&lt;p&gt;然后，准备加载组件，会调用 componentWillMount()，其原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillMount()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个函数调用时机是在组件创建，并初始化了状态之后，在第一次绘制 render() 之前。可以在这里做一些业务初始化操作，也可以设置组件状态。这个函数在整个生命周期中只被调用一次。&lt;/p&gt;
-&lt;h2 id=&quot;componentDidMount&quot;&gt;&lt;a href=&quot;#componentDidMount&quot; class=&quot;headerlink&quot; title=&quot;componentDidMount&quot;&gt;&lt;/a&gt;componentDidMount&lt;/h2&gt;&lt;p&gt;在组件第一次绘制之后，会调用 &lt;code&gt;componentDidMount()&lt;/code&gt;，通知组件已经加载完成。函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentDidMount()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 &lt;code&gt;componentDidMount()&lt;/code&gt;，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 &lt;code&gt;setTimeout&lt;/code&gt; 或者 &lt;code&gt;setInterval&lt;/code&gt;，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。&lt;/p&gt;
-&lt;h2 id=&quot;componentWillReceiveProps&quot;&gt;&lt;a href=&quot;#componentWillReceiveProps&quot; class=&quot;headerlink&quot; title=&quot;componentWillReceiveProps&quot;&gt;&lt;/a&gt;componentWillReceiveProps&lt;/h2&gt;&lt;p&gt;如果组件收到新的属性（props），就会调用 &lt;code&gt;componentWillReceiveProps()&lt;/code&gt;，其原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillReceiveProps(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输入参数 &lt;code&gt;nextProps&lt;/code&gt; 是即将被设置的属性，旧的属性还是可以通过 &lt;code&gt;this.props&lt;/code&gt; 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 &lt;code&gt;this.setState()&lt;/code&gt; 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 &lt;code&gt;render()&lt;/code&gt; 调用。如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;componentWillReceiveProps: function(nextProps) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  this.setState(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    likesIncreasing: nextProps.likeCount &amp;gt; this.props.likeCount&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;shouldComponentUpdate&quot;&gt;&lt;a href=&quot;#shouldComponentUpdate&quot; class=&quot;headerlink&quot; title=&quot;shouldComponentUpdate&quot;&gt;&lt;/a&gt;shouldComponentUpdate&lt;/h2&gt;&lt;p&gt;当组件接收到新的属性和状态改变的话，都会触发调用 &lt;code&gt;shouldComponentUpdate(...)&lt;/code&gt;，函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;boolean shouldComponentUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输入参数 nextProps 和上面的 &lt;code&gt;componentWillReceiveProps&lt;/code&gt; 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。&lt;/p&gt;
-&lt;p&gt;默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。&lt;/p&gt;
-&lt;h2 id=&quot;componentWillUpdate&quot;&gt;&lt;a href=&quot;#componentWillUpdate&quot; class=&quot;headerlink&quot; title=&quot;componentWillUpdate&quot;&gt;&lt;/a&gt;componentWillUpdate&lt;/h2&gt;&lt;p&gt;如果组件状态或者属性改变，并且上面的 &lt;code&gt;shouldComponentUpdate(...)&lt;/code&gt; 返回为 true，就会开始准更新组件，并调用 &lt;code&gt;componentWillUpdate()&lt;/code&gt;，其函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object nextProps, object nextState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输入参数与 &lt;code&gt;shouldComponentUpdate&lt;/code&gt; 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 &lt;code&gt;nextProps&lt;/code&gt; 和 &lt;code&gt;nextState&lt;/code&gt; 分别设置到 &lt;code&gt;this.props&lt;/code&gt; 和 &lt;code&gt;this.state&lt;/code&gt; 中。紧接着这个函数，就会调用 &lt;code&gt;render()&lt;/code&gt; 来更新界面了。&lt;/p&gt;
-&lt;p&gt;##componentDidUpdate&lt;/p&gt;
-&lt;p&gt;调用了 &lt;code&gt;render()&lt;/code&gt; 更新完成界面之后，会调用 &lt;code&gt;componentDidUpdate()&lt;/code&gt; 来得到通知，其函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentDidUpdate(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  object prevProps, object prevState&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 &lt;code&gt;prevProps&lt;/code&gt; 和 &lt;code&gt;prevState&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;##componentWillUnmount&lt;/p&gt;
-&lt;p&gt;当组件要被从界面上移除的时候，就会调用 &lt;code&gt;componentWillUnmount()&lt;/code&gt;，其函数原型如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void componentWillUnmount()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。&lt;/p&gt;
-&lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;生命周期&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;调用次数&lt;/th&gt;
-&lt;th style=&quot;text-align:right&quot;&gt;能否setSate()&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;getDefaultProps&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1(全局调用一次)&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;getInitialState&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentWillMount&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;是&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;render&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;=1&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentDidMount&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;是&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentWillReceiveProps&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;=0&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;是&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;shouldComponentUpdate&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;=0&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentWillUpdate&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;=0&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentDidUpdate&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;&amp;gt;=0&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;componentWillUnmount&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
-&lt;td style=&quot;text-align:right&quot;&gt;否&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</content>
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
+<p>如图，可以把组件生命周期大致分为三个阶段：</p>
+<ul>
+<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
+<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
+<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
+</ul>
+<a id="more"></a>
+<h1 id="生命周期回调函数"><a href="#生命周期回调函数" class="headerlink" title="生命周期回调函数"></a>生命周期回调函数</h1><p>下面来详细介绍生命周期中的各回调函数。</p>
+<h2 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h2><p>在组件创建之前，会先调用 <code>getDefaultProps()</code>，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 <code>getInitialState()</code>，来初始化组件的状态。</p>
+<h2 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h2><p>然后，准备加载组件，会调用 componentWillMount()，其原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillMount()</div></pre></td></tr></table></figure>
+<p>这个函数调用时机是在组件创建，并初始化了状态之后，在第一次绘制 render() 之前。可以在这里做一些业务初始化操作，也可以设置组件状态。这个函数在整个生命周期中只被调用一次。</p>
+<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h2><p>在组件第一次绘制之后，会调用 <code>componentDidMount()</code>，通知组件已经加载完成。函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentDidMount()</div></pre></td></tr></table></figure>
+<p>这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 <code>componentDidMount()</code>，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 <code>setTimeout</code> 或者 <code>setInterval</code>，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。</p>
+<h2 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h2><p>如果组件收到新的属性（props），就会调用 <code>componentWillReceiveProps()</code>，其原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillReceiveProps(</div><div class="line">  object nextProps</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>输入参数 <code>nextProps</code> 是即将被设置的属性，旧的属性还是可以通过 <code>this.props</code> 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 <code>this.setState()</code> 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 <code>render()</code> 调用。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps: function(nextProps) &#123;</div><div class="line">  this.setState(&#123;</div><div class="line">    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><p>当组件接收到新的属性和状态改变的话，都会触发调用 <code>shouldComponentUpdate(...)</code>，函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>输入参数 nextProps 和上面的 <code>componentWillReceiveProps</code> 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。</p>
+<p>默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。</p>
+<h2 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h2><p>如果组件状态或者属性改变，并且上面的 <code>shouldComponentUpdate(...)</code> 返回为 true，就会开始准更新组件，并调用 <code>componentWillUpdate()</code>，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>输入参数与 <code>shouldComponentUpdate</code> 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 <code>nextProps</code> 和 <code>nextState</code> 分别设置到 <code>this.props</code> 和 <code>this.state</code> 中。紧接着这个函数，就会调用 <code>render()</code> 来更新界面了。</p>
+<p>##componentDidUpdate</p>
+<p>调用了 <code>render()</code> 更新完成界面之后，会调用 <code>componentDidUpdate()</code> 来得到通知，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentDidUpdate(</div><div class="line">  object prevProps, object prevState</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 <code>prevProps</code> 和 <code>prevState</code>。</p>
+<p>##componentWillUnmount</p>
+<p>当组件要被从界面上移除的时候，就会调用 <code>componentWillUnmount()</code>，其函数原型如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillUnmount()</div></pre></td></tr></table></figure>
+<p>在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>生命周期</th>
+<th style="text-align:center">调用次数</th>
+<th style="text-align:right">能否setSate()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultProps</td>
+<td style="text-align:center">1(全局调用一次)</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>getInitialState</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillMount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>render</td>
+<td style="text-align:center">&gt;=1</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentDidMount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>componentWillReceiveProps</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>shouldComponentUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td style="text-align:center">&gt;=0</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td style="text-align:center">1</td>
+<td style="text-align:right">否</td>
+</tr>
+</tbody>
+</table>
+]]></content>
     
     <summary type="html">
     
@@ -527,17 +574,17 @@
     <published>2016-11-07T01:44:34.000Z</published>
     <updated>2016-11-09T02:41:17.000Z</updated>
     
-    <content type="html">&lt;p&gt;有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将U盘插入Mac电脑，然后打开磁盘工具&lt;/li&gt;
-&lt;li&gt;注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/mac-u.jpg&quot; alt=&quot;mac-u&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;再插到win电脑上看一下，是不是成功了，就这么简单！&lt;/li&gt;
-&lt;/ul&gt;
-</content>
+    <content type="html"><![CDATA[<p>有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~</p>
+<ul>
+<li>将U盘插入Mac电脑，然后打开磁盘工具</li>
+<li>注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://og8z552x2.bkt.clouddn.com/mac-u.jpg" alt="mac-u"></p>
+<ul>
+<li>再插到win电脑上看一下，是不是成功了，就这么简单！</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
@@ -565,8 +612,8 @@
     <published>2016-10-11T09:44:34.000Z</published>
     <updated>2016-10-11T09:50:09.000Z</updated>
     
-    <content type="html">&lt;p&gt;Angular2 英雄练级攻略&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>Angular2 英雄练级攻略</p>
+]]></content>
     
     <summary type="html">
     
@@ -591,8 +638,8 @@
     <published>2016-02-16T06:31:54.000Z</published>
     <updated>2016-10-11T09:42:05.000Z</updated>
     
-    <content type="html">&lt;p&gt;重新安装了Hexo，作为一个新的开始，做工作及学习记录。&lt;br&gt;hexo 的 主题很好，做点好玩的皮肤吧。&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>重新安装了Hexo，作为一个新的开始，做工作及学习记录。<br>hexo 的 主题很好，做点好玩的皮肤吧。</p>
+]]></content>
     
     <summary type="html">
     
@@ -617,16 +664,16 @@
     <published>2016-02-01T04:31:54.000Z</published>
     <updated>2016-10-11T09:58:44.000Z</updated>
     
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
     
     <summary type="html">
     

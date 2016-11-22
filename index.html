@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/mac/" style="font-size: 16.67px;">mac</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a>
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/mac/" style="font-size: 17.5px;">mac</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a>
 					</div>
 				</section>
 				
@@ -181,6 +181,76 @@
 
       <div class="body-wrap">
   
+    <article id="post-hexo-node-err" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/hexo-node-err.html" class="article-date">
+  	<time datetime="2016-11-22T02:40:15.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/hexo-node-err.html">重装node导致Hexo不能正常使用解决办法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：</p>
+<p>在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。</p>
+<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ATAL Error: Module version mismatch. Expected 48, got 14.</div><div class="line">Template render error: Error: Module version mismatch. Expected 48, got 14.</div></pre></td></tr></table></figure>
+<p>错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --no-optional</div></pre></td></tr></table></figure>
+<h1 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h1><p>安装Hexo时，执行“npm install -g hexo-cli“出现错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">npm ERR! tar.unpack untar error /Users/Macx/.npm/hexo-cli/0.1.8/package.tgz</div><div class="line">npm ERR! Darwin 14.4.0</div><div class="line">npm ERR! argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;</div><div class="line">npm ERR! node v4.2.1</div><div class="line">npm ERR! npm v2.14.7</div><div class="line">npm ERR! path /usr/local/lib/node_modules/hexo-cli</div><div class="line">npm ERR! code EACCES</div><div class="line">npm ERR! errno -13</div><div class="line">npm ERR! syscall mkdir</div><div class="line"></div><div class="line">npm ERR! Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;</div><div class="line">npm ERR! at Error (native)</div><div class="line">npm ERR! &#123; [Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;]</div><div class="line">npm ERR! errno: -13,</div><div class="line">npm ERR! code: &apos;EACCES&apos;,</div><div class="line">npm ERR! syscall: &apos;mkdir&apos;,</div><div class="line">npm ERR! path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_type: &apos;Directory&apos;,</div><div class="line">npm ERR! fstream_path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_class: &apos;DirWriter&apos;,</div><div class="line">npm ERR! fstream_stack: </div><div class="line">npm ERR! [ &apos;/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25&apos;,</div><div class="line">npm ERR! &apos;/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53&apos;,</div><div class="line">npm ERR! &apos;FSReqWrap.oncomplete (fs.js:82:15)&apos; ] &#125;</div><div class="line">npm ERR! </div><div class="line">npm ERR! Please try running this command again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! Please include the following file with any support request:</div><div class="line">npm ERR! /Users/Macx/Desktop/GitHub/npm-debug.log</div></pre></td></tr></table></figure>
+<p>分析下错误，异常可能因为权限问题，所以我们执行一些安装命令是需要申请root执行权限。</p>
+<p>解决方法：执行以下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install --unsafe-perm --verbose -g hexo</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Flex-Bootstrap4-es6" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -209,70 +279,14 @@
       
         <h1 id="Flexbox-属性速查表"><a href="#Flexbox-属性速查表" class="headerlink" title="Flexbox 属性速查表"></a>Flexbox 属性速查表</h1><p>Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：</p>
 <h2 id="容器的属性有以下6个"><a href="#容器的属性有以下6个" class="headerlink" title="容器的属性有以下6个"></a>容器的属性有以下6个</h2><ul>
-<li><p>flex-direction属性决定主轴的方向（即项目的排列方向）<br><code>flex-direction: row | row-reverse | column | column-reverse;</code></p>
-<ul>
+<li>flex-direction属性决定主轴的方向（即项目的排列方向）<br><code>flex-direction: row | row-reverse | column | column-reverse;</code><ul>
 <li>row（默认值）：主轴为水平方向，起点在左端。</li>
 <li>row-reverse：主轴为水平方向，起点在右端。</li>
 <li>column：主轴为垂直方向，起点在上沿。</li>
 <li>column-reverse：主轴为垂直方向，起点在下沿。</li>
 </ul>
 </li>
-<li><p>flex-wrap属性定义，如果一条轴线排不下，如何换行。<br>  <code>flex-wrap: nowrap | wrap | wrap-reverse;</code></p>
-<ul>
-<li>nowrap（默认）：不换行。</li>
-<li>wrap：换行，第一行在上方。</li>
-<li>wrap-reverse：换行，第一行在下方。</li>
 </ul>
-</li>
-<li><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。<br>  <code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;</code></p>
-</li>
-<li><p>justify-content属性定义了项目在主轴上的对齐方式。<br>  <code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></p>
-<ul>
-<li>flex-start（默认值）：左对齐</li>
-<li>flex-end：右对齐</li>
-<li>center： 居中</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
-</ul>
-</li>
-<li><p>align-items属性定义项目在交叉轴上如何对齐。</p>
-<p>  <code>align-items: flex-start | flex-end | center | baseline | stretch;</code></p>
-<ul>
-<li>flex-start：交叉轴的起点对齐。</li>
-<li>flex-end：交叉轴的终点对齐。</li>
-<li>center：交叉轴的中点对齐。</li>
-<li>baseline: 项目的第一行文字的基线对齐。</li>
-<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
-</ul>
-</li>
-<li><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<p>  <code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></p>
-<ul>
-<li>flex-start：与交叉轴的起点对齐。</li>
-<li>flex-end：与交叉轴的终点对齐。</li>
-<li>center：与交叉轴的中点对齐。</li>
-<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li>stretch（默认值）：轴线占满整个交叉轴。</li>
-</ul>
-</li>
-</ul>
-<h2 id="项目的属性6个"><a href="#项目的属性6个" class="headerlink" title="项目的属性6个"></a>项目的属性6个</h2><ul>
-<li><code>order: &lt;integer&gt;;</code>  数值越小，排列越靠前，默认为0。</li>
-<li><code>flex-grow: &lt;number&gt;;</code>  定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</li>
-<li><code>flex-shrink: &lt;number&gt;;</code>  定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</li>
-<li><code>flex-basis: &lt;length&gt; | auto;</code>  定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小</li>
-<li><code>flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</li>
-<li><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</li>
-</ul>
-<p>属性不熟悉的可以查看阮氏教程 <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
-<p>下面还有问答形式的图示，方便快速查看</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/flexboxsheet.png" alt="flexboxsheet"></p>
-<p>图片原文链接 <a href="http://jonibologna.com/flexbox-cheatsheet/" target="_blank" rel="external">http://jonibologna.com/flexbox-cheatsheet/</a></p>
-<h1 id="Flexbox-视觉指南"><a href="#Flexbox-视觉指南" class="headerlink" title="Flexbox 视觉指南"></a><a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/" target="_blank" rel="external">Flexbox 视觉指南</a></h1><p>这个特色就是有实时代码演示，当用户设置属性，DEMO 可以实时更新效果，这样用户更好更容易地理解 Flexbox 某个属性的作用。</p>
-<h1 id="Bootstrap-4-Cheat-Sheet"><a href="#Bootstrap-4-Cheat-Sheet" class="headerlink" title="Bootstrap 4 Cheat Sheet"></a><a href="https://hackerthemes.com/bootstrap-cheatsheet/" target="_blank" rel="external">Bootstrap 4 Cheat Sheet</a></h1><p>Bootstrap 4 有新的很多组件样式，熟记它不太可能，在官网找又太麻烦，那么这个Bootstrap 4是你最好的选择，流布布局分类，支持一件复制代码，超好用，小编正在用了。</p>
-<h1 id="es6-cheatsheet"><a href="#es6-cheatsheet" class="headerlink" title="es6-cheatsheet"></a><a href="https://github.com/DrkSephy/es6-cheatsheet/blob/master/README_zhCn.md" target="_blank" rel="external">es6-cheatsheet</a></h1><p>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。</p>
-
       
     </div>
     
@@ -289,6 +303,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/Flex-Bootstrap4-es6.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -796,13 +814,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
