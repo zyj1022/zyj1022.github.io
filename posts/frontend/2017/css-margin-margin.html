@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>CSS中margin边界叠加问题及解决方案 | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS中margin边界叠加问题及解决方案边界叠加简介
+  <meta name="description" content="边界叠加简介
 边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。简单地说，当两个垂直边界相遇时，它们将形成一个边界。这个边界的高度等于两个发生叠加的边界的高度中的较大者。
 元素的顶边界与前面元素的底边界发生叠加 示例一也就是说当一个元素出现在另一个元素上面时，第一个元素的底边界与第二个元素的顶边界发生叠加。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS中margin边界叠加问题及解决方案">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/css-margin-margin.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="CSS中margin边界叠加问题及解决方案边界叠加简介
+<meta property="og:description" content="边界叠加简介
 边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。简单地说，当两个垂直边界相遇时，它们将形成一个边界。这个边界的高度等于两个发生叠加的边界的高度中的较大者。
 元素的顶边界与前面元素的底边界发生叠加 示例一也就是说当一个元素出现在另一个元素上面时，第一个元素的底边界与第二个元素的顶边界发生叠加。">
-<meta property="og:updated_time" content="2017-03-22T08:09:30.000Z">
+<meta property="og:updated_time" content="2017-03-22T08:13:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS中margin边界叠加问题及解决方案">
-<meta name="twitter:description" content="CSS中margin边界叠加问题及解决方案边界叠加简介
+<meta name="twitter:description" content="边界叠加简介
 边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。简单地说，当两个垂直边界相遇时，它们将形成一个边界。这个边界的高度等于两个发生叠加的边界的高度中的较大者。
 元素的顶边界与前面元素的底边界发生叠加 示例一也就是说当一个元素出现在另一个元素上面时，第一个元素的底边界与第二个元素的顶边界发生叠加。">
   
@@ -227,7 +227,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CSS中margin边界叠加问题及解决方案"><a href="#CSS中margin边界叠加问题及解决方案" class="headerlink" title="CSS中margin边界叠加问题及解决方案"></a>CSS中margin边界叠加问题及解决方案</h1><p><strong>边界叠加简介</strong></p>
+        <p><strong>边界叠加简介</strong></p>
 <p>边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。<br>简单地说，当两个垂直边界相遇时，它们将形成一个边界。<br>这个边界的高度等于两个发生叠加的边界的高度中的较大者。</p>
 <h2 id="元素的顶边界与前面元素的底边界发生叠加-示例一"><a href="#元素的顶边界与前面元素的底边界发生叠加-示例一" class="headerlink" title="元素的顶边界与前面元素的底边界发生叠加 示例一"></a>元素的顶边界与前面元素的底边界发生叠加 <a href="/demos/margin-margin.html">示例一</a></h2><p>也就是说当一个元素出现在另一个元素上面时，第一个元素的底边界与第二个元素的顶边界发生叠加。</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="子元素的顶边界与父元素的顶边界发生叠加-示例二"><a href="#子元素的顶边界与父元素的顶边界发生叠加-示例二" class="headerlink" title="子元素的顶边界与父元素的顶边界发生叠加 示例二"></a>子元素的顶边界与父元素的顶边界发生叠加 <a href="/demos/margin-margin.html">示例二</a></h2><p>当一个元素包含在另一个元素中时（假设没有填充或边框将边界分隔开），它们的顶和/或底边界也发生叠加,<br>如果给父元素设置边框border或padding，此叠加不会发生。</p>
