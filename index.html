@@ -287,81 +287,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;</div><div class="line">    this.name = name;</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.legs = 2</div><div class="line">Person.prototype.speak = function() &#123;</div><div class="line">	console.log(&quot;我的名字是：&quot; + this.name + &quot;，年龄：&quot; + this.age);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后，生成实例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var jack = new Person(&quot;jack&quot;, 26);</div><div class="line">var lily = new Person(&quot;lily&quot;, 25);</div><div class="line"></div><div class="line">jack.legs; // 2</div><div class="line">lily.speak() // 我的名字是：lily，年龄：25</div></pre></td></tr></table></figure>
-<h1 id="2、实现构造函数继承的五种方法"><a href="#2、实现构造函数继承的五种方法" class="headerlink" title="2、实现构造函数继承的五种方法"></a>2、实现构造函数继承的五种方法</h1><p>举例，有一个水果的构造函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Fruit() &#123;</div><div class="line">  this.type = &quot;水果&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>还有个“苹果”的构造函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Apple(name, color) &#123;</div><div class="line">	this.name = name;</div><div class="line">	this.color = color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>怎么使得 <code>Apple</code> 继承 <code>Fruit</code> 呢？</p>
-<h2 id="第一种，使用call-apply，构造函数绑定"><a href="#第一种，使用call-apply，构造函数绑定" class="headerlink" title="第一种，使用call/apply，构造函数绑定"></a>第一种，使用call/apply，构造函数绑定</h2><p>如题，使用<code>call</code>或<code>apply</code>方法，将父对象的构造函数绑定在子对象上，即在子对象构造函数中加一行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Fruit() &#123;</div><div class="line">  this.type = &quot;水果&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Apple(name,color) &#123;</div><div class="line">	Fruit.apply(this, arguments); // 这里用call也可以</div><div class="line">	this.name = name;</div><div class="line">	this.color = color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a = new Apple(&quot;苹果&quot;, &quot;红色&quot;);</div><div class="line">console.log(a.type) // 水果</div></pre></td></tr></table></figure>
-<h2 id="第二种，-使用prototype属性继承"><a href="#第二种，-使用prototype属性继承" class="headerlink" title="第二种， 使用prototype属性继承"></a>第二种， 使用prototype属性继承</h2><p>第二种方法比较常见，使用prototype属性。</p>
-<p>如果水果的prototype对象，指向一个Fruit的实例，那么所有”水果”的实例，就能继承Fruit了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function Fruit() &#123;</div><div class="line">  this.type = &quot;水果&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Apple(name, color) &#123;</div><div class="line">	this.name = name;</div><div class="line">	this.color = color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 将 Apple 的 prototype 对象指向 Fruit实例</div><div class="line">Apple.prototype = new Fruit(); </div><div class="line">// 将 Apple 的 prototype 对象的构造函数指回原来的构造函数</div><div class="line">Apple.prototype.constructor = Apple; </div><div class="line"></div><div class="line">var a2 = new Apple(&quot;香蕉苹果&quot;, &quot;黄色&quot;);</div><div class="line">console.log(a2.type) // 水果</div></pre></td></tr></table></figure>
-<h2 id="第三种-直接继承prototype"><a href="#第三种-直接继承prototype" class="headerlink" title="第三种 直接继承prototype"></a>第三种 直接继承prototype</h2><p>第三种方法是对第二种方法的改进。由于Animal对象中，不变的属性都可以直接写入Animal.prototype。所以，我们也可以让Apple()跳过 Fruit()，直接继承Fruit.prototype。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Fruit() &#123;&#125;</div><div class="line">Fruit.prototype.type = &quot;水果&quot;;</div><div class="line"></div><div class="line">function Apple(name, color) &#123;</div><div class="line">	this.name = name;</div><div class="line">    this.color = color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Apple.prototype = Fruit.prototype;</div><div class="line">Apple.prototype.constructor = Apple; // </div><div class="line">var a2 = new Apple(&quot;香蕉苹果&quot;, &quot;黄色&quot;);</div><div class="line">console.log(a2.type) // 水果</div></pre></td></tr></table></figure>
-<p>与前一种方法相比，这样做的优点是效率比较高（不用执行和建立Fruit的实例了），比较省内存。缺点是 <code>Apple.prototype</code>和<code>Fruit.prototype</code>现在指向了同一个对象，那么任何对<code>Apple.prototype</code>的修改，都会反映到<code>Fruit.prototype</code>。</p>
-<p>所以，上面这一段代码其实是有问题的。请看第二行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Apple.prototype.constructor = Apple;</div></pre></td></tr></table></figure>
-<p>这一句实际上把 <code>Fruit.prototype</code> 对象的 <code>constructor</code> 属性也改掉了！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alert(Fruit.prototype.constructor); // Apple</div></pre></td></tr></table></figure>
-<h2 id="第四种，-利用空对象作为中介"><a href="#第四种，-利用空对象作为中介" class="headerlink" title="第四种， 利用空对象作为中介"></a>第四种， 利用空对象作为中介</h2><p>由于”直接继承prototype”存在上述的缺点，所以就有第四种方法，利用一个空对象作为中介</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Fruit() &#123;&#125;</div><div class="line">Fruit.prototype.type = &quot;水果&quot;;</div><div class="line"></div><div class="line">function Apple(name, color) &#123;</div><div class="line">	this.name = name;</div><div class="line">    this.color = color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var F = function()&#123;&#125;;</div><div class="line">F.prototype = Fruit.prototype;</div><div class="line">Apple.prototype = new F();</div><div class="line">Apple.prototype.constructor = Apple;</div><div class="line"></div><div class="line">var a2 = new Apple(&quot;香蕉苹果&quot;, &quot;黄色&quot;);</div><div class="line">console.log(a2.type) // 水果</div></pre></td></tr></table></figure>
-<p>##第五种， 拷贝继承</p>
-<p>上面是采用prototype对象，实现继承。我们也可以换一种思路，纯粹采用”拷贝”方法实现继承。简单说，如果把父对象的所有属性和方法，拷贝进子对象，不也能够实现继承吗？这样我们就有了第五种方法。</p>
-<p>首先，还是把Animal的所有不变属性，都放到它的prototype对象上。</p>
-<p>写一个函数，实现属性拷贝的目的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function extend2(Child, Parent) &#123;</div><div class="line">　　var p = Parent.prototype;</div><div class="line">　　var c = Child.prototype;</div><div class="line">　  for (var i in p) &#123;</div><div class="line">　　　　	c[i] = p[i];</div><div class="line">　　&#125;</div><div class="line">　　c.uber = p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个函数的作用，就是将父对象的 prototype 对象中的属性，一一拷贝给 Child 对象的 prototype 对象。</p>
-<p>使用的时候，这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">extend2(Apple, Fruit);</div><div class="line">var a2 = new Apple(&quot;香蕉苹果&quot;, &quot;黄色&quot;);</div><div class="line">console.log(a2.type) // 水果</div></pre></td></tr></table></figure>
-<h1 id="3、不使用构造函数实现”继承”的方法"><a href="#3、不使用构造函数实现”继承”的方法" class="headerlink" title="3、不使用构造函数实现”继承”的方法"></a>3、不使用构造函数实现”继承”的方法</h1><p><strong>什么是”非构造函数”的继承？</strong></p>
-<p>比如，现在有一个对象，叫做”中国人”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var Chinese = &#123;</div><div class="line">　　nation:&apos;中国&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>还有一个对象，叫做”医生”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var Doctor =&#123;</div><div class="line">　　career:&apos;医生&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>请问怎样才能让”医生”去继承”中国人”，也就是说，我怎样才能生成一个”中国医生”的对象？</p>
-<p>这里要注意，这两个对象都是普通对象，不是构造函数，无法使用构造函数方法实现”继承”。</p>
-<h3 id="第一种-object-方法"><a href="#第一种-object-方法" class="headerlink" title="第一种 object()方法"></a>第一种 object()方法</h3><p>json格式的发明人Douglas Crockford，提出了一个object()函数，可以做到这一点。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o) &#123;</div><div class="line">　　function F() &#123;&#125;</div><div class="line">　　F.prototype = o;</div><div class="line">　　return new F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个object()函数，其实只做一件事，就是把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起。</p>
-<p>使用的时候，第一步先在父对象的基础上，生成子对象：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var Doctor = object(Chinese);</div></pre></td></tr></table></figure>
-<p>然后，再加上子对象本身的属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Doctor.career = &apos;医生&apos;;</div></pre></td></tr></table></figure>
-<p>这时，子对象已经继承了父对象的属性了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var Chinese = &#123;</div><div class="line">　　　nation:&apos;中国&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Doctor =&#123;</div><div class="line">　　　career:&apos;医生&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function object(o) &#123;</div><div class="line">　　function F() &#123;&#125;</div><div class="line">　　F.prototype = o;</div><div class="line">　　return new F();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var Doctor = object(Chinese);</div><div class="line"></div><div class="line">Doctor.career = &apos;医生&apos;;</div><div class="line"></div><div class="line">alert(Doctor.nation); //中国</div></pre></td></tr></table></figure>
-<h3 id="第二种-浅拷贝"><a href="#第二种-浅拷贝" class="headerlink" title="第二种 浅拷贝"></a>第二种 浅拷贝</h3><p>除了使用”prototype链”以外，还有另一种思路：把父对象的属性，全部拷贝给子对象，也能实现继承。</p>
-<p>下面这个函数，就是在做拷贝：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function extendCopy(p) &#123;</div><div class="line">　　var c = &#123;&#125;;</div><div class="line">　　for (var i in p) &#123; </div><div class="line">　　　　c[i] = p[i];</div><div class="line">　　&#125;</div><div class="line">　　c.uber = p;</div><div class="line">　　return c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。</p>
-<p>请看，现在给Chinese添加一个”出生地”属性，它的值是一个数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];</div></pre></td></tr></table></figure>
-<p>通过extendCopy()函数，Doctor继承了Chinese。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var Doctor = extendCopy(Chinese);</div></pre></td></tr></table></figure>
-<p>然后，我们为Doctor的”出生地”添加一个城市</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Doctor.birthPlaces.push(&apos;厦门&apos;);</div></pre></td></tr></table></figure>
-<p>发生了什么事？Chinese的”出生地”也被改掉了！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门</div><div class="line">alert(Chinese.birthPlaces); //北京, 上海, 香港, 厦门</div></pre></td></tr></table></figure>
-<p>所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做”浅拷贝”。这是早期jQuery实现继承的方式。</p>
-<h3 id="第三种-深拷贝"><a href="#第三种-深拷贝" class="headerlink" title="第三种 深拷贝"></a>第三种 深拷贝</h3><p>所谓”深拷贝”，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用”浅拷贝”就行了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function deepCopy(p, c) &#123;</div><div class="line">　　　　var c = c || &#123;&#125;;</div><div class="line">　　　　for (var i in p) &#123;</div><div class="line">　　　　　　if (typeof p[i] === &apos;object&apos;) &#123;</div><div class="line">　　　　　　　　c[i] = (p[i].constructor === Array) ? [] : &#123;&#125;;</div><div class="line">　　　　　　　　deepCopy(p[i], c[i]);</div><div class="line">　　　　　　&#125; else &#123;</div><div class="line">　　　　　　　　　c[i] = p[i];</div><div class="line">　　　　　　&#125;</div><div class="line">　　　　&#125;</div><div class="line">　　　　return c;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用的时候这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var Doctor = deepCopy(Chinese);</div></pre></td></tr></table></figure>
-<p>现在，给父对象加一个属性，值为数组。然后，在子对象上修改这个属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Chinese.birthPlaces = [&apos;北京&apos;,&apos;上海&apos;,&apos;香港&apos;];</div><div class="line">Doctor.birthPlaces.push(&apos;厦门&apos;);</div></pre></td></tr></table></figure>
-<p>这时，父对象就不会受到影响了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(Doctor.birthPlaces); //北京, 上海, 香港, 厦门</div><div class="line">alert(Chinese.birthPlaces); //北京, 上海, 香港</div></pre></td></tr></table></figure>
-<p>目前，jQuery库使用的就是这种继承方法。</p>
-<hr>
-<blockquote>
-<p>以上文章内容，转载修改自<a href="http://www.ruanyifeng.com/blog/javascript/" target="_blank" rel="external">阮一峰的网络日志</a>，仅作学习总结，原文链接如下：</p>
-<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">Javascript面向对象编程（三）：非构造函数的继承</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">Javascript面向对象编程（二）：构造函数的继承</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">Javascript 面向对象编程（一）：封装</a></p>
-</blockquote>
-<p>本文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/js-oop.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/js-oop.html</a></p>
-<p>转载时必须以链接形式注明原始出处及本声明</p>
-
       
     </div>
     
@@ -378,6 +303,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-oop.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -556,21 +485,7 @@
         <h1 id="CSS中margin边界叠加问题及解决方案"><a href="#CSS中margin边界叠加问题及解决方案" class="headerlink" title="CSS中margin边界叠加问题及解决方案"></a>CSS中margin边界叠加问题及解决方案</h1><p><strong>边界叠加简介</strong></p>
 <p>边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。<br>简单地说，当两个垂直边界相遇时，它们将形成一个边界。<br>这个边界的高度等于两个发生叠加的边界的高度中的较大者。</p>
 <h2 id="元素的顶边界与前面元素的底边界发生叠加-示例一"><a href="#元素的顶边界与前面元素的底边界发生叠加-示例一" class="headerlink" title="元素的顶边界与前面元素的底边界发生叠加 示例一"></a>元素的顶边界与前面元素的底边界发生叠加 <a href="/demos/margin-margin.html">示例一</a></h2><p>也就是说当一个元素出现在另一个元素上面时，第一个元素的底边界与第二个元素的顶边界发生叠加。</p>
-<hr>
-<h2 id="子元素的顶边界与父元素的顶边界发生叠加-示例二"><a href="#子元素的顶边界与父元素的顶边界发生叠加-示例二" class="headerlink" title="子元素的顶边界与父元素的顶边界发生叠加 示例二"></a>子元素的顶边界与父元素的顶边界发生叠加 <a href="/demos/margin-margin.html">示例二</a></h2><p>当一个元素包含在另一个元素中时（假设没有填充或边框将边界分隔开），它们的顶和/或底边界也发生叠加,<br>如果给父元素设置边框border或padding，此叠加不会发生。</p>
-<hr>
-<h2 id="元素的顶边界与底边界发生叠加-示例三"><a href="#元素的顶边界与底边界发生叠加-示例三" class="headerlink" title="元素的顶边界与底边界发生叠加 示例三"></a>元素的顶边界与底边界发生叠加 <a href="/demos/margin-margin.html">示例三</a></h2><p>尽管初看上去有点儿奇怪，但是边界甚至可以与本身发生叠加。假设有一个空元素，它有边界，但是没有边框或高度及内间距。<br>在这种情况下，顶边界与底边界就碰到了一起，它们会发生叠加，如果这个边界碰到另一个元素的边界，它还会发生叠加</p>
-<hr>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>边界叠加的大多数问题可以通过添加透明边框或1px的补白来修复。其它补充解决方案：</p>
-<p>1.外层 <code>padding</code></p>
-<p>2.透明边框 <code>border:1px solid transparent;</code></p>
-<p>3.绝对定位 <code>postion:absolute;</code></p>
-<p>4.外层DIV <code>overflow:hidden;</code></p>
-<p>5.内层DIV　加 <code>float:left; display:inline;</code></p>
-<hr>
-<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/margin-margin.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/margin-margin.html</a></p>
-<p>转载时必须以链接形式注明原始出处及本声明</p>
-
+<h2 id=""><a href="#" class="headerlink" title=""></a>
       
     </div>
     
@@ -587,6 +502,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/css-margin-margin.html#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
