@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-03-22T08:12:52.000Z</updated>
+  <updated>2017-03-23T06:58:58.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,164 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Javascript数组常见问题</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html</id>
+    <published>2017-03-23T09:24:23.000Z</published>
+    <updated>2017-03-23T06:58:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、删除数组里指定的某个元素"><a href="#1、删除数组里指定的某个元素" class="headerlink" title="1、删除数组里指定的某个元素"></a>1、删除数组里指定的某个元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr = [3,2,3,3,5,3],</div><div class="line">	val = 3;</div><div class="line"></div><div class="line">var removeElement = function(arr, elm) &#123;</div><div class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		if (arr[i] == elm) &#123;</div><div class="line">			arr.splice(i, 1);</div><div class="line">			i--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">console.log(removeElement(arr, val)); // [2, 5]</div></pre></td></tr></table></figure>
+<p><strong>注意：这里for循环里的length是动态的，随着splice删除数组元素而变小，这里不能用forEach，因为forEach方法它一开始执行就自动缓存数组的长度，删除数组元素会出现意外。</strong></p>
+<a id="more"></a>
+<h2 id="2、数组去重的方法"><a href="#2、数组去重的方法" class="headerlink" title="2、数组去重的方法"></a>2、数组去重的方法</h2><h3 id="第一种，双重遍历去重法"><a href="#第一种，双重遍历去重法" class="headerlink" title="第一种，双重遍历去重法"></a>第一种，双重遍历去重法</h3><ol>
+<li>构建一个新的数组存放结果</li>
+<li>for循环中每次从原数组中取出一个元素，用这个元素循环与结果数组对比</li>
+<li>若结果数组中没有该元素，则存到结果数组中</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 去除数组里的重复元素</div><div class="line">function unique(arr) &#123;</div><div class="line">    var ret = [];</div><div class="line">    var len = arr.length;</div><div class="line">    var isRepeat;</div><div class="line">    for(var i=0; i&lt;len; i++) &#123;</div><div class="line">        isRepeat = false;</div><div class="line">        for(var j=i+1; j&lt;len; j++) &#123;</div><div class="line">            if(arr[i] === arr[j])&#123;</div><div class="line">                isRepeat = true;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(!isRepeat)&#123;</div><div class="line">            ret.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line">var arr = [3, 3, 2, 3];</div><div class="line">console.log(unique(arr)); // [2, 3]</div></pre></td></tr></table></figure>
+<h3 id="第二种，对象键值对法"><a href="#第二种，对象键值对法" class="headerlink" title="第二种，对象键值对法"></a>第二种，对象键值对法</h3><ol>
+<li>创建一个新的数组存放结果</li>
+<li>创建一个空对象</li>
+<li>for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它存放到结果数组中，同时把这个元素的内容作为对象的一个属性，并赋值为1，存入到第2步建立的对象中。</li>
+</ol>
+<p><strong>说明：至于如何对比，就是每次从原数组中取出一个元素，然后到对象中去访问这个属性，如果能访问到值，则说明重复。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">	var res = [];</div><div class="line">	var json = &#123;&#125;;</div><div class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		if (!json[arr[i]]) &#123;</div><div class="line">			res.push(arr[i]);</div><div class="line">			json[arr[i]] = 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [3, 3, 2, &quot;3&quot;, &quot;a&quot;, &quot;a&quot;];</div><div class="line">console.log(unique(arr)); // [3, 2, &quot;a&quot;]</div></pre></td></tr></table></figure>
+<h3 id="第三种，ES5方法"><a href="#第三种，ES5方法" class="headerlink" title="第三种，ES5方法"></a>第三种，ES5方法</h3><p>利用 ES5 里的方法, indexOf、filter</p>
+<p>arr.indexOf(要查找的元素)，返回被找到的元素在数组中的索引位置，如果没有则返回-1。</p>
+<p>arr.filter(元素的值，元素的索引，被遍历的数组)，返回一个通过测试的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">  var res = arr.filter(function(item, index, array) &#123;</div><div class="line">    return array.indexOf(item) === index;</div><div class="line">  &#125;);</div><div class="line">  return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 1, &apos;1&apos;, &apos;2&apos;, 1];</div><div class="line">var ans = unique(arr);</div><div class="line">console.log(ans); // =&gt; [1, &quot;1&quot;, &quot;2&quot;]</div></pre></td></tr></table></figure>
+<h3 id="第四种，ES6方法"><a href="#第四种，ES6方法" class="headerlink" title="第四种，ES6方法"></a>第四种，ES6方法</h3><p>ES6 部署了 Set 以及 Array.from 方法，如果浏览器支持，完全可以这样：</p>
+<p>ES2015还引入了一种叫作Set的数据类型，它不允许重复元素出现，如果你重复添加同一个元素的话，Set中只会存在一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">  return Array.from(new Set(arr));</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 2, &quot;a&quot;, &quot;1&quot;, 2 ,&quot;a&quot;];</div><div class="line">console.log(unique(arr)) // [1, 2, &quot;a&quot;, &quot;1&quot;]</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>关于数组去重更多详细方法参看</p>
+<p><a href="https://github.com/hanzichi/underscore-analysis/issues/9" target="_blank" rel="external">JavaScript 数组去重</a></p>
+<p><a href="http://www.jstips.co/zh_cn/deduplicate-an-array/" target="_blank" rel="external">数组去重 – JS Tips – A JS tip per day!</a></p>
+<p><a href="http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array" target="_blank" rel="external">Remove Duplicates from JavaScript Array</a></p>
+<p><a href="https://github.com/lifesinger/blog/issues/113" target="_blank" rel="external">从 JavaScript 数组去重谈性能优化</a></p>
+<p><a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank" rel="external">也谈 JavaScript 数组去重</a></p>
+</blockquote>
+<h2 id="3、取数组中最大值最小值"><a href="#3、取数组中最大值最小值" class="headerlink" title="3、取数组中最大值最小值"></a>3、取数组中最大值最小值</h2><h3 id="遍历比较方法"><a href="#遍历比较方法" class="headerlink" title="遍历比较方法"></a>遍历比较方法</h3><ol>
+<li>设一个变量存放最大值，将数组中第一个值赋值给该变量</li>
+<li>遍历数组与最大值变量比较，如果大于最大值，则将该值赋值最大值变量</li>
+<li>遍历结束后，变量里储存的就是数组里的最大值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function arrayMax(arr) &#123;</div><div class="line">   var max = arr[0];</div><div class="line">   arr.forEach(function(v)&#123;</div><div class="line">   	  if(v &gt; max) &#123;</div><div class="line">	     max = v</div><div class="line">      &#125;</div><div class="line">   &#125;)</div><div class="line">   return max;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(arrayMax(arr)); // 45</div></pre></td></tr></table></figure>
+<h3 id="利用-Math-max-与-Math-min-方法"><a href="#利用-Math-max-与-Math-min-方法" class="headerlink" title="利用 Math.max() 与 Math.min() 方法"></a>利用 Math.max() 与 Math.min() 方法</h3><p>将数组转换成参数传进Math.max()或Math.min()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function max(arr) &#123;</div><div class="line">  return Math.max.apply(&#123;&#125;,arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(max(arr)); // 45</div></pre></td></tr></table></figure>
+<h3 id="ES5方法"><a href="#ES5方法" class="headerlink" title="ES5方法"></a>ES5方法</h3><ol>
+<li>利用数组实例的 reduce(function(prev,curv,index,arr))  方法</li>
+<li>依次比较回调函数中参数 prev 与 curv 的大小，返回大的那个</li>
+</ol>
+<p><strong>reduce(function(上一次调用回调返回的值, 数组中正在处理的元素, 当前元素索引, 调用reduce的数组))</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function max(arr) &#123;</div><div class="line">  return arr.reduce(function(prev,curv)&#123;</div><div class="line">      return prev &gt; curv ? prev : curv</div><div class="line">  &#125;) </div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(max(arr)); // 45</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>引用参考列表</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN 的 JavaScript 标准库 Array 部分</a></p>
+<p><a href="http://www.ferecord.com/lujs-array.html#_13" target="_blank" rel="external">撸js基础之数组</a></p>
+</blockquote>
+<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html</a></p>
+<p>转载时必须以链接形式注明原始出处及本声明</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、删除数组里指定的某个元素&quot;&gt;&lt;a href=&quot;#1、删除数组里指定的某个元素&quot; class=&quot;headerlink&quot; title=&quot;1、删除数组里指定的某个元素&quot;&gt;&lt;/a&gt;1、删除数组里指定的某个元素&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;var arr = [3,2,3,3,5,3],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	val = 3;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var removeElement = function(arr, elm) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	for (var i = 0; i &amp;lt; arr.length; i++) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		if (arr[i] == elm) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			arr.splice(i, 1);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			i--;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	return arr;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;console.log(removeElement(arr, val)); // [2, 5]&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;注意：这里for循环里的length是动态的，随着splice删除数组元素而变小，这里不能用forEach，因为forEach方法它一开始执行就自动缓存数组的长度，删除数组元素会出现意外。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="array" scheme="http://www.imeetyou.net/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript定义类（class）的三种方法</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-class3.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-class3.html</id>
+    <published>2017-03-23T01:22:23.000Z</published>
+    <updated>2017-03-23T01:29:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。</p>
+<p>Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。</p>
+<h2 id="1、构造函数法"><a href="#1、构造函数法" class="headerlink" title="1、构造函数法"></a>1、构造函数法</h2><p>第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Dog() &#123;</div><div class="line">　　this.name = &quot;旺财&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成实例的时候，使用new关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog = new Dog();</div><div class="line">console.log(dog.name); // 旺财</div></pre></td></tr></table></figure>
+<p>类的属性和方法，还可以定义在构造函数的prototype对象之上。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Dog.prototype.wow = function()&#123;</div><div class="line">　 console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于这种方法的详细介绍，请看《Javascript 面向对象编程》，这里就不多说了。</p>
+<p>它的主要缺点是，比较复杂，用到了this和prototype，编写和阅读都很费力。</p>
+<h2 id="2、Object-create-法"><a href="#2、Object-create-法" class="headerlink" title="2、Object.create()法"></a>2、Object.create()法</h2><p>在ECM5中，加入一个新的方法 <code>Object.create()</code>,用这个方法，”类”就是一个对象，不是函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">	this.name = &quot;旺财&quot;;</div><div class="line">    wow: function() &#123;</div><div class="line">		console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后，直接用Object.create()生成实例，不需要用到new。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var dog = Object.create(Dog);</div><div class="line">console.log(dog.name); // 旺财</div><div class="line">dog.wow(); // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<p>这种方法不能实现私有属性和私有方法，实例对象之间也不能共享数据。</p>
+<h2 id="3、BlackScript-法"><a href="#3、BlackScript-法" class="headerlink" title="3、BlackScript 法"></a>3、BlackScript 法</h2><p>荷兰程序员Gabor de Mooij提出了一种比Object.create()更好的<a href="http://www.gabordemooij.com/index.php?p=/blackscript" target="_blank" rel="external">新方法</a>。</p>
+<p>事实上就是用一个对象模拟类，在这个类里，定义一个构造函数 createNew() 用来生成实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      //some code</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后，在 createNew() 里面，定义一个实例对象，把这个实例对象作为返回值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.wow(); // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<p>这种方法简单易学，可以实现OOP的特性，继承、私有属性和方法、数据共享。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>比如让 Dog 继承 Animal,只要在 Dog的 createNew()方法中，调用后者的createNew()方法即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Animal = &#123;</div><div class="line">　　　　createNew: function()&#123;</div><div class="line">　　　　　　var animal = &#123;&#125;;</div><div class="line">　　　　　　animal.sleep = function()&#123; </div><div class="line">				console.log(&quot;睡懒觉&quot;);</div><div class="line">		  &#125;;</div><div class="line">　　　　　　return animal;</div><div class="line">　　　　&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后，在 Dog 的 createNew() 方法中，调用 Animal 的 createNew() 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = Animal.createNew();</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样得到的 Dog 实例，就会同时继承 Dog 类和Animal类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.sleep() // 睡懒觉 </div><div class="line">dog1.wow() // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<h3 id="私有属性和方法"><a href="#私有属性和方法" class="headerlink" title="私有属性和方法"></a>私有属性和方法</h3><p>在 createNew() 方法中，只要不是定义在 dog 对象上的方法和属性，都是私有的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">      var sound = &quot;汪汪汪&quot;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(sound);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上例的内部变量 sound，外部无法读取，只有通过 dog 的公有方法 wow() 来读取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.name // 旺财</div><div class="line">dog1.sound // undefined </div><div class="line">dog1.wow() // 汪汪汪</div></pre></td></tr></table></figure>
+<h3 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h3><p>有时候，我们需要所有实例对象，能够读写同一项内部数据。</p>
+<p>这个时候，只要把这个内部数据，封装在类对象的里面、createNew()方法的外面即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   sound: &quot;汪汪汪&quot;,</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.sound = function() &#123;</div><div class="line">         console.log(Dog.sound);</div><div class="line">      &#125;</div><div class="line">      dog.changSound = function(para)&#123;</div><div class="line">         Dog.sound = para</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>生成两个实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">var dog2 = Dog.createNew();</div><div class="line">dog1.sound(); // 汪汪汪</div><div class="line">dog2.sound(); // 汪汪汪</div></pre></td></tr></table></figure>
+<p>这时，如果有一个实例对象，修改了共享的数据，另一个实例对象也会受到影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dog2.changSound(&quot;呱呱呱&quot;);</div><div class="line">dog1.sound(); // 呱呱呱</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>本文转载引用自 <a href="http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html" target="_blank" rel="external">Javascript定义类（class）的三种方法</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。&lt;/p&gt;
+&lt;p&gt;Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。&lt;/p&gt;
+&lt;h2 id=&quot;1、构造函数法&quot;&gt;&lt;a href=&quot;#1、构造函数法&quot; class=&quot;headerlink&quot; title=&quot;1、构造函数法&quot;&gt;&lt;/a&gt;1、构造函数法&lt;/h2&gt;&lt;p&gt;第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;function Dog() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　this.name = &amp;quot;旺财&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;生成实例的时候，使用new关键字。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;var dog = new Dog();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;console.log(dog.name); // 旺财&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;类的属性和方法，还可以定义在构造函数的prototype对象之上。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="class" scheme="http://www.imeetyou.net/tags/class/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript基础之数组</title>
@@ -195,7 +353,7 @@
     <link href="http://www.imeetyou.net/posts/frontend/2017/js-oop.html"/>
     <id>http://www.imeetyou.net/posts/frontend/2017/js-oop.html</id>
     <published>2017-03-18T10:25:34.000Z</published>
-    <updated>2017-03-22T08:12:47.000Z</updated>
+    <updated>2017-03-23T01:29:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>Javascript是一种基于对象的语言，秉承一切皆对象的理念。</p>
 <p>但是，它又不是一种真正的面向对象编程（OOP）语言，因为它的语法中没有class（类）。我们知道面向对象编程的三大特征就是封装、继承、多态</p>
@@ -706,9 +864,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -1186,9 +1344,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
     
   </entry>
   

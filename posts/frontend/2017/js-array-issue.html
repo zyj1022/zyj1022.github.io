@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Javascript数组常见问题 | 智的前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、删除数组里指定的某个元素1234567891011121314var arr = [3,2,3,3,5,3],	val = 3;var removeElement = function(arr, elm) &amp;#123;	for (var i = 0; i &amp;lt; arr.length; i++) &amp;#123;		if (arr[i] == elm) &amp;#123;			arr.splice(i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript数组常见问题">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html">
+<meta property="og:site_name" content="智的前端之路">
+<meta property="og:description" content="1、删除数组里指定的某个元素1234567891011121314var arr = [3,2,3,3,5,3],	val = 3;var removeElement = function(arr, elm) &amp;#123;	for (var i = 0; i &amp;lt; arr.length; i++) &amp;#123;		if (arr[i] == elm) &amp;#123;			arr.splice(i">
+<meta property="og:updated_time" content="2017-03-23T06:58:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript数组常见问题">
+<meta name="twitter:description" content="1、删除数组里指定的某个元素1234567891011121314var arr = [3,2,3,3,5,3],	val = 3;var removeElement = function(arr, elm) &amp;#123;	for (var i = 0; i &amp;lt; arr.length; i++) &amp;#123;		if (arr[i] == elm) &amp;#123;			arr.splice(i">
+  
+    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">若有智，事可为</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12.5px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/js/" style="font-size: 17.5px;">js</a> <a href="/tags/mac/" style="font-size: 17.5px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">若有智，事可为</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2017/js-array-issue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-array-issue.html" class="article-date">
+  	<time datetime="2017-03-23T09:24:23.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript数组常见问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、删除数组里指定的某个元素"><a href="#1、删除数组里指定的某个元素" class="headerlink" title="1、删除数组里指定的某个元素"></a>1、删除数组里指定的某个元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr = [3,2,3,3,5,3],</div><div class="line">	val = 3;</div><div class="line"></div><div class="line">var removeElement = function(arr, elm) &#123;</div><div class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		if (arr[i] == elm) &#123;</div><div class="line">			arr.splice(i, 1);</div><div class="line">			i--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">console.log(removeElement(arr, val)); // [2, 5]</div></pre></td></tr></table></figure>
+<p><strong>注意：这里for循环里的length是动态的，随着splice删除数组元素而变小，这里不能用forEach，因为forEach方法它一开始执行就自动缓存数组的长度，删除数组元素会出现意外。</strong></p>
+<a id="more"></a>
+<h2 id="2、数组去重的方法"><a href="#2、数组去重的方法" class="headerlink" title="2、数组去重的方法"></a>2、数组去重的方法</h2><h3 id="第一种，双重遍历去重法"><a href="#第一种，双重遍历去重法" class="headerlink" title="第一种，双重遍历去重法"></a>第一种，双重遍历去重法</h3><ol>
+<li>构建一个新的数组存放结果</li>
+<li>for循环中每次从原数组中取出一个元素，用这个元素循环与结果数组对比</li>
+<li>若结果数组中没有该元素，则存到结果数组中</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// 去除数组里的重复元素</div><div class="line">function unique(arr) &#123;</div><div class="line">    var ret = [];</div><div class="line">    var len = arr.length;</div><div class="line">    var isRepeat;</div><div class="line">    for(var i=0; i&lt;len; i++) &#123;</div><div class="line">        isRepeat = false;</div><div class="line">        for(var j=i+1; j&lt;len; j++) &#123;</div><div class="line">            if(arr[i] === arr[j])&#123;</div><div class="line">                isRepeat = true;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(!isRepeat)&#123;</div><div class="line">            ret.push(arr[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div><div class="line">var arr = [3, 3, 2, 3];</div><div class="line">console.log(unique(arr)); // [2, 3]</div></pre></td></tr></table></figure>
+<h3 id="第二种，对象键值对法"><a href="#第二种，对象键值对法" class="headerlink" title="第二种，对象键值对法"></a>第二种，对象键值对法</h3><ol>
+<li>创建一个新的数组存放结果</li>
+<li>创建一个空对象</li>
+<li>for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它存放到结果数组中，同时把这个元素的内容作为对象的一个属性，并赋值为1，存入到第2步建立的对象中。</li>
+</ol>
+<p><strong>说明：至于如何对比，就是每次从原数组中取出一个元素，然后到对象中去访问这个属性，如果能访问到值，则说明重复。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">	var res = [];</div><div class="line">	var json = &#123;&#125;;</div><div class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		if (!json[arr[i]]) &#123;</div><div class="line">			res.push(arr[i]);</div><div class="line">			json[arr[i]] = 1;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [3, 3, 2, &quot;3&quot;, &quot;a&quot;, &quot;a&quot;];</div><div class="line">console.log(unique(arr)); // [3, 2, &quot;a&quot;]</div></pre></td></tr></table></figure>
+<h3 id="第三种，ES5方法"><a href="#第三种，ES5方法" class="headerlink" title="第三种，ES5方法"></a>第三种，ES5方法</h3><p>利用 ES5 里的方法, indexOf、filter</p>
+<p>arr.indexOf(要查找的元素)，返回被找到的元素在数组中的索引位置，如果没有则返回-1。</p>
+<p>arr.filter(元素的值，元素的索引，被遍历的数组)，返回一个通过测试的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">  var res = arr.filter(function(item, index, array) &#123;</div><div class="line">    return array.indexOf(item) === index;</div><div class="line">  &#125;);</div><div class="line">  return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 1, &apos;1&apos;, &apos;2&apos;, 1];</div><div class="line">var ans = unique(arr);</div><div class="line">console.log(ans); // =&gt; [1, &quot;1&quot;, &quot;2&quot;]</div></pre></td></tr></table></figure>
+<h3 id="第四种，ES6方法"><a href="#第四种，ES6方法" class="headerlink" title="第四种，ES6方法"></a>第四种，ES6方法</h3><p>ES6 部署了 Set 以及 Array.from 方法，如果浏览器支持，完全可以这样：</p>
+<p>ES2015还引入了一种叫作Set的数据类型，它不允许重复元素出现，如果你重复添加同一个元素的话，Set中只会存在一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function unique(arr) &#123;</div><div class="line">  return Array.from(new Set(arr));</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 2, &quot;a&quot;, &quot;1&quot;, 2 ,&quot;a&quot;];</div><div class="line">console.log(unique(arr)) // [1, 2, &quot;a&quot;, &quot;1&quot;]</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>关于数组去重更多详细方法参看</p>
+<p><a href="https://github.com/hanzichi/underscore-analysis/issues/9" target="_blank" rel="external">JavaScript 数组去重</a></p>
+<p><a href="http://www.jstips.co/zh_cn/deduplicate-an-array/" target="_blank" rel="external">数组去重 – JS Tips – A JS tip per day!</a></p>
+<p><a href="http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array" target="_blank" rel="external">Remove Duplicates from JavaScript Array</a></p>
+<p><a href="https://github.com/lifesinger/blog/issues/113" target="_blank" rel="external">从 JavaScript 数组去重谈性能优化</a></p>
+<p><a href="https://www.toobug.net/article/array_unique_in_javascript.html" target="_blank" rel="external">也谈 JavaScript 数组去重</a></p>
+</blockquote>
+<h2 id="3、取数组中最大值最小值"><a href="#3、取数组中最大值最小值" class="headerlink" title="3、取数组中最大值最小值"></a>3、取数组中最大值最小值</h2><h3 id="遍历比较方法"><a href="#遍历比较方法" class="headerlink" title="遍历比较方法"></a>遍历比较方法</h3><ol>
+<li>设一个变量存放最大值，将数组中第一个值赋值给该变量</li>
+<li>遍历数组与最大值变量比较，如果大于最大值，则将该值赋值最大值变量</li>
+<li>遍历结束后，变量里储存的就是数组里的最大值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function arrayMax(arr) &#123;</div><div class="line">   var max = arr[0];</div><div class="line">   arr.forEach(function(v)&#123;</div><div class="line">   	  if(v &gt; max) &#123;</div><div class="line">	     max = v</div><div class="line">      &#125;</div><div class="line">   &#125;)</div><div class="line">   return max;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(arrayMax(arr)); // 45</div></pre></td></tr></table></figure>
+<h3 id="利用-Math-max-与-Math-min-方法"><a href="#利用-Math-max-与-Math-min-方法" class="headerlink" title="利用 Math.max() 与 Math.min() 方法"></a>利用 Math.max() 与 Math.min() 方法</h3><p>将数组转换成参数传进Math.max()或Math.min()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function max(arr) &#123;</div><div class="line">  return Math.max.apply(&#123;&#125;,arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(max(arr)); // 45</div></pre></td></tr></table></figure>
+<h3 id="ES5方法"><a href="#ES5方法" class="headerlink" title="ES5方法"></a>ES5方法</h3><ol>
+<li>利用数组实例的 reduce(function(prev,curv,index,arr))  方法</li>
+<li>依次比较回调函数中参数 prev 与 curv 的大小，返回大的那个</li>
+</ol>
+<p><strong>reduce(function(上一次调用回调返回的值, 数组中正在处理的元素, 当前元素索引, 调用reduce的数组))</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function max(arr) &#123;</div><div class="line">  return arr.reduce(function(prev,curv)&#123;</div><div class="line">      return prev &gt; curv ? prev : curv</div><div class="line">  &#125;) </div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(max(arr)); // 45</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>引用参考列表</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN 的 JavaScript 标准库 Array 部分</a></p>
+<p><a href="http://www.ferecord.com/lujs-array.html#_13" target="_blank" rel="external">撸js基础之数组</a></p>
+</blockquote>
+<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html</a></p>
+<p>转载时必须以链接形式注明原始出处及本声明</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/frontend/2017/js-class3.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript定义类（class）的三种方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
