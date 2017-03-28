@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-03-23T06:58:58.000Z</updated>
+  <updated>2017-03-28T05:38:24.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -16,11 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kindle 书籍源下载推荐</title>
+    <link href="http://www.imeetyou.net/posts/life/2017/kindle-book.html"/>
+    <id>http://www.imeetyou.net/posts/life/2017/kindle-book.html</id>
+    <published>2017-03-28T04:35:39.000Z</published>
+    <updated>2017-03-28T05:38:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>近日重拾公司所发kindle，之前一度觉得手机阅读完全可以替代这个产品，但手机看pdf文件，还是不够舒适，虽然是无背光版的，但在上下班路上的几个小时，用kindle阅读一些书籍感觉还是挺不错的，愉快的加入kindle大家庭，多刷秘籍吧。</p>
+<h2 id="新手入门介绍"><a href="#新手入门介绍" class="headerlink" title="新手入门介绍"></a>新手入门介绍</h2><p><a href="https://kindlefere.com/" target="_blank" rel="external">Kindle伴侣 为静心阅读而生</a></p>
+<p>将近日下载 Kindle 书籍源地址等整理分享一下，也算服务大众吧。</p>
+<a id="more"></a>
+<h2 id="推送及下载网站"><a href="#推送及下载网站" class="headerlink" title="推送及下载网站"></a>推送及下载网站</h2><p>除了<a href="https://www.amazon.cn/Kindle%E5%85%8D%E8%B4%B9%E7%94%B5%E5%AD%90%E4%B9%A6/b/ref=sa_menu_kindle_l3_b116175071?ie=UTF8&amp;node=116175071" target="_blank" rel="external">亚马逊 Kindle 商店免费电子书</a>,还有很多下载地址， 个人觉得比较方便全面的整理了一下：</p>
+<ol>
+<li><a href="http://readfree.me/" target="_blank" rel="external">readfree</a> 每日可以下载或推送2个书籍</li>
+<li><a href="https://book.90xz.com/" target="_blank" rel="external">90图书网</a> 每日推送一个</li>
+<li><a href="http://www.kindlepush.com/main" target="_blank" rel="external">kindle推</a> 普通会员下载4个，推送2个，这个挺不错</li>
+<li><a href="http://forfrigg.com/" target="_blank" rel="external">forfrigg</a> 搜索需要科学上网，你懂的</li>
+<li><a href="http://mebook.cc/" target="_blank" rel="external">我的小书屋</a> 可直接下载，多格式，图书有简介。</li>
+<li><a href="https://www.gitbook.com/explore" target="_blank" rel="external">GitBook</a> 怎能忘了程序员的出书平台呢</li>
+</ol>
+<h2 id="书籍转换及制作工具"><a href="#书籍转换及制作工具" class="headerlink" title="书籍转换及制作工具"></a>书籍转换及制作工具</h2><ul>
+<li>阅读 azw3 用 <a href="http://mac.softpedia.com/get/Utilities/Clearview-Reader.shtml" target="_blank" rel="external">clearview</a></li>
+<li>转换格式用 <a href="http://www.calibre-ebook.com/download_osx" target="_blank" rel="external">calibre</a>，很方便将通常pdf格式转换为 azw3 格式</li>
+</ul>
+<p>更多格式转换技巧查看：<a href="https://kindlefere.com/skills/convert" target="_blank" rel="external">格式转换 – Kindle伴侣</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近日重拾公司所发kindle，之前一度觉得手机阅读完全可以替代这个产品，但手机看pdf文件，还是不够舒适，虽然是无背光版的，但在上下班路上的几个小时，用kindle阅读一些书籍感觉还是挺不错的，愉快的加入kindle大家庭，多刷秘籍吧。&lt;/p&gt;
+&lt;h2 id=&quot;新手入门介绍&quot;&gt;&lt;a href=&quot;#新手入门介绍&quot; class=&quot;headerlink&quot; title=&quot;新手入门介绍&quot;&gt;&lt;/a&gt;新手入门介绍&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://kindlefere.com/&quot;&gt;Kindle伴侣 为静心阅读而生&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;将近日下载 Kindle 书籍源地址等整理分享一下，也算服务大众吧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
+    
+    
+      <category term="kindle" scheme="http://www.imeetyou.net/tags/kindle/"/>
+    
+      <category term="life" scheme="http://www.imeetyou.net/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Javascript数组常见问题</title>
     <link href="http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html"/>
     <id>http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html</id>
     <published>2017-03-23T09:24:23.000Z</published>
-    <updated>2017-03-23T06:58:58.000Z</updated>
+    <updated>2017-03-23T08:10:24.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1、删除数组里指定的某个元素"><a href="#1、删除数组里指定的某个元素" class="headerlink" title="1、删除数组里指定的某个元素"></a>1、删除数组里指定的某个元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var arr = [3,2,3,3,5,3],</div><div class="line">	val = 3;</div><div class="line"></div><div class="line">var removeElement = function(arr, elm) &#123;</div><div class="line">	for (var i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">		if (arr[i] == elm) &#123;</div><div class="line">			arr.splice(i, 1);</div><div class="line">			i--;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">console.log(removeElement(arr, val)); // [2, 5]</div></pre></td></tr></table></figure>
 <p><strong>注意：这里for循环里的length是动态的，随着splice删除数组元素而变小，这里不能用forEach，因为forEach方法它一开始执行就自动缓存数组的长度，删除数组元素会出现意外。</strong></p>
@@ -68,10 +112,18 @@
 </ol>
 <p><strong>reduce(function(上一次调用回调返回的值, 数组中正在处理的元素, 当前元素索引, 调用reduce的数组))</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function max(arr) &#123;</div><div class="line">  return arr.reduce(function(prev,curv)&#123;</div><div class="line">      return prev &gt; curv ? prev : curv</div><div class="line">  &#125;) </div><div class="line">&#125;</div><div class="line"></div><div class="line">var arr = [1, 3, 45, 24, 8, 20];</div><div class="line">console.log(max(arr)); // 45</div></pre></td></tr></table></figure>
+<h2 id="4、多维数组扁平化"><a href="#4、多维数组扁平化" class="headerlink" title="4、多维数组扁平化"></a>4、多维数组扁平化</h2><p>将多维数组”拍平”</p>
+<p>将下列数组转为单一数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var myArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]];</div></pre></td></tr></table></figure>
+<h3 id="1、双层遍历法"><a href="#1、双层遍历法" class="headerlink" title="1、双层遍历法"></a>1、双层遍历法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var myArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]];</div><div class="line">var newArray = [];</div><div class="line">for (var i = 0; i &lt; myArray.length; ++i) &#123;</div><div class="line">  for (var j = 0; j &lt; myArray[i].length; ++j)</div><div class="line">    newArray.push(myArray[i][j]);</div><div class="line">&#125;</div><div class="line">console.log(newArray);</div><div class="line">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</div></pre></td></tr></table></figure>
+<h3 id="2、使用concat-和apply"><a href="#2、使用concat-和apply" class="headerlink" title="2、使用concat()和apply()"></a>2、使用concat()和apply()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var myArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]];</div><div class="line">var newArray = [].concat.apply([], myArray);</div><div class="line"></div><div class="line">console.log(newArray);</div><div class="line">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</div></pre></td></tr></table></figure>
+<h3 id="3、使用reduce"><a href="#3、使用reduce" class="headerlink" title="3、使用reduce()"></a>3、使用reduce()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var myArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]];</div><div class="line">var newArray = myArray.reduce(function(prev, curr) &#123;</div><div class="line">  return prev.concat(curr);</div><div class="line">&#125;);</div><div class="line">console.log(newArray);</div><div class="line">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</div></pre></td></tr></table></figure>
+<h3 id="4、使用-ES6-的展开运算符"><a href="#4、使用-ES6-的展开运算符" class="headerlink" title="4、使用 ES6 的展开运算符"></a>4、使用 ES6 的展开运算符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var myArray = [[1, 2],[3, 4, 5], [6, 7, 8, 9]];</div><div class="line">var newArray = [].concat(...myArray);</div><div class="line">console.log(newArray);</div><div class="line">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</div></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p>引用参考列表</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN 的 JavaScript 标准库 Array 部分</a></p>
+<p><a href="http://www.jstips.co/zh_CN/" target="_blank" rel="external">Js Tips</a></p>
 <p><a href="http://www.ferecord.com/lujs-array.html#_13" target="_blank" rel="external">撸js基础之数组</a></p>
 </blockquote>
 <p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/js-array-issue.html</a></p>
@@ -513,9 +565,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -561,9 +613,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -864,9 +916,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
     
   </entry>
   
