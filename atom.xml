@@ -60,6 +60,54 @@
   </entry>
   
   <entry>
+    <title>typeof与instanceof的区别</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-typeof-instanceof.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-typeof-instanceof.html</id>
+    <published>2017-03-26T09:24:36.000Z</published>
+    <updated>2017-03-28T08:25:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>typeof和instanceof都可以用来判断变量，它们的用法有很大区别：</p>
+<ul>
+<li><strong>typeof：返回一个变量的基本类型，检测的是基本数据类型</strong></li>
+<li><strong>instanceof：返回的是一个布尔值，检测的是引用类型</strong></li>
+</ul>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>typeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(typeof 1); // number</div><div class="line">console.log(typeof &quot;abc&quot;); // string</div><div class="line">console.log(typeof true); // boolean</div><div class="line">console.log(typeof a); // undefined</div><div class="line">console.log(typeof new Object()); // object</div><div class="line">console.log(typeof null); // object</div><div class="line">console.log(typeof []); // object</div></pre></td></tr></table></figure>
+<p>可以看到 <code>typeof</code> 无法判断数组、null，不管是数组还是对象，都会返回 object </p>
+<p>更多方法具体可查看 <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-base.html" target="_blank" rel="external">《Javascript基础之数组》</a>—数组检测方法</p>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>instanceof返回的是一个布尔值，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &#123;&#125;;</div><div class="line">console.log(a instanceof Object);  // true</div><div class="line">var b = [];</div><div class="line">console.log(b instanceof Array);  // true</div></pre></td></tr></table></figure>
+<p>instanceof操作符是检测对象的原型链是否指向构造函数的prototype对象,所以可以用来判断数组。</p>
+<p>需要注意的是，<strong>instanceof只能用来判断对象和函数，不能用来判断字符串和数字等</strong>，如：</p>
+<p>```<br>var b = ‘123’;<br>console.log(b instanceof String);  // false<br>console.log(typeof b);  // string</p>
+<p>var c = new String(“123”);<br>console.log(c instanceof String);  // true<br>console.log(typeof c);  // object</p>
+<p>更多格式转换技巧查看：<a href="https://kindlefere.com/skills/convert" target="_blank" rel="external">格式转换 – Kindle伴侣</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;typeof和instanceof都可以用来判断变量，它们的用法有很大区别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;typeof：返回一个变量的基本类型，检测的是基本数据类型&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;instanceof：返回的是一个布尔值，检测的是引用类型&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;typeof&quot;&gt;&lt;a href=&quot;#typeof&quot; class=&quot;headerlink&quot; title=&quot;typeof&quot;&gt;&lt;/a&gt;typeof&lt;/h2&gt;&lt;p&gt;typeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="typeof" scheme="http://www.imeetyou.net/tags/typeof/"/>
+    
+      <category term="instanceof" scheme="http://www.imeetyou.net/tags/instanceof/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Javascript数组常见问题</title>
     <link href="http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html"/>
     <id>http://www.imeetyou.net/posts/frontend/2017/js-array-issue.html</id>
@@ -565,9 +613,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
   </entry>
   
@@ -613,9 +661,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
   </entry>
   
@@ -916,9 +964,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   

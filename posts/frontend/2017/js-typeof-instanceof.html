@@ -4,31 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程 | 智的前端之路</title>
+  <title>typeof与instanceof的区别 | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，在此做个记录教程，方便以后查看。
-使用命令行创建制作 macOS Sierra 正式版 USB 安装盘苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的
+  <meta name="description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
 
-首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料">
+typeof：返回一个变量的基本类型，检测的是基本数据类型
+instanceof：返回的是一个布尔值，检测的是引用类型
+
+typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程">
-<meta property="og:url" content="http://www.imeetyou.net/posts/life/2016/macos-usb-install-drive.html">
+<meta property="og:title" content="typeof与instanceof的区别">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-typeof-instanceof.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="概述最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，在此做个记录教程，方便以后查看。
-使用命令行创建制作 macOS Sierra 正式版 USB 安装盘苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的
+<meta property="og:description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
 
-首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料">
-<meta property="og:image" content="http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg">
-<meta property="og:image" content="http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg">
-<meta property="og:image" content="http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg">
-<meta property="og:updated_time" content="2016-11-12T05:54:11.000Z">
+typeof：返回一个变量的基本类型，检测的是基本数据类型
+instanceof：返回的是一个布尔值，检测的是引用类型
+
+typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
+<meta property="og:updated_time" content="2017-03-28T08:25:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程">
-<meta name="twitter:description" content="概述最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，在此做个记录教程，方便以后查看。
-使用命令行创建制作 macOS Sierra 正式版 USB 安装盘苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的
+<meta name="twitter:title" content="typeof与instanceof的区别">
+<meta name="twitter:description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
 
-首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料">
-<meta name="twitter:image" content="http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg">
+typeof：返回一个变量的基本类型，检测的是基本数据类型
+instanceof：返回的是一个布尔值，检测的是引用类型
+
+typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
@@ -193,11 +195,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-2016/macos-usb-install-drive" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2017/js-typeof-instanceof" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/life/2016/macos-usb-install-drive.html" class="article-date">
-  	<time datetime="2016-11-12T05:38:23.000Z" itemprop="datePublished">2016-11-12</time>
+      <a href="/posts/frontend/2017/js-typeof-instanceof.html" class="article-date">
+  	<time datetime="2017-03-26T09:24:36.000Z" itemprop="datePublished">2017-03-26</time>
 </a>
     </div>
   
@@ -210,7 +212,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程
+      typeof与instanceof的区别
     </h1>
   
 
@@ -219,12 +221,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof/">instanceof</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typeof/">typeof</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
 	</div>
 
 
@@ -234,40 +236,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，<br>在此做个记录教程，方便以后查看。</p>
-<h1 id="使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘"><a href="#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘" class="headerlink" title="使用命令行创建制作 macOS Sierra 正式版 USB 安装盘"></a>使用命令行创建制作 macOS Sierra 正式版 USB 安装盘</h1><p>苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的</p>
+        <p>typeof和instanceof都可以用来判断变量，它们的用法有很大区别：</p>
 <ul>
-<li>首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。</li>
-<li>下载好 macOS Sierra 正式版的安装程序</li>
-<li>打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)</li>
+<li><strong>typeof：返回一个变量的基本类型，检测的是基本数据类型</strong></li>
+<li><strong>instanceof：返回的是一个布尔值，检测的是引用类型</strong></li>
 </ul>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>typeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：</p>
 <a id="more"></a>
-<p><img src="http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg" alt="disk_ulitily_2x"></p>
-<ul>
-<li>打开 “应用程序→实用工具→终端”，将下面的一段命令复制并粘贴进去：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction</div></pre></td></tr></table></figure>
-<ul>
-<li>回车并执行该命令，这时会提示让你输入管理员密码，便会开始制作过程了：</li>
-</ul>
-<p><img src="http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg" alt="terminal_2x"></p>
-<ul>
-<li>如上图，这时系统已经在制作中了，请耐心等待直到屏幕最后出现 Done. 字样即表示大功告成了！然后，就带着U盘出去浪吧……</li>
-</ul>
-<h1 id="通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法"><a href="#通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法" class="headerlink" title="通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法"></a>通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法</h1><p>当你制作好 macOS Sierra 的安装盘 U 盘之后，你就可以利用它来给 Mac 电脑格式化重装 (抹盘安装)了。操作的方法非常简单：</p>
-<ul>
-<li>当然还是要想办法备份好 Mac 里所有的重要数据了。</li>
-<li>插上制作好的安装U盘，如果系统能识别出来即可，这时我们先关机了。</li>
-<li>按下电源键开机，当听到“噹”的一声时，按住 Option 键不放，直到出现启动菜单选项：</li>
-</ul>
-<p><img src="http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg" alt="mac_option_boot"></p>
-<ul>
-<li><p>这时选择安装U盘 (黄色图标) 并回车，就可以开始安装了，在过程中你可以通过“磁盘工具”对 Mac 的磁盘式化或者重新分区等操作。</p>
-</li>
-<li><p>之后就是一步一步的安装直到完成了。</p>
-</li>
-</ul>
-<p>更详细的或可以查看这里 <a href="http://www.iplaysoft.com/macos-usb-install-drive.html" target="_blank" rel="external">异次元</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(typeof 1); // number</div><div class="line">console.log(typeof &quot;abc&quot;); // string</div><div class="line">console.log(typeof true); // boolean</div><div class="line">console.log(typeof a); // undefined</div><div class="line">console.log(typeof new Object()); // object</div><div class="line">console.log(typeof null); // object</div><div class="line">console.log(typeof []); // object</div></pre></td></tr></table></figure>
+<p>可以看到 <code>typeof</code> 无法判断数组、null，不管是数组还是对象，都会返回 object </p>
+<p>更多方法具体可查看 <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-base.html" target="_blank" rel="external">《Javascript基础之数组》</a>—数组检测方法</p>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>instanceof返回的是一个布尔值，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &#123;&#125;;</div><div class="line">console.log(a instanceof Object);  // true</div><div class="line">var b = [];</div><div class="line">console.log(b instanceof Array);  // true</div></pre></td></tr></table></figure>
+<p>instanceof操作符是检测对象的原型链是否指向构造函数的prototype对象,所以可以用来判断数组。</p>
+<p>需要注意的是，<strong>instanceof只能用来判断对象和函数，不能用来判断字符串和数字等</strong>，如：</p>
+<p>```<br>var b = ‘123’;<br>console.log(b instanceof String);  // false<br>console.log(typeof b);  // string</p>
+<p>var c = new String(“123”);<br>console.log(c instanceof String);  // true<br>console.log(typeof c);  // object</p>
+<p>更多格式转换技巧查看：<a href="https://kindlefere.com/skills/convert" target="_blank" rel="external">格式转换 – Kindle伴侣</a></p>
 
       
     </div>
@@ -277,18 +262,18 @@
     
 <nav id="article-nav">
   
-    <a href="/posts/life/2016/mac-os-option.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/life/2017/kindle-book.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          mac开机黑屏解决方法
+          Kindle 书籍源下载推荐
         
       </div>
     </a>
   
   
-    <a href="/posts/frontend/2016/react-native-lifecycle.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Native 中组件的生命周期</div>
+    <a href="/posts/frontend/2017/js-array-issue.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript数组常见问题</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
