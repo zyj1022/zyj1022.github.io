@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-03-28T05:38:24.000Z</updated>
+  <updated>2017-03-29T09:20:21.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之策略模式(Strategy)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</id>
+    <published>2017-03-29T10:16:09.000Z</published>
+    <updated>2017-03-29T09:20:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在程序设计中，我们也常常遇到这样的情况，要实现某一个功能有多种方案可以选择。比如一个压缩文件的程序，既可以选择 zip 算法，也可以选择 gzip 算法。<br>这些算法灵活多样，而且可以随意互相替换。这种解决方案就是将要介绍的策略模式。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>策略模式的定义是:定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</p>
+<p>从定义上看，策略模式就是用来封装算法的。但如果把策略模式仅仅用来封装算法，未免有一点大材小用。在实际开发中，我们通常会把算法的含义扩散开来，使策略模式也可以用来封装一系列的“业务规则”。只要这些业务规则指向的目标一致，并且可以被替换使用，我们就可以用策略模式来封装它们。</p>
+<a id="more"></a>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h3><p>在一个 Web 项目中，注册、登录、修改用户信息等功能的实现都离不开提交表单。</p>
+<p>在将用户输入的数据交给后台之前，常常要做一些客户端力所能及的校验工作，比如注册的时候需要校验是否填写了用户名，密码的长度是否符合规定等等。这样可以避免因为提交不合法数据而带来的不必要网络开销。</p>
+<p>假设我们正在编写一个注册的页面，在点击注册按钮之前，有如下几条校验逻辑。</p>
+<ul>
+<li>用户名不能为空。</li>
+<li>密码长度不能少于 6 位</li>
+<li>手机号码必须符合格式。</li>
+</ul>
+<p>在理解策略模式之前，通常我们遇到类似多条件的业务，按照swith语句来判断，但是这就带来几个问题，首先如果增加需求的话，我们还要再次修改这段代码以增加逻辑，而且在进行单元测试的时候也会越来越复杂，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var validator = &#123;</div><div class="line">    validate: function (value, type) &#123;</div><div class="line">        switch (type) &#123;</div><div class="line">            case &apos;isNonEmpty &apos;:</div><div class="line">                    return true; // NonEmpty 验证结果</div><div class="line">            case &apos;minLength &apos;:</div><div class="line">                    return true; // minLength 验证结果</div><div class="line">                    break;</div><div class="line">            case &apos;isMobile &apos;:</div><div class="line">                    return true; // isMobile 验证结果</div><div class="line">            default:</div><div class="line">                    return true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">// 测试</div><div class="line">alert(validator.validate(&quot;123&quot;, &quot;isNonEmpty&quot;));</div></pre></td></tr></table></figure>
+<h3 id="用策略模式重构表单校验"><a href="#用策略模式重构表单校验" class="headerlink" title="用策略模式重构表单校验"></a>用策略模式重构表单校验</h3><p>用策略模式来重构表单校验的代码，我们可以将相同的工作代码单独封装成不同的类，然后通过统一的策略处理类来处理，OK，我们先来定义策略处理类，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">var validator = &#123;</div><div class="line"></div><div class="line">    // 所有可以的验证规则处理类存放的地方，后面会单独定义</div><div class="line">    types: &#123;&#125;,</div><div class="line"></div><div class="line">    // 验证类型所对应的错误消息</div><div class="line">    messages: [],</div><div class="line"></div><div class="line">    // 当然需要使用的验证类型</div><div class="line">    config: &#123;&#125;,</div><div class="line"></div><div class="line">    // 暴露的公开验证方法</div><div class="line">    // 传入的参数是 key =&gt; value对</div><div class="line">    validate: function (data) &#123;</div><div class="line"></div><div class="line">        var i, msg, type, checker, result_ok;</div><div class="line"></div><div class="line">        // 清空所有的错误信息</div><div class="line">        this.messages = [];</div><div class="line"></div><div class="line">        for (i in data) &#123;</div><div class="line">            if (data.hasOwnProperty(i)) &#123;</div><div class="line"></div><div class="line">                type = this.config[i];  // 根据key查询是否有存在的验证规则</div><div class="line">                checker = this.types[type]; // 获取验证规则的验证类</div><div class="line"></div><div class="line">                if (!type) &#123;</div><div class="line">                    continue; // 如果验证规则不存在，则不处理</div><div class="line">                &#125;</div><div class="line">                if (!checker) &#123; // 如果验证规则类不存在，抛出异常</div><div class="line">                    throw &#123;</div><div class="line">                        name: &quot;ValidationError&quot;,</div><div class="line">                        message: &quot;No handler to validate type &quot; + type</div><div class="line">                    &#125;;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                result_ok = checker.validate(data[i]); // 使用查到到的单个验证类进行验证</div><div class="line">                if (!result_ok) &#123;</div><div class="line">                    msg = &quot;Invalid value for *&quot; + i + &quot;*, &quot; + checker.instructions;</div><div class="line">                    this.messages.push(msg);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return this.hasErrors();</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    // helper</div><div class="line">    hasErrors: function () &#123;</div><div class="line">        return this.messages.length !== 0;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>然后剩下的工作，就是定义types里存放的各种验证类了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 验证给定的值是否不为空</div><div class="line">validator.types.isNonEmpty = &#123;</div><div class="line">    validate: function (value) &#123;</div><div class="line">        return value !== &quot;&quot;;</div><div class="line">    &#125;,</div><div class="line">    instructions: &quot;传入的值不能为空&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 验证给定的值是否是数字</div><div class="line">validator.types.isNumber = &#123;</div><div class="line">    validate: function (value) &#123;</div><div class="line">        return !isNaN(value);</div><div class="line">    &#125;,</div><div class="line">    instructions: &quot;传入的值只能是合法的数字，例如：1, 3.14 or 2010&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 验证给定的值是否只是字母或数字</div><div class="line">validator.types.isAlphaNum = &#123;</div><div class="line">    validate: function (value) &#123;</div><div class="line">        return !/[^a-z0-9]/i.test(value);</div><div class="line">    &#125;,</div><div class="line">    instructions: &quot;传入的值只能保护字母和数字，不能包含特殊字符&quot;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>使用的时候，我们首先要定义需要验证的数据集合，然后还需要定义每种数据需要验证的规则类型，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var data = &#123;</div><div class="line">    first_name: &quot;Tom&quot;,</div><div class="line">    last_name: &quot;Xu&quot;,</div><div class="line">    age: &quot;unknown&quot;,</div><div class="line">    username: &quot;TomXu&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">validator.config = &#123;</div><div class="line">    first_name: &apos;isNonEmpty&apos;,</div><div class="line">    age: &apos;isNumber&apos;,</div><div class="line">    username: &apos;isAlphaNum&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>最后，获取验证结果的代码就简单了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">validator.validate(data);</div><div class="line"></div><div class="line">if (validator.hasErrors()) &#123;</div><div class="line">    console.log(validator.messages.join(&quot;\n&quot;));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="策略模式的优缺点"><a href="#策略模式的优缺点" class="headerlink" title="策略模式的优缺点"></a>策略模式的优缺点</h2><p>策略模式是一种常用且有效的设计模式，我们可以总结出策略模式的一些优点：</p>
+<ol>
+<li>策略模式利用组合、委托和多态等技术和思想，可以有效地避免多重条件选择语句。</li>
+<li>策略模式提供了对开放—封闭原则的完美支持，将算法封装在独立的 strategy 中，使得它们易于切换，易于理解，易于扩展。</li>
+<li>策略模式中的算法也可以复用在系统的其他地方，从而避免许多重复的复制粘贴工作。</li>
+<li>在策略模式中利用组合和委托来让 Context 拥有执行算法的能力，这也是继承的一种更轻便的替代方案。</li>
+</ol>
+<p>当然，策略模式也有一些缺点，但这些缺点并不严重。</p>
+<p>首先，使用策略模式会在程序中增加许多策略类或者策略对象，但实际上这比把它们负责的 逻辑堆砌在 Context 中要好。</p>
+<p>其次，要使用策略模式，必须了解所有的 strategy，必须了解各个 strategy 之间的不同点， 这样才能选择一个合适的 strategy。比如，我们要选择一种合适的旅游出行路线，必须先了解选 择飞机、火车、自行车等方案的细节。此时 strategy 要向客户暴露它的所有实现，这是违反最少 知识原则的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>策略模式定义了一系列算法，从概念上来说，所有的这些算法都是做相同的事情，只是实现不同，他可以以相同的方式调用所有的方法，减少了各种算法类与使用算法类之间的耦合。</p>
+<p>从另外一个层面上来说，单独定义算法类，也方便了单元测试，因为可以通过自己的算法进行单独测试。</p>
+<p>实践中，不仅可以封装算法，也可以用来封装几乎任何类型的规则，是要在分析过程中需要在不同时间应用不同的业务规则，就可以考虑是要策略模式来处理各种变化。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在程序设计中，我们也常常遇到这样的情况，要实现某一个功能有多种方案可以选择。比如一个压缩文件的程序，既可以选择 zip 算法，也可以选择 gzip 算法。&lt;br&gt;这些算法灵活多样，而且可以随意互相替换。这种解决方案就是将要介绍的策略模式。&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;策略模式的定义是:定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。&lt;/p&gt;
+&lt;p&gt;从定义上看，策略模式就是用来封装算法的。但如果把策略模式仅仅用来封装算法，未免有一点大材小用。在实际开发中，我们通常会把算法的含义扩散开来，使策略模式也可以用来封装一系列的“业务规则”。只要这些业务规则指向的目标一致，并且可以被替换使用，我们就可以用策略模式来封装它们。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="strategy" scheme="http://www.imeetyou.net/tags/strategy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之单例模式(Singleton)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-singleton.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-singleton.html</id>
+    <published>2017-03-29T03:36:29.000Z</published>
+    <updated>2017-03-29T09:18:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 JavaScript 开发中，单例模式的用途非常广泛。比如，当我们单击登录按钮的时候，页面中会出现一个登录浮窗，而这个登录浮窗是唯一的，无论单击多少次登录按钮，这个浮窗都只会被创建一次，那么这个登录浮窗就适合用单例模式来创建。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>单例模式的定义是：<strong>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</strong></p>
+<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>经典Singleton模式的实现方式是，如果实例不存在，通过一个方法创建一个实例。如果已经存在，则返回实例的引用。</p>
+<p>Singleton与静态类（对象）不同的是，它可以被延迟生成，只有在需要的时候才会生成实例。</p>
+<p>在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使用对象字面量的方法，其字面量里可以包含大量的属性和方法：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var singleton = (function() &#123;</div><div class="line">	var instance;</div><div class="line"></div><div class="line">	function init() &#123;</div><div class="line">		// define private methods and properties</div><div class="line">		// do something</div><div class="line">		return &#123;</div><div class="line">			// define public methods and properties</div><div class="line">			publicMethod: function() &#123;</div><div class="line">				console.log(&apos;hello singleton!&apos;)</div><div class="line">			&#125;,</div><div class="line">			publicProperty: &apos;test&apos;</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">	return &#123;</div><div class="line">		getInstance: function() &#123;</div><div class="line">			if (!instance) &#123;</div><div class="line">				instance = init()</div><div class="line">			&#125;</div><div class="line">			return instance</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">singleton.getInstance().publicMethod(); // hello singleton!</div><div class="line">console.log(singleton.getInstance().publicProperty); // test</div></pre></td></tr></table></figure>
+<h2 id="其它实现方法"><a href="#其它实现方法" class="headerlink" title="其它实现方法"></a>其它实现方法</h2><h3 id="方法1："><a href="#方法1：" class="headerlink" title="方法1："></a>方法1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function Universe() &#123;</div><div class="line"></div><div class="line">    // 判断是否存在实例</div><div class="line">    if (typeof Universe.instance === &apos;object&apos;) &#123;</div><div class="line">        return Universe.instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 其它内容</div><div class="line">    this.start_time = 0;</div><div class="line">    this.bang = &quot;Big&quot;;</div><div class="line"></div><div class="line">    // 缓存</div><div class="line">    Universe.instance = this;</div><div class="line"></div><div class="line">    // 隐式返回this</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试</div><div class="line">var uni = new Universe();</div><div class="line">var uni2 = new Universe();</div><div class="line">console.log(uni === uni2); // true</div><div class="line">`</div></pre></td></tr></table></figure>
+<h3 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function Universe() &#123;</div><div class="line"></div><div class="line">    // 缓存的实例</div><div class="line">    var instance = this;</div><div class="line"></div><div class="line">    // 其它内容</div><div class="line">    this.start_time = 0;</div><div class="line">    this.bang = &quot;Big&quot;;</div><div class="line"></div><div class="line">    // 重写构造函数</div><div class="line">    Universe = function () &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试</div><div class="line">var uni = new Universe();</div><div class="line">var uni2 = new Universe();</div><div class="line">uni.bang = &quot;123&quot;;</div><div class="line">console.log(uni === uni2); // true</div><div class="line">console.log(uni2.bang); // 123</div><div class="line">`</div></pre></td></tr></table></figure>
+<h3 id="方法3："><a href="#方法3：" class="headerlink" title="方法3："></a>方法3：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">function Universe() &#123;</div><div class="line"></div><div class="line">    // 缓存实例</div><div class="line">    var instance;</div><div class="line"></div><div class="line">    // 重新构造函数</div><div class="line">    Universe = function Universe() &#123;</div><div class="line">        return instance;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    // 后期处理原型属性</div><div class="line">    Universe.prototype = this;</div><div class="line"></div><div class="line">    // 实例</div><div class="line">    instance = new Universe();</div><div class="line"></div><div class="line">    // 重设构造函数指针</div><div class="line">    instance.constructor = Universe;</div><div class="line"></div><div class="line">    // 其它功能</div><div class="line">    instance.start_time = 0;</div><div class="line">    instance.bang = &quot;Big&quot;;</div><div class="line"></div><div class="line">    return instance;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 测试</div><div class="line">var uni = new Universe();</div><div class="line">var uni2 = new Universe();</div><div class="line">console.log(uni === uni2); // true</div><div class="line"></div><div class="line">// 添加原型属性</div><div class="line">Universe.prototype.nothing = true;</div><div class="line"></div><div class="line">var uni = new Universe();</div><div class="line"></div><div class="line">Universe.prototype.everything = true;</div><div class="line"></div><div class="line">var uni2 = new Universe();</div><div class="line"></div><div class="line">console.log(uni.nothing); // true</div><div class="line">console.log(uni2.nothing); // true</div><div class="line">console.log(uni.everything); // true</div><div class="line">console.log(uni2.everything); // true</div><div class="line">console.log(uni.constructor === Universe); // true</div></pre></td></tr></table></figure>
+<h3 id="方式4"><a href="#方式4" class="headerlink" title="方式4:"></a>方式4:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var Universe;</div><div class="line"></div><div class="line">(function () &#123;</div><div class="line"></div><div class="line">    var instance;</div><div class="line"></div><div class="line">    Universe = function Universe() &#123;</div><div class="line"></div><div class="line">        if (instance) &#123;</div><div class="line">            return instance;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        instance = this;</div><div class="line"></div><div class="line">        // 其它内容</div><div class="line">        this.start_time = 0;</div><div class="line">        this.bang = &quot;Big&quot;;</div><div class="line">    &#125;;</div><div class="line">&#125; ());</div><div class="line"></div><div class="line">//测试代码</div><div class="line">var a = new Universe();</div><div class="line">var b = new Universe();</div><div class="line">alert(a === b); // true</div><div class="line">a.bang = &quot;123&quot;;</div><div class="line">alert(b.bang); // 123</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考及引用资料：</p>
+<p><a href="https://github.com/shichuan/javascript-patterns/blob/master/design-patterns/singleton.html" target="_blank" rel="external">https://github.com/shichuan/javascript-patterns/blob/master/design-patterns/singleton.html</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 JavaScript 开发中，单例模式的用途非常广泛。比如，当我们单击登录按钮的时候，页面中会出现一个登录浮窗，而这个登录浮窗是唯一的，无论单击多少次登录按钮，这个浮窗都只会被创建一次，那么这个登录浮窗就适合用单例模式来创建。&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;单例模式的定义是：&lt;strong&gt;保证一个类仅有一个实例，并提供一个访问它的全局访问点。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;实现方法&quot;&gt;&lt;a href=&quot;#实现方法&quot; class=&quot;headerlink&quot; title=&quot;实现方法&quot;&gt;&lt;/a&gt;实现方法&lt;/h2&gt;&lt;p&gt;经典Singleton模式的实现方式是，如果实例不存在，通过一个方法创建一个实例。如果已经存在，则返回实例的引用。&lt;/p&gt;
+&lt;p&gt;Singleton与静态类（对象）不同的是，它可以被延迟生成，只有在需要的时候才会生成实例。&lt;/p&gt;
+&lt;p&gt;在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使用对象字面量的方法，其字面量里可以包含大量的属性和方法：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="singleton" scheme="http://www.imeetyou.net/tags/singleton/"/>
+    
+  </entry>
   
   <entry>
     <title>Kindle 书籍源下载推荐</title>
@@ -704,9 +814,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -964,9 +1074,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
     
   </entry>
   
@@ -1447,65 +1557,6 @@
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
       <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello Hexo</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/hellow-hexo.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/hellow-hexo.html</id>
-    <published>2016-02-16T06:31:54.000Z</published>
-    <updated>2016-10-11T09:42:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>重新安装了Hexo，作为一个新的开始，做工作及学习记录。<br>hexo 的 主题很好，做点好玩的皮肤吧。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;重新安装了Hexo，作为一个新的开始，做工作及学习记录。&lt;br&gt;hexo 的 主题很好，做点好玩的皮肤吧。&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
-    
-      <category term="github" scheme="http://www.imeetyou.net/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/hello-world.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/hello-world.html</id>
-    <published>2016-02-01T04:31:54.000Z</published>
-    <updated>2016-10-11T09:58:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
-    
-      <category term="github" scheme="http://www.imeetyou.net/tags/github/"/>
     
   </entry>
   

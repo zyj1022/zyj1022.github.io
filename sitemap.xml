@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
+    
+    <lastmod>2017-03-29T09:20:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-singleton.html</loc>
+    
+    <lastmod>2017-03-29T09:18:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/js-typeof-instanceof.html</loc>
     
     <lastmod>2017-03-28T08:25:23.000Z</lastmod>
