@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/html-safari-fixed.html</loc>
+    
+    <lastmod>2017-03-31T09:57:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
+    
+    <lastmod>2017-03-31T09:45:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html</loc>
     
     <lastmod>2017-03-29T09:20:21.000Z</lastmod>
     

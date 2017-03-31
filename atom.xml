@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-03-29T09:20:21.000Z</updated>
+  <updated>2017-03-31T09:57:19.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -16,9 +16,120 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>设计模式之策略模式(Strategy)</title>
+    <title>safari浏览器fixed后，被软键盘遮盖的问题</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/html-safari-fixed.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/html-safari-fixed.html</id>
+    <published>2017-03-31T10:12:19.000Z</published>
+    <updated>2017-03-31T09:57:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><strong>测试环境：ios 10.2/10.3</strong></p>
+<p>简单来说就是在html5页面中底部有个fixed的区域，如图</p>
+<a id="more"></a>
+<p><img src="http://og8z552x2.bkt.clouddn.com/safari-fix1.png" alt="safari-fix"></p>
+<p>在点击输入框的时候，软键盘弹出，遮盖了fixed区域，如图</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/safari-fix2.png" alt="safari-fix"></p>
+<p>但是当你点击“完成”让软键盘收起，再次点击输入框的时候，what？一切正常了～！如图（就是要这样子的嘛，之后收起弹出软键盘都正常了，不会遮盖fixed底部区域了！）</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/safari-fix3.png" alt="safari-fix"></p>
+<p>但是，但是，还没完，在输入框里随便输入点内容，点击“提交”，关闭软键盘，之后再次点击输入框，问题依旧～，软键盘再次遮挡fixed区域。</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/safari-fix4.png" alt="safari-fix"></p>
+<p>如上循环，问题无法解决。</p>
+<h2 id="测试代码如下"><a href="#测试代码如下" class="headerlink" title="测试代码如下"></a>测试代码如下</h2><p>代码很简单，但还是贴一下，方便测试，只需要复制粘贴到本机即可测试上述现象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</div><div class="line">    &lt;title&gt;fixed测试页面&lt;/title&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1, maximum-scale=1&quot;&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</div><div class="line"></div><div class="line">	&lt;style&gt;</div><div class="line">		.head &#123;</div><div class="line">			top: 0;</div><div class="line">			height: 50px;</div><div class="line">			line-height: 50px;</div><div class="line">			text-align: center;</div><div class="line">			position: fixed;</div><div class="line">			left: 0;</div><div class="line">			width: 100%;</div><div class="line">			z-index: 10;</div><div class="line">			background-color: #99CC00;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.foot &#123;</div><div class="line">			bottom: 0;</div><div class="line">			padding: 10px;</div><div class="line">			position: fixed;</div><div class="line">			left: 0;</div><div class="line">			width: 100%;</div><div class="line">			background-color: #99CC00;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.main &#123;</div><div class="line">			width: 100%;</div><div class="line">			height: 100%;</div><div class="line">			overflow-y: scroll;</div><div class="line">			-webkit-overflow-scrolling: touch;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.list &#123;</div><div class="line">			padding: 0;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		.list li &#123;</div><div class="line">			list-style: none;</div><div class="line">			background: #ccc;</div><div class="line">			height: 140px;</div><div class="line">			margin-bottom: 10px;</div><div class="line">			width: 100%;</div><div class="line">			padding:10px;</div><div class="line">		&#125;</div><div class="line">		.list a &#123;</div><div class="line">			border:2px solid #999;</div><div class="line">			display: block;</div><div class="line">			width:88%;</div><div class="line">			position: absolute;</div><div class="line">			height:140px;</div><div class="line">		&#125;</div><div class="line">		.input &#123;</div><div class="line">			width: 76%;</div><div class="line">			line-height: 30px;</div><div class="line">			border: none;</div><div class="line">			float: left;</div><div class="line">			border-radius:5px;</div><div class="line">		&#125;</div><div class="line">		.btn &#123;</div><div class="line">			float:right;</div><div class="line">			margin-right:15px;</div><div class="line">			border-radius:5px;</div><div class="line">			height:34px;</div><div class="line">			line-height: 32px;</div><div class="line">			padding: 0 10px;</div><div class="line">			border: none;</div><div class="line">			background: #000;</div><div class="line">			color: #fff;</div><div class="line">		&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;header class=&quot;head&quot;&gt;顶部固定区域&lt;/header&gt;</div><div class="line"></div><div class="line">	&lt;main class=&quot;main&quot;&gt;</div><div class="line">		&lt;div class=&quot;content&quot;&gt;</div><div class="line">			&lt;ul class=&quot;list&quot;&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">			&lt;/ul&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">	&lt;/main&gt;</div><div class="line"></div><div class="line">	&lt;footer class=&quot;foot&quot; id=&quot;footer-fixed&quot;&gt;</div><div class="line">		&lt;button type=&quot;button&quot; id=&quot;btn-submit&quot; class=&quot;btn&quot; name=&quot;button&quot;&gt;提交&lt;/button&gt;</div><div class="line">		&lt;input type=&quot;text&quot; id=&quot;input-txt&quot; class=&quot;input&quot; name=&quot;&quot; value=&quot;&quot; placeholder=&quot;我来说两句...(200字内)&quot;&gt;</div><div class="line">	&lt;/footer&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="尝试过的解决方案"><a href="#尝试过的解决方案" class="headerlink" title="尝试过的解决方案"></a>尝试过的解决方案</h2><p>搜索后有很多解决方法，但发现他们都没解决上述问题，</p>
+<p><strong>暂时的想法，绕过fixed点击输入框后，隐藏此区域，在顶部出现更大的输入区域以让用户输入内容。</strong></p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000005370182#articleHeader2" target="_blank" rel="external">IOS中弹出键盘后出现fixed失效现象的解决方案</a></li>
+<li><a href="http://blog.csdn.net/kongjiea/article/details/46545351" target="_blank" rel="external">移动端解决fixed和input获取焦点软键盘弹出影响定位的问题</a></li>
+<li><a href="http://www.cnblogs.com/yexiaochai/p/3561939.html" target="_blank" rel="external">虚拟键盘与fixed带给移动端的痛</a></li>
+<li><a href="http://www.cnblogs.com/PeunZhang/archive/2013/06/14/3117589.html" target="_blank" rel="external">使用iScroll.js解决ios4下不支持position:fixed的问题</a></li>
+</ul>
+<p>好，至此，问题描述完毕，期待有牛人更好解决方案</p>
+<hr>
+<blockquote>
+<p>segmentfault 专栏提出了问题</p>
+<p><a href="https://segmentfault.com/a/1190000008906437?_ea=1772278" target="_blank" rel="external">https://segmentfault.com/a/1190000008906437?_ea=1772278</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。&lt;/p&gt;
+&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;测试环境：ios 10.2/10.3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单来说就是在html5页面中底部有个fixed的区域，如图&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
+    
+      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
+    
+      <category term="fixed" scheme="http://www.imeetyou.net/tags/fixed/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之代理模式(Proxy)</title>
     <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html"/>
     <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</id>
+    <published>2017-03-31T09:56:19.000Z</published>
+    <updated>2017-03-31T09:45:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。</p>
+<p>代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：</p>
+<blockquote>
+<p>代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。</p>
+</blockquote>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><p>我们来举一个简单的例子，假如小明要送酸奶小妹玫瑰花，却不知道她的联系方式或者不好意思，想委托大叔去送这些玫瑰，那大叔就是个代理，那我们如何来做呢？</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 先声明美女对象</div><div class="line">var girl = function (name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 这是小明</div><div class="line">var xiaoMing = function (girl) &#123;</div><div class="line">    this.girl = girl;</div><div class="line">    this.sendGift = function (gift) &#123;</div><div class="line">        alert(&quot;Hi &quot; + girl.name + &quot;, 小明送你一个礼物：&quot; + gift);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 大叔是代理</div><div class="line">var proxyTom = function (girl) &#123;</div><div class="line">    this.girl = girl;</div><div class="line">    this.sendGift = function (gift) &#123;</div><div class="line">        (new xiaoMing(girl)).sendGift(gift); // 替dudu送花咯</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>调用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var proxy = new proxyTom(new girl(&quot;酸奶小妹&quot;));</div><div class="line">proxy.sendGift(&quot;999朵玫瑰&quot;);</div></pre></td></tr></table></figure>
+<h3 id="虚拟代理实现图片预加载"><a href="#虚拟代理实现图片预加载" class="headerlink" title="虚拟代理实现图片预加载"></a>虚拟代理实现图片预加载</h3><p>在 Web 开发中，图片预加载是一种常用的技术，如果直接给某个 img 标签节点设置 src 属性， 由于图片过大或者网络不佳，图片的位置往往有段时间会是一片空白。常见的做法是先用一张 loading 图片占位，然后用异步的方式加载图片，等图片加载好了再把它填充到 img 节点里，这种 场景就很适合使用虚拟代理。</p>
+<p>下面我们来实现这个虚拟代理，首先创建一个普通的本体对象，这个对象负责往页面中创建 一个 img 标签，并且提供一个对外的 setSrc 接口，外界调用这个接口，便可以给该 img 标签设置<br>src 属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var myImage = (function()&#123;</div><div class="line">	var imgNode = document.createElement( &apos;img&apos; );</div><div class="line">	document.body.appendChild( imgNode );</div><div class="line">	return &#123;</div><div class="line">		setSrc: function( src ) &#123;</div><div class="line">			imgNode.src = src;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)();```我们把网速调至 5KB/s，然后通过 MyImage.setSrc 给该 img 节点设置 src，可以看到，在图片被加载好之前，页面中有一段长长的空白时间。现在开始引入代理对象 proxyImage，通过这个代理对象，在图片被真正加载好之前，页面中将出现一张占位的菊花图 loading.gif, 来提示用户图片正在加载。代码如下:</div></pre></td></tr></table></figure>
+<p>var myImage = (function(){<br>    var imgNode = document.createElement( ‘img’ );<br>    document.body.appendChild( imgNode );<br>    return {<br>        setSrc: function( src ) {<br>            imgNode.src = src;<br>        }<br>    }<br>})();</p>
+<p>var proxyImage = (function() {<br>    var img = new Image;<br>    img.onload = function() {<br>        myImage.setSrc( this.src );<br>    }<br>    return {<br>        setSrc: function( src ) {<br>            myImage.setSrc( ‘./pic.jpg’ );<br>            img.src = src;<br>        }<br>    }<br>})();</p>
+<p>proxyImage.setSrc( ‘./loading.gif’ );<br>```</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在 JavaScript 开发中最常用的是虚拟代理和缓存代理。虽然代理模式非常有用，但我们在编写业务代码的时候，往往不需要去预先猜测是否需要使用代理模式。 当真正发现不方便直接访问某个对象的时候，再编写代理也不迟。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。&lt;/p&gt;
+&lt;p&gt;代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;使用实例&quot;&gt;&lt;a href=&quot;#使用实例&quot; class=&quot;headerlink&quot; title=&quot;使用实例&quot;&gt;&lt;/a&gt;使用实例&lt;/h2&gt;&lt;h3 id=&quot;简单实例&quot;&gt;&lt;a href=&quot;#简单实例&quot; class=&quot;headerlink&quot; title=&quot;简单实例&quot;&gt;&lt;/a&gt;简单实例&lt;/h3&gt;&lt;p&gt;我们来举一个简单的例子，假如小明要送酸奶小妹玫瑰花，却不知道她的联系方式或者不好意思，想委托大叔去送这些玫瑰，那大叔就是个代理，那我们如何来做呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="proxy" scheme="http://www.imeetyou.net/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之策略模式(Strategy)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html</id>
     <published>2017-03-29T10:16:09.000Z</published>
     <updated>2017-03-29T09:20:21.000Z</updated>
     
@@ -814,9 +925,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
     
   </entry>
   
@@ -1074,9 +1185,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -1493,70 +1604,6 @@
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
       <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac格式化U盘方法（解决win下只有200MB的问题）</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/mac-u-format.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/mac-u-format.html</id>
-    <published>2016-11-07T01:44:34.000Z</published>
-    <updated>2016-11-09T02:41:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~</p>
-<ul>
-<li>将U盘插入Mac电脑，然后打开磁盘工具</li>
-<li>注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。</li>
-</ul>
-<a id="more"></a>
-<p><img src="http://og8z552x2.bkt.clouddn.com/mac-u.jpg" alt="mac-u"></p>
-<ul>
-<li>再插到win电脑上看一下，是不是成功了，就这么简单！</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将U盘插入Mac电脑，然后打开磁盘工具&lt;/li&gt;
-&lt;li&gt;注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Angular2 英雄练级攻略</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/angular2-hero.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/angular2-hero.html</id>
-    <published>2016-10-11T09:44:34.000Z</published>
-    <updated>2016-10-11T09:50:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Angular2 英雄练级攻略</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Angular2 英雄练级攻略&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="angular2" scheme="http://www.imeetyou.net/tags/angular2/"/>
     
   </entry>
   
