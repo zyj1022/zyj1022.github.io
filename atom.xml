@@ -125,11 +125,11 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
+      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
+    
       <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
     
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
-      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
     
       <category term="fixed" scheme="http://www.imeetyou.net/tags/fixed/"/>
     
@@ -896,9 +896,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
   </entry>
   
@@ -944,9 +944,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
   </entry>
   
