@@ -4,33 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>typeof与instanceof的区别 | 智的前端之路</title>
+  <title>设计模式之代理模式(Proxy) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
+  <meta name="description" content="代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。
+代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。
+定义代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：
 
-typeof：返回一个变量的基本类型，检测的是基本数据类型
-instanceof：返回的是一个布尔值，检测的是引用类型
-
-typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
+代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="typeof与instanceof的区别">
-<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-typeof-instanceof.html">
+<meta property="og:title" content="设计模式之代理模式(Proxy)">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
+<meta property="og:description" content="代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。
+代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。
+定义代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：
 
-typeof：返回一个变量的基本类型，检测的是基本数据类型
-instanceof：返回的是一个布尔值，检测的是引用类型
-
-typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
-<meta property="og:updated_time" content="2017-03-28T08:25:23.000Z">
+代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。">
+<meta property="og:updated_time" content="2017-03-31T09:45:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="typeof与instanceof的区别">
-<meta name="twitter:description" content="typeof和instanceof都可以用来判断变量，它们的用法有很大区别：
+<meta name="twitter:title" content="设计模式之代理模式(Proxy)">
+<meta name="twitter:description" content="代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。
+代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。
+定义代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：
 
-typeof：返回一个变量的基本类型，检测的是基本数据类型
-instanceof：返回的是一个布尔值，检测的是引用类型
-
-typeoftypeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：">
+代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
@@ -195,11 +192,11 @@ typeoftypeof会返回一个变量的基本类型，只有以下几种：number,b
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-2017/js-typeof-instanceof" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2017/js-dp-iterator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/posts/frontend/2017/js-typeof-instanceof.html" class="article-date">
-  	<time datetime="2017-03-26T09:24:36.000Z" itemprop="datePublished">2017-03-26</time>
+      <a href="/posts/frontend/2017/js-dp-iterator.html" class="article-date">
+  	<time datetime="2017-03-31T09:56:19.000Z" itemprop="datePublished">2017-03-31</time>
 </a>
     </div>
   
@@ -212,7 +209,7 @@ typeoftypeof会返回一个变量的基本类型，只有以下几种：number,b
         
   
     <h1 class="article-title" itemprop="name">
-      typeof与instanceof的区别
+      设计模式之代理模式(Proxy)
     </h1>
   
 
@@ -221,7 +218,7 @@ typeoftypeof会返回一个变量的基本类型，只有以下几种：number,b
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof/">instanceof</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typeof/">typeof</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li></ul>
 	</div>
 
         
@@ -236,23 +233,29 @@ typeoftypeof会返回一个变量的基本类型，只有以下几种：number,b
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>typeof和instanceof都可以用来判断变量，它们的用法有很大区别：</p>
-<ul>
-<li><strong>typeof：返回一个变量的基本类型，检测的是基本数据类型</strong></li>
-<li><strong>instanceof：返回的是一个布尔值，检测的是引用类型</strong></li>
-</ul>
-<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>typeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：</p>
+        <p>代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。</p>
+<p>代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：</p>
+<blockquote>
+<p>代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。</p>
+</blockquote>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><p>我们来举一个简单的例子，假如小明要送酸奶小妹玫瑰花，却不知道她的联系方式或者不好意思，想委托大叔去送这些玫瑰，那大叔就是个代理，那我们如何来做呢？</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">console.log(typeof 1); // number</div><div class="line">console.log(typeof &quot;abc&quot;); // string</div><div class="line">console.log(typeof true); // boolean</div><div class="line">console.log(typeof a); // undefined</div><div class="line">console.log(typeof new Object()); // object</div><div class="line">console.log(typeof null); // object</div><div class="line">console.log(typeof []); // object</div></pre></td></tr></table></figure>
-<p>可以看到 <code>typeof</code> 无法判断数组、null，不管是数组还是对象，都会返回 object </p>
-<p>更多方法具体可查看 <a href="http://zyj1022.github.io/posts/frontend/2017/js-array-base.html" target="_blank" rel="external">《Javascript基础之数组》</a>—数组检测方法</p>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>instanceof返回的是一个布尔值，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = &#123;&#125;;</div><div class="line">console.log(a instanceof Object);  // true</div><div class="line">var b = [];</div><div class="line">console.log(b instanceof Array);  // true</div></pre></td></tr></table></figure>
-<p>instanceof操作符是检测对象的原型链是否指向构造函数的prototype对象,所以可以用来判断数组。</p>
-<p>需要注意的是，<strong>instanceof只能用来判断对象和函数，不能用来判断字符串和数字等</strong>，如：</p>
-<p>```<br>var b = ‘123’;<br>console.log(b instanceof String);  // false<br>console.log(typeof b);  // string</p>
-<p>var c = new String(“123”);<br>console.log(c instanceof String);  // true<br>console.log(typeof c);  // object</p>
-<p>更多格式转换技巧查看：<a href="https://kindlefere.com/skills/convert" target="_blank" rel="external">格式转换 – Kindle伴侣</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 先声明美女对象</div><div class="line">var girl = function (name) &#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 这是小明</div><div class="line">var xiaoMing = function (girl) &#123;</div><div class="line">    this.girl = girl;</div><div class="line">    this.sendGift = function (gift) &#123;</div><div class="line">        alert(&quot;Hi &quot; + girl.name + &quot;, 小明送你一个礼物：&quot; + gift);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 大叔是代理</div><div class="line">var proxyTom = function (girl) &#123;</div><div class="line">    this.girl = girl;</div><div class="line">    this.sendGift = function (gift) &#123;</div><div class="line">        (new xiaoMing(girl)).sendGift(gift); // 替dudu送花咯</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>调用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var proxy = new proxyTom(new girl(&quot;酸奶小妹&quot;));</div><div class="line">proxy.sendGift(&quot;999朵玫瑰&quot;);</div></pre></td></tr></table></figure>
+<h3 id="虚拟代理实现图片预加载"><a href="#虚拟代理实现图片预加载" class="headerlink" title="虚拟代理实现图片预加载"></a>虚拟代理实现图片预加载</h3><p>在 Web 开发中，图片预加载是一种常用的技术，如果直接给某个 img 标签节点设置 src 属性， 由于图片过大或者网络不佳，图片的位置往往有段时间会是一片空白。常见的做法是先用一张 loading 图片占位，然后用异步的方式加载图片，等图片加载好了再把它填充到 img 节点里，这种 场景就很适合使用虚拟代理。</p>
+<p>下面我们来实现这个虚拟代理，首先创建一个普通的本体对象，这个对象负责往页面中创建 一个 img 标签，并且提供一个对外的 setSrc 接口，外界调用这个接口，便可以给该 img 标签设置<br>src 属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var myImage = (function()&#123;</div><div class="line">	var imgNode = document.createElement( &apos;img&apos; );</div><div class="line">	document.body.appendChild( imgNode );</div><div class="line">	return &#123;</div><div class="line">		setSrc: function( src ) &#123;</div><div class="line">			imgNode.src = src;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)();```我们把网速调至 5KB/s，然后通过 MyImage.setSrc 给该 img 节点设置 src，可以看到，在图片被加载好之前，页面中有一段长长的空白时间。现在开始引入代理对象 proxyImage，通过这个代理对象，在图片被真正加载好之前，页面中将出现一张占位的菊花图 loading.gif, 来提示用户图片正在加载。代码如下:</div></pre></td></tr></table></figure>
+<p>var myImage = (function(){<br>    var imgNode = document.createElement( ‘img’ );<br>    document.body.appendChild( imgNode );<br>    return {<br>        setSrc: function( src ) {<br>            imgNode.src = src;<br>        }<br>    }<br>})();</p>
+<p>var proxyImage = (function() {<br>    var img = new Image;<br>    img.onload = function() {<br>        myImage.setSrc( this.src );<br>    }<br>    return {<br>        setSrc: function( src ) {<br>            myImage.setSrc( ‘./pic.jpg’ );<br>            img.src = src;<br>        }<br>    }<br>})();</p>
+<p>proxyImage.setSrc( ‘./loading.gif’ );<br>```</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在 JavaScript 开发中最常用的是虚拟代理和缓存代理。虽然代理模式非常有用，但我们在编写业务代码的时候，往往不需要去预先猜测是否需要使用代理模式。 当真正发现不方便直接访问某个对象的时候，再编写代理也不迟。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
 
       
     </div>
@@ -262,18 +265,18 @@ typeoftypeof会返回一个变量的基本类型，只有以下几种：number,b
     
 <nav id="article-nav">
   
-    <a href="/posts/life/2017/kindle-book.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/frontend/2017/html-safari-fixed.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Kindle 书籍源下载推荐
+          safari浏览器fixed后，被软键盘遮盖的问题
         
       </div>
     </a>
   
   
-    <a href="/posts/frontend/2017/js-array-issue.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Javascript数组常见问题</div>
+    <a href="/posts/frontend/2017/js-dp-proxy.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式之策略模式(Strategy)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

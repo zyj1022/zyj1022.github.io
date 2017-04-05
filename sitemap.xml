@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
+    
+    <lastmod>2017-04-01T07:41:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/html-safari-fixed.html</loc>
     
     <lastmod>2017-03-31T09:57:19.000Z</lastmod>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html</loc>
     
     <lastmod>2017-03-31T09:45:01.000Z</lastmod>
     

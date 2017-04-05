@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-03-31T09:57:19.000Z</updated>
+  <updated>2017-04-01T07:41:48.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之迭代器模式(Iterator)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</id>
+    <published>2017-04-01T04:53:39.000Z</published>
+    <updated>2017-04-01T07:41:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。</p>
+<p>比如：JavaScript 的 <code>Array.prototype.forEach</code></p>
+<p>jQuery里一个非常有名的迭代器就是 <code>$.each</code> 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each( [1, 2, 3], function( i, n )&#123;</div><div class="line">	console.log( &apos;当前下标为： &apos;+ i,&apos;当前值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 下标： 0 当前值:1 </div><div class="line">// 下标： 1 当前值:2  </div><div class="line">// 下标： 2 当前值:3</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>迭代器模式(Iterator)：提供一种方法顺序一个聚合对象中各个元素，而又不暴露该对象内部表示。</p>
+<p>迭代器的几个特点是：</p>
+<ul>
+<li>访问一个聚合对象的内容而无需暴露它的内部表示。</li>
+<li>为遍历不同的集合结构提供一个统一的接口，从而支持同样的算法在不同的集合结构上进行操作。</li>
+<li>遍历的同时更改迭代器所在的集合结构可能会导致问题（比如C#的foreach里不允许修改item）。</li>
+</ul>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="实现自己的迭代器"><a href="#实现自己的迭代器" class="headerlink" title="实现自己的迭代器"></a>实现自己的迭代器</h3><p>参照jQuery的<code>$.each</code> 方法, 我们来自己实现一个 each 函数，each 函数接受 2 个参数，第一个为被循环的数组，第二个为循环中的每一步后将被触发的回调函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var each = function( ary, callback ) &#123;</div><div class="line">	for ( var i = 0, l = ary.length; i &lt; l; i++ )&#123;</div><div class="line">		callback.call( ary[i], i, ary[ i ] ); </div><div class="line">		// 把下标和元素当作参数传给callback 函数</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">each( [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ], function( i, n )&#123;</div><div class="line">	console.log( &apos;自定义下标为： &apos;+ i,&apos;自定义值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 自定义下标为： 0 自定义值为:a  </div><div class="line">// 自定义下标为： 1 自定义值为:b </div><div class="line">// 自定义下标为： 2 自定义值为:c</div></pre></td></tr></table></figure>
+<h3 id="迭代器模式的应用举例"><a href="#迭代器模式的应用举例" class="headerlink" title="迭代器模式的应用举例"></a>迭代器模式的应用举例</h3><p>以常用的上传文件功能为例，在不同的浏览器环境下，选择的上传方式是不一样的。因为使用浏览器的上传控件进行上传速度快，可以暂停和续传，所以我们首先会优先使用控件上传。如果浏览器没有安装上传控件， 则使用 Flash 上传， 如果连 Flash 也没安装，那就只好使用浏览器原生的表单上传了，代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var getUploadObj = function() &#123;</div><div class="line">	try &#123;</div><div class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;); // IE 上传控件</div><div class="line">	&#125; catch (e) &#123;</div><div class="line">		if (supportFlash()) &#123; // supportFlash 函数未提供</div><div class="line">			var str = &apos;&lt;object type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;;</div><div class="line">			return $(str).appendTo($(&apos;body&apos;));</div><div class="line">		&#125; else &#123;</div><div class="line">			var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot;/&gt;&apos;; // 表单上传</div><div class="line">			return $(str).appendTo($(&apos;body&apos;));</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>看看上面的代码，为了得到一个 upload 对象，这个 getUploadObj 函数里面充斥了 try，catch 以及 if 条件分支。缺点是显而易见的。</p>
+<p>现在来梳理一下问题，目前一共有 3 种可能的上传方式，我们不知道目前浏览器支持那种上传方式，那就需要逐个尝试，直到成功为止，分别定义以下几个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// IE 上传控件</div><div class="line">var getActiveUploadObj = function() &#123;</div><div class="line">	try &#123;</div><div class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;); </div><div class="line">	&#125; catch (e) &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// Flash 上传</div><div class="line">var getFlashUploadObj = function() &#123;</div><div class="line">	if (supportFlash()) &#123; // supportFlash 函数未提供</div><div class="line">		var str = &apos;&lt;object type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;;</div><div class="line">		return $(str).appendTo($(&apos;body&apos;));</div><div class="line">	&#125;;</div><div class="line">	return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 表单上传</div><div class="line">var getFormUpladObj = function() &#123;</div><div class="line">	var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot; class=&quot;ui-file&quot;/&gt;&apos;; </div><div class="line">	return $(str).appendTo($(&apos;body&apos;));</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在以上三个函数中，如果该函数里面的 upload 对象是可用的，则让函数返回该对象，反之返回 false，提示迭代器继续往后面进行迭代。</p>
+<p>那么迭代器只需进行下面这几步工作：</p>
+<ul>
+<li>提供一个可以被迭代的方法，使得 getActiveUploadObj，getFlashUploadObj 以及 getFlashUploadObj 依照优先级被循环迭代。</li>
+<li>如果正在被迭代的函数返回一个对象，则表示找到了正确的 upload 对象，反之如果该函数返回 false，则让迭代器继续工作。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var iteratorUpload = function() &#123;</div><div class="line">	for (var i = 0, fn; fn = arguments[i++];) &#123;</div><div class="line">		var upload = fn();</div><div class="line">		if (upload !== false) &#123;</div><div class="line">			return upload;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var uploadObj = iteratorUpload( getActiveUploadObj, getFlashUploadObj, getFormUpladObj )</div></pre></td></tr></table></figure>
+<p>重构代码之后，可以看到，上传对象的各个函数彼此分离互补干扰，很方便维护和扩展，如果后期增加了 Webkit 控件上传和 HTML5 上传，我们就增加对应的函数功能并在迭代器里添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var getWebkitUploadObj = function()&#123; </div><div class="line"> // 具体代码略</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getHtml5UploadObj = function()&#123; </div><div class="line"> // 具体代码略</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 依照优先级把它们添加进迭代器</div><div class="line">var uploadObj = iteratorUploadObj( getActiveUploadObj, getWebkitUploadObj,getFlashUploadObj, getHtml5UploadObj, getFormUpladObj );</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>迭代器的使用场景是：对于集合内部结果常常变化各异，我们不想暴露其内部结构的话，但又想让客户代码透明地访问其中的元素，这种情况下我们可以使用迭代器模式。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。&lt;/p&gt;
+&lt;p&gt;比如：JavaScript 的 &lt;code&gt;Array.prototype.forEach&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;jQuery里一个非常有名的迭代器就是 &lt;code&gt;$.each&lt;/code&gt; 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$.each( [1, 2, 3], function( i, n )&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	console.log( &amp;apos;当前下标为： &amp;apos;+ i,&amp;apos;当前值为:&amp;apos; + n );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 下标： 0 当前值:1 &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 下标： 1 当前值:2  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 下标： 2 当前值:3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="iterator" scheme="http://www.imeetyou.net/tags/iterator/"/>
+    
+  </entry>
   
   <entry>
     <title>safari浏览器fixed后，被软键盘遮盖的问题</title>
@@ -63,11 +125,11 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
+      <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
     
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
-      <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
+      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
     
       <category term="fixed" scheme="http://www.imeetyou.net/tags/fixed/"/>
     
@@ -75,8 +137,8 @@
   
   <entry>
     <title>设计模式之代理模式(Proxy)</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</id>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html</id>
     <published>2017-03-31T09:56:19.000Z</published>
     <updated>2017-03-31T09:45:01.000Z</updated>
     
@@ -834,9 +896,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -882,9 +944,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -925,9 +987,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -1185,9 +1247,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
     
   </entry>
   
@@ -1473,135 +1535,6 @@
     
       <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
     
-    
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React Native 中组件的生命周期</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/react-native-lifecycle.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/react-native-lifecycle.html</id>
-    <published>2016-11-08T04:23:46.000Z</published>
-    <updated>2016-11-09T03:17:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
-<p>如图，可以把组件生命周期大致分为三个阶段：</p>
-<ul>
-<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
-<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
-<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
-</ul>
-<a id="more"></a>
-<h1 id="生命周期回调函数"><a href="#生命周期回调函数" class="headerlink" title="生命周期回调函数"></a>生命周期回调函数</h1><p>下面来详细介绍生命周期中的各回调函数。</p>
-<h2 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h2><p>在组件创建之前，会先调用 <code>getDefaultProps()</code>，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 <code>getInitialState()</code>，来初始化组件的状态。</p>
-<h2 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h2><p>然后，准备加载组件，会调用 componentWillMount()，其原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillMount()</div></pre></td></tr></table></figure>
-<p>这个函数调用时机是在组件创建，并初始化了状态之后，在第一次绘制 render() 之前。可以在这里做一些业务初始化操作，也可以设置组件状态。这个函数在整个生命周期中只被调用一次。</p>
-<h2 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h2><p>在组件第一次绘制之后，会调用 <code>componentDidMount()</code>，通知组件已经加载完成。函数原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentDidMount()</div></pre></td></tr></table></figure>
-<p>这个函数调用的时候，其虚拟 DOM 已经构建完成，你可以在这个函数开始获取其中的元素或者子组件了。需要注意的是，RN 框架是先调用子组件的 <code>componentDidMount()</code>，然后调用父组件的函数。从这个函数开始，就可以和 JS 其他框架交互了，例如设置计时 <code>setTimeout</code> 或者 <code>setInterval</code>，或者发起网络请求。这个函数也是只被调用一次。这个函数之后，就进入了稳定运行状态，等待事件触发。</p>
-<h2 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h2><p>如果组件收到新的属性（props），就会调用 <code>componentWillReceiveProps()</code>，其原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillReceiveProps(</div><div class="line">  object nextProps</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>输入参数 <code>nextProps</code> 是即将被设置的属性，旧的属性还是可以通过 <code>this.props</code> 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 <code>this.setState()</code> 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 <code>render()</code> 调用。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps: function(nextProps) &#123;</div><div class="line">  this.setState(&#123;</div><div class="line">    likesIncreasing: nextProps.likeCount &gt; this.props.likeCount</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><p>当组件接收到新的属性和状态改变的话，都会触发调用 <code>shouldComponentUpdate(...)</code>，函数原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>输入参数 nextProps 和上面的 <code>componentWillReceiveProps</code> 函数一样，nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。</p>
-<p>默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。</p>
-<h2 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h2><p>如果组件状态或者属性改变，并且上面的 <code>shouldComponentUpdate(...)</code> 返回为 true，就会开始准更新组件，并调用 <code>componentWillUpdate()</code>，其函数原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentWillUpdate(</div><div class="line">  object nextProps, object nextState</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>输入参数与 <code>shouldComponentUpdate</code> 一样，在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 <code>nextProps</code> 和 <code>nextState</code> 分别设置到 <code>this.props</code> 和 <code>this.state</code> 中。紧接着这个函数，就会调用 <code>render()</code> 来更新界面了。</p>
-<p>##componentDidUpdate</p>
-<p>调用了 <code>render()</code> 更新完成界面之后，会调用 <code>componentDidUpdate()</code> 来得到通知，其函数原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">void componentDidUpdate(</div><div class="line">  object prevProps, object prevState</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>因为到这里已经完成了属性和状态的更新了，此函数的输入参数变成了 <code>prevProps</code> 和 <code>prevState</code>。</p>
-<p>##componentWillUnmount</p>
-<p>当组件要被从界面上移除的时候，就会调用 <code>componentWillUnmount()</code>，其函数原型如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void componentWillUnmount()</div></pre></td></tr></table></figure>
-<p>在这个函数中，可以做一些组件相关的清理工作，例如取消计时器、网络请求等。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到这里，RN 的组件的完整的生命都介绍完了，在回头来看一下前面的图，就比较清晰了，把生命周期的回调函数总结成如下表格：</p>
-<table>
-<thead>
-<tr>
-<th>生命周期</th>
-<th style="text-align:center">调用次数</th>
-<th style="text-align:right">能否setSate()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>getDefaultProps</td>
-<td style="text-align:center">1(全局调用一次)</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>getInitialState</td>
-<td style="text-align:center">1</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>componentWillMount</td>
-<td style="text-align:center">1</td>
-<td style="text-align:right">是</td>
-</tr>
-<tr>
-<td>render</td>
-<td style="text-align:center">&gt;=1</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>componentDidMount</td>
-<td style="text-align:center">1</td>
-<td style="text-align:right">是</td>
-</tr>
-<tr>
-<td>componentWillReceiveProps</td>
-<td style="text-align:center">&gt;=0</td>
-<td style="text-align:right">是</td>
-</tr>
-<tr>
-<td>shouldComponentUpdate</td>
-<td style="text-align:center">&gt;=0</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>componentWillUpdate</td>
-<td style="text-align:center">&gt;=0</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>componentDidUpdate</td>
-<td style="text-align:center">&gt;=0</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>componentWillUnmount</td>
-<td style="text-align:center">1</td>
-<td style="text-align:right">否</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg&quot; alt=&quot;Lifecycle&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如图，可以把组件生命周期大致分为三个阶段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；&lt;/li&gt;
-&lt;li&gt;第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；&lt;/li&gt;
-&lt;li&gt;第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
       <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
     

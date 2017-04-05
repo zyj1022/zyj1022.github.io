@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a>
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,77 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-2016/react-native-lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2016/react-native-lifecycle.html" class="article-date">
+  	<time datetime="2016-11-08T04:23:46.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2016/react-native-lifecycle.html">React Native 中组件的生命周期</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
+<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
+<p>如图，可以把组件生命周期大致分为三个阶段：</p>
+<ul>
+<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
+<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
+<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2016/react-native-lifecycle.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2016/mac-u-format" class="article article-type-post" itemscope itemprop="blogPost">
   
