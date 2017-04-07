@@ -1380,9 +1380,9 @@ var nav = (function() {  // nav 模块
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
     
   </entry>
   
