@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a>
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 12px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,148 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-2017/js-class3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-class3.html" class="article-date">
+  	<time datetime="2017-03-23T01:22:23.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-class3.html">Javascript定义类（class）的三种方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。</p>
+<p>Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。</p>
+<h2 id="1、构造函数法"><a href="#1、构造函数法" class="headerlink" title="1、构造函数法"></a>1、构造函数法</h2><p>第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Dog() &#123;</div><div class="line">　　this.name = &quot;旺财&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成实例的时候，使用new关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog = new Dog();</div><div class="line">console.log(dog.name); // 旺财</div></pre></td></tr></table></figure>
+<p>类的属性和方法，还可以定义在构造函数的prototype对象之上。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-class3.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2017/js-array-base" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-array-base.html" class="article-date">
+  	<time datetime="2017-03-22T03:34:42.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-array-base.html">Javascript基础之数组</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>数组是编程语言中应用最广泛的存储结构，在 ECMAScript 中数组是非常常用的引用类型。很有必要将数组的内容捋一遍，加深印象。</p>
+<h2 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h2><ul>
+<li>constructor 表示引用数组对象的构造函数</li>
+<li>length 表示数组的长度，即其中元素的个数。注意在js中length属性是可变的，当设置一个数组的length值变大时，数组内容不会改变，仅仅是length更改，但当length设置小于实际数组的时候，则原数组中索引大于或等于length的元素的值全部被丢失。</li>
+<li>prototype属性是object共有的，可以通过增加属性和方法扩展数组定义。</li>
+</ul>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="一、创建方法"><a href="#一、创建方法" class="headerlink" title="一、创建方法"></a>一、创建方法</h3><h4 id="创建一个空数组"><a href="#创建一个空数组" class="headerlink" title="创建一个空数组"></a>创建一个空数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">var arr = new Array(); // 创建一个空数组</div><div class="line">`</div></pre></td></tr></table></figure>
+<h4 id="创建一个指定长度的数组"><a href="#创建一个指定长度的数组" class="headerlink" title="创建一个指定长度的数组"></a>创建一个指定长度的数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(size) // size 表示数组的长度</div></pre></td></tr></table></figure>
+<h4 id="创建一个指定元素的数组"><a href="#创建一个指定元素的数组" class="headerlink" title="创建一个指定元素的数组"></a>创建一个指定元素的数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(1,2,3,4,5) //创建数组并赋值 [1,2,3,4,5]</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-array-base.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2017/js-oop" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -707,143 +849,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2016/react-native-iconfont.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/mac-os-option" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2016/mac-os-option.html" class="article-date">
-  	<time datetime="2016-11-13T07:34:23.000Z" itemprop="datePublished">2016-11-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2016/mac-os-option.html">mac开机黑屏解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，<br>传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，<br>红烧清炖各种方法都试过了。</p>
-<h1 id="mac开机黑屏解决方法"><a href="#mac开机黑屏解决方法" class="headerlink" title="mac开机黑屏解决方法"></a>mac开机黑屏解决方法</h1><p>通常来说开机速度慢或者开机黑屏</p>
-<p>关闭电脑，开机，同时按住 <code>command+option+R+P</code> 这个时候就会听到‘当‘一声，继续按着<br>再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。</p>
-<p>PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～<br>这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2016/mac-os-option.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/macos-usb-install-drive" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2016/macos-usb-install-drive.html" class="article-date">
-  	<time datetime="2016-11-12T05:38:23.000Z" itemprop="datePublished">2016-11-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2016/macos-usb-install-drive.html">简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，<br>在此做个记录教程，方便以后查看。</p>
-<h1 id="使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘"><a href="#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘" class="headerlink" title="使用命令行创建制作 macOS Sierra 正式版 USB 安装盘"></a>使用命令行创建制作 macOS Sierra 正式版 USB 安装盘</h1><p>苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的</p>
-<ul>
-<li>首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。</li>
-<li>下载好 macOS Sierra 正式版的安装程序</li>
-<li>打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2016/macos-usb-install-drive.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

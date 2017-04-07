@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-01T07:41:48.000Z</updated>
+  <updated>2017-04-06T07:50:45.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,239 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之模板模式(TemplateMethod)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-template.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-template.html</id>
+    <published>2017-04-06T09:56:39.000Z</published>
+    <updated>2017-04-06T07:50:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>模板方法模式是一种只需使用继承就可以实现的非常简单的模式。</p>
+<p><strong>模板方法模式由两部分结构组成：</strong></p>
+<ul>
+<li>第一部分是抽象父类，</li>
+<li>第二部分是具体的实现子类。</li>
+</ul>
+<p>通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。</p>
+<a id="more"></a>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="Coffee-or-Tea"><a href="#Coffee-or-Tea" class="headerlink" title="Coffee or Tea"></a>Coffee or Tea</h3><p>咖啡与茶是一个经典的例子，经常用来讲解模板方法模式</p>
+<p>泡茶和泡咖啡有同样的步骤，比如烧开水（boilWater）、冲泡（brew）、倒在杯子里（pourInCup），加小料（addCondiments）等等。</p>
+<p>但每种饮料冲泡的方法以及所加的小料不一样，所以我们可以利用模板方法实现这个主要步骤</p>
+<p>首先先来定义抽象步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Beverage = function()&#123;&#125;;</div><div class="line">Beverage.prototype.boilWater = function()&#123;</div><div class="line">	 console.log( &apos;把水煮沸&apos; );</div><div class="line">&#125;;</div><div class="line">Beverage.prototype.brew = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.pourInCup = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.addCondiments = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.init = function()&#123;</div><div class="line">	this.boilWater();</div><div class="line">	this.brew();</div><div class="line">	this.pourInCup();</div><div class="line">	this.addCondiments();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>接下来我们要创建咖啡类和茶类，并让它们继承抽象类:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// 冲咖啡</div><div class="line">var Coffee = function()&#123;&#125;;</div><div class="line">Coffee.prototype = new Beverage();</div><div class="line">Coffee.prototype.brew = function() &#123;</div><div class="line">	console.log( &apos;用沸水冲泡咖啡&apos; );</div><div class="line">&#125;</div><div class="line">Coffee.prototype.pourInCup = function() &#123;</div><div class="line">	console.log( &apos;把咖啡倒进杯子&apos; );</div><div class="line">&#125;</div><div class="line">Coffee.prototype.addCondiments = function() &#123;</div><div class="line">	console.log( &apos;加糖和牛奶&apos; );</div><div class="line">&#125;</div><div class="line">var Coffee = new Coffee();</div><div class="line">Coffee.init();</div><div class="line"></div><div class="line">// 冲茶叶</div><div class="line">var Tea = function()&#123;&#125;;</div><div class="line">Tea.prototype = new Beverage();</div><div class="line">Tea.prototype.brew = function() &#123;</div><div class="line">	console.log( &apos;用沸水冲泡茶叶&apos; );</div><div class="line">&#125;</div><div class="line">Tea.prototype.pourInCup = function() &#123;</div><div class="line">	console.log( &apos;把茶倒进杯子&apos; );</div><div class="line">&#125;</div><div class="line">Tea.prototype.addCondiments = function() &#123;</div><div class="line">	console.log( &apos;加柠檬&apos; );</div><div class="line">&#125;</div><div class="line">var Tea = new Tea();</div><div class="line">Tea.init();</div></pre></td></tr></table></figure>
+<p>那么在上面的例子中，到底谁才是所谓的模板方法呢?答案是 <code>Beverage.prototype.init</code>。</p>
+<p><code>Beverage.prototype.init</code> 被称为模板方法的原因是，该方法中封装了子类的算法框架，它作为一个算法的模板，指导子类以何种顺序去执行哪些方法。在 <code>Beverage.prototype.init</code> 方法中，算法内的每一个步骤都清楚地展示在我们眼前。</p>
+<h2 id="好莱坞原则"><a href="#好莱坞原则" class="headerlink" title="好莱坞原则"></a>好莱坞原则</h2><p>我们要引入一个新的设计原则——著名的“好莱坞原则”。</p>
+<p>好莱坞原则简单来说就是：“别找我们，我们来找你”，是一种反向的控制结构，指的是父类调用一个类的操作。</p>
+<p>在这一原则的指导下，模板方法模式就是允许底层组件将自己挂钩到高层组件中，而高层组件会决定什么时候、以何种方式去使用这些底层组件。</p>
+<p>在好莱坞原则的指导之下，下面这段代码可以达到和使用继承一样的效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">var Beverage = function(param) &#123;</div><div class="line"></div><div class="line">	var boilWater = function() &#123;</div><div class="line">		console.log( &apos;0 把水煮沸&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var brew = param.brew || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 brew 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var pourInCup = param.pourInCup || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 pourInCup 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var addCondiments = param.addCondiments || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 addCondiments 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var F = function()&#123;&#125;;</div><div class="line"></div><div class="line">	F.prototype.init = function()&#123;</div><div class="line">		boilWater();</div><div class="line">	    brew();</div><div class="line">		pourInCup();</div><div class="line">		addCondiments();</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	return F;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Coffee = Beverage(&#123;</div><div class="line">	brew: function() &#123;</div><div class="line">		console.log( &apos;1 用沸水冲泡咖啡&apos; );</div><div class="line">	&#125;,</div><div class="line">	pourInCup: function() &#123;</div><div class="line">		console.log( &apos;2 把咖啡倒进杯子&apos; );</div><div class="line">	&#125;,</div><div class="line">	addCondiments: function() &#123;</div><div class="line">		console.log( &apos;3 加糖和牛奶&apos; );</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var coffee = new Coffee();</div><div class="line">coffee.init();</div><div class="line"></div><div class="line">var Tea = Beverage(&#123;</div><div class="line">	brew: function() &#123;</div><div class="line">		console.log( &apos;1 用沸水浸泡茶叶&apos; );</div><div class="line">	&#125;,</div><div class="line">	pourInCup: function()&#123;</div><div class="line">		console.log( &apos;2 把茶倒进杯子&apos; );</div><div class="line">	&#125;,</div><div class="line">	addCondiments: function() &#123;</div><div class="line">		console.log( &apos;3 加柠檬&apos; );</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var tea = new Tea();</div><div class="line">tea.init();</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>模板方法应用于下列情况：</p>
+<ul>
+<li>一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现</li>
+<li>各子类中公共的行为应被提取出来并集中到一个公共父类中的避免代码重复，不同之处分离为新的操作，最后，用一个钓鱼这些新操作的模板方法来替换这些不同的代码</li>
+<li>控制子类扩展，模板方法只在特定点调用“hook”操作，这样就允许在这些点进行扩展</li>
+</ul>
+<p>和策略模式不同，模板方法使用继承来改变算法的一部分，而策略模式使用委托来改变整个算法。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。&lt;/p&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;模板方法模式是一种只需使用继承就可以实现的非常简单的模式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;模板方法模式由两部分结构组成：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一部分是抽象父类，&lt;/li&gt;
+&lt;li&gt;第二部分是具体的实现子类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之发布/订阅模式(Publish/Subscribe)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-publish-subscribe.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-publish-subscribe.html</id>
+    <published>2017-04-05T04:36:29.000Z</published>
+    <updated>2017-04-05T08:41:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式</p>
+<h2 id="遍地的发布订阅现象"><a href="#遍地的发布订阅现象" class="headerlink" title="遍地的发布订阅现象"></a>遍地的发布订阅现象</h2><p>如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。</p>
+<p>有人可能也会想到经常收到的各种广告短信信息（有的可能是被动订阅），其实发送短信通知或广告也是一个典型的发布/订阅模式。</p>
+<p>发布/订阅模式可以广泛用于异步编程中，代替传递回掉函数的方案，比如，我们可以订阅 ajax 请求的 error、succ 等事件。</p>
+<p>另外发表订阅让两个对象松耦合在一起，不必了解彼此细节，当有新的订阅者出现时，发布者的代码不需要任何修改。同样发布者需要改变时，也不会影响到之前的订阅者。只要之前约定的事件名没有变化，就可以自由地改变它们。</p>
+<a id="more"></a>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>发布订阅模式，它定义了一种一对多的关系，让多个观察者对象同时监听某一个主题对象，这个主题对象的状态发生变化时就会通知所有的观察者对象，使得它们能够自动更新自己。</p>
+<p>使用发布订阅模式的好处：</p>
+<ul>
+<li>支持简单的广播通信，自动通知所有已经订阅过的对象。</li>
+<li>页面载入后目标对象很容易与观察者存在一种动态关联，增加了灵活性。</li>
+<li>目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。</li>
+</ul>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="自定义发表订阅"><a href="#自定义发表订阅" class="headerlink" title="自定义发表订阅"></a>自定义发表订阅</h3><p>我们来尝试一个自定义的发布订阅模式，那么如何实现发布订阅呢</p>
+<ul>
+<li>指定一个发布者</li>
+<li>给发布者添加一个缓冲列表，用于存放回调函数以用于通知订阅者</li>
+<li>发布消息时，发布者遍历缓存列表，依次触发每个订阅者的回调函数</li>
+</ul>
+<p><strong>一个简单的天气状态订阅</strong></p>
+<pre><code>var Weather = {
+    list: [], // 缓存列表
+    listen: function(fn) { // 增加订阅者
+        this.list.push(fn)
+    },
+    publish: function() { // 发布消息
+        for(var i=0,fn; fn=this.list[i++];) {
+            fn.apply(this,arguments);
+        }
+    }
+};
+
+// 订阅消息
+Weather.listen(function(weather, wind){
+    console.log(&apos;天气：&apos; + weather, &apos;风力：&apos;+ wind);
+})
+
+// 发布消息
+Weather.publish(&quot;晴天&quot;,&quot;微风&quot;); // 天气：晴天 风力：微风
+Weather.publish(&quot;雷阵雨&quot;,&quot;5级风&quot;); // 天气：雷阵雨 风力：5级风
+</code></pre><p>以上，已经实现了一个最简单的发布—订阅模式，还可以为订阅者增加自选功能，订阅自己想要的消息，也可以增加取消订阅的事件。</p>
+<pre><code>var PubSub = {
+    list: [],
+    listen: function(key, fn){
+        if(!this.list[key]) {
+            this.list[key]=[];
+        }
+        this.list[key].push(fn);
+    },
+    publish: function(){
+        var key = Array.prototype.shift.call(arguments),
+            fns = this.list[key];
+        if(!fns || fns.length === 0) {
+            return false;
+        }
+        for(var i = 0, fn; fn = fns[i++];){
+            fn.apply(this, arguments);
+        }
+    }
+}
+
+//
+var installEvent = function(obj) {
+    for (var i in PubSub) {
+        obj[i] = PubSub[i];
+    }
+};
+
+var day = {}
+installEvent(day);
+
+day.listen(&apos;天气&apos;, function(wind) {
+    console.log(&apos;风力：&apos;+ wind);
+});
+
+day.publish(&apos;天气&apos;, &quot;8级风&quot;);
+</code></pre><h3 id="实战之网站登录"><a href="#实战之网站登录" class="headerlink" title="实战之网站登录"></a>实战之网站登录</h3><p>网站登录是最常见的形式，通常在登录以后我们会ajax异步请求获取用户信息，比如显示用户名字、头像等信息在header模块，而这两个字段都是来自用户登录后返回的信息。至于 ajax 请求什么时候能成功返回用户信息，这点我们没有办法确定，虽然现在看起来和发布订阅模式没关系，因为异步的问题通常也可以回调函数来解决。</p>
+<p>我们不知道除了 header 头部、nav 导航、消息列表、购物车之外，将来还有哪些模块需要使用这些用户信息。如果它们和用户信息模块产生了强耦合，比如下面这样的形式:</p>
+<pre><code>login.succ(function(data){
+    header.setAvatar( data.avatar);  // 设置 header 模块的头像
+    nav.setAvatar( data.avatar ); // 设置导航模块的头像
+    message.refresh(); // 刷新消息列表
+    cart.refresh(); // 刷新购物车列表
+});
+</code></pre><p>现在登录模块是我们负责编写的，但我们还必须了解 header 模块里设置头像的方法叫 setAvatar、购物车模块里刷新的方法叫 refresh，这种耦合性会使程序变得僵硬，header 模块不能随意再改变 setAvatar 的方法名，它自身的名字也不能被改为 header1、header2。 这是针对具 体实现编程的典型例子，针对具体实现编程是不被赞同的。</p>
+<p>某一个，项目新增加收获地址管理模块：</p>
+<pre><code>login.succ(function(data){
+    header.setAvatar( data.avatar);
+    nav.setAvatar( data.avatar );
+    message.refresh();
+    address.refresh(); // 新增加收获地址
+});
+</code></pre><p>现在我们用发布订阅重写，对用户信息感兴趣的业务模块将自行订阅登录成功的消息事件。 当登录成功时，登录模块只需要发布登录成功的消息，而业务方接受到消息之后，就会开始进行各自的业务处理，登录模块并不关心业务方究竟要做什么，也不想去了解它们的内部细节。改善后的代码如下:</p>
+<pre><code>$.ajax( &apos;http://xxx.com?login&apos;, function(data){ // 登录成功
+    login.trigger( &apos;loginSucc&apos;, data); // 发布登录成功的消息
+});
+</code></pre><p>各模块监听登录成功的消息:</p>
+<pre><code>var header = (function() { // header 模块
+    login.listen( &apos;loginSucc&apos;, function(data) {
+        header.setAvatar( data.avatar );
+    });
+    return {
+        setAvatar: function(data) {
+            console.log( &apos;设置 header 模块的头像&apos;);
+        }
+    }
+})();
+
+var nav = (function() {  // nav 模块
+    login.listen(&apos;loginSucc&apos;, function(data) {
+        nav.setAvatar( data.avatar );
+    });
+    return {
+        setAvatar: function(avatar) {
+            console.log( &apos;设置 nav 模块的头像&apos;);
+        }
+    }
+})();
+</code></pre><p>如果有一天在登录完成之 后，又增加一个刷新收货地址列表的行为，那么只要在收货地址模块里加上监听消息的方法即可，而这可以让开发该模块的同事自己完成，你作为登录模块的开发者，永远不用再关心这些行为了</p>
+<pre><code>var address = (function(){ // 收获地址模块
+    login.listen(&apos;loginSucc&apos;, function(obj){
+        address.refresh(obj);
+    });
+    return {
+        refresh: function( avatar ){
+            console.log( &apos;刷新收货地址列表&apos; );
+        }
+    }
+})();
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>发布订阅的使用场合就是：当一个对象的改变需要同时改变其它对象，并且它不知道具体有多少对象需要改变的时候，就应该考虑使用观察者模式。</p>
+<p>总的来说，发布订阅模式所做的工作就是在解耦，让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响到另一边的变化。</p>
+<p>另外， 发布—订阅模式虽然可以弱化对象之间的联系，但如果过度使用的话，对象和对象之间的必要联系也将被深埋在背后，会导致程序难以跟踪维护和理解。特别是有多个发布者和订阅者嵌套到一起的时候，要跟踪一个 bug 不是件轻松的事情。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式&lt;/p&gt;
+&lt;h2 id=&quot;遍地的发布订阅现象&quot;&gt;&lt;a href=&quot;#遍地的发布订阅现象&quot; class=&quot;headerlink&quot; title=&quot;遍地的发布订阅现象&quot;&gt;&lt;/a&gt;遍地的发布订阅现象&lt;/h2&gt;&lt;p&gt;如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。&lt;/p&gt;
+&lt;p&gt;有人可能也会想到经常收到的各种广告短信信息（有的可能是被动订阅），其实发送短信通知或广告也是一个典型的发布/订阅模式。&lt;/p&gt;
+&lt;p&gt;发布/订阅模式可以广泛用于异步编程中，代替传递回掉函数的方案，比如，我们可以订阅 ajax 请求的 error、succ 等事件。&lt;/p&gt;
+&lt;p&gt;另外发表订阅让两个对象松耦合在一起，不必了解彼此细节，当有新的订阅者出现时，发布者的代码不需要任何修改。同样发布者需要改变时，也不会影响到之前的订阅者。只要之前约定的事件名没有变化，就可以自由地改变它们。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之迭代器模式(Iterator)</title>
@@ -127,9 +360,9 @@
     
       <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
     
-      <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
-    
       <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
+    
+      <category term="safari" scheme="http://www.imeetyou.net/tags/safari/"/>
     
       <category term="fixed" scheme="http://www.imeetyou.net/tags/fixed/"/>
     
@@ -987,9 +1220,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
-    
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
     
   </entry>
   
@@ -1147,9 +1380,9 @@
       <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
     
     
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
       <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
   </entry>
   
@@ -1351,192 +1584,6 @@
       <category term="react-native" scheme="http://www.imeetyou.net/tags/react-native/"/>
     
       <category term="iconfont" scheme="http://www.imeetyou.net/tags/iconfont/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac开机黑屏解决方法</title>
-    <link href="http://www.imeetyou.net/posts/life/2016/mac-os-option.html"/>
-    <id>http://www.imeetyou.net/posts/life/2016/mac-os-option.html</id>
-    <published>2016-11-13T07:34:23.000Z</published>
-    <updated>2016-11-14T01:26:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，<br>传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，<br>红烧清炖各种方法都试过了。</p>
-<h1 id="mac开机黑屏解决方法"><a href="#mac开机黑屏解决方法" class="headerlink" title="mac开机黑屏解决方法"></a>mac开机黑屏解决方法</h1><p>通常来说开机速度慢或者开机黑屏</p>
-<p>关闭电脑，开机，同时按住 <code>command+option+R+P</code> 这个时候就会听到‘当‘一声，继续按着<br>再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。</p>
-<p>PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～<br>这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看</p>
-<a id="more"></a>
-<h1 id="开机option-command-r都没反应"><a href="#开机option-command-r都没反应" class="headerlink" title="开机option command+r都没反应"></a>开机option command+r都没反应</h1><p>如题，mac 就这尿性了，按啥都不好使了，</p>
-<ul>
-<li>开机按 option 出现不了让选择启动方式的界面</li>
-<li>command+r 这个试过也没折</li>
-</ul>
-<p>哇呀呀～ 这是要拆八块的节奏吗。无奈继续想折，神奇的有个方法</p>
-<ul>
-<li>关机，开机，按住option+command+r+p</li>
-<li>按住option+command+r+p键开机，开机后不要松开这4个键</li>
-<li>mac mini会一直重启，当重启到第10次（这个次数我是试了10次，其实不用10次，两次就可以，我又试过了)的时候</li>
-<li>松开P键也就是继续按住option+command+r这三个键，久违的小地球就出现了</li>
-</ul>
-<p>你以为这样就可以了吗？还不行～！！！我选择wifi，输入密码，想等待奇迹，可是真奇迹，<br>出现进度条走了一点点，就奔溃了。</p>
-<h1 id="重载系统-出现apple-com-cn-support-2104f"><a href="#重载系统-出现apple-com-cn-support-2104f" class="headerlink" title="重载系统  出现apple.com.cn/support -2104f"></a>重载系统  出现apple.com.cn/support -2104f</h1><p>如题，又出故障了，真是折腾啊，还不行，如上各种操作试了不下三遍，无奈呼叫苹果客服吧。<br>下周六去天才吧。</p>
-<h1 id="互联网资料整理"><a href="#互联网资料整理" class="headerlink" title="互联网资料整理"></a>互联网资料整理</h1><p>您可以按住COMMMAND+r进入选择语言，实用工具界面，在磁盘工具里面抹掉第一个主磁盘(选择抹掉,右下角抹掉),之后选择屏幕左上角小苹果旁边的”磁盘工具”,点击<br>“退出磁盘工具”,然后﻿选择“重装OSX系统”，即可重装。如果不行，就需要互联网恢复<br>osx关于恢复功能</p>
-<ul>
-<li><ol>
-<li>关闭电脑，同时按住 command+option+R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；</li>
-</ol>
-</li>
-<li><ol>
-<li>如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；</li>
-</ol>
-</li>
-<li><ol>
-<li>进度条走完后电脑会重启，进入 “OS X 实用工具”界面； </li>
-</ol>
-</li>
-<li><ol>
-<li>选择“磁盘工具”，然后点按“继续”；</li>
-</ol>
-</li>
-</ul>
-<p>选择左边第一块总磁盘，  选择右边的 “分区”—当前选择“一个分区”    下面有个选项</p>
-<ul>
-<li><ol>
-<li>并确保已选择“GUID 分区表”。</li>
-</ol>
-</li>
-<li><ol>
-<li>确保分区的格式为“Mac OS 扩展（日志式）”。</li>
-</ol>
-</li>
-<li><ol>
-<li>点按“应用”</li>
-</ol>
-</li>
-<li><ol>
-<li>退出后请点击第二行的重新安装；</li>
-</ol>
-</li>
-<li><ol>
-<li>然后根据提示步步进行下去，系统将会开始安装。</li>
-</ol>
-</li>
-</ul>
-<h1 id="互联网恢复方法："><a href="#互联网恢复方法：" class="headerlink" title="互联网恢复方法："></a>互联网恢复方法：</h1><ul>
-<li><ol>
-<li>关闭电脑，同时按住 command option R，然后开机，直到看到屏幕上出现一个地球才松开键盘上的键；</li>
-</ol>
-</li>
-<li><ol>
-<li>如果尚未联网，  地球下面会出现下拉菜单让您选择网络 ，   联网之后开始读取进度条；</li>
-</ol>
-</li>
-<li><ol>
-<li>进度条走完后电脑会重启，进入 “OS X 实用工具”界面； </li>
-</ol>
-</li>
-<li><ol>
-<li>选择“磁盘工具”，然后点按“继续”； </li>
-</ol>
-</li>
-<li><ol>
-<li>从左侧的列表中选择您的启动磁盘，然后点按“抹掉”标签；</li>
-</ol>
-</li>
-<li><ol>
-<li>从“格式”弹出式菜单中，选取“Mac OS 扩展（日志式）”，输入磁盘的名称，然后点按“抹掉”；</li>
-</ol>
-</li>
-<li><ol>
-<li>在磁盘已被抹掉后，请选取“磁盘工具”&gt;“退出磁盘工具”；</li>
-</ol>
-</li>
-<li><ol>
-<li>退出后请点击第二行的重新安装；</li>
-</ol>
-</li>
-<li><ol>
-<li>然后根据提示步步进行下去，系统将会开始安装。</li>
-</ol>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，&lt;br&gt;传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，&lt;br&gt;红烧清炖各种方法都试过了。&lt;/p&gt;
-&lt;h1 id=&quot;mac开机黑屏解决方法&quot;&gt;&lt;a href=&quot;#mac开机黑屏解决方法&quot; class=&quot;headerlink&quot; title=&quot;mac开机黑屏解决方法&quot;&gt;&lt;/a&gt;mac开机黑屏解决方法&lt;/h1&gt;&lt;p&gt;通常来说开机速度慢或者开机黑屏&lt;/p&gt;
-&lt;p&gt;关闭电脑，开机，同时按住 &lt;code&gt;command+option+R+P&lt;/code&gt; 这个时候就会听到‘当‘一声，继续按着&lt;br&gt;再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。&lt;/p&gt;
-&lt;p&gt;PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～&lt;br&gt;这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
-    
-    
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</title>
-    <link href="http://www.imeetyou.net/posts/life/2016/macos-usb-install-drive.html"/>
-    <id>http://www.imeetyou.net/posts/life/2016/macos-usb-install-drive.html</id>
-    <published>2016-11-12T05:38:23.000Z</published>
-    <updated>2016-11-12T05:54:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，<br>在此做个记录教程，方便以后查看。</p>
-<h1 id="使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘"><a href="#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘" class="headerlink" title="使用命令行创建制作 macOS Sierra 正式版 USB 安装盘"></a>使用命令行创建制作 macOS Sierra 正式版 USB 安装盘</h1><p>苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的</p>
-<ul>
-<li>首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。</li>
-<li>下载好 macOS Sierra 正式版的安装程序</li>
-<li>打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)</li>
-</ul>
-<a id="more"></a>
-<p><img src="http://og8z552x2.bkt.clouddn.com/disk_ulitily_2x.jpg" alt="disk_ulitily_2x"></p>
-<ul>
-<li>打开 “应用程序→实用工具→终端”，将下面的一段命令复制并粘贴进去：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/Sierra --applicationpath /Applications/Install\ macOS\ Sierra.app --nointeraction</div></pre></td></tr></table></figure>
-<ul>
-<li>回车并执行该命令，这时会提示让你输入管理员密码，便会开始制作过程了：</li>
-</ul>
-<p><img src="http://og8z552x2.bkt.clouddn.com/terminal_2x.jpg" alt="terminal_2x"></p>
-<ul>
-<li>如上图，这时系统已经在制作中了，请耐心等待直到屏幕最后出现 Done. 字样即表示大功告成了！然后，就带着U盘出去浪吧……</li>
-</ul>
-<h1 id="通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法"><a href="#通过-U-盘安装-macOS-Sierra-格式化重装-抹盘全新安装系统-方法" class="headerlink" title="通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法"></a>通过 U 盘安装 macOS Sierra / 格式化重装 (抹盘全新安装系统) 方法</h1><p>当你制作好 macOS Sierra 的安装盘 U 盘之后，你就可以利用它来给 Mac 电脑格式化重装 (抹盘安装)了。操作的方法非常简单：</p>
-<ul>
-<li>当然还是要想办法备份好 Mac 里所有的重要数据了。</li>
-<li>插上制作好的安装U盘，如果系统能识别出来即可，这时我们先关机了。</li>
-<li>按下电源键开机，当听到“噹”的一声时，按住 Option 键不放，直到出现启动菜单选项：</li>
-</ul>
-<p><img src="http://og8z552x2.bkt.clouddn.com/mac_option_boot_2x.jpg" alt="mac_option_boot"></p>
-<ul>
-<li><p>这时选择安装U盘 (黄色图标) 并回车，就可以开始安装了，在过程中你可以通过“磁盘工具”对 Mac 的磁盘式化或者重新分区等操作。</p>
-</li>
-<li><p>之后就是一步一步的安装直到完成了。</p>
-</li>
-</ul>
-<p>更详细的或可以查看这里 <a href="http://www.iplaysoft.com/macos-usb-install-drive.html" target="_blank" rel="external">异次元</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，&lt;br&gt;在此做个记录教程，方便以后查看。&lt;/p&gt;
-&lt;h1 id=&quot;使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot;&gt;&lt;a href=&quot;#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘&quot; class=&quot;headerlink&quot; title=&quot;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&quot;&gt;&lt;/a&gt;使用命令行创建制作 macOS Sierra 正式版 USB 安装盘&lt;/h1&gt;&lt;p&gt;苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。&lt;/li&gt;
-&lt;li&gt;下载好 macOS Sierra 正式版的安装程序&lt;/li&gt;
-&lt;li&gt;打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://www.imeetyou.net/categories/life/"/>
-    
-    
-      <category term="mac" scheme="http://www.imeetyou.net/tags/mac/"/>
     
   </entry>
   

@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a>
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 12px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,145 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-2017/js-dp-template" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-template.html" class="article-date">
+  	<time datetime="2017-04-06T09:56:39.000Z" itemprop="datePublished">2017-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-dp-template.html">设计模式之模板模式(TemplateMethod)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>模板方法模式是一种只需使用继承就可以实现的非常简单的模式。</p>
+<p><strong>模板方法模式由两部分结构组成：</strong></p>
+<ul>
+<li>第一部分是抽象父类，</li>
+<li>第二部分是具体的实现子类。</li>
+</ul>
+<p>通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-dp-template.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2017/js-dp-publish-subscribe" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-publish-subscribe.html" class="article-date">
+  	<time datetime="2017-04-05T04:36:29.000Z" itemprop="datePublished">2017-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-dp-publish-subscribe.html">设计模式之发布/订阅模式(Publish/Subscribe)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式</p>
+<h2 id="遍地的发布订阅现象"><a href="#遍地的发布订阅现象" class="headerlink" title="遍地的发布订阅现象"></a>遍地的发布订阅现象</h2><p>如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。</p>
+<p>有人可能也会想到经常收到的各种广告短信信息（有的可能是被动订阅），其实发送短信通知或广告也是一个典型的发布/订阅模式。</p>
+<p>发布/订阅模式可以广泛用于异步编程中，代替传递回掉函数的方案，比如，我们可以订阅 ajax 请求的 error、succ 等事件。</p>
+<p>另外发表订阅让两个对象松耦合在一起，不必了解彼此细节，当有新的订阅者出现时，发布者的代码不需要任何修改。同样发布者需要改变时，也不会影响到之前的订阅者。只要之前约定的事件名没有变化，就可以自由地改变它们。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-dp-publish-subscribe.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2017/js-dp-strategy" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -700,148 +839,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2017/js-array-issue.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-class3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-class3.html" class="article-date">
-  	<time datetime="2017-03-23T01:22:23.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-class3.html">Javascript定义类（class）的三种方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。</p>
-<p>Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。</p>
-<h2 id="1、构造函数法"><a href="#1、构造函数法" class="headerlink" title="1、构造函数法"></a>1、构造函数法</h2><p>第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Dog() &#123;</div><div class="line">　　this.name = &quot;旺财&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>生成实例的时候，使用new关键字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog = new Dog();</div><div class="line">console.log(dog.name); // 旺财</div></pre></td></tr></table></figure>
-<p>类的属性和方法，还可以定义在构造函数的prototype对象之上。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-class3.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-array-base" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-array-base.html" class="article-date">
-  	<time datetime="2017-03-22T03:34:42.000Z" itemprop="datePublished">2017-03-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-array-base.html">Javascript基础之数组</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>数组是编程语言中应用最广泛的存储结构，在 ECMAScript 中数组是非常常用的引用类型。很有必要将数组的内容捋一遍，加深印象。</p>
-<h2 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h2><ul>
-<li>constructor 表示引用数组对象的构造函数</li>
-<li>length 表示数组的长度，即其中元素的个数。注意在js中length属性是可变的，当设置一个数组的length值变大时，数组内容不会改变，仅仅是length更改，但当length设置小于实际数组的时候，则原数组中索引大于或等于length的元素的值全部被丢失。</li>
-<li>prototype属性是object共有的，可以通过增加属性和方法扩展数组定义。</li>
-</ul>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="一、创建方法"><a href="#一、创建方法" class="headerlink" title="一、创建方法"></a>一、创建方法</h3><h4 id="创建一个空数组"><a href="#创建一个空数组" class="headerlink" title="创建一个空数组"></a>创建一个空数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [];</div><div class="line">var arr = new Array(); // 创建一个空数组</div><div class="line">`</div></pre></td></tr></table></figure>
-<h4 id="创建一个指定长度的数组"><a href="#创建一个指定长度的数组" class="headerlink" title="创建一个指定长度的数组"></a>创建一个指定长度的数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(size) // size 表示数组的长度</div></pre></td></tr></table></figure>
-<h4 id="创建一个指定元素的数组"><a href="#创建一个指定元素的数组" class="headerlink" title="创建一个指定元素的数组"></a>创建一个指定元素的数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = new Array(1,2,3,4,5) //创建数组并赋值 [1,2,3,4,5]</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/array/">array</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-array-base.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
