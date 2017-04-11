@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-06T07:50:45.000Z</updated>
+  <updated>2017-04-11T02:19:12.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,130 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>call()、apply()、bind()的用法</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-call-apply-bind.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-call-apply-bind.html</id>
+    <published>2017-04-11T04:26:09.000Z</published>
+    <updated>2017-04-11T02:19:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在javascript中，函数不仅是一种语法，也是值，也就是说，可以将函数赋值给变量，存储在对象的属性或数组的元素中， 作为参数传入另外一个函数等。</p>
+<h2 id="bind、call、apply"><a href="#bind、call、apply" class="headerlink" title="bind、call、apply"></a>bind、call、apply</h2><p>每一个函数都包含一个 prototype属性，这个属性是指向一个对象的引用，这个对象称作“原型对象”。 每一个函数都包含不同的原型对象。当将函数用作构造函数的时候，新创建的对象会从原型对象上继承属性。</p>
+<h2 id="Function-prototype-call"><a href="#Function-prototype-call" class="headerlink" title="Function.prototype.call()"></a>Function.prototype.call()</h2><p>call() 方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.</p>
+<blockquote>
+<p>注意：该方法的作用和 apply() 方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun.call(thisArg[, arg1[, arg2[, ...]]])</div><div class="line"></div><div class="line">fun.apply(thisArg[, argsArray])</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>apply 与 call() 非常相似，不同之处在于提供参数的方式。</p>
+<p>apply 使用参数数组而不是一组参数列表，apply 可以使用数组字面量（array literal），</p>
+<p>如：fun.apply(this, [‘eat’, ‘bananas’])，或数组对象，</p>
+<p>如：fun.apply(this, new Array(‘eat’, ‘bananas’))。</p>
+<h3 id="使用call方法调用函数并且指定上下文的’this’"><a href="#使用call方法调用函数并且指定上下文的’this’" class="headerlink" title="使用call方法调用函数并且指定上下文的’this’"></a>使用call方法调用函数并且指定上下文的’this’</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function greet() &#123;</div><div class="line">  var arr = [this.person, &apos;is age&apos;, this.age].join(&apos; &apos;);</div><div class="line">  console.log(arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var i = &#123;</div><div class="line">  person: &quot;wang&quot;,</div><div class="line">  age: 20</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet.call(i); // 这里的 this 会绑定到 i 对象上。</div></pre></td></tr></table></figure>
+<h3 id="使用call方法调用匿名函数"><a href="#使用call方法调用匿名函数" class="headerlink" title="使用call方法调用匿名函数"></a>使用call方法调用匿名函数</h3><p>在下例中的for循环体内，我们创建了一个匿名函数，然后通过调用该函数的call方法，将每个数组元素作为指定的this值执行了那个匿名函数。这个匿名函数的主要目的是给每个数组元素对象添加一个print方法，这个print方法可以打印出各元素在数组中的正确索引号。当然，这里不是必须得让数组元素作为this值传入那个匿名函数（普通参数就可以），目的是为了演示call的用法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var animals = [</div><div class="line">  &#123;species: &apos;Lion&apos;, name: &apos;King&apos;&#125;,</div><div class="line">  &#123;species: &apos;Whale&apos;, name: &apos;Fail&apos;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">for (var i = 0; i &lt; animals.length; i++) &#123;</div><div class="line">  (function (i) &#123;</div><div class="line">    this.print = function () &#123;</div><div class="line">      console.log(&apos;#&apos; + i  + &apos; &apos; + this.species + &apos;: &apos; + this.name);</div><div class="line">    &#125;</div><div class="line">    this.print();</div><div class="line">  &#125;).call(animals[i], i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用apply和内置函数"><a href="#使用apply和内置函数" class="headerlink" title="使用apply和内置函数"></a>使用apply和内置函数</h3><p>聪明的apply用法允许你在某些本来需要写成遍历数组变量的任务中使用内建的函数。在接下里的例子中我们会使用Math.max/Math.min来找出一个数组中的最大/最小值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var numbers = [5, 6, 2, 3, 7];</div><div class="line"></div><div class="line">var max = Math.max.apply(null, numbers); /* This about equal to Math.max(numbers[0], ...) or Math.max(5, 6, ..) */</div><div class="line">var min = Math.min.apply(null, numbers);</div><div class="line"></div><div class="line">max = -Infinity, min = +Infinity;</div><div class="line"></div><div class="line">for (var i = 0; i &lt; numbers.length; i++) &#123;</div><div class="line">  if (numbers[i] &gt; max)</div><div class="line">    max = numbers[i];</div><div class="line">  if (numbers[i] &lt; min)</div><div class="line">    min = numbers[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Function-prototype-bind"><a href="#Function-prototype-bind" class="headerlink" title="Function.prototype.bind()"></a>Function.prototype.bind()</h2><p><code>bind()</code> 方法会创建一个新函数。当这个新函数被调用时，bind()的第一个参数将作为它运行时的 this, 之后的一序列参数将会在传递的实参前传入作为它的参数。</p>
+<p><code>bind()</code>是在ES5中新增的方法，从名字可以看出，这个方法的主要作用就是将函数绑定到某个对象。</p>
+<h3 id="创建绑定函数"><a href="#创建绑定函数" class="headerlink" title="创建绑定函数"></a>创建绑定函数</h3><p>bind() 最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的 this 值。</p>
+<p>经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，希望方法中的 this 是原来的对象。（比如在回调中传入这个方法。）如果不做特殊处理的话，一般会丢失原来的对象。从原来的函数和原来的对象创建一个绑定函数，则能很漂亮地解决这个问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var x = 9;</div><div class="line">var obj = &#123;</div><div class="line">	x: 81,</div><div class="line">    getX: function() &#123;</div><div class="line">		return this.x;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">obj.getX(); // 返回 81</div><div class="line"></div><div class="line">var b = obj.getX;</div><div class="line">b() // 返回 9, 在这种情况下，&quot;this&quot;指向全局作用域</div><div class="line"></div><div class="line">// 创建一个新函数，将&quot;this&quot;绑定到obj对象</div><div class="line">// 新手可能会被全局的x变量和obj里的属性x所迷惑</div><div class="line">var bindX = b.bind(obj);</div><div class="line">bindX(); // 返回 81</div></pre></td></tr></table></figure>
+<p>当在函数f()上调用bind()方法并后传入一个对象o作为参数，这个方法将返回一个新函数： （以函数调用的方式）调用新的函数将会把原始的函数f()作为o的方法来调用。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function f(y) &#123;</div><div class="line">  return this.x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var o = &#123;</div><div class="line">  x: 1</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var g = f.bind(o);  // 通过调用 g(x) 来调用 o.f(x)</div><div class="line">g(2); // 3</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">MDN JavaScript 参考文档</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在javascript中，函数不仅是一种语法，也是值，也就是说，可以将函数赋值给变量，存储在对象的属性或数组的元素中， 作为参数传入另外一个函数等。&lt;/p&gt;
+&lt;h2 id=&quot;bind、call、apply&quot;&gt;&lt;a href=&quot;#bind、call、apply&quot; class=&quot;headerlink&quot; title=&quot;bind、call、apply&quot;&gt;&lt;/a&gt;bind、call、apply&lt;/h2&gt;&lt;p&gt;每一个函数都包含一个 prototype属性，这个属性是指向一个对象的引用，这个对象称作“原型对象”。 每一个函数都包含不同的原型对象。当将函数用作构造函数的时候，新创建的对象会从原型对象上继承属性。&lt;/p&gt;
+&lt;h2 id=&quot;Function-prototype-call&quot;&gt;&lt;a href=&quot;#Function-prototype-call&quot; class=&quot;headerlink&quot; title=&quot;Function.prototype.call()&quot;&gt;&lt;/a&gt;Function.prototype.call()&lt;/h2&gt;&lt;p&gt;call() 方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：该方法的作用和 apply() 方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;fun.call(thisArg[, arg1[, arg2[, ...]]])&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;fun.apply(thisArg[, argsArray])&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="call" scheme="http://www.imeetyou.net/tags/call/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计模式之享元模式(Flyweight)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-flyweight.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-flyweight.html</id>
+    <published>2017-04-07T04:36:39.000Z</published>
+    <updated>2017-04-07T08:34:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>享元(flyweight)模式是一种用于性能优化的模式，享元模式的核心是运用共享技术来有效支持大量细粒度的对象。</p>
+<p>享元模式可以避免大量非常相似类的开销，在程序设计中，有时需要生产大量细粒度的类实例来表示数据，如果能发现这些实例除了几个参数以外，开销基本相同的话，就可以大幅度较少需要实例化的类的数量。如果能把那些参数移动到类实例的外面，在方法调用的时候将他们传递进来，就可以通过共享大幅度第减少单个实例的数目。</p>
+<p>那么如果在JavaScript中应用享元模式呢？有两种方式：</p>
+<ul>
+<li>第一种是应用在数据层上，主要是应用在内存里大量相似的对象上；</li>
+<li>第二种是应用在DOM层上，享元可以用在中央事件管理器上用来避免给父容器里的每个子元素都附加事件句柄</li>
+</ul>
+<a id="more"></a>
+<h2 id="享元与数据层"><a href="#享元与数据层" class="headerlink" title="享元与数据层"></a>享元与数据层</h2><p>享元模式要求将对象的属性划分为内部状态与外部状态(状态在这里通常指属性)。享元模式的目标是尽量减少共享对象的数量，关于如何划分内部状态和外部状态，下面的几条经验提供了一些指引。</p>
+<ul>
+<li>内部状态存储于对象内部。</li>
+<li>内部状态可以被一些对象共享。</li>
+<li>内部状态独立于具体的场景，通常不会改变。</li>
+<li>外部状态取决于具体的场景，并根据场景而变化，外部状态不能被共享</li>
+</ul>
+<p>说白点,就是先捏一个的原始模型，然后随着不同场合和环境,再产生各具特征的具体模型，很显然,在这里需要产生不同的新对象，所以Flyweight模式中常出现Factory模式，Flyweight的内部状态是用来共享的，Flyweight factory负责维护一个Flyweight pool(模式池)来存放内部状态的对象。</p>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p><strong>如下场景：</strong></p>
+<p>图书馆有很多书，设计一个管理系统管理所有的借书信息</p>
+<p>假定每个书的内容有：<code>title</code>、<code>author</code>、<code>id</code>、<code>site</code></p>
+<p>每本书被借出时间、借书人、归还日期、是否可用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">checkoutDate</div><div class="line">checkoutMember</div><div class="line">dueReturnDate</div><div class="line">availability</div></pre></td></tr></table></figure>
+<p>我们可以将数据分成内部和外部两种数据，和book对象相关的数据（title, author 等）可以归结为内部属性，而（checkoutMember, dueReturnDate等）可以归结为外部属性。这样，如下代码就可以在同一本书里共享同一个对象了，因为不管谁借的书，只要书是同一本书，基本信息是一样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 内部公共属性</div><div class="line">var Book = function(title, author, id, ISBN) &#123;</div><div class="line">    this.title = title;</div><div class="line">    this.author = author;</div><div class="line">    this.id = id;</div><div class="line">    this.ISBN = ISBN</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="定义基本工厂"><a href="#定义基本工厂" class="headerlink" title="定义基本工厂"></a>定义基本工厂</h3><p>让我们来定义一个基本工厂，用来检查之前是否创建该book的对象，如果有就返回，没有就重新创建并存储以便后面可以继续访问，这确保我们为每一种书只创建一个对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// book工厂</div><div class="line">var BookFactory = (function()&#123;</div><div class="line">    var existingBooks = &#123;&#125;;</div><div class="line">    return &#123;</div><div class="line">        createBook: function(title, author, id, ISBN) &#123;</div><div class="line">           // 查找之前是否创建</div><div class="line">           var existingBook = existingBooks[ISBN];</div><div class="line">           if (existingBook) &#123;</div><div class="line">                   return existingBook;</div><div class="line">               &#125; else &#123;</div><div class="line">               // 如果没有，就创建一个，然后保存</div><div class="line">               var book = new Book(title, author, id, ISBN);</div><div class="line">               existingBooks[ISBN] =  book;</div><div class="line">               return book;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h3 id="管理外部状态"><a href="#管理外部状态" class="headerlink" title="管理外部状态"></a>管理外部状态</h3><p>外部状态，相对就简单了，除了我们封装好的book，其它都需要在这里管理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">var BookRecord = (function() &#123;</div><div class="line">    var bookRecordDatabase = &#123;&#125;;</div><div class="line">    return &#123;</div><div class="line">        addBook: function(title, author, id, ISBN, checkoutDate, checkoutMember, dueReturnDate, availability) &#123;</div><div class="line">            var book = BookFactory.createBook(title, author, id, ISBN);</div><div class="line">            bookRecordDatabase[id] = &#123;</div><div class="line">               checkoutMember: checkoutMember,</div><div class="line">               checkoutDate: checkoutDate,</div><div class="line">               dueReturnDate: dueReturnDate,</div><div class="line">               availability: availability,</div><div class="line">               book: book</div><div class="line">           &#125;;</div><div class="line">           console.log(bookRecordDatabase);</div><div class="line">       &#125;,</div><div class="line">       updateCheckoutStatus: function(bookID, newStatus, checkoutDate, checkoutMember, newReturnDate)&#123;</div><div class="line">            var record = bookRecordDatabase[bookID];</div><div class="line">            record.availability = newStatus;</div><div class="line">            record.checkoutDate = checkoutDate;</div><div class="line">            record.checkoutMember = checkoutMember;</div><div class="line">            record.dueReturnDate = newReturnDate;</div><div class="line">       &#125;,</div><div class="line">       extendCheckoutPeriod: function(bookID, newReturnDate) &#123;</div><div class="line">           bookRecordDatabase[bookID].dueReturnDate = newReturnDate;</div><div class="line">       &#125;,</div><div class="line">       isPastDue: function(bookID) &#123;</div><div class="line">           var currentDate = new Date();</div><div class="line">           return currentDate.getTime() &gt; Date.parse(bookRecordDatabase[bookID].dueReturnDate);</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>通过这种方式，我们做到了将同一种图书的相同信息保存在一个bookmanager对象里，而且只保存一份；相比之前的代码，就可以发现节约了很多内存。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>享元模式是为解决性能问题而生的模式，这跟大部分模式的诞生原因都不一样。在一个存在<br>大量相似对象的系统中，享元模式可以很好地解决大量对象带来的性能问题。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;享元(flyweight)模式是一种用于性能优化的模式，享元模式的核心是运用共享技术来有效支持大量细粒度的对象。&lt;/p&gt;
+&lt;p&gt;享元模式可以避免大量非常相似类的开销，在程序设计中，有时需要生产大量细粒度的类实例来表示数据，如果能发现这些实例除了几个参数以外，开销基本相同的话，就可以大幅度较少需要实例化的类的数量。如果能把那些参数移动到类实例的外面，在方法调用的时候将他们传递进来，就可以通过共享大幅度第减少单个实例的数目。&lt;/p&gt;
+&lt;p&gt;那么如果在JavaScript中应用享元模式呢？有两种方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一种是应用在数据层上，主要是应用在内存里大量相似的对象上；&lt;/li&gt;
+&lt;li&gt;第二种是应用在DOM层上，享元可以用在中央事件管理器上用来避免给父容器里的每个子元素都附加事件句柄&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之模板模式(TemplateMethod)</title>
@@ -1383,207 +1507,6 @@ var nav = (function() {  // nav 模块
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
       <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端速查表Flex-Bootstrap4-es6</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/Flex-Bootstrap4-es6.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/Flex-Bootstrap4-es6.html</id>
-    <published>2016-11-17T00:53:24.000Z</published>
-    <updated>2016-11-17T01:39:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Flexbox-属性速查表"><a href="#Flexbox-属性速查表" class="headerlink" title="Flexbox 属性速查表"></a>Flexbox 属性速查表</h1><p>Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：</p>
-<h2 id="容器的属性有以下6个"><a href="#容器的属性有以下6个" class="headerlink" title="容器的属性有以下6个"></a>容器的属性有以下6个</h2><ul>
-<li>flex-direction属性决定主轴的方向（即项目的排列方向）<br><code>flex-direction: row | row-reverse | column | column-reverse;</code><ul>
-<li>row（默认值）：主轴为水平方向，起点在左端。</li>
-<li>row-reverse：主轴为水平方向，起点在右端。</li>
-<li>column：主轴为垂直方向，起点在上沿。</li>
-<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li><p>flex-wrap属性定义，如果一条轴线排不下，如何换行。<br>  <code>flex-wrap: nowrap | wrap | wrap-reverse;</code></p>
-<ul>
-<li>nowrap（默认）：不换行。</li>
-<li>wrap：换行，第一行在上方。</li>
-<li>wrap-reverse：换行，第一行在下方。</li>
-</ul>
-</li>
-<li><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。<br>  <code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;</code></p>
-</li>
-<li><p>justify-content属性定义了项目在主轴上的对齐方式。<br>  <code>justify-content: flex-start | flex-end | center | space-between | space-around;</code></p>
-<ul>
-<li>flex-start（默认值）：左对齐</li>
-<li>flex-end：右对齐</li>
-<li>center： 居中</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
-</ul>
-</li>
-<li><p>align-items属性定义项目在交叉轴上如何对齐。</p>
-<p>  <code>align-items: flex-start | flex-end | center | baseline | stretch;</code></p>
-<ul>
-<li>flex-start：交叉轴的起点对齐。</li>
-<li>flex-end：交叉轴的终点对齐。</li>
-<li>center：交叉轴的中点对齐。</li>
-<li>baseline: 项目的第一行文字的基线对齐。</li>
-<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
-</ul>
-</li>
-<li><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<p>  <code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></p>
-<ul>
-<li>flex-start：与交叉轴的起点对齐。</li>
-<li>flex-end：与交叉轴的终点对齐。</li>
-<li>center：与交叉轴的中点对齐。</li>
-<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li>stretch（默认值）：轴线占满整个交叉轴。</li>
-</ul>
-</li>
-</ul>
-<h2 id="项目的属性6个"><a href="#项目的属性6个" class="headerlink" title="项目的属性6个"></a>项目的属性6个</h2><ul>
-<li><code>order: &lt;integer&gt;;</code>  数值越小，排列越靠前，默认为0。</li>
-<li><code>flex-grow: &lt;number&gt;;</code>  定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</li>
-<li><code>flex-shrink: &lt;number&gt;;</code>  定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</li>
-<li><code>flex-basis: &lt;length&gt; | auto;</code>  定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小</li>
-<li><code>flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code> flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</li>
-<li><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code> align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</li>
-</ul>
-<p>属性不熟悉的可以查看阮氏教程 <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
-<p>下面还有问答形式的图示，方便快速查看</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/flexboxsheet.png" alt="flexboxsheet"></p>
-<p>图片原文链接 <a href="http://jonibologna.com/flexbox-cheatsheet/" target="_blank" rel="external">http://jonibologna.com/flexbox-cheatsheet/</a></p>
-<h1 id="Flexbox-视觉指南"><a href="#Flexbox-视觉指南" class="headerlink" title="Flexbox 视觉指南"></a><a href="https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/" target="_blank" rel="external">Flexbox 视觉指南</a></h1><p>这个特色就是有实时代码演示，当用户设置属性，DEMO 可以实时更新效果，这样用户更好更容易地理解 Flexbox 某个属性的作用。</p>
-<h1 id="Bootstrap-4-Cheat-Sheet"><a href="#Bootstrap-4-Cheat-Sheet" class="headerlink" title="Bootstrap 4 Cheat Sheet"></a><a href="https://hackerthemes.com/bootstrap-cheatsheet/" target="_blank" rel="external">Bootstrap 4 Cheat Sheet</a></h1><p>Bootstrap 4 有新的很多组件样式，熟记它不太可能，在官网找又太麻烦，那么这个Bootstrap 4是你最好的选择，流布布局分类，支持一件复制代码，超好用，小编正在用了。</p>
-<h1 id="es6-cheatsheet"><a href="#es6-cheatsheet" class="headerlink" title="es6-cheatsheet"></a><a href="https://github.com/DrkSephy/es6-cheatsheet/blob/master/README_zhCn.md" target="_blank" rel="external">es6-cheatsheet</a></h1><p>这是一个 ES2015(ES6) 的Cheatsheet，其中包括提示、小技巧、最佳实践和一些代码片段，帮助你 完成日复一日的开发工作。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Flexbox-属性速查表&quot;&gt;&lt;a href=&quot;#Flexbox-属性速查表&quot; class=&quot;headerlink&quot; title=&quot;Flexbox 属性速查表&quot;&gt;&lt;/a&gt;Flexbox 属性速查表&lt;/h1&gt;&lt;p&gt;Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：&lt;/p&gt;
-&lt;h2 id=&quot;容器的属性有以下6个&quot;&gt;&lt;a href=&quot;#容器的属性有以下6个&quot; class=&quot;headerlink&quot; title=&quot;容器的属性有以下6个&quot;&gt;&lt;/a&gt;容器的属性有以下6个&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;flex-direction属性决定主轴的方向（即项目的排列方向）&lt;br&gt;&lt;code&gt;flex-direction: row | row-reverse | column | column-reverse;&lt;/code&gt;&lt;ul&gt;
-&lt;li&gt;row（默认值）：主轴为水平方向，起点在左端。&lt;/li&gt;
-&lt;li&gt;row-reverse：主轴为水平方向，起点在右端。&lt;/li&gt;
-&lt;li&gt;column：主轴为垂直方向，起点在上沿。&lt;/li&gt;
-&lt;li&gt;column-reverse：主轴为垂直方向，起点在下沿。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="flex" scheme="http://www.imeetyou.net/tags/flex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何在React Native中的使用自定义iconfont</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/react-native-iconfont.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/react-native-iconfont.html</id>
-    <published>2016-11-15T08:46:11.000Z</published>
-    <updated>2016-11-15T09:38:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="React-Native中的iconfont"><a href="#React-Native中的iconfont" class="headerlink" title="React Native中的iconfont"></a>React Native中的iconfont</h1><p>关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a>, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。</p>
-<p>但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。</p>
-<a id="more"></a>
-<h1 id="如何生成自定义的iconfont文件"><a href="#如何生成自定义的iconfont文件" class="headerlink" title="如何生成自定义的iconfont文件"></a>如何生成自定义的iconfont文件</h1><p>这里我一般通过 <a href="https://icomoon.io/" target="_blank" rel="external">icomoon</a> 来实现,将设计好的图标字体一般为 <code>.svg</code> 文件,导入到icomoon 里，</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/icomoon.png" alt="icomoon"></p>
-<p>选择我们需要的字体图标，然后 <code>Generate Font</code>, 之后 下载 demo 包 内含我们需要的 fonts 文件</p>
-<h1 id="IconFont的使用原理"><a href="#IconFont的使用原理" class="headerlink" title="IconFont的使用原理"></a>IconFont的使用原理</h1><p>其实IconFont就是一些文字，通过在web上的使用，我们可以大概猜出使用方法：</p>
-<ul>
-<li>1.指定字体集</li>
-<li>2.把对应的16进制码当成文字写到文本中</li>
-</ul>
-<p>在React Native中同样如此，我们可以通过 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a> 的源代码来验证我们的想法。</p>
-<p>打开 <code>react-native-vector-icons/FontAweson.js</code> 文件(<a href="https://github.com/oblador/react-native-vector-icons/blob/master/FontAwesome.js" target="_blank" rel="external">线上地址</a>)可以看到一个大大的json对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var createIconSet = require(&apos;./lib/create-icon-set&apos;);</div><div class="line">var glyphMap = &#123;</div><div class="line">  &quot;glass&quot;: 61440,</div><div class="line">  &quot;music&quot;: 61441,</div><div class="line">  &quot;search&quot;: 61442,</div><div class="line">  .</div><div class="line">  . // 此处省略500+行</div><div class="line">  .</div><div class="line">&#125;;</div><div class="line">var FontAwesome = createIconSet(glyphMap, &apos;FontAwesome&apos;, &apos;FontAwesome.ttf&apos;);</div><div class="line">module.exports = FontAwesome;</div><div class="line">module.exports.glyphMap = glyphMap;</div></pre></td></tr></table></figure>
-<p>看到这些亲切的数字了吗，61440，这不就是传说中的16进制的FXXX的十进制吗？</p>
-<p>16进制有了，写到哪里呢，继续看createIconSet方法。</p>
-<p>其中的Icon组件的render方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">render: function() &#123;</div><div class="line">  var &#123; name, size, color, style, ...props &#125; = this.props;</div><div class="line">  var glyph = glyphMap[name] || &apos;?&apos;;</div><div class="line">  if(typeof glyph === &apos;number&apos;) &#123;</div><div class="line">    glyph = String.fromCharCode(glyph);</div><div class="line">  &#125;</div><div class="line">  size = size || DEFAULT_ICON_SIZE;</div><div class="line">  var styleDefaults:Object = &#123;</div><div class="line">    fontSize: size,</div><div class="line">    fontWeight: &apos;normal&apos;,</div><div class="line">    fontStyle: &apos;normal&apos;,</div><div class="line">    color,</div><div class="line">  &#125;;</div><div class="line">  props.style = [styleDefaults, style];</div><div class="line">  props.ref = (component) =&gt; this._root = component;</div><div class="line">  styleDefaults.fontFamily = fontReference;</div><div class="line">  console.log(this.props.children)</div><div class="line">  return (&lt;Text &#123;...props&#125;&gt;&#123;glyph&#125;&#123;this.props.children&#125;&lt;/Text&gt;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中，最重要的四句话<em>(我本来写的是两句话，结果越看越多)</em>：</p>
-<p><code>var glyph = glyphMap[name] || &#39;?&#39;;</code> 把刚才的<code>6xxxx</code>找到；</p>
-<p><code>glyph = String.fromCharCode(glyph);</code>转成Unicode编码字符串；</p>
-<p><code>styleDefaults.fontFamily = fontReference;</code>指定字符集；</p>
-<p><code>return (&lt;Text {...props}&gt;{glyph}{this.props.children}&lt;/Text&gt;);</code> 把Unicode字符写到<code>Text</code>组件中。</p>
-<p>基本和我们的猜想一样，哇哈哈哈。</p>
-<h1 id="Font的基本知识"><a href="#Font的基本知识" class="headerlink" title="Font的基本知识"></a>Font的基本知识</h1><p>由上可知，我们主要需要这个Icon所对应的Unicode码，那这个Unicode码又是神马呢？</p>
-<p>实际上，一个字体通常由数个表(table)构成，字体的信息存储在表中。一个最基本的字体文件一定会包含以下表：</p>
-<ul>
-<li>cmap: Char­ac­ter to glyph map­ping</li>
-<li>head: Font header</li>
-<li>hhea: Hor­i­zon­tal header</li>
-<li>hmtx: Hor­i­zon­tal met­rics</li>
-<li>maxp: Max­i­mum pro­file</li>
-<li>name: Nam­ing table</li>
-<li>OS/​2: OS/​2 and Win­dows spe­cific met­rics</li>
-<li>post: Post­Script in­for­ma­tion</li>
-</ul>
-<p>而使用TrueType曲线绘制的字体则会包含如下表：</p>
-<ul>
-<li>cvt: Con­trol Value Table</li>
-<li>fpgm: Font pro­gram</li>
-<li>glyf: Glyph data</li>
-<li>loca: In­dex to lo­ca­tion</li>
-<li>prep: CVT Pro­gram</li>
-<li>gasp: Grid​-​fit­ting/​Scan​-​con­ver­sion (op­tional table)</li>
-</ul>
-<p>上面列了很多，最重要的其实是第一个表看这高大上的说明Char­ac­ter to glyph map­ping。</p>
-<p>如果把字体文件转成类xml格式，这个表类似：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;cmap&gt; </div><div class="line">    &lt;cmap_format_4 platformID=&quot;3&quot; platEncID=&quot;1&quot; language=&quot;0&quot;&gt;</div><div class="line">          &lt;map code=&quot;0xf600&quot; name=&quot;uniF600&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf601&quot; name=&quot;uniF601&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf602&quot; name=&quot;uniF602&quot;/&gt;</div><div class="line">          &lt;map code=&quot;0xf603&quot; name=&quot;uniF603&quot;/&gt;</div><div class="line">    &lt;/cmap_format_4&gt;</div><div class="line">&lt;/cmap&gt;</div></pre></td></tr></table></figure>
-<p>这里的0xf600不就是我们想要的吗，而后面的name就类似与每个字符的命名。</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/font-baidu.png" alt="font-baidu"></p>
-<p>这里最好给每个icon定一个易于理解的名字，可以使用 <a href="http://font.baidu.com/editor" target="_blank" rel="external">http://font.baidu.com/editor</a></p>
-<h1 id="如何使用自定义的IconFont"><a href="#如何使用自定义的IconFont" class="headerlink" title="如何使用自定义的IconFont"></a>如何使用自定义的IconFont</h1><p>有了上面的摸索，要支持自己的IconFont并不难。只需要把字符对应表给整出来就可以了，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var map = &#123;&quot;arrow&quot;:&quot;62976&quot;,&quot;checked&quot;:&quot;62977&quot;,&quot;checked-s&quot;:&quot;62978&quot;,&quot;tag-svip&quot;:&quot;62995&quot;&#125;;</div><div class="line">module.exports = (name)=&gt;String.fromCharCode(map[name]);</div></pre></td></tr></table></figure>
-<p>使用的时候：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import icon from &quot;./fontConf&quot;;</div><div class="line">export default class  IconExample extends Component &#123;</div><div class="line">    render() &#123;</div><div class="line">        return (</div><div class="line">            &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30&#125;&#125;&gt;</div><div class="line">                    arrow-icon:&#123;icon(&apos;arrow&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30, color:&quot;#ff4444&quot;&#125;&#125;&gt;</div><div class="line">                    vip-icon:&#123;icon(&apos;tag-svip&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">                &lt;Text style=&#123;&#123;fontFamily: &apos;FontIconQui&apos;,fontSize:30, color:&quot;#ff4444&quot;&#125;&#125;&gt;</div><div class="line">                    tag-svip:&#123;icon(&apos;tag-svip&apos;)&#125;</div><div class="line">                &lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>另外，在工程中，需要引入字体文件：</p>
-<ul>
-<li>Android： 把字体文件拷贝到<code>[project root]/android/app/src/main/assets/fonts/</code></li>
-<li>iOS: 把字体文件拖到对应的Xcode工程里面，勾选 <code>Add to targets</code> 和 <code>Create groups</code>，修改<code>Info.plist</code> 文件，添加属性 <code>Fonts provided by application</code>，在这个属性下添加相应字体文件名的<code>item</code>，如下图：</li>
-</ul>
-<p><img src="http://og8z552x2.bkt.clouddn.com/xcode.png" alt="font-baidu"></p>
-<p>iOS上添加字体文件具体的流程可以参考 <a href="https://github.com/oblador/react-native-vector-icons#option-manually" target="_blank" rel="external">https://github.com/oblador/react-native-vector-icons#option-manually</a>。 </p>
-<h1 id="如何提取字符对应表"><a href="#如何提取字符对应表" class="headerlink" title="如何提取字符对应表"></a>如何提取字符对应表</h1><p>打开 <a href="http://font.baidu.com/editor/" target="_blank" rel="external">百度字体编辑器</a>,导入我们的之前的自定义字体文件</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/baidueditor.png" alt="font-baidu"></p>
-<p>如下将上图中的 <code>E90C</code>、<code>E90D</code> 转换为十进制 <code>59660</code>、<code>59661</code> 就是我们想要的字符。</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/hexconvert.png" alt="hexconvert.png"></p>
-<p>在线转换进制 <a href="http://tool.oschina.net/hexconvert/" target="_blank" rel="external">http://tool.oschina.net/hexconvert/</a></p>
-<p>然后新建 <code>iconfont.js</code> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const map = &#123;</div><div class="line">    &quot;angle-left&quot;: &quot;59648&quot;,</div><div class="line">    &quot;angle-right&quot;: &quot;59649&quot;,</div><div class="line">    &quot;ok&quot;: &quot;59650&quot;,</div><div class="line">    &quot;alarm&quot;: &quot;59651&quot;,</div><div class="line">    &quot;edit&quot;: &quot;59652&quot;,</div><div class="line">    &quot;eye-close&quot;: &quot;59653&quot;,</div><div class="line">    &quot;eye-open&quot;: &quot;59654&quot;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = (name) =&gt; String.fromCharCode(map[name]);</div><div class="line">module.exports.map = map;</div></pre></td></tr></table></figure>
-<p>在 React-native 中使用的时候非常简单,首先导入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import icon from &apos;iconfont&apos;;</div></pre></td></tr></table></figure>
-<p>然后在需要使用的地方,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Text style=&#123;styles.icon&#125;&gt;&#123;icon(&apos;edit&apos;)&#125;&lt;/Text&gt;</div></pre></td></tr></table></figure>
-<p>看看是不是在界面中已经出现了你想要的图标，至于大小颜色，反正是字体嘛，用样式去控制咯～。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;React-Native中的iconfont&quot;&gt;&lt;a href=&quot;#React-Native中的iconfont&quot; class=&quot;headerlink&quot; title=&quot;React Native中的iconfont&quot;&gt;&lt;/a&gt;React Native中的iconfont&lt;/h1&gt;&lt;p&gt;关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 &lt;a href=&quot;https://github.com/oblador/react-native-vector-icons&quot;&gt;react-native-vector-icons&lt;/a&gt;, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。&lt;/p&gt;
-&lt;p&gt;但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="react-native" scheme="http://www.imeetyou.net/tags/react-native/"/>
-    
-      <category term="iconfont" scheme="http://www.imeetyou.net/tags/iconfont/"/>
     
   </entry>
   
