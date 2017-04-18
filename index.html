@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a>
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,71 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-2017/js-dp-chain-of-responsibility" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-chain-of-responsibility.html" class="article-date">
+  	<time datetime="2017-04-17T09:46:19.000Z" itemprop="datePublished">2017-04-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-dp-chain-of-responsibility.html">设计模式之职责链模式(Chain of responsibility)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>职责链模式的定义</strong>：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p>职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-dp-chain-of-responsibility.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2017/js-call-apply-bind" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -779,72 +844,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2017/js-dp-singleton.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/kindle-book" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2017/kindle-book.html" class="article-date">
-  	<time datetime="2017-03-28T04:35:39.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2017/kindle-book.html">Kindle 书籍源下载推荐</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近日重拾公司所发kindle，之前一度觉得手机阅读完全可以替代这个产品，但手机看pdf文件，还是不够舒适，虽然是无背光版的，但在上下班路上的几个小时，用kindle阅读一些书籍感觉还是挺不错的，愉快的加入kindle大家庭，多刷秘籍吧。</p>
-<h2 id="新手入门介绍"><a href="#新手入门介绍" class="headerlink" title="新手入门介绍"></a>新手入门介绍</h2><p><a href="https://kindlefere.com/">Kindle伴侣 为静心阅读而生</a></p>
-<p>将近日下载 Kindle 书籍源地址等整理分享一下，也算服务大众吧。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kindle/">kindle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2017/kindle-book.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

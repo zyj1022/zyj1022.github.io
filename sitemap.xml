@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-chain-of-responsibility.html</loc>
+    
+    <lastmod>2017-04-18T09:24:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/js-call-apply-bind.html</loc>
     
     <lastmod>2017-04-11T02:19:12.000Z</lastmod>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>设计模式之职责链模式(Chain of responsibility) | 智的前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之职责链模式(Chain of responsibility)">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-chain-of-responsibility.html">
+<meta property="og:site_name" content="智的前端之路">
+<meta property="og:description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
+<meta property="og:updated_time" content="2017-04-18T09:24:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之职责链模式(Chain of responsibility)">
+<meta name="twitter:description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
+  
+    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">若有智，事可为</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 12px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 12px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 12px;">github</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iterator/" style="font-size: 10px;">iterator</a> <a href="/tags/js/" style="font-size: 18px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 16px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/proxy/" style="font-size: 10px;">proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/strategy/" style="font-size: 10px;">strategy</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">若有智，事可为</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2017/js-dp-chain-of-responsibility" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-chain-of-responsibility.html" class="article-date">
+  	<time datetime="2017-04-17T09:46:19.000Z" itemprop="datePublished">2017-04-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式之职责链模式(Chain of responsibility)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>职责链模式的定义</strong>：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p>职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。</p>
+<a id="more"></a>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>假设我们负责一个售卖手机的电商网站，经过分别交纳 500 元定金和 200 元定金的两轮预定<br>后(订单已在此时生成)，现在已经到了正式购买的阶段。</p>
+<p>公司针对支付过定金的用户有一定的优惠政策。在正式购买后，已经支付过 500 元定金的用 户会收到 100 元的商城优惠券，200 元定金的用户可以收到 50 元的优惠券，而之前没有支付定金 的用户只能进入普通购买模式，也就是没有优惠券，且在库存有限的情况下不一定保证能买到。</p>
+<p>在页面加载之初，后端会传递给页面几个字段。</p>
+<ul>
+<li><strong>orderType</strong>：表示订单类型(定金用户或者普通购买用户)，code 的值为 1 的时候是 500 元 定金用户，为 2 的时候是 200 元定金用户，为 3 的时候是普通购买用户。</li>
+<li><strong>pay</strong>：表示用户是否已经支付定金，值为 true 或者 false, 虽然用户已经下过 500 元定金的 订单，但如果他一直没有支付定金，现在只能降级进入普通购买模式。</li>
+<li><strong>stock</strong>：表示当前用于普通购买的手机库存数量，已经支付过 500 元或者 200 元定金的用 户不受此限制。</li>
+</ul>
+<p>看到上面的需求，简单点可以想到有用 <code>if</code> <code>else</code> 分之来实现，但肯定会比较难以维护及扩展。</p>
+<p>那么就将此需求用职责链模式重构代码：</p>
+<p>首先需要 3 种购买模式的节点函数，我们约定，如果某个节点不能处理请<br>求，则返回一个特定的字符串 ‘nextSuccessor’来表示该请求需要继续往后面传递:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 500 元订单</div><div class="line">var order500 = function(orderType, pay, stock) &#123;</div><div class="line">     if (orderType === 1 &amp;&amp; pay === true ) &#123;</div><div class="line">         console.log(&apos;500 元定金预购, 得到 100 优惠券&apos;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 200 元订单</div><div class="line">var order200 = function(orderType, pay, stock) &#123;</div><div class="line">    if (orderType === 2 &amp;&amp; pay === true ) &#123;</div><div class="line">        console.log(&apos;200 元定金预购, 得到 50 优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">// 普通购买订单</div><div class="line">var orderNormal = function(orderType, pay, stock) &#123;</div><div class="line">    if (stock &gt; 0) &#123;</div><div class="line">        console.log(&apos;普通购买, 无优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       console.log( &apos;手机库存不足&apos; );</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来需要把函数包装进职责链节点，我们定义一个构造函数 Chain，在 new Chain 的时候传 递的参数即为需要被包装的函数， 同时它还拥有一个实例属性 this.successor，表示在链中的下 一个节点。</p>
+<p>此外 Chain 的 prototype 中还有两个函数，它们的作用如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Chain.prototype.setNextSuccessor 指定在链中的下一个节点</div><div class="line">// Chain.prototype.passRequest 传递请求给某个节点</div><div class="line"></div><div class="line">var Chain = function(fn)&#123;</div><div class="line">    this.fn = fn;</div><div class="line">    this.successor = null;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.setNextSuccessor = function(successor) &#123;</div><div class="line">    return this.successor = successor;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.passRequest = function() &#123;</div><div class="line">    var ret = this.fn.apply(this, arguments);</div><div class="line">    if (ret === &apos;nextSuccessor&apos;) &#123;</div><div class="line">        return this.successor &amp;&amp; this.successor.passRequest.apply( this.successor, arguments );</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我们把 3 个订单函数分别包装成职责链的节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var chainOrder500 = new Chain(order500);</div><div class="line">var chainOrder200 = new Chain(order200);</div><div class="line">var chainOrderNormal = new Chain(orderNormal);</div></pre></td></tr></table></figure>
+<p>然后指定节点在职责链中的顺序:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chainOrder500.setNextSuccessor(chainOrder200);</div><div class="line">chainOrder200.setNextSuccessor(chainOrderNormal);</div></pre></td></tr></table></figure>
+<p>最后把请求传递给第一个节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chainOrder500.passRequest(1, true, 500); // 输出:500 元定金预购，得到 100 优惠券</div><div class="line">chainOrder500.passRequest(2, true, 500); // 输出:200 元定金预购，得到 50 优惠券</div><div class="line">chainOrder500.passRequest(3, true, 500); // 输出:普通购买，无优惠券</div><div class="line">chainOrder500.passRequest(1, false, 0);  // 输出:手机库存不足</div></pre></td></tr></table></figure>
+<p>通过改进，我们可以自由灵活地增加、移除和修改链中的节点顺序，假如某天网站运营人员 又想出了支持 300 元定金购买，那我们就在该链中增加一个节点即可:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var order300 = function()&#123;</div><div class="line">	// 具体实现略</div><div class="line">&#125;;</div><div class="line">chainOrder300= new Chain( order300 );</div><div class="line">chainOrder500.setNextSuccessor( chainOrder300);</div><div class="line">chainOrder300.setNextSuccessor( chainOrder200);</div></pre></td></tr></table></figure>
+<p>在这里完全不用理会原来的订单函数代码，我们要做的只是增 加一个节点，然后重新设置链中相关节点的顺序。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>职责链模式可以很好地帮助我们管理代码，降低发起请求的对象和处理请求的对象之间的耦合性。职责链中的节点数量和顺序是可以自由变化的，我们可以在运行时决定链中包含哪些节点。</p>
+<p>无论是作用域链、原型链，还是 DOM 节点中的事件冒泡，我们都能从中找到职责链模式的影子。职责链模式还可以和组合模式结合在一起，用来连接部件和父部件，或是提高组合对象的效率。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/frontend/2017/js-call-apply-bind.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">call()、apply()、bind()的用法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

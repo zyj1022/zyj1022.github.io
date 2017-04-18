@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-11T02:19:12.000Z</updated>
+  <updated>2017-04-18T09:24:40.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之职责链模式(Chain of responsibility)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-chain-of-responsibility.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-chain-of-responsibility.html</id>
+    <published>2017-04-17T09:46:19.000Z</published>
+    <updated>2017-04-18T09:24:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>职责链模式的定义</strong>：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p>职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。</p>
+<a id="more"></a>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>假设我们负责一个售卖手机的电商网站，经过分别交纳 500 元定金和 200 元定金的两轮预定<br>后(订单已在此时生成)，现在已经到了正式购买的阶段。</p>
+<p>公司针对支付过定金的用户有一定的优惠政策。在正式购买后，已经支付过 500 元定金的用 户会收到 100 元的商城优惠券，200 元定金的用户可以收到 50 元的优惠券，而之前没有支付定金 的用户只能进入普通购买模式，也就是没有优惠券，且在库存有限的情况下不一定保证能买到。</p>
+<p>在页面加载之初，后端会传递给页面几个字段。</p>
+<ul>
+<li><strong>orderType</strong>：表示订单类型(定金用户或者普通购买用户)，code 的值为 1 的时候是 500 元 定金用户，为 2 的时候是 200 元定金用户，为 3 的时候是普通购买用户。</li>
+<li><strong>pay</strong>：表示用户是否已经支付定金，值为 true 或者 false, 虽然用户已经下过 500 元定金的 订单，但如果他一直没有支付定金，现在只能降级进入普通购买模式。</li>
+<li><strong>stock</strong>：表示当前用于普通购买的手机库存数量，已经支付过 500 元或者 200 元定金的用 户不受此限制。</li>
+</ul>
+<p>看到上面的需求，简单点可以想到有用 <code>if</code> <code>else</code> 分之来实现，但肯定会比较难以维护及扩展。</p>
+<p>那么就将此需求用职责链模式重构代码：</p>
+<p>首先需要 3 种购买模式的节点函数，我们约定，如果某个节点不能处理请<br>求，则返回一个特定的字符串 ‘nextSuccessor’来表示该请求需要继续往后面传递:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 500 元订单</div><div class="line">var order500 = function(orderType, pay, stock) &#123;</div><div class="line">     if (orderType === 1 &amp;&amp; pay === true ) &#123;</div><div class="line">         console.log(&apos;500 元定金预购, 得到 100 优惠券&apos;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 200 元订单</div><div class="line">var order200 = function(orderType, pay, stock) &#123;</div><div class="line">    if (orderType === 2 &amp;&amp; pay === true ) &#123;</div><div class="line">        console.log(&apos;200 元定金预购, 得到 50 优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">// 普通购买订单</div><div class="line">var orderNormal = function(orderType, pay, stock) &#123;</div><div class="line">    if (stock &gt; 0) &#123;</div><div class="line">        console.log(&apos;普通购买, 无优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       console.log( &apos;手机库存不足&apos; );</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来需要把函数包装进职责链节点，我们定义一个构造函数 Chain，在 new Chain 的时候传 递的参数即为需要被包装的函数， 同时它还拥有一个实例属性 this.successor，表示在链中的下 一个节点。</p>
+<p>此外 Chain 的 prototype 中还有两个函数，它们的作用如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Chain.prototype.setNextSuccessor 指定在链中的下一个节点</div><div class="line">// Chain.prototype.passRequest 传递请求给某个节点</div><div class="line"></div><div class="line">var Chain = function(fn)&#123;</div><div class="line">    this.fn = fn;</div><div class="line">    this.successor = null;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.setNextSuccessor = function(successor) &#123;</div><div class="line">    return this.successor = successor;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.passRequest = function() &#123;</div><div class="line">    var ret = this.fn.apply(this, arguments);</div><div class="line">    if (ret === &apos;nextSuccessor&apos;) &#123;</div><div class="line">        return this.successor &amp;&amp; this.successor.passRequest.apply( this.successor, arguments );</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在我们把 3 个订单函数分别包装成职责链的节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var chainOrder500 = new Chain(order500);</div><div class="line">var chainOrder200 = new Chain(order200);</div><div class="line">var chainOrderNormal = new Chain(orderNormal);</div></pre></td></tr></table></figure>
+<p>然后指定节点在职责链中的顺序:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chainOrder500.setNextSuccessor(chainOrder200);</div><div class="line">chainOrder200.setNextSuccessor(chainOrderNormal);</div></pre></td></tr></table></figure>
+<p>最后把请求传递给第一个节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chainOrder500.passRequest(1, true, 500); // 输出:500 元定金预购，得到 100 优惠券</div><div class="line">chainOrder500.passRequest(2, true, 500); // 输出:200 元定金预购，得到 50 优惠券</div><div class="line">chainOrder500.passRequest(3, true, 500); // 输出:普通购买，无优惠券</div><div class="line">chainOrder500.passRequest(1, false, 0);  // 输出:手机库存不足</div></pre></td></tr></table></figure>
+<p>通过改进，我们可以自由灵活地增加、移除和修改链中的节点顺序，假如某天网站运营人员 又想出了支持 300 元定金购买，那我们就在该链中增加一个节点即可:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var order300 = function()&#123;</div><div class="line">	// 具体实现略</div><div class="line">&#125;;</div><div class="line">chainOrder300= new Chain( order300 );</div><div class="line">chainOrder500.setNextSuccessor( chainOrder300);</div><div class="line">chainOrder300.setNextSuccessor( chainOrder200);</div></pre></td></tr></table></figure>
+<p>在这里完全不用理会原来的订单函数代码，我们要做的只是增 加一个节点，然后重新设置链中相关节点的顺序。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>职责链模式可以很好地帮助我们管理代码，降低发起请求的对象和处理请求的对象之间的耦合性。职责链中的节点数量和顺序是可以自由变化的，我们可以在运行时决定链中包含哪些节点。</p>
+<p>无论是作用域链、原型链，还是 DOM 节点中的事件冒泡，我们都能从中找到职责链模式的影子。职责链模式还可以和组合模式结合在一起，用来连接部件和父部件，或是提高组合对象的效率。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;职责链模式的定义&lt;/strong&gt;：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。&lt;/p&gt;
+&lt;p&gt;职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>call()、apply()、bind()的用法</title>
@@ -1468,45 +1528,6 @@ var nav = (function() {  // nav 模块
       <category term="theme" scheme="http://www.imeetyou.net/tags/theme/"/>
     
       <category term="syntax" scheme="http://www.imeetyou.net/tags/syntax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重装node导致Hexo不能正常使用解决办法</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/hexo-node-err.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/hexo-node-err.html</id>
-    <published>2016-11-22T02:40:15.000Z</published>
-    <updated>2016-11-22T02:08:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：</p>
-<p>在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。</p>
-<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ATAL Error: Module version mismatch. Expected 48, got 14.</div><div class="line">Template render error: Error: Module version mismatch. Expected 48, got 14.</div></pre></td></tr></table></figure>
-<p>错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo --no-optional</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h1><p>安装Hexo时，执行“npm install -g hexo-cli“出现错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">npm ERR! tar.unpack untar error /Users/Macx/.npm/hexo-cli/0.1.8/package.tgz</div><div class="line">npm ERR! Darwin 14.4.0</div><div class="line">npm ERR! argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;install&quot; &quot;hexo-cli&quot; &quot;-g&quot;</div><div class="line">npm ERR! node v4.2.1</div><div class="line">npm ERR! npm v2.14.7</div><div class="line">npm ERR! path /usr/local/lib/node_modules/hexo-cli</div><div class="line">npm ERR! code EACCES</div><div class="line">npm ERR! errno -13</div><div class="line">npm ERR! syscall mkdir</div><div class="line"></div><div class="line">npm ERR! Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;</div><div class="line">npm ERR! at Error (native)</div><div class="line">npm ERR! &#123; [Error: EACCES: permission denied, mkdir &apos;/usr/local/lib/node_modules/hexo-cli&apos;]</div><div class="line">npm ERR! errno: -13,</div><div class="line">npm ERR! code: &apos;EACCES&apos;,</div><div class="line">npm ERR! syscall: &apos;mkdir&apos;,</div><div class="line">npm ERR! path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_type: &apos;Directory&apos;,</div><div class="line">npm ERR! fstream_path: &apos;/usr/local/lib/node_modules/hexo-cli&apos;,</div><div class="line">npm ERR! fstream_class: &apos;DirWriter&apos;,</div><div class="line">npm ERR! fstream_stack: </div><div class="line">npm ERR! [ &apos;/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25&apos;,</div><div class="line">npm ERR! &apos;/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53&apos;,</div><div class="line">npm ERR! &apos;FSReqWrap.oncomplete (fs.js:82:15)&apos; ] &#125;</div><div class="line">npm ERR! </div><div class="line">npm ERR! Please try running this command again as root/Administrator.</div><div class="line"></div><div class="line">npm ERR! Please include the following file with any support request:</div><div class="line">npm ERR! /Users/Macx/Desktop/GitHub/npm-debug.log</div></pre></td></tr></table></figure>
-<p>分析下错误，异常可能因为权限问题，所以我们执行一些安装命令是需要申请root执行权限。</p>
-<p>解决方法：执行以下代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install --unsafe-perm --verbose -g hexo</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：&lt;/p&gt;
-&lt;p&gt;在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。&lt;/p&gt;
-&lt;h1 id=&quot;问题一&quot;&gt;&lt;a href=&quot;#问题一&quot; class=&quot;headerlink&quot; title=&quot;问题一&quot;&gt;&lt;/a&gt;问题一&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ATAL Error: Module version mismatch. Expected 48, got 14.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Template render error: Error: Module version mismatch. Expected 48, got 14.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo --no-optional&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="hexo" scheme="http://www.imeetyou.net/tags/hexo/"/>
     
   </entry>
   
