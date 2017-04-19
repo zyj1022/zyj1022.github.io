@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-18T09:24:40.000Z</updated>
+  <updated>2017-04-19T07:51:39.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之中介者模式(Mediator)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-mediator.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-mediator.html</id>
+    <published>2017-04-19T04:36:29.000Z</published>
+    <updated>2017-04-19T07:51:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>中介者模式的作用就是解除对象与对象之间的紧耦合关系。增加一个中介者对象后，所有的相关对象都通过中介者对象来通信，而不是互相引用，所以当一个对象发生改变时，只需要通知中介者对象即可。中介者使各对象之间耦合松散，而且可以独立地改变它们之间的交互。中介者模式使网状的多对多关系变成了相对简单的一对多关系.</p>
+<a id="more"></a>
+<p><img src="http://og8z552x2.bkt.clouddn.com/js-mediator.png" alt="中介者模式"></p>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>开发中，中介者是一个行为设计模式，通过提供一个统一的接口让系统的不同部分进行通信。一般，如果系统有很多子模块需要直接沟通，都要创建一个中央控制点让其各模块通过该中央控制点进行交互。中介者模式可以让这些子模块不需要直接沟通，而达到进行解耦的目的。</p>
+<p>打个比方，平时常见的机场交通控制系统，塔台就是中介者，它控制着飞机（子模块）的起飞和降落，因为所有的沟通都是从飞机向塔台汇报来完成的，而不是飞机之前相互沟通。中央控制系统就是该系统的关键，也就是软件设计中扮演的中介者角色。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="购买商品筛选"><a href="#购买商品筛选" class="headerlink" title="购买商品筛选"></a>购买商品筛选</h3><p>假设我们正在编写一个手机购买的页面，在购买流程中，</p>
+<ul>
+<li>选择手机颜色、购买数量（如果购买数量大于库存则显示库存不足，禁用下一步按钮）</li>
+<li>下一步按钮，加入购物车</li>
+</ul>
+<p>可能想到的扩展，购买过程中不仅选择筛选颜色，还会加入内存、品牌、价格区间等等。</p>
+<p>为了减少耦合，筛选条件之间彼此独立，引入中介者模式，当其中某个条件发生改变时，仅仅通知中介者它被改变了， 同时把自身当作参数传入中介者，以便中介者辨别是谁发生了改变。剩下的所有事情都交给中介者对象来完成，这样一来，无论是修改还是新增节点，都只需要改动中介者对象里的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">var goods = &#123;  // 手机库存</div><div class="line">	&quot;red|32G&quot;: 3,</div><div class="line">	&quot;red|16G&quot;: 0,</div><div class="line">	&quot;blue|32G&quot;: 1,</div><div class="line">	&quot;blue|16G&quot;: 6</div><div class="line">&#125;</div><div class="line"></div><div class="line">var mediator = (function() &#123;</div><div class="line">	var colorSelect = document.getElementById( &apos;colorSelect&apos; ),</div><div class="line">		memorySelect = document.getElementById( &apos;memorySelect&apos; ),</div><div class="line">		numberInput = document.getElementById( &apos;numberInput&apos; ),</div><div class="line">		colorInfo = document.getElementById( &apos;colorInfo&apos; ),</div><div class="line">		memoryInfo = document.getElementById( &apos;memoryInfo&apos; ),</div><div class="line">		numberInfo = document.getElementById( &apos;numberInfo&apos; ),</div><div class="line">		nextBtn = document.getElementById( &apos;nextBtn&apos; );</div><div class="line">	return &#123;</div><div class="line">		changed: function( obj )&#123;</div><div class="line">			var color = colorSelect.value, // 颜色</div><div class="line">			memory = memorySelect.value,// 内存</div><div class="line">			number = numberInput.value, // 数量</div><div class="line">			stock = goods[ color + &apos;|&apos; + memory ];</div><div class="line">			// 颜色和内存对应的手机库存数量</div><div class="line">			if ( obj === colorSelect )&#123; // 如果改变的是选择颜色下拉框</div><div class="line">				colorInfo.innerHTML = color;</div><div class="line">			&#125; else if ( obj === memorySelect ) &#123;</div><div class="line">				memoryInfo.innerHTML = memory;</div><div class="line">			&#125; else if ( obj === numberInput ) &#123;</div><div class="line">				numberInfo.innerHTML = number;</div><div class="line">			&#125;</div><div class="line">			if ( !color ) &#123;</div><div class="line">				nextBtn.disabled = true;</div><div class="line">				nextBtn.innerHTML = &apos;请选择手机颜色&apos;;</div><div class="line">				return;</div><div class="line">			&#125;</div><div class="line">			if ( !memory ) &#123;</div><div class="line">				nextBtn.disabled = true;</div><div class="line">				nextBtn.innerHTML = &apos;请选择内存大小&apos;;</div><div class="line">				return;</div><div class="line">			&#125;</div><div class="line">			if ( ( ( number - 0 ) | 0 ) !== number - 0 )&#123;</div><div class="line">				nextBtn.disabled = true;</div><div class="line">				nextBtn.innerHTML = &apos;请输入正确的购买数量&apos;;</div><div class="line">				return;</div><div class="line">			&#125;</div><div class="line">			nextBtn.disabled = false;</div><div class="line">			nextBtn.innerHTML = &apos;放入购物车&apos;;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">// 事件函数:</div><div class="line">colorSelect.onchange = function()&#123;</div><div class="line">	mediator.changed( this );</div><div class="line">&#125;;</div><div class="line">memorySelect.onchange = function()&#123;</div><div class="line">	mediator.changed( this );</div><div class="line">&#125;;</div><div class="line">numberInput.oninput = function()&#123;</div><div class="line">	mediator.changed( this );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>以上，如果某一天又要新增一些筛选选择条件，我们只需要修改 mediator 对象即可。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>中介者模式是迎合迪米特法则的一种实现。迪米特法则也叫最少知识原则，是指一个对象应该尽可能少地了解另外的对象(类似不和陌生人说话)。如果对象之间的耦合性太高，一个对象发生改变之后，难免会影响到其他的对象，跟“城门失火，殃及池鱼”的道理是一样的。而在中介者模式里，对象之间几乎不知道彼此的存在，它们只能通过中介者对象来互相影响对方。</p>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;中介者模式的作用就是解除对象与对象之间的紧耦合关系。增加一个中介者对象后，所有的相关对象都通过中介者对象来通信，而不是互相引用，所以当一个对象发生改变时，只需要通知中介者对象即可。中介者使各对象之间耦合松散，而且可以独立地改变它们之间的交互。中介者模式使网状的多对多关系变成了相对简单的一对多关系.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之职责链模式(Chain of responsibility)</title>
@@ -1407,127 +1452,6 @@ var nav = (function() {  // nav 模块
       <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
     
       <category term="css" scheme="http://www.imeetyou.net/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何自定义Atom主题</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2016/atom-custom-theme.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2016/atom-custom-theme.html</id>
-    <published>2016-12-08T04:42:32.000Z</published>
-    <updated>2016-12-08T06:52:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用Atom有段时间，一直使用别人的主题，想着自己也制作一款主题，便再 <a href="https://atom.io/docs/v1.2.4/hacking-atom-creating-a-theme" target="_blank" rel="external">官网</a> 上研究一番：</p>
-<p>aotm主题，分为两种，一种是界面主题，一种是语法主题，下面就一一试试。</p>
-<h1 id="创建界面主题"><a href="#创建界面主题" class="headerlink" title="创建界面主题"></a>创建界面主题</h1><p>首先，去下载一个主题，一直使用的是这个 <a href="https://atom.io/themes/one-dark-ui" target="_blank" rel="external">one-dark-ui</a>,下载到本机，并修改文件及主题名称，我修改的 <code>codyer-theme-ui</code>,然后，执行链接命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.atom/packages</div><div class="line">apm link /Users/username/Desktop/codyer-theme-ui</div></pre></td></tr></table></figure>
-<p>之后，打开设置，选择 themes，就可以看到了。</p>
-<a id="more"></a>
-<h2 id="即时重启"><a href="#即时重启" class="headerlink" title="即时重启"></a>即时重启</h2><p>在你修改你的主题之后，按下 <code>cmd-alt-ctrl-L</code> 来重启不是十分理想。在dev模式的Atom窗口下，Atom支持样式的即时更新。</p>
-<p>要想开启dev模式的窗口：</p>
-<p>通过选择 View &gt; Developer &gt; Open in Dev Mode 菜单，或者按下 <code>cmd-shift-o</code> 快捷键来直接在dev模式窗口中打开你的主题。<br>修改你的主题并保存它。你的修改应该会马上应用。<br>如果你想要在任何时候都重新加载全部的样式，你可以使用 <code>cmd-ctrl-shift-r</code> 快捷键。</p>
-<h2 id="开发者工具"><a href="#开发者工具" class="headerlink" title="开发者工具"></a>开发者工具</h2><p>Atom基于Chrome浏览器，并且支持Chrome开发者工具。你可以选择View &gt; Toggle Developer Tools菜单，或者使用cmd-alt-i快捷键来打开它。</p>
-<p>开发者工具允许你查看各个元素，以及他们的CSS属性。</p>
-<h2 id="Atom-样式指南"><a href="#Atom-样式指南" class="headerlink" title="Atom 样式指南"></a>Atom 样式指南</h2><p>如果你在创建一个界面主题，你可能想要一种方式来查看你的主题如何影响系统中的组件。样式指南是一个页面，里面渲染了所有Atom支持的组件。</p>
-<p>打开命令面板（cmd-shift-P）寻找“styleguide”，或者使用cmd-ctrl-shift-g快捷键来打开样式指南。</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/atom-styleguide.png" alt="atom-styleguide"></p>
-<p>这里列出了所有style，直观多了。通过这里，我知道了如果我想改变边栏选中时的颜色，只要修改background-color-selected 的颜色值就可以了。于是回到 ui-variables.less 中，找到这个变量，改成想要的颜色(#93ffeb)即可。重新加载主题就能看到效果了。</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h3><ul>
-<li>@text-color</li>
-<li>@text-color-subtle</li>
-<li>@text-color-highlight</li>
-<li>@text-color-selected</li>
-<li>@text-color-info - 蓝色</li>
-<li>@text-color-success- 绿色</li>
-<li>@text-color-warning - 橙色或者黄色</li>
-<li>@text-color-error - 红色</li>
-</ul>
-<h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3><ul>
-<li>@background-color-info - 蓝色</li>
-<li>@background-color-success - 绿色</li>
-<li>@background-color-warning - 橙色或者黄色</li>
-<li>@background-color-error - 红色</li>
-<li>@background-color-highlight</li>
-<li>@background-color-selected</li>
-<li>@app-background-color - 所有编辑器组件下面的应用背景</li>
-</ul>
-<p>###组件颜色</p>
-<ul>
-<li>@base-background-color -</li>
-<li>@base-border-color -</li>
-<li>@pane-item-background-color -</li>
-<li>@pane-item-border-color -</li>
-<li>@input-background-color -</li>
-<li>@input-border-color -</li>
-<li>@tool-panel-background-color -</li>
-<li>@tool-panel-border-color -</li>
-<li>@inset-panel-background-color -</li>
-<li>@inset-panel-border-color -</li>
-<li>@panel-heading-background-color -</li>
-<li>@panel-heading-border-color -</li>
-<li>@overlay-background-color -</li>
-<li>@overlay-border-color -</li>
-<li>@button-background-color -</li>
-<li>@button-background-color-hover -</li>
-<li>@button-background-color-selected -</li>
-<li>@button-border-color -</li>
-<li>@tab-bar-background-color -</li>
-<li>@tab-bar-border-color -</li>
-<li>@tab-background-color -</li>
-<li>@tab-background-color-active -</li>
-<li>@tab-border-color -</li>
-<li>@tree-view-background-color -</li>
-<li>@tree-view-border-color -</li>
-<li>@ui-site-color-1 -</li>
-<li>@ui-site-color-2 -</li>
-<li>@ui-site-color-3 -</li>
-<li>@ui-site-color-4 -</li>
-<li>@ui-site-color-5 -</li>
-</ul>
-<h3 id="组件尺寸"><a href="#组件尺寸" class="headerlink" title="组件尺寸"></a>组件尺寸</h3><ul>
-<li>@disclosure-arrow-size -</li>
-<li>@component-padding -</li>
-<li>@component-icon-padding -</li>
-<li>@component-icon-size -</li>
-<li>@component-line-height -</li>
-<li>@component-border-radius -</li>
-<li>@tab-height -</li>
-</ul>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><ul>
-<li>@font-size -</li>
-<li>@font-family -</li>
-</ul>
-<h1 id="创建语法主题"><a href="#创建语法主题" class="headerlink" title="创建语法主题"></a>创建语法主题</h1><p>同时按 <code>cmd+shift+p</code>，输入 <code>generate syntax theme</code> 并回车，为主题命名，选择一个保存的位置就可以了。注意名字一定要以-syntax结尾。</p>
-<p>保存好后，就可以在设置-Themes的Syntax主题列表中看到刚建好的主题了。选择它。Syntax部分比较简单，不需要手动建立链接，目录结构也少了许多。</p>
-<p>目录结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">codyer-theme-Syntax/</div><div class="line">	  └── styles/</div><div class="line">	      ├── base.less </div><div class="line">	      ├── colors.less  </div><div class="line">	      └── syntax-variables.less</div></pre></td></tr></table></figure>
-<p>在 <code>colors.less</code> 修改自己喜好的配色即可。</p>
-<h2 id="发布语法主题"><a href="#发布语法主题" class="headerlink" title="发布语法主题"></a>发布语法主题</h2><ul>
-<li>首先把制造好的主题上传至github。</li>
-<li>进入主题目录 执行 <code>apm publish minor</code> 之后输入github的用户名及密码，会要求输入 atom token，然后上传成功，就可以在 atom编辑器里下载到你自己的主题了。</li>
-</ul>
-<h1 id="我的自定义主题"><a href="#我的自定义主题" class="headerlink" title="我的自定义主题"></a>我的自定义主题</h1><p>主题名称 <a href="https://atom.io/themes/codyer-theme-syntax" target="_blank" rel="external">codyer-theme-syntax</a></p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/atom-js-style.png" alt="codyer-theme-html"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用Atom有段时间，一直使用别人的主题，想着自己也制作一款主题，便再 &lt;a href=&quot;https://atom.io/docs/v1.2.4/hacking-atom-creating-a-theme&quot;&gt;官网&lt;/a&gt; 上研究一番：&lt;/p&gt;
-&lt;p&gt;aotm主题，分为两种，一种是界面主题，一种是语法主题，下面就一一试试。&lt;/p&gt;
-&lt;h1 id=&quot;创建界面主题&quot;&gt;&lt;a href=&quot;#创建界面主题&quot; class=&quot;headerlink&quot; title=&quot;创建界面主题&quot;&gt;&lt;/a&gt;创建界面主题&lt;/h1&gt;&lt;p&gt;首先，去下载一个主题，一直使用的是这个 &lt;a href=&quot;https://atom.io/themes/one-dark-ui&quot;&gt;one-dark-ui&lt;/a&gt;,下载到本机，并修改文件及主题名称，我修改的 &lt;code&gt;codyer-theme-ui&lt;/code&gt;,然后，执行链接命令&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd ~/.atom/packages&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;apm link /Users/username/Desktop/codyer-theme-ui&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;之后，打开设置，选择 themes，就可以看到了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="atom" scheme="http://www.imeetyou.net/tags/atom/"/>
-    
-      <category term="theme" scheme="http://www.imeetyou.net/tags/theme/"/>
-    
-      <category term="syntax" scheme="http://www.imeetyou.net/tags/syntax/"/>
     
   </entry>
   
