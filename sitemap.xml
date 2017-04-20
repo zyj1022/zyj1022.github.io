@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html</loc>
+    
+    <lastmod>2017-04-20T08:29:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html</loc>
+    
+    <lastmod>2017-04-20T08:29:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-singleton.html</loc>
+    
+    <lastmod>2017-04-20T08:26:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
+    
+    <lastmod>2017-04-20T08:25:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-mediator.html</loc>
     
     <lastmod>2017-04-19T07:51:39.000Z</lastmod>
@@ -44,37 +72,9 @@
   </url>
   
   <url>
-    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-strategy.html</loc>
-    
-    <lastmod>2017-04-01T07:41:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/html-safari-fixed.html</loc>
     
     <lastmod>2017-03-31T09:57:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html</loc>
-    
-    <lastmod>2017-03-31T09:45:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html</loc>
-    
-    <lastmod>2017-03-29T09:20:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-singleton.html</loc>
-    
-    <lastmod>2017-03-29T09:18:27.000Z</lastmod>
     
   </url>
   
