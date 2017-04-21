@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-decorator.html</loc>
+    
+    <lastmod>2017-04-21T01:42:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.imeetyou.net/posts/frontend/2017/js-dp-proxy.html</loc>
     
     <lastmod>2017-04-20T08:29:37.000Z</lastmod>
