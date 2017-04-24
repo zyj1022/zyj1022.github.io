@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-21T01:42:02.000Z</updated>
+  <updated>2017-04-24T09:15:47.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之适配器模式(Adapter)</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/js-dp-adapter.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/js-dp-adapter.html</id>
+    <published>2017-04-24T09:26:19.000Z</published>
+    <updated>2017-04-24T09:15:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。</p>
+<p>适配器的别名是包装器(wrapper)，这是一个相对简单的模式。</p>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="现实中的适配器——apple的各种转接头"><a href="#现实中的适配器——apple的各种转接头" class="headerlink" title="现实中的适配器——apple的各种转接头"></a>现实中的适配器——apple的各种转接头</h3><p>相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，其实转接头是不是就对应我们但适配器呢？</p>
+<a id="more"></a>
+<p>如果现有的接口已经能够正常工作，那我们就永远不会用上适配器模式。适配器模式是一种 “亡羊补牢”的模式，没有人会在程序的设计之初就使用它。因为没有人可以完全预料到未来的事情，也许现在好好工作的接口，未来的某天却不再适用于新系统，那么我们可以用适配器模式 把旧接口包装成一个新的接口，使它继续保持生命力。比较典型但就是最新但 iphone7 去掉了耳机接口，提供了额外但转接头。也许以后充电口也会去掉，用无线充电，并且提供额外但转接设备。</p>
+<h3 id="地图调用"><a href="#地图调用" class="headerlink" title="地图调用"></a>地图调用</h3><p>当我们向 googleMap 和 baiduMap 都发出“显示”请求时，googleMap 和 baiduMap 分别以各自的方式在页面中展现了地图:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMap ); // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<p>因为 googleMap 和 baiduMap 提供了一致的 show 方法，但第三方的接口方法并不在我们自己的控制范围之内，假如 baiduMap 提供的显示地图的方法不叫 show 而叫 display 呢? baiduMap 这个对象来源于第三方，正常情况下我们都没办法改动它。此时我们可以通过增加 baiduMapAdapter 来解决问题:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    display: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var baiduMapAdapter = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        return baiduMap.display();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMapAdapter );; // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<h3 id="动物叫声"><a href="#动物叫声" class="headerlink" title="动物叫声"></a>动物叫声</h3><p>鸭子但叫声为 quack, 而公鸡但叫声为 crow, 假如我们也要公鸡实现嘎嘎叫（quack）这个动作。我们就可以复用鸭子但quack方法，但发出但声音还是 crow 的。</p>
+<p>首先要先定义鸭子和火鸡的抽象行为，也就是各自的方法函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Duck = function()&#123; &#125;</div><div class="line">Duck.prototype.quack =function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var Cock = function()&#123; &#125;</div><div class="line">Cock.prototype.crow = function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后再定义具体的鸭子和公鸡的构造函数，分别为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var MallarDuck = function() &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">&#125;</div><div class="line">MallarDuck.prototype = new Duck();</div><div class="line">MallarDuck.prototype.quack = function() &#123;</div><div class="line">    console.log(&quot;嘎嘎！嘎嘎！&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var WildCock = function() &#123;</div><div class="line">    Cock.apply(this);</div><div class="line">&#125;</div><div class="line">WildCock.prototype = new Cock();</div><div class="line">WildCock.prototype.crow = function() &#123;</div><div class="line">    console.log(&quot;咯咯！咯咯！&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了让公鸡也支持quack方法，我们创建了一个新的公鸡适配器 CockAdapter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var CockAdapter = function(ck) &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">    this.ck = ck;</div><div class="line">&#125;</div><div class="line">CockAdapter.prototype = new Duck();</div><div class="line">CockAdapter.prototype.quack = function() &#123;</div><div class="line">    this.ck.crow();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该构造函数接受一个公鸡的实例对象，然后使用 Duck 进行 apply，其适配器原型是 Duck，然后要重新修改其原型的quack方法，以便内部调用 ck.crow() 方法。</p>
+<p>测试一下便可以知道结果了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var oDuck = new MallarDuck()</div><div class="line">var oCock = new WildCock()</div><div class="line">var oCkadapter = new CockAdapter(oCock);</div><div class="line"></div><div class="line">// 原有的鸭子行为</div><div class="line">oDuck.quack();  // 嘎嘎！嘎嘎！</div><div class="line">// 原有但公鸡行为</div><div class="line">oCock.crow(); // 咯咯！咯咯！</div><div class="line"></div><div class="line">// 适配器公鸡的行为</div><div class="line">oCkadapter.quack(); // 咯咯！咯咯！</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>那合适使用适配器模式好呢？如果有以下情况出现时，建议使用：</p>
+<ul>
+<li>1、使用一个已经存在的对象，但其方法或属性接口不符合你的要求；</li>
+<li>2、你想创建一个可复用的对象，该对象可以与其它不相关的对象或不可见对象（即接口方法或属性不兼容的对象）协同工作；</li>
+<li>3、想使用已经存在的对象，但是不能对每一个都进行原型继承以匹配它的接口。对象适配器可以适配它的父对象接口方法或属性。</li>
+</ul>
+<p>另外，适配器模式和其它几个模式可能容易让人迷惑，这里说一下大概的区别：</p>
+<ul>
+<li><strong>适配器模式</strong>主要用来解决两个已有接口之间不匹配的问题，它不考虑这些接口是怎样实现的，也不考虑它们将来可能会如何演化。适配器模式不需要改变已有的接口，就能够使它们协同作用。</li>
+<li><strong>装饰者模式和代理模式</strong>也不会改变原有对象的接口，但装饰者模式的作用是为了给对象<strong>增加功能</strong>。装饰者模式常常形成一条长的装饰链，而<strong>适配器模式通常只包装一次</strong>。<strong>代理模式是为了控制对对象的访问</strong>，通常也只包装一次。</li>
+<li><strong>外观模式</strong>的作用倒是和适配器比较相似，有人把外观模式看成一组对象的适配器，但外观模式最显著的特点是定义了一个新的接口。</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。&lt;/p&gt;
+&lt;p&gt;适配器的别名是包装器(wrapper)，这是一个相对简单的模式。&lt;/p&gt;
+&lt;h2 id=&quot;使用实例&quot;&gt;&lt;a href=&quot;#使用实例&quot; class=&quot;headerlink&quot; title=&quot;使用实例&quot;&gt;&lt;/a&gt;使用实例&lt;/h2&gt;&lt;h3 id=&quot;现实中的适配器——apple的各种转接头&quot;&gt;&lt;a href=&quot;#现实中的适配器——apple的各种转接头&quot; class=&quot;headerlink&quot; title=&quot;现实中的适配器——apple的各种转接头&quot;&gt;&lt;/a&gt;现实中的适配器——apple的各种转接头&lt;/h3&gt;&lt;p&gt;相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，其实转接头是不是就对应我们但适配器呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
+    
+      <category term="设计模式" scheme="http://www.imeetyou.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之装饰者模式(Decorator)</title>
@@ -1457,54 +1520,6 @@ proxyImage.setSrc( &apos;./loading.gif&apos; );
     <summary type="html">
     
       &lt;p&gt;总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。&lt;br&gt;首先给需要实现水平垂直居中的两个div设置统一的样式，&lt;a href=&quot;/demos/div-center-middle.html&quot;&gt;&lt;strong&gt;查看demo&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.styl &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 300px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #ccc;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	margin: 30px auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	position: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	border: 1px solid #000;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.box &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 200px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 100px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #333;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;方法一：父标签-table-cell-法&quot;&gt;&lt;a href=&quot;#方法一：父标签-table-cell-法&quot; class=&quot;headerlink&quot; title=&quot;方法一：父标签 table-cell 法&quot;&gt;&lt;/a&gt;方法一：父标签 table-cell 法&lt;/h2&gt;&lt;p&gt;看题目就知道是利用父标签的 &lt;code&gt;display: table-cell&lt;/code&gt;,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。&lt;br&gt;那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性&lt;code&gt;vertical-align: middle;&lt;/code&gt; 来使得内部元素垂直居中了，然后再给子标签 &lt;code&gt;margin:0 auto;&lt;/code&gt; 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>圣杯布局和双飞翼布局详解</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2017/div-the-holy-grail.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2017/div-the-holy-grail.html</id>
-    <published>2017-03-06T04:35:54.000Z</published>
-    <updated>2017-03-22T07:45:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。<br>首先给需要实现水平垂直居中的两个div设置统一的样式，<a href="/demos/the-holy-grail.html"><strong>查看demo</strong></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl &#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 300px;</div><div class="line">	background: #ccc;</div><div class="line">	margin: 30px auto;</div><div class="line">	position: relative;</div><div class="line">	border: 1px solid #000;</div><div class="line">&#125;</div><div class="line">.box &#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: #333;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法一：父标签-table-cell-法"><a href="#方法一：父标签-table-cell-法" class="headerlink" title="方法一：父标签 table-cell 法"></a>方法一：父标签 table-cell 法</h2><p>看题目就知道是利用父标签的 <code>display: table-cell</code>,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。<br>那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性<code>vertical-align: middle;</code> 来使得内部元素垂直居中了，然后再给子标签 <code>margin:0 auto;</code> 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/*css*/</div><div class="line">.styl1 &#123;</div><div class="line">	width: 1000px;</div><div class="line">	display: table-cell;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line">.styl1 .box &#123;</div><div class="line">	margin: 0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>html代码只要用我们上面的样式即可，之后的class名只要修改 <code>styl1</code> 为对应的样式名即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/* html */</div><div class="line">&lt;div class=&quot;styl styl1&quot;&gt;</div><div class="line">	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h2 id="方法二：常规-position-及子元素偏移方法"><a href="#方法二：常规-position-及子元素偏移方法" class="headerlink" title="方法二：常规 position 及子元素偏移方法"></a>方法二：常规 position 及子元素偏移方法</h2><p>父标签设置 <code>position:relative</code>,子标签设置 <code>position:absolute</code>,同时设置 <code>left:50%</code>,<code>top:50%</code>,这个时候子标签的左上角已经垂直水平居中，再设置<code>margin</code>的负值为子元素宽高的50%即可将中心点对齐。<br>此方法缺点，需要动态调整 margin 偏移量为子标签宽高度的一半这个值，无法自动匹配。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.styl2 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	margin: -50px 0 0 -100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法三：CSS3新属性-transform-的-translate-方法"><a href="#方法三：CSS3新属性-transform-的-translate-方法" class="headerlink" title="方法三：CSS3新属性 transform 的 translate 方法"></a>方法三：CSS3新属性 transform 的 translate 方法</h2><p>首先 <code>transform</code> 是css3的新属性，该属性是让我们对元素进行旋转、缩放、<strong>移动</strong>或倾斜。那么再看属性值 <code>translate</code> 是定义2D转换，就是平面的x,y喽。知道这些，那么我们在 方法二的基础上将偏移量通过 <code>transform</code> 来设置即可。<br>此属性支持IE9以上属性，而且需要兼容不同浏览器写法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.styl3 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	transform: translate(-50%, -50%);</div><div class="line">	-webkit-transform: translate(-50%, -50%);</div><div class="line">	-moz-transform: translate(-50%, -50%);</div><div class="line">	-ms-transform: translate(-50%, -50%)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法四：margin-auto-方法"><a href="#方法四：margin-auto-方法" class="headerlink" title="方法四：margin:auto 方法"></a>方法四：margin:auto 方法</h2><p>此方法依然是在方法二的基础上修改，将子元素的left、top、right、bottom都设置为0，然后再 <code>margin:auto</code>,即可实现子元素的水平垂直居中。<br>此方法好处是自适应父标签的宽高，也就是说，无论父标签宽高怎么变都水平垂直居中哦。<br>此方法支持IE8+以及其他浏览器。是不是很神奇，具体原因查看 <strong><a href="http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">margin:auto实现绝对定位元素的水平垂直居中</a></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.styl4 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	margin: auto;</div><div class="line">	left: 0;</div><div class="line">	top: 0;</div><div class="line">	bottom: 0;</div><div class="line">	right: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法五：flex-布局方法"><a href="#方法五：flex-布局方法" class="headerlink" title="方法五：flex 布局方法"></a>方法五：flex 布局方法</h2><p>flex意为弹性布局，不同于盒模型布局，子元素实现垂直居中就比较容易了，具体教程可以参看 <strong><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰的flex布局教程</a></strong>，这里只说怎么实现。<br>在此我们只要将父标签设置为 <code>display: flex</code>,并进行相应的主轴 <code>justify-content: center</code> 和交叉轴上的 <code>align-items: center</code> 对齐方式就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.styl5 &#123;</div><div class="line">	justify-content: center;</div><div class="line">	align-items: center;</div><div class="line">	display: -webkit-flex;</div><div class="line">	display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>html结构同上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;styl styl5&quot;&gt;</div><div class="line">	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="方法六：伪元素-inline-block-vertical-align-方法"><a href="#方法六：伪元素-inline-block-vertical-align-方法" class="headerlink" title="方法六：伪元素 inline-block/vertical-align 方法"></a>方法六：伪元素 inline-block/vertical-align 方法</h2><p>这个方法主要利用父标签的 <code>::before</code> 伪元素的 <code>inline-block</code> <code>vertical-align</code>来实现，比较巧妙，但这个方法要求子元素的属性必须是 <code>display: inline-block</code>, 好处依然是父子元素都可以自适应宽高并保持水平垂直居中。css如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl6 &#123;</div><div class="line">	text-align: center;</div><div class="line">&#125;</div><div class="line">.styl6:before &#123;</div><div class="line">	content: &apos;&apos;;</div><div class="line">	display: inline-block;</div><div class="line">	height: 100%;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line">.styl6 .box &#123;</div><div class="line">	display: inline-block;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>好，至此总结了div内部元素水平垂直居中的方法。</p>
-<hr>
-<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/the-holy-grail.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/the-holy-grail.html</a></p>
-<p>转载时必须以链接形式注明原始出处及本声明</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。&lt;br&gt;首先给需要实现水平垂直居中的两个div设置统一的样式，&lt;a href=&quot;/demos/the-holy-grail.html&quot;&gt;&lt;strong&gt;查看demo&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.styl &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 300px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #ccc;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	margin: 30px auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	position: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	border: 1px solid #000;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.box &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 200px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 100px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #333;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;方法一：父标签-table-cell-法&quot;&gt;&lt;a href=&quot;#方法一：父标签-table-cell-法&quot; class=&quot;headerlink&quot; title=&quot;方法一：父标签 table-cell 法&quot;&gt;&lt;/a&gt;方法一：父标签 table-cell 法&lt;/h2&gt;&lt;p&gt;看题目就知道是利用父标签的 &lt;code&gt;display: table-cell&lt;/code&gt;,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。&lt;br&gt;那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性&lt;code&gt;vertical-align: middle;&lt;/code&gt; 来使得内部元素垂直居中了，然后再给子标签 &lt;code&gt;margin:0 auto;&lt;/code&gt; 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度&lt;/p&gt;
     

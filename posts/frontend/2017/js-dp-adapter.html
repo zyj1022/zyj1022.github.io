@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>设计模式之适配器模式(Adapter) | 智的前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
+适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
+使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之适配器模式(Adapter)">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-adapter.html">
+<meta property="og:site_name" content="智的前端之路">
+<meta property="og:description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
+适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
+使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
+<meta property="og:updated_time" content="2017-04-24T09:15:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式之适配器模式(Adapter)">
+<meta name="twitter:description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
+适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
+使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
+  
+    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">若有智，事可为</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 11.67px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">若有智，事可为</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2017/js-dp-adapter" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-adapter.html" class="article-date">
+  	<time datetime="2017-04-24T09:26:19.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式之适配器模式(Adapter)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。</p>
+<p>适配器的别名是包装器(wrapper)，这是一个相对简单的模式。</p>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="现实中的适配器——apple的各种转接头"><a href="#现实中的适配器——apple的各种转接头" class="headerlink" title="现实中的适配器——apple的各种转接头"></a>现实中的适配器——apple的各种转接头</h3><p>相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，其实转接头是不是就对应我们但适配器呢？</p>
+<a id="more"></a>
+<p>如果现有的接口已经能够正常工作，那我们就永远不会用上适配器模式。适配器模式是一种 “亡羊补牢”的模式，没有人会在程序的设计之初就使用它。因为没有人可以完全预料到未来的事情，也许现在好好工作的接口，未来的某天却不再适用于新系统，那么我们可以用适配器模式 把旧接口包装成一个新的接口，使它继续保持生命力。比较典型但就是最新但 iphone7 去掉了耳机接口，提供了额外但转接头。也许以后充电口也会去掉，用无线充电，并且提供额外但转接设备。</p>
+<h3 id="地图调用"><a href="#地图调用" class="headerlink" title="地图调用"></a>地图调用</h3><p>当我们向 googleMap 和 baiduMap 都发出“显示”请求时，googleMap 和 baiduMap 分别以各自的方式在页面中展现了地图:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMap ); // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<p>因为 googleMap 和 baiduMap 提供了一致的 show 方法，但第三方的接口方法并不在我们自己的控制范围之内，假如 baiduMap 提供的显示地图的方法不叫 show 而叫 display 呢? baiduMap 这个对象来源于第三方，正常情况下我们都没办法改动它。此时我们可以通过增加 baiduMapAdapter 来解决问题:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    display: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var baiduMapAdapter = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        return baiduMap.display();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMapAdapter );; // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<h3 id="动物叫声"><a href="#动物叫声" class="headerlink" title="动物叫声"></a>动物叫声</h3><p>鸭子但叫声为 quack, 而公鸡但叫声为 crow, 假如我们也要公鸡实现嘎嘎叫（quack）这个动作。我们就可以复用鸭子但quack方法，但发出但声音还是 crow 的。</p>
+<p>首先要先定义鸭子和火鸡的抽象行为，也就是各自的方法函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Duck = function()&#123; &#125;</div><div class="line">Duck.prototype.quack =function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var Cock = function()&#123; &#125;</div><div class="line">Cock.prototype.crow = function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后再定义具体的鸭子和公鸡的构造函数，分别为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var MallarDuck = function() &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">&#125;</div><div class="line">MallarDuck.prototype = new Duck();</div><div class="line">MallarDuck.prototype.quack = function() &#123;</div><div class="line">    console.log(&quot;嘎嘎！嘎嘎！&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var WildCock = function() &#123;</div><div class="line">    Cock.apply(this);</div><div class="line">&#125;</div><div class="line">WildCock.prototype = new Cock();</div><div class="line">WildCock.prototype.crow = function() &#123;</div><div class="line">    console.log(&quot;咯咯！咯咯！&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了让公鸡也支持quack方法，我们创建了一个新的公鸡适配器 CockAdapter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var CockAdapter = function(ck) &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">    this.ck = ck;</div><div class="line">&#125;</div><div class="line">CockAdapter.prototype = new Duck();</div><div class="line">CockAdapter.prototype.quack = function() &#123;</div><div class="line">    this.ck.crow();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该构造函数接受一个公鸡的实例对象，然后使用 Duck 进行 apply，其适配器原型是 Duck，然后要重新修改其原型的quack方法，以便内部调用 ck.crow() 方法。</p>
+<p>测试一下便可以知道结果了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var oDuck = new MallarDuck()</div><div class="line">var oCock = new WildCock()</div><div class="line">var oCkadapter = new CockAdapter(oCock);</div><div class="line"></div><div class="line">// 原有的鸭子行为</div><div class="line">oDuck.quack();  // 嘎嘎！嘎嘎！</div><div class="line">// 原有但公鸡行为</div><div class="line">oCock.crow(); // 咯咯！咯咯！</div><div class="line"></div><div class="line">// 适配器公鸡的行为</div><div class="line">oCkadapter.quack(); // 咯咯！咯咯！</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>那合适使用适配器模式好呢？如果有以下情况出现时，建议使用：</p>
+<ul>
+<li>1、使用一个已经存在的对象，但其方法或属性接口不符合你的要求；</li>
+<li>2、你想创建一个可复用的对象，该对象可以与其它不相关的对象或不可见对象（即接口方法或属性不兼容的对象）协同工作；</li>
+<li>3、想使用已经存在的对象，但是不能对每一个都进行原型继承以匹配它的接口。对象适配器可以适配它的父对象接口方法或属性。</li>
+</ul>
+<p>另外，适配器模式和其它几个模式可能容易让人迷惑，这里说一下大概的区别：</p>
+<ul>
+<li><strong>适配器模式</strong>主要用来解决两个已有接口之间不匹配的问题，它不考虑这些接口是怎样实现的，也不考虑它们将来可能会如何演化。适配器模式不需要改变已有的接口，就能够使它们协同作用。</li>
+<li><strong>装饰者模式和代理模式</strong>也不会改变原有对象的接口，但装饰者模式的作用是为了给对象<strong>增加功能</strong>。装饰者模式常常形成一条长的装饰链，而<strong>适配器模式通常只包装一次</strong>。<strong>代理模式是为了控制对对象的访问</strong>，通常也只包装一次。</li>
+<li><strong>外观模式</strong>的作用倒是和适配器比较相似，有人把外观模式看成一组对象的适配器，但外观模式最显著的特点是定义了一个新的接口。</li>
+</ul>
+<hr>
+<blockquote>
+<p>参考引用资料</p>
+<p>《JavaScript设计模式与开发实践》</p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/frontend/2017/js-dp-decorator.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式之装饰者模式(Decorator)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

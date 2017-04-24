@@ -181,6 +181,72 @@
 
       <div class="body-wrap">
   
+    <article id="post-2017/js-dp-adapter" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-adapter.html" class="article-date">
+  	<time datetime="2017-04-24T09:26:19.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-dp-adapter.html">设计模式之适配器模式(Adapter)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。</p>
+<p>适配器的别名是包装器(wrapper)，这是一个相对简单的模式。</p>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="现实中的适配器——apple的各种转接头"><a href="#现实中的适配器——apple的各种转接头" class="headerlink" title="现实中的适配器——apple的各种转接头"></a>现实中的适配器——apple的各种转接头</h3><p>相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，其实转接头是不是就对应我们但适配器呢？</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-dp-adapter.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2017/js-dp-decorator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -770,73 +836,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2017/html-safari-fixed.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-iterator" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-iterator.html" class="article-date">
-  	<time datetime="2017-03-31T09:56:19.000Z" itemprop="datePublished">2017-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-iterator.html">设计模式之迭代器模式(Iterator)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。</p>
-<p>比如：JavaScript 的 <code>Array.prototype.forEach</code></p>
-<p>jQuery里一个非常有名的迭代器就是 <code>$.each</code> 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each( [1, 2, 3], function( i, n )&#123;</div><div class="line">	console.log( &apos;当前下标为： &apos;+ i,&apos;当前值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 下标： 0 当前值:1</div><div class="line">// 下标： 1 当前值:2</div><div class="line">// 下标： 2 当前值:3</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-iterator.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

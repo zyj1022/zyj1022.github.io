@@ -181,6 +181,73 @@
 
       <div class="body-wrap">
   
+    <article id="post-2017/js-dp-iterator" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/js-dp-iterator.html" class="article-date">
+  	<time datetime="2017-03-31T09:56:19.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/js-dp-iterator.html">设计模式之迭代器模式(Iterator)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。</p>
+<p>比如：JavaScript 的 <code>Array.prototype.forEach</code></p>
+<p>jQuery里一个非常有名的迭代器就是 <code>$.each</code> 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each( [1, 2, 3], function( i, n )&#123;</div><div class="line">	console.log( &apos;当前下标为： &apos;+ i,&apos;当前值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 下标： 0 当前值:1</div><div class="line">// 下标： 1 当前值:2</div><div class="line">// 下标： 2 当前值:3</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/js-dp-iterator.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2017/js-dp-proxy" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -779,72 +846,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2017/div-center-middle.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/div-the-holy-grail" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/div-the-holy-grail.html" class="article-date">
-  	<time datetime="2017-03-06T04:35:54.000Z" itemprop="datePublished">2017-03-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/div-the-holy-grail.html">圣杯布局和双飞翼布局详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。<br>首先给需要实现水平垂直居中的两个div设置统一的样式，<a href="/demos/the-holy-grail.html"><strong>查看demo</strong></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl &#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 300px;</div><div class="line">	background: #ccc;</div><div class="line">	margin: 30px auto;</div><div class="line">	position: relative;</div><div class="line">	border: 1px solid #000;</div><div class="line">&#125;</div><div class="line">.box &#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: #333;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法一：父标签-table-cell-法"><a href="#方法一：父标签-table-cell-法" class="headerlink" title="方法一：父标签 table-cell 法"></a>方法一：父标签 table-cell 法</h2><p>看题目就知道是利用父标签的 <code>display: table-cell</code>,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。<br>那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性<code>vertical-align: middle;</code> 来使得内部元素垂直居中了，然后再给子标签 <code>margin:0 auto;</code> 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/div-the-holy-grail.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
