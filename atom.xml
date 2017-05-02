@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.imeetyou.net/"/>
-  <updated>2017-04-24T09:15:47.000Z</updated>
+  <updated>2017-05-02T09:10:08.000Z</updated>
   <id>http://www.imeetyou.net/</id>
   
   <author>
@@ -14,6 +14,206 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub 项目徽章的添加和设置</title>
+    <link href="http://www.imeetyou.net/posts/frontend/2017/github-badge.html"/>
+    <id>http://www.imeetyou.net/posts/frontend/2017/github-badge.html</id>
+    <published>2017-05-02T09:25:34.000Z</published>
+    <updated>2017-05-02T09:10:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>许多同学在 GitHub 上发布了自己的开源项目，有辛苦开发的实用工具、构思巧妙的开源库、别具一格的 App、精心整理的示例代码等等。</p>
+<p>自己花了大把时间和精力构建的项目，当然是希望能够得到更多人的关注，被更多的人知晓或者使用。如何更好滴向他人展示自己的项目，介绍项目相关信息呢？用一些通用的小图标来描述项目相关信息不失为一种很棒的选择，几个好看的徽标能够为自己的项目说明增色不少！</p>
+<h1 id="一-徽标简介"><a href="#一-徽标简介" class="headerlink" title="一. 徽标简介"></a>一. 徽标简介</h1><p>GitHub 项目的 README.md 中可以添加徽章（Badge）对项目进行标记和说明，这些好看的小图标不仅简洁美观，而且还包含了清晰易读的信息。</p>
+<p>徽标主要由图片和对应的链接（当然，你可以不填）组成，徽标图片的话一般由左半部分的名称和右半部分的值组成。</p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-3489b47031ed2017.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="一枚普通的徽标"></p>
+<p>GitHub 徽标的官方网站是 <a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a>，我萌可以在官网预览绝大部分的徽标样式，然后选择自己喜欢的（当然首先需要适用于自己的目标项目）徽标，添加到自己的项目文档中去。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-b2676f0571e5684c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Shields.IO"></p>
+<p>下面贴出几个栗子以供参考：</p>
+<ul>
+<li>正在学习的 ReSwift</li>
+</ul>
+<p><a href="https://travis-ci.org/ReSwift/ReSwift" target="_blank" rel="external"><img src="https://img.shields.io/travis/ReSwift/ReSwift/master.svg?style=flat-square" alt="Build Status"></a> <a href="http://codecov.io/github/ReSwift/ReSwift" target="_blank" rel="external"><img src="https://img.shields.io/codecov/c/github/ReSwift/ReSwift.svg?style=flat-square" alt="Code coverage status"></a> <a href="https://cocoapods.org/pods/ReSwift" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/v/ReSwift.svg?style=flat-square" alt="CocoaPods Compatible"></a> <a href="https://github.com/ReSwift/ReSwift/blob/master/LICENSE.md" target="_blank" rel="external"><img src="https://img.shields.io/badge/platform-ios%20%7C%20osx%20%7C%20tvos%20%7C%20watchos-lightgrey.svg?style=flat-square" alt="Platform support"></a> <a href="https://github.com/ReSwift/ReSwift/blob/master/LICENSE.md" target="_blank" rel="external"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License MIT"></a></p>
+<ul>
+<li>大名鼎鼎的 Kingfisher</li>
+</ul>
+<p align="center"><br><br><img src="https://raw.githubusercontent.com/onevcat/Kingfisher/master/images/logo.png" alt="Kingfisher" title="Kingfisher" width="557"><br><br></p>
+
+<p align="center"><br><a href="https://travis-ci.org/onevcat/Kingfisher" target="_blank" rel="external"><img src="https://img.shields.io/travis/onevcat/Kingfisher/master.svg"></a><br><a href="https://github.com/Carthage/Carthage/" target="_blank" rel="external"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a><br><a href="https://swift.org/package-manager/" target="_blank" rel="external"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a><br><a href="http://onevcat.github.io/Kingfisher/" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/v/Kingfisher.svg?style=flat"></a><br><a href="https://raw.githubusercontent.com/onevcat/Kingfisher/master/LICENSE" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/l/Kingfisher.svg?style=flat"></a><br><a href="http://onevcat.github.io/Kingfisher/" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/p/Kingfisher.svg?style=flat"></a><br><a href="https://codebeat.co/projects/github-com-onevcat-kingfisher" target="_blank" rel="external"><img alt="codebeat badge" src="https://codebeat.co/assets/svg/badges/A-398b39-669406e9e1b136187b91af587d4092b0160370f271f66a651f444b990c2730e9.svg"></a><br><img src="https://img.shields.io/badge/made%20with-%3C3-orange.svg"><br></p>
+
+<ul>
+<li>家喻户晓的 Alamofire</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Alamofire/Alamofire/assets/alamofire.png" alt="Alamofire: Elegant Networking in Swift"></p>
+<p><a href="https://travis-ci.org/Alamofire/Alamofire" target="_blank" rel="external"><img src="https://travis-ci.org/Alamofire/Alamofire.svg?branch=master" alt="Build Status"></a><br><a href="https://img.shields.io/cocoapods/v/Alamofire.svg" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/v/Alamofire.svg" alt="CocoaPods Compatible"></a><br><a href="https://github.com/Carthage/Carthage" target="_blank" rel="external"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a><br><a href="http://cocoadocs.org/docsets/Alamofire" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/p/Alamofire.svg?style=flat" alt="Platform"></a><br><a href="http://twitter.com/AlamofireSF" target="_blank" rel="external"><img src="https://img.shields.io/badge/twitter-@AlamofireSF-blue.svg?style=flat" alt="Twitter"></a><br><a href="https://gitter.im/Alamofire/Alamofire?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge" target="_blank" rel="external"><img src="https://badges.gitter.im/Alamofire/Alamofire.svg" alt="Gitter"></a></p>
+<p>徽标并不是添加的越多越好，合理地选择适合项目的徽标做具有针对性地添加才是理性的做法，像 <a href="https://github.com/EyreFree/EFQRCode" target="_blank" rel="external">EFQRCode</a> 这样堆积徽标的无脑行为并不是十分可取，在这里提出这一点，希望大家不要盲目追求数量。</p>
+<ul>
+<li>腊鸡 EFQRCode</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/EyreFree/EFQRCode/assets/EFQRCode.jpg" alt=""></p>
+<p align="center"><br><a href="https://travis-ci.org/EyreFree/EFQRCode" target="_blank" rel="external"><img src="http://img.shields.io/travis/EyreFree/EFQRCode.svg"></a><br><a href="https://codecov.io/gh/EyreFree/EFQRCode" target="_blank" rel="external"><img src="https://codecov.io/gh/EyreFree/EFQRCode/branch/master/graph/badge.svg"></a><br><a href="https://github.com/Carthage/Carthage/" target="_blank" rel="external"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a><br><a href="https://swift.org/package-manager/" target="_blank" rel="external"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a><br><a href="http://cocoapods.org/pods/EFQRCode" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/v/EFQRCode.svg?style=flat"></a><br><a href="http://cocoapods.org/pods/EFQRCode" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/p/EFQRCode.svg?style=flat"></a><br><a href="https://github.com/apple/swift" target="_blank" rel="external"><img src="https://img.shields.io/badge/language-swift-orange.svg"></a><br><a href="https://codebeat.co/projects/github-com-eyrefree-efqrcode-master" target="_blank" rel="external"><img src="https://codebeat.co/badges/01f53e9d-542c-4c22-adc7-d1dbff0d2a6f"></a><br><a href="https://raw.githubusercontent.com/EyreFree/EFQRCode/master/LICENSE" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/l/EFQRCode.svg?style=flat"></a><br><a href="https://gitter.im/EFQRCode/Lobby" target="_blank" rel="external"><img src="https://badges.gitter.im/EyreFree/EFQRCode.svg"></a><br><a href="https://twitter.com/EyreFree777" target="_blank" rel="external"><img src="https://img.shields.io/badge/twitter-@EyreFree777-blue.svg?style=flat"></a><br><a href="http://weibo.com/eyrefree777" target="_blank" rel="external"><img src="https://img.shields.io/badge/weibo-@EyreFree-red.svg?style=flat"></a><br></p>
+
+<p>当然如果个人比较喜欢的话，请随意添加。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-bd12202658a6a391.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请随意"></p>
+<h1 id="二-常用徽标添加"><a href="#二-常用徽标添加" class="headerlink" title="二. 常用徽标添加"></a>二. 常用徽标添加</h1><p>常用的徽标主要有持续集成状态、项目版本信息、代码测试覆盖率、项目支持平台、项目语言、代码分析等，下面我萌就来依次添加这些可爱的徽标！</p>
+<h2 id="1-持续集成状态"><a href="#1-持续集成状态" class="headerlink" title="1. 持续集成状态"></a>1. 持续集成状态</h2><p>持续集成的话推荐 <a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>，针对开源项目免费，所以你的私有项目无法享受到免费的持续构建服务，不过我们的目的貌似就是给开源项目添加徽标。</p>
+<p>同类型的产品还有 <a href="https://circleci.com" target="_blank" rel="external">CircleCI</a>，不过目前跑 OS X 项目需要额外付费，免费版提供一个 Linux 项目队列，作为非付费用户在这里不多做评价，大佬们可以自己试下。其他还有诸如 <a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a><br> 和 <a href="https://codeship.com/" target="_blank" rel="external">Codeship</a> 等，大家可以在 <a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a> 的 <code>Build</code> 这一栏自行翻阅。</p>
+<p>接下来就是 Travis CI 的集成工作了，首先打开 <a href="https://travis-ci.org/" target="_blank" rel="external">https://travis-ci.org/</a> 注册一个 Travis-CI 账号，可以通过 GitHub 账户直接登陆。</p>
+<p>然后参考 <a href="https://docs.travis-ci.com/user/getting-started/" target="_blank" rel="external">官方文档</a>，根据你的项目语言或类型选择具体的配置方式，主要就是在项目中添加一个 <code>.travis.yml</code> 配置文件，告诉 Travis CI 怎样对你的项目进行编译或测试。这里有一个 Swift CocoaPods 库的集成示例，可以参考一下：<a href="http://www.jianshu.com/p/beaa9ec9183d" target="_blank" rel="external">http://www.jianshu.com/p/beaa9ec9183d</a>。</p>
+<p>然后徽标图片地址是这个样子的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://img.shields.io/travis/&#123;GitHub 用户名&#125;/&#123;项目名称&#125;.svg</div></pre></td></tr></table></figure>
+<p>将上面 URL 中的 {GitHub 用户名} 和 {项目名称} 替换为你的即可，再加上该项目在 Travis CI 上的地址，以 Alamofire 为例，最后集成完成的 Markdown 代码和效果大概是这个样子：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![</span>](<span class="link">https://travis-ci.org/Alamofire/Alamofire.svg?branch=master</span>)](<span class="link">https://travis-ci.org/Alamofire/Alamofire</span>)</div></pre></td></tr></table></figure>
+<p><a href="https://travis-ci.org/Alamofire/Alamofire" target="_blank" rel="external"><img src="https://travis-ci.org/Alamofire/Alamofire.svg?branch=master" alt=""></a></p>
+<p>当然如果你的编译没跑过或者发生错误之类的，会出现其他的状态，比如酱紫的：</p>
+<p><img src="https://img.shields.io/codeship/d6c1ddd0-16a3-0132-5f85-2e35c05e22b1.svg" alt=""></p>
+<p><img src="https://img.shields.io/vso/build/larsbrinkhoff/953a34b9-5966-4923-a48a-c41874cfb5f5/1.svg" alt=""></p>
+<p><img src="https://img.shields.io/snap-ci/ThoughtWorksStudios/eb_deployer/master.svg" alt=""></p>
+<p>这里需要指出的是，开源项目的 Travis CI 也是公开的，包括日志和历史记录在内，都是针对所有人可见的，所以小伙伴们一定不要把密码、私钥等重要信息暴露了。</p>
+<h2 id="2-项目下载量"><a href="#2-项目下载量" class="headerlink" title="2. 项目下载量"></a>2. 项目下载量</h2><p>项目被下载的次数，这个的话各个平台的统计都是独立的，比如发布在 CocoaPods 的项目下载量徽标图片地址如下，以 AFNetworking 为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">总下载量：https://img.shields.io/cocoapods/dt/AFNetworking.svg</div><div class="line">月下载量：https://img.shields.io/cocoapods/dm/AFNetworking.svg</div><div class="line">周下载量：https://img.shields.io/cocoapods/dw/AFNetworking.svg</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="https://img.shields.io/cocoapods/dt/AFNetworking.svg" alt=""><br><img src="https://img.shields.io/cocoapods/dm/AFNetworking.svg" alt=""><br><img src="https://img.shields.io/cocoapods/dw/AFNetworking.svg" alt=""></p>
+<p>如果你的库已经发布到 CocoaPods 的话，我们只要把上面的 AFNetworking 改为自己的项目名称即可。更多其他发布方式如 apm、npm、Gem 等可查阅 <a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a> 的 <code>Downloads</code> 一栏。</p>
+<h2 id="3-项目版本信息"><a href="#3-项目版本信息" class="headerlink" title="3. 项目版本信息"></a>3. 项目版本信息</h2><p>这个的话，因为我的 iOS 库是发布在 CocoaPods 的，我用的是 CocoaPods 提供的，URL 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/cocoapods/v/&#123;项目名称&#125;.svg?style=flat</div></pre></td></tr></table></figure>
+<p>以 Alamofire 为例，Markdown 代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat" alt=""></p>
+<p>如果你的库已经发布到 CocoaPods 的话，我们只要把上面的 Alamofire 改为自己的项目名称即可。更多其他发布方式如 apm、npm、Gem 等可查阅 <a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a> 的 <code>Version</code> 一栏。</p>
+<p>如果你的发布工具不提供项目版本信息的徽标的话，可以用自定义徽标的方式实现，具体可参考下文自定义徽标一节，这里给出徽标代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/&#123;发布方式&#125;-&#123;版本号&#125;-519dd9.svg</div></pre></td></tr></table></figure>
+<p>将 {发布方式} 和 {版本号} 替换为你的项目目前的发布方式和版本号即可，例如通过 360 应用商店发布，发布版本号为 v1.2.3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/360_store-v1.2.3-519dd9.svg)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/360_store-v1.2.3-519dd9.svg" alt=""></p>
+<h2 id="4-代码测试覆盖率"><a href="#4-代码测试覆盖率" class="headerlink" title="4. 代码测试覆盖率"></a>4. 代码测试覆盖率</h2><p>代码测试覆盖率的话推荐 <a href="https://codecov.io/" target="_blank" rel="external">Codecov</a>。同类产品有 <a href="https://coveralls.io/" target="_blank" rel="external">Coveralls</a>，不过网站风格略复古，文档也不详细，安装过程也复杂，需要配置一大堆奇怪的东西，遂不推荐。</p>
+<p>同样的，Codecov 可以直接使用 GitHub 账号登陆，需要结合 Travis CI 使用，在 <code>.travis.yml</code> 文件中添加一个回调触发 Codecov 的刷新，同时需要打开工程中的测试覆盖信息收集，XCode 中的设置如下</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-a1fceb0028ce645a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>更多信息可参考 <a href="https://docs.codecov.io/docs" target="_blank" rel="external">官方文档</a> 和 <a href="https://github.com/codecov" target="_blank" rel="external">示例</a>。</p>
+<p>然后，我们就可以在 Setting 中的 Badge 一栏找到添加图标的代码啦：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-95306d0d263235c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>最终效果如下：</p>
+<p><a href="https://codecov.io/gh/EyreFree/EFQRCode" target="_blank" rel="external"><img src="https://codecov.io/gh/EyreFree/EFQRCode/branch/master/graph/badge.svg" alt="codecov"></a></p>
+<h2 id="5-项目支持平台"><a href="#5-项目支持平台" class="headerlink" title="5. 项目支持平台"></a>5. 项目支持平台</h2><p>这个的话，因为我的 iOS 库是发布在 CocoaPods 的，我用的是 CocoaPods 提供的，URL 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/cocoapods/p/&#123;项目名称&#125;.svg?style=flat</div></pre></td></tr></table></figure>
+<p>以 Alamofire 为例，Markdown 代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/p/Alamofire.svg?style=flat)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/p/Alamofire.svg?style=flat" alt=""></p>
+<p>如果你的库已经发布到 CocoaPods 的话，我们只要把上面的 Alamofire 改为自己的项目名称即可。如果你的发布工具不提供项目支持平台的徽标的话，可以用自定义徽标的方式实现，具体可参考下文自定义徽标一节，这里给出徽标代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/platform-&#123;项目支持平台&#125;-lightgrey.svg</div></pre></td></tr></table></figure>
+<p>将 {项目支持平台} 替换为你的项目目前的版本号即可，例如 ios：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/platform-ios-lightgrey.svg)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/platform-ios-lightgrey.svg" alt=""></p>
+<h2 id="6-项目语言"><a href="#6-项目语言" class="headerlink" title="6. 项目语言"></a>6. 项目语言</h2><p>嗯，这个完全是用自定义徽标实现的，具体可参考下文自定义徽标一节，这里给出徽标代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/language-&#123;项目语言&#125;-&#123;背景色&#125;.svg</div></pre></td></tr></table></figure>
+<p>将 {项目语言} 和 {背景色} 替换为你的项目目前的语言和你想要的背景色即可，这里以 Swift 为例，我们用上 Swift 官方橘色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/language-swift-orange.svg)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/language-swift-orange.svg" alt=""></p>
+<p>完美!</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-7aaab9c7de41a78c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Swift"></p>
+<h2 id="7-代码分析"><a href="#7-代码分析" class="headerlink" title="7. 代码分析"></a>7. 代码分析</h2><blockquote>
+<p><a href="https://codebeat.co/" target="_blank" rel="external">Codebeat</a> 可以计算全局项目评分、GPA、和不同命名空间的等级来帮助您量化技术债务和发现重构机会，你唯一需要做的就是连接你的 Github 库，获得反馈就好了。</p>
+</blockquote>
+<p>嗯，上面是官方自述，大概意思就是每次 push 或者 merge 之后会对代码进行分，给出评分，然后告诉你哪些地方复杂度过高需要进行重构之类的。用 GitHub 登陆后绑定项目即可，无需对原有项目进行修改（其实是 codebeat 在你的项目设置里加了一个 Webhook，通知它重新计算评分）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-271c429613a8d34e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Webhooks"></p>
+<p>照着引导巴拉巴拉一顿操作之后就可以获取图标啦，在项目的 Setting 中可以获取徽标代码，自己复制出来就可以。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1018190-080b0705f241d072.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Setting"></p>
+<p>最终效果如下：</p>
+<p><a href="https://codebeat.co/projects/github-com-eyrefree-efqrcode-master" target="_blank" rel="external"><img src="https://codebeat.co/badges/01f53e9d-542c-4c22-adc7-d1dbff0d2a6f" alt="codebeat badge"></a></p>
+<h2 id="8-开源协议类型"><a href="#8-开源协议类型" class="headerlink" title="8. 开源协议类型"></a>8. 开源协议类型</h2><p>这个的话，因为我的 iOS 库是发布在 CocoaPods 的，我用的是 CocoaPods 提供的，URL 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/cocoapods/l/&#123;项目名称&#125;.svg?style=flat</div></pre></td></tr></table></figure>
+<p>以 Alamofire 为例，Markdown 代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/l/Alamofire.svg?style=flat" alt=""></p>
+<p>如果你的库已经发布到 CocoaPods 的话，我们只要把上面的 Alamofire 改为自己的项目名称即可。如果你的发布工具不提供开源协议类型的徽标的话，可以用自定义徽标的方式实现，具体可参考下文自定义徽标一节，这里给出徽标代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/license-&#123;协议名称&#125;-000000.svg</div></pre></td></tr></table></figure>
+<p>将 {协议名称} 替换为你的项目所使用的协议名称即可，例如 MIT：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/license-MIT-000000.svg)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/license-MIT-000000.svg" alt=""></p>
+<h1 id="三-自定义徽标"><a href="#三-自定义徽标" class="headerlink" title="三. 自定义徽标"></a>三. 自定义徽标</h1><h2 id="1-标题／内容／颜色／链接"><a href="#1-标题／内容／颜色／链接" class="headerlink" title="1. 标题／内容／颜色／链接"></a>1. 标题／内容／颜色／链接</h2><p>如果以上这些徽标没有满足你的需求，我们还可以定制自己的个性化徽标，<code>shields.io</code> 提供了添加自定义徽标的功能，通过修改如下 URL 即可获取自定义徽标图片：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/&#123;徽标标题&#125;-&#123;徽标内容&#125;-&#123;徽标颜色&#125;.svg</div></pre></td></tr></table></figure>
+<p>{徽标标题}：徽标左半部分的文本（短线：–，下划线：__，空格： 或_）；<br>{徽标内容}：徽标右半部分的文本，同上；<br>{徽标颜色}：徽标右半部分背景颜色，可以是 red、green、blue 等颜色英文单词，也可以直接写十六进制的颜色值，如 ff69b4，示例如下：</p>
+<p><img src="https://img.shields.io/badge/color-brightgreen-brightgreen.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-green-green.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-yellowgreen-yellowgreen.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-yellow-yellow.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-orange-orange.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-red-red.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-lightgrey-lightgrey.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-blue-blue.svg?maxAge=2592000" alt=""><br><img src="https://img.shields.io/badge/color-ff69b4-ff69b4.svg?maxAge=2592000" alt=""></p>
+<p>将其中的 {徽标标题}、{徽标内容}、{徽标颜色} 分别替换为需要的内容即可，例如我的微博徽标图片地址如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://img.shields.io/badge/weibo-@EyreFree-red.svg</div></pre></td></tr></table></figure>
+<p>再结合我的微博地址 <a href="http://weibo.com/eyrefree777" target="_blank" rel="external">http://weibo.com/eyrefree777</a> 后完整徽标代码和效果如下（如果这段代码用在 GitHub 的话，点击该徽标会打开对应的 URL 地址，即直接跳到我的微博）：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![</span>](<span class="link">https://img.shields.io/badge/weibo-@EyreFree-red.svg</span>)](<span class="link">http://weibo.com/eyrefree777</span>)</div></pre></td></tr></table></figure>
+<p><a href="http://weibo.com/eyrefree777" target="_blank" rel="external"><img src="https://img.shields.io/badge/weibo-@EyreFree-red.svg" alt=""></a></p>
+<p>同理我的推特徽标代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![</span>](<span class="link">https://img.shields.io/badge/twitter-@EyreFree777-blue.svg</span>)](<span class="link">https://twitter.com/EyreFree777</span>)</div></pre></td></tr></table></figure>
+<p><a href="https://twitter.com/EyreFree777" target="_blank" rel="external"><img src="https://img.shields.io/badge/twitter-@EyreFree777-blue.svg" alt=""></a></p>
+<h2 id="2-附加参数"><a href="#2-附加参数" class="headerlink" title="2. 附加参数"></a>2. 附加参数</h2><p>可以在徽标图片 URL 后面带上一些参数来控制徽标的样式，这一部分是可选的，不想折腾的话默认的样式就挺好了，可以不看这里的。</p>
+<p>使用方法就是在徽标图片 URL 后面跟上 <code>?{参数名}={参数值}</code></p>
+<p>多个参数联用的话就是 <code>?{参数名1}={参数值1}&amp;{参数名2}={参数值2}...</code></p>
+<h3 id="1-style"><a href="#1-style" class="headerlink" title="1. style"></a>1. style</h3><p>style 控制徽标的主体样式，有四种，不设置的话默认是 <code>flat</code> 的，示例代码和效果如下：</p>
+<h4 id="plastic"><a href="#plastic" class="headerlink" title="plastic"></a>plastic</h4><p>塑料？大概是指立体效果</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?style=plastic)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?style=plastic" alt=""></p>
+<h4 id="flat"><a href="#flat" class="headerlink" title="flat"></a>flat</h4><p>正常的样子，扁平化</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat" alt=""></p>
+<h4 id="flat-square"><a href="#flat-square" class="headerlink" title="flat-square"></a>flat-square</h4><p>扁平化 + 去除圆角</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat-square)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?style=flat-square" alt=""></p>
+<h4 id="social"><a href="#social" class="headerlink" title="social"></a>social</h4><p>社交样式</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?style=social)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?style=social" alt=""></p>
+<h3 id="2-label"><a href="#2-label" class="headerlink" title="2. label"></a>2. label</h3><p>该参数可以用来强制覆盖原有的徽标标题文字，效果如下，原有的 pod 字样已经被覆盖了：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?label=healthinesses)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?label=healthinesses" alt=""></p>
+<h3 id="3-logo"><a href="#3-logo" class="headerlink" title="3. logo"></a>3. logo</h3><p>该参数可以用来为徽标添加 logo，logo 图片会出现在左半部分的徽标标题左边，logo 图片高度必须 ≥ 14px，logo 图片需要先转为 base64 编码然后直接插入到 URL 中（可以用 <a href="http://b64.io/" target="_blank" rel="external">http://b64.io/</a> 将图片转为 base64 编码的字符串），格式如下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">?logo=&#123;base64 编码后的图片数据&#125;</div></pre></td></tr></table></figure>
+<p>示例代码和效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/gadget-Raspberry%20Pi-pink.svg?logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAACJ0lEQVR4AW2Qy0tUfxjGv3Pm3O%2BXGec3jnMZZ9Rxxp%2BWkYpJ2QkVIzDpkkoGBSOpBZmWgRIkWSs30SJchC26B9aijKLaFET9Be1q46ayRVDU5uk9Q8seeOG8X573eT%2FnZbwQqo5l5Rube52PQdH3BcaY4SbEiy2%2B%2FWFLv7ueblJv0luJmRHBHzqfwuyDRkzfKqB8pRZeQnwzuZynvgHTtwsYvZRBs2%2BVGSU5nfsjX2bocexqDsMLKXgZCQfmkzi6lK0EDJxOfNJdoYORQl5O3OeXY5%2BH59PI5XXUMh3RuIQR6v2J2Ld8h3488FXMBWb2TJkNPw9GUzirF3HX2oZFrQUD0Rqc84rfVcaPs0D%2FcTK%2FQ6y6N6eVsJX3MCglcUzJYVytw6CYxKRSj1Elu0bWCBNCXCnPGz96pTieOTvxyN6OIm%2Fhid2Nx1SzWhGxsLwR4aQ9rFOMPl8lwwQlvXZ78NLZhRbBwZrTjReOjzuENKc1YUTOrLJ%2BKf7%2BsrEJhIL7dhfOaI34n7cxpRWwYnbghFqPMmENyelXzOLE0d1SNbrFGOKcgmDwnduH61Y7zJCAvVINDisZJMPqNEuHVeOQnPr11u3FESWLa2ZbBecp8VNaZXBBb15njHUxmxPC7YK3uGS0YkzNo1VwcZJWtwkeThHKMg33SfEVMqsskBeSjLqwMZYKa18ppXKRwESIv0u8NVPFyRb7hxK0ZYX%2BfIPO95D6KBXH%2FuoPnu%2FBfZ7Zxb0AAAAASUVORK5CYII)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/gadget-Raspberry%20Pi-pink.svg?logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAACJ0lEQVR4AW2Qy0tUfxjGv3Pm3O%2BXGec3jnMZZ9Rxxp%2BWkYpJ2QkVIzDpkkoGBSOpBZmWgRIkWSs30SJchC26B9aijKLaFET9Be1q46ayRVDU5uk9Q8seeOG8X573eT%2FnZbwQqo5l5Rube52PQdH3BcaY4SbEiy2%2B%2FWFLv7ueblJv0luJmRHBHzqfwuyDRkzfKqB8pRZeQnwzuZynvgHTtwsYvZRBs2%2BVGSU5nfsjX2bocexqDsMLKXgZCQfmkzi6lK0EDJxOfNJdoYORQl5O3OeXY5%2BH59PI5XXUMh3RuIQR6v2J2Ld8h3488FXMBWb2TJkNPw9GUzirF3HX2oZFrQUD0Rqc84rfVcaPs0D%2FcTK%2FQ6y6N6eVsJX3MCglcUzJYVytw6CYxKRSj1Elu0bWCBNCXCnPGz96pTieOTvxyN6OIm%2Fhid2Nx1SzWhGxsLwR4aQ9rFOMPl8lwwQlvXZ78NLZhRbBwZrTjReOjzuENKc1YUTOrLJ%2BKf7%2BsrEJhIL7dhfOaI34n7cxpRWwYnbghFqPMmENyelXzOLE0d1SNbrFGOKcgmDwnduH61Y7zJCAvVINDisZJMPqNEuHVeOQnPr11u3FESWLa2ZbBecp8VNaZXBBb15njHUxmxPC7YK3uGS0YkzNo1VwcZJWtwkeThHKMg33SfEVMqsskBeSjLqwMZYKa18ppXKRwESIv0u8NVPFyRb7hxK0ZYX%2BfIPO95D6KBXH%2FuoPnu%2FBfZ7Zxb0AAAAASUVORK5CYII" alt=""></p>
+<h3 id="4-logoWidth"><a href="#4-logoWidth" class="headerlink" title="4. logoWidth"></a>4. logoWidth</h3><p>该参数可以设置在上一个参数 logo 中添加的图标的宽度，设为 0 的话即为忽略该参数，示例代码和效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/gadget-Raspberry%20Pi-pink.svg?logoWidth=100&amp;logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAACJ0lEQVR4AW2Qy0tUfxjGv3Pm3O%2BXGec3jnMZZ9Rxxp%2BWkYpJ2QkVIzDpkkoGBSOpBZmWgRIkWSs30SJchC26B9aijKLaFET9Be1q46ayRVDU5uk9Q8seeOG8X573eT%2FnZbwQqo5l5Rube52PQdH3BcaY4SbEiy2%2B%2FWFLv7ueblJv0luJmRHBHzqfwuyDRkzfKqB8pRZeQnwzuZynvgHTtwsYvZRBs2%2BVGSU5nfsjX2bocexqDsMLKXgZCQfmkzi6lK0EDJxOfNJdoYORQl5O3OeXY5%2BH59PI5XXUMh3RuIQR6v2J2Ld8h3488FXMBWb2TJkNPw9GUzirF3HX2oZFrQUD0Rqc84rfVcaPs0D%2FcTK%2FQ6y6N6eVsJX3MCglcUzJYVytw6CYxKRSj1Elu0bWCBNCXCnPGz96pTieOTvxyN6OIm%2Fhid2Nx1SzWhGxsLwR4aQ9rFOMPl8lwwQlvXZ78NLZhRbBwZrTjReOjzuENKc1YUTOrLJ%2BKf7%2BsrEJhIL7dhfOaI34n7cxpRWwYnbghFqPMmENyelXzOLE0d1SNbrFGOKcgmDwnduH61Y7zJCAvVINDisZJMPqNEuHVeOQnPr11u3FESWLa2ZbBecp8VNaZXBBb15njHUxmxPC7YK3uGS0YkzNo1VwcZJWtwkeThHKMg33SfEVMqsskBeSjLqwMZYKa18ppXKRwESIv0u8NVPFyRb7hxK0ZYX%2BfIPO95D6KBXH%2FuoPnu%2FBfZ7Zxb0AAAAASUVORK5CYII)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/gadget-Raspberry%20Pi-pink.svg?logoWidth=100&amp;logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAACJ0lEQVR4AW2Qy0tUfxjGv3Pm3O%2BXGec3jnMZZ9Rxxp%2BWkYpJ2QkVIzDpkkoGBSOpBZmWgRIkWSs30SJchC26B9aijKLaFET9Be1q46ayRVDU5uk9Q8seeOG8X573eT%2FnZbwQqo5l5Rube52PQdH3BcaY4SbEiy2%2B%2FWFLv7ueblJv0luJmRHBHzqfwuyDRkzfKqB8pRZeQnwzuZynvgHTtwsYvZRBs2%2BVGSU5nfsjX2bocexqDsMLKXgZCQfmkzi6lK0EDJxOfNJdoYORQl5O3OeXY5%2BH59PI5XXUMh3RuIQR6v2J2Ld8h3488FXMBWb2TJkNPw9GUzirF3HX2oZFrQUD0Rqc84rfVcaPs0D%2FcTK%2FQ6y6N6eVsJX3MCglcUzJYVytw6CYxKRSj1Elu0bWCBNCXCnPGz96pTieOTvxyN6OIm%2Fhid2Nx1SzWhGxsLwR4aQ9rFOMPl8lwwQlvXZ78NLZhRbBwZrTjReOjzuENKc1YUTOrLJ%2BKf7%2BsrEJhIL7dhfOaI34n7cxpRWwYnbghFqPMmENyelXzOLE0d1SNbrFGOKcgmDwnduH61Y7zJCAvVINDisZJMPqNEuHVeOQnPr11u3FESWLa2ZbBecp8VNaZXBBb15njHUxmxPC7YK3uGS0YkzNo1VwcZJWtwkeThHKMg33SfEVMqsskBeSjLqwMZYKa18ppXKRwESIv0u8NVPFyRb7hxK0ZYX%2BfIPO95D6KBXH%2FuoPnu%2FBfZ7Zxb0AAAAASUVORK5CYII" alt=""></p>
+<h3 id="5-link"><a href="#5-link" class="headerlink" title="5. link"></a>5. link</h3><p>据说该参数是用来设置点击后跳转的 URL 的（嗯，俗称超链接），官方描述如下：</p>
+<ul>
+<li>Specify what clicking on the left/right of a badge should do (esp. for social badge style)</li>
+</ul>
+<p>不过试了一下好像没啥效果（并且实在是没想明白怎么通过返回的图片控制不同点击区域的跳转），如果有大佬知道的求指点，感谢！</p>
+<h3 id="6-colorA"><a href="#6-colorA" class="headerlink" title="6. colorA"></a>6. colorA</h3><p>该参数用来控制徽标左半部分的背景色，只能用十六进制的颜色作为参数哦，不能直接写 red、green、blue 之类的，这里将左半部分的背景色改为 0xabcdef，代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/twitter-@EyreFree777-blue.svg?colorA=abcdef)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/twitter-@EyreFree777-blue.svg?colorA=abcdef" alt=""></p>
+<h3 id="7-colorB"><a href="#7-colorB" class="headerlink" title="7. colorB"></a>7. colorB</h3><p>该参数用来控制徽标右半部分的背景色，同上，只能用十六进制的颜色作为参数哦，不能直接写 red、green、blue 之类的，这里将右半部分的背景色改为 0xabcdef，代码和效果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/badge/twitter-@EyreFree777-blue.svg?colorB=abcdef)</div></pre></td></tr></table></figure>
+<p><img src="https://img.shields.io/badge/twitter-@EyreFree777-blue.svg?colorB=abcdef" alt=""></p>
+<h3 id="8-maxAge"><a href="#8-maxAge" class="headerlink" title="8. maxAge"></a>8. maxAge</h3><p>该参数用来设置 HTTP 缓存时间，以秒为单位，直接在 svg 地址后跟 <code>?maxAge={缓存秒数}</code> 即可，好像没啥好预览的，不放效果图了。</p>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>这里需要注意的是，如果你是引用的第三方 svg 然后添加自己的样式，如果该样式之前已经被第三方添加过，是不一定会覆盖第三方的设置的，也就是说自己设置的属性不一定会生效…例如下面的代码设置 colorB 就没生效：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](https://img.shields.io/cocoapods/v/Alamofire.svg?colorB=000000)</div></pre></td></tr></table></figure>
+<p>右半部分应该变成黑色，但是毫无效果的说：</p>
+<p><img src="https://img.shields.io/cocoapods/v/Alamofire.svg?colorB=000000" alt=""></p>
+<h1 id="四-其他"><a href="#四-其他" class="headerlink" title="四. 其他"></a>四. 其他</h1><p>默认的徽标是居左排列的，如果需要居中排列需要使用 HTML 的方式来插入徽标，可参考 <a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="external">Kingfisher</a>，代码和效果如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://travis-ci.org/onevcat/Kingfisher"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/travis/onevcat/Kingfisher/master.svg"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://github.com/Carthage/Carthage/"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://swift.org/package-manager/"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/badge/SPM-ready-orange.svg"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://onevcat.github.io/Kingfisher/"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/cocoapods/v/Kingfisher.svg?style=flat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://raw.githubusercontent.com/onevcat/Kingfisher/master/LICENSE"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/cocoapods/l/Kingfisher.svg?style=flat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://onevcat.github.io/Kingfisher/"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img.shields.io/cocoapods/p/Kingfisher.svg?style=flat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://codebeat.co/projects/github-com-onevcat-kingfisher"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">"codebeat badge"</span> <span class="attr">src</span>=<span class="string">"https://codebeat.co/assets/svg/badges/A-398b39-669406e9e1b136187b91af587d4092b0160370f271f66a651f444b990c2730e9.svg"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p align="center"><br><a href="https://travis-ci.org/onevcat/Kingfisher" target="_blank" rel="external"><img src="https://img.shields.io/travis/onevcat/Kingfisher/master.svg"></a><br><a href="https://github.com/Carthage/Carthage/" target="_blank" rel="external"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a><br><a href="https://swift.org/package-manager/" target="_blank" rel="external"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a><br><a href="http://onevcat.github.io/Kingfisher/" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/v/Kingfisher.svg?style=flat"></a><br><a href="https://raw.githubusercontent.com/onevcat/Kingfisher/master/LICENSE" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/l/Kingfisher.svg?style=flat"></a><br><a href="http://onevcat.github.io/Kingfisher/" target="_blank" rel="external"><img src="https://img.shields.io/cocoapods/p/Kingfisher.svg?style=flat"></a><br><a href="https://codebeat.co/projects/github-com-onevcat-kingfisher" target="_blank" rel="external"><img alt="codebeat badge" src="https://codebeat.co/assets/svg/badges/A-398b39-669406e9e1b136187b91af587d4092b0160370f271f66a651f444b990c2730e9.svg"></a><br></p>
+
+<p>没了，🙄</p>
+<hr>
+<blockquote>
+<p>原文链接：<a href="https://github.com/EyreFree/GitHubBadgeIntroduction" target="_blank" rel="external">https://github.com/EyreFree/GitHubBadgeIntroduction</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许多同学在 GitHub 上发布了自己的开源项目，有辛苦开发的实用工具、构思巧妙的开源库、别具一格的 App、精心整理的示例代码等等。&lt;/p&gt;
+&lt;p&gt;自己花了大把时间和精力构建的项目，当然是希望能够得到更多人的关注，被更多的人知晓或者使用。如何更好滴向他人展示自己的项目，介绍项目相关信息呢？用一些通用的小图标来描述项目相关信息不失为一种很棒的选择，几个好看的徽标能够为自己的项目说明增色不少！&lt;/p&gt;
+&lt;h1 id=&quot;一-徽标简介&quot;&gt;&lt;a href=&quot;#一-徽标简介&quot; class=&quot;headerlink&quot; title=&quot;一. 徽标简介&quot;&gt;&lt;/a&gt;一. 徽标简介&lt;/h1&gt;&lt;p&gt;GitHub 项目的 README.md 中可以添加徽章（Badge）对项目进行标记和说明，这些好看的小图标不仅简洁美观，而且还包含了清晰易读的信息。&lt;/p&gt;
+&lt;p&gt;徽标主要由图片和对应的链接（当然，你可以不填）组成，徽标图片的话一般由左半部分的名称和右半部分的值组成。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
+    
+    
+      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
+    
+      <category term="github" scheme="http://www.imeetyou.net/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之适配器模式(Adapter)</title>
@@ -1509,61 +1709,6 @@ proxyImage.setSrc( &apos;./loading.gif&apos; );
       <category term="js" scheme="http://www.imeetyou.net/tags/js/"/>
     
       <category term="oop" scheme="http://www.imeetyou.net/tags/oop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>div嵌套水平垂直居中方法</title>
-    <link href="http://www.imeetyou.net/posts/frontend/2017/div-center-middle.html"/>
-    <id>http://www.imeetyou.net/posts/frontend/2017/div-center-middle.html</id>
-    <published>2017-03-12T09:24:54.000Z</published>
-    <updated>2017-03-22T07:45:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。<br>首先给需要实现水平垂直居中的两个div设置统一的样式，<a href="/demos/div-center-middle.html"><strong>查看demo</strong></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl &#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 300px;</div><div class="line">	background: #ccc;</div><div class="line">	margin: 30px auto;</div><div class="line">	position: relative;</div><div class="line">	border: 1px solid #000;</div><div class="line">&#125;</div><div class="line">.box &#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: #333;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法一：父标签-table-cell-法"><a href="#方法一：父标签-table-cell-法" class="headerlink" title="方法一：父标签 table-cell 法"></a>方法一：父标签 table-cell 法</h2><p>看题目就知道是利用父标签的 <code>display: table-cell</code>,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。<br>那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性<code>vertical-align: middle;</code> 来使得内部元素垂直居中了，然后再给子标签 <code>margin:0 auto;</code> 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/*css*/</div><div class="line">.styl1 &#123;</div><div class="line">	width: 1000px;</div><div class="line">	display: table-cell;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line">.styl1 .box &#123;</div><div class="line">	margin: 0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>html代码只要用我们上面的样式即可，之后的class名只要修改 <code>styl1</code> 为对应的样式名即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/* html */</div><div class="line">&lt;div class=&quot;styl styl1&quot;&gt;</div><div class="line">	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h2 id="方法二：常规-position-及子元素偏移方法"><a href="#方法二：常规-position-及子元素偏移方法" class="headerlink" title="方法二：常规 position 及子元素偏移方法"></a>方法二：常规 position 及子元素偏移方法</h2><p>父标签设置 <code>position:relative</code>,子标签设置 <code>position:absolute</code>,同时设置 <code>left:50%</code>,<code>top:50%</code>,这个时候子标签的左上角已经垂直水平居中，再设置<code>margin</code>的负值为子元素宽高的50%即可将中心点对齐。<br>此方法缺点，需要动态调整 margin 偏移量为子标签宽高度的一半这个值，无法自动匹配。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.styl2 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	margin: -50px 0 0 -100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法三：CSS3新属性-transform-的-translate-方法"><a href="#方法三：CSS3新属性-transform-的-translate-方法" class="headerlink" title="方法三：CSS3新属性 transform 的 translate 方法"></a>方法三：CSS3新属性 transform 的 translate 方法</h2><p>首先 <code>transform</code> 是css3的新属性，该属性是让我们对元素进行旋转、缩放、<strong>移动</strong>或倾斜。那么再看属性值 <code>translate</code> 是定义2D转换，就是平面的x,y喽。知道这些，那么我们在 方法二的基础上将偏移量通过 <code>transform</code> 来设置即可。<br>此属性支持IE9以上属性，而且需要兼容不同浏览器写法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.styl3 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	left: 50%;</div><div class="line">	top: 50%;</div><div class="line">	transform: translate(-50%, -50%);</div><div class="line">	-webkit-transform: translate(-50%, -50%);</div><div class="line">	-moz-transform: translate(-50%, -50%);</div><div class="line">	-ms-transform: translate(-50%, -50%)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法四：margin-auto-方法"><a href="#方法四：margin-auto-方法" class="headerlink" title="方法四：margin:auto 方法"></a>方法四：margin:auto 方法</h2><p>此方法依然是在方法二的基础上修改，将子元素的left、top、right、bottom都设置为0，然后再 <code>margin:auto</code>,即可实现子元素的水平垂直居中。<br>此方法好处是自适应父标签的宽高，也就是说，无论父标签宽高怎么变都水平垂直居中哦。<br>此方法支持IE8+以及其他浏览器。是不是很神奇，具体原因查看 <strong><a href="http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">margin:auto实现绝对定位元素的水平垂直居中</a></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.styl4 .box &#123;</div><div class="line">	position: absolute;</div><div class="line">	margin: auto;</div><div class="line">	left: 0;</div><div class="line">	top: 0;</div><div class="line">	bottom: 0;</div><div class="line">	right: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法五：flex-布局方法"><a href="#方法五：flex-布局方法" class="headerlink" title="方法五：flex 布局方法"></a>方法五：flex 布局方法</h2><p>flex意为弹性布局，不同于盒模型布局，子元素实现垂直居中就比较容易了，具体教程可以参看 <strong><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰的flex布局教程</a></strong>，这里只说怎么实现。<br>在此我们只要将父标签设置为 <code>display: flex</code>,并进行相应的主轴 <code>justify-content: center</code> 和交叉轴上的 <code>align-items: center</code> 对齐方式就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.styl5 &#123;</div><div class="line">	justify-content: center;</div><div class="line">	align-items: center;</div><div class="line">	display: -webkit-flex;</div><div class="line">	display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>html结构同上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;styl styl5&quot;&gt;</div><div class="line">	&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="方法六：伪元素-inline-block-vertical-align-方法"><a href="#方法六：伪元素-inline-block-vertical-align-方法" class="headerlink" title="方法六：伪元素 inline-block/vertical-align 方法"></a>方法六：伪元素 inline-block/vertical-align 方法</h2><p>这个方法主要利用父标签的 <code>::before</code> 伪元素的 <code>inline-block</code> <code>vertical-align</code>来实现，比较巧妙，但这个方法要求子元素的属性必须是 <code>display: inline-block</code>, 好处依然是父子元素都可以自适应宽高并保持水平垂直居中。css如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl6 &#123;</div><div class="line">	text-align: center;</div><div class="line">&#125;</div><div class="line">.styl6:before &#123;</div><div class="line">	content: &apos;&apos;;</div><div class="line">	display: inline-block;</div><div class="line">	height: 100%;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line">.styl6 .box &#123;</div><div class="line">	display: inline-block;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>好，至此总结了div内部元素水平垂直居中的方法。</p>
-<hr>
-<blockquote>
-<p>本文主要内容引用：</p>
-<ul>
-<li><a href="http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-绝对定位-水平垂直居中/" target="_blank" rel="external">margin:auto 实现绝对定位元素的水平垂直居中</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰的flex布局教程</a></li>
-</ul>
-</blockquote>
-<p>原文地址: <a href="http://zyj1022.github.io/posts/frontend/2017/div-center-middle.html" target="_blank" rel="external">http://zyj1022.github.io/posts/frontend/2017/div-center-middle.html</a></p>
-<p>转载时必须以链接形式注明原始出处及本声明</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。&lt;br&gt;首先给需要实现水平垂直居中的两个div设置统一的样式，&lt;a href=&quot;/demos/div-center-middle.html&quot;&gt;&lt;strong&gt;查看demo&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;.styl &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 300px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #ccc;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	margin: 30px auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	position: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	border: 1px solid #000;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.box &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 200px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 100px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background: #333;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;方法一：父标签-table-cell-法&quot;&gt;&lt;a href=&quot;#方法一：父标签-table-cell-法&quot; class=&quot;headerlink&quot; title=&quot;方法一：父标签 table-cell 法&quot;&gt;&lt;/a&gt;方法一：父标签 table-cell 法&lt;/h2&gt;&lt;p&gt;看题目就知道是利用父标签的 &lt;code&gt;display: table-cell&lt;/code&gt;,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。&lt;br&gt;那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性&lt;code&gt;vertical-align: middle;&lt;/code&gt; 来使得内部元素垂直居中了，然后再给子标签 &lt;code&gt;margin:0 auto;&lt;/code&gt; 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/categories/frontend/"/>
-    
-    
-      <category term="frontend" scheme="http://www.imeetyou.net/tags/frontend/"/>
-    
-      <category term="html" scheme="http://www.imeetyou.net/tags/html/"/>
     
   </entry>
   

@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 11.67px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -180,6 +180,72 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-2017/div-center-middle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2017/div-center-middle.html" class="article-date">
+  	<time datetime="2017-03-12T09:24:54.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/frontend/2017/div-center-middle.html">div嵌套水平垂直居中方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。<br>首先给需要实现水平垂直居中的两个div设置统一的样式，<a href="/demos/div-center-middle.html"><strong>查看demo</strong></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.styl &#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 300px;</div><div class="line">	background: #ccc;</div><div class="line">	margin: 30px auto;</div><div class="line">	position: relative;</div><div class="line">	border: 1px solid #000;</div><div class="line">&#125;</div><div class="line">.box &#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 100px;</div><div class="line">	background: #333;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方法一：父标签-table-cell-法"><a href="#方法一：父标签-table-cell-法" class="headerlink" title="方法一：父标签 table-cell 法"></a>方法一：父标签 table-cell 法</h2><p>看题目就知道是利用父标签的 <code>display: table-cell</code>,该属性指让标签元素以表格单元格的形式呈现，类似于td标签。目前IE8+以及其他现代浏览器都是支持此属性的。<br>那么既然父标签已经是类似表格单元了，那么就可以利用表格单元的属性<code>vertical-align: middle;</code> 来使得内部元素垂直居中了，然后再给子标签 <code>margin:0 auto;</code> 即可，需要说明的是，这里的父标签需要设置宽度，不能自适应宽度</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/posts/frontend/2017/div-center-middle.html#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2017/div-the-holy-grail" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -778,74 +844,6 @@
       
         <p class="article-more-link">
           <a  href="/posts/frontend/2016/react-native-lifecycle.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/mac-u-format" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/mac-u-format.html" class="article-date">
-  	<time datetime="2016-11-07T01:44:34.000Z" itemprop="datePublished">2016-11-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/mac-u-format.html">mac格式化U盘方法（解决win下只有200MB的问题）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~</p>
-<ul>
-<li>将U盘插入Mac电脑，然后打开磁盘工具</li>
-<li>注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/mac-u-format.html#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
