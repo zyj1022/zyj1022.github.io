@@ -52,14 +52,14 @@
 			scene.add(grid);
 
 
-			// setupLight()
-			// loaderJson()
+			setupLight()
+			loaderJson()
 			// loaderOBJ()
 
 			// setupXLight()
 
 			// loderOBJ2()
-			loderMTL()
+			// loderMTL()
 			// loderSTL()
 
 			renderer = new THREE.WebGLRenderer({
@@ -273,7 +273,7 @@
 			requestAnimationFrame(animate);
 			var delta = clock.getDelta();
 			if (mesh) {
-				// mesh.rotation.y -= 0.5 * delta;
+				mesh.rotation.y -= 0.5 * delta;
 			}
 			// mesh.rotation.y += 0.01;
 	    // if (mesh.rotation.y > Math.PI * 2) {
