@@ -6,33 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Javascript定义类（class）的三种方法 | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。
-Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。
-1、构造函数法第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。
-123function Dog() &amp;#123;　　this.name = &amp;quot;旺财&amp;quot;;&amp;">
+  <meta name="description" content="在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。 Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。 1、构造函数法第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。 123function Dog() &amp;#123;　　this.name &#x3D; &quot;旺财&amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript定义类（class）的三种方法">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-class3.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。
-Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。
-1、构造函数法第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。
-123function Dog() &amp;#123;　　this.name = &amp;quot;旺财&amp;quot;;&amp;">
-<meta property="og:updated_time" content="2017-03-23T01:29:54.000Z">
+<meta property="og:description" content="在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。 Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。 1、构造函数法第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。 123function Dog() &amp;#123;　　this.name &#x3D; &quot;旺财&amp;qu">
+<meta property="article:published_time" content="2017-03-23T01:22:23.000Z">
+<meta property="article:modified_time" content="2017-03-23T01:29:54.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="class">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript定义类（class）的三种方法">
-<meta name="twitter:description" content="在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。
-Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。
-1、构造函数法第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。
-123function Dog() &amp;#123;　　this.name = &amp;quot;旺财&amp;quot;;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -121,7 +117,7 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -215,7 +211,7 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/">class</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/class/" rel="tag">class</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
 	</div>
 
         
@@ -233,47 +229,58 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
         <p>在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称”实例”）共有的属性和方法。</p>
 <p>Javascript语言不支持”类”，但是可以用一些变通的方法，模拟出”类”。</p>
 <h2 id="1、构造函数法"><a href="#1、构造函数法" class="headerlink" title="1、构造函数法"></a>1、构造函数法</h2><p>第一种是经典方法，它用构造函数模拟”类”，在其内部用this关键字指代实例对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function Dog() &#123;</div><div class="line">　　this.name = &quot;旺财&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Dog() &#123;</span><br><span class="line">　　this.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>生成实例的时候，使用new关键字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog = new Dog();</div><div class="line">console.log(dog.name); // 旺财</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dog &#x3D; new Dog();</span><br><span class="line">console.log(dog.name); &#x2F;&#x2F; 旺财</span><br></pre></td></tr></table></figure>
+
 <p>类的属性和方法，还可以定义在构造函数的prototype对象之上。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Dog.prototype.wow = function()&#123;</div><div class="line">　 console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Dog.prototype.wow &#x3D; function()&#123;</span><br><span class="line">　 console.log(&quot;汪～汪～汪！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>关于这种方法的详细介绍，请看《Javascript 面向对象编程》，这里就不多说了。</p>
 <p>它的主要缺点是，比较复杂，用到了this和prototype，编写和阅读都很费力。</p>
 <h2 id="2、Object-create-法"><a href="#2、Object-create-法" class="headerlink" title="2、Object.create()法"></a>2、Object.create()法</h2><p>在ECM5中，加入一个新的方法 <code>Object.create()</code>,用这个方法，”类”就是一个对象，不是函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">	this.name = &quot;旺财&quot;;</div><div class="line">    wow: function() &#123;</div><div class="line">		console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">	this.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">    wow: function() &#123;</span><br><span class="line">		console.log(&quot;汪～汪～汪！&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然后，直接用Object.create()生成实例，不需要用到new。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var dog = Object.create(Dog);</div><div class="line">console.log(dog.name); // 旺财</div><div class="line">dog.wow(); // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var dog &#x3D; Object.create(Dog);</span><br><span class="line">console.log(dog.name); &#x2F;&#x2F; 旺财</span><br><span class="line">dog.wow(); &#x2F;&#x2F; 汪～汪～汪！</span><br></pre></td></tr></table></figure>
+
 <p>这种方法不能实现私有属性和私有方法，实例对象之间也不能共享数据。</p>
-<h2 id="3、BlackScript-法"><a href="#3、BlackScript-法" class="headerlink" title="3、BlackScript 法"></a>3、BlackScript 法</h2><p>荷兰程序员Gabor de Mooij提出了一种比Object.create()更好的<a href="http://www.gabordemooij.com/index.php?p=/blackscript" target="_blank" rel="external">新方法</a>。</p>
+<h2 id="3、BlackScript-法"><a href="#3、BlackScript-法" class="headerlink" title="3、BlackScript 法"></a>3、BlackScript 法</h2><p>荷兰程序员Gabor de Mooij提出了一种比Object.create()更好的<a href="http://www.gabordemooij.com/index.php?p=/blackscript" target="_blank" rel="noopener">新方法</a>。</p>
 <p>事实上就是用一个对象模拟类，在这个类里，定义一个构造函数 createNew() 用来生成实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      //some code</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">   createNew: function()&#123;</span><br><span class="line">      &#x2F;&#x2F;some code</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后，在 createNew() 里面，定义一个实例对象，把这个实例对象作为返回值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">   createNew: function()&#123;</span><br><span class="line">      var dog &#x3D; &#123;&#125;;</span><br><span class="line">	  dog.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">      dog.wow &#x3D; function() &#123;</span><br><span class="line">         console.log(&quot;汪～汪～汪！&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">      return dog;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.wow(); // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dog1 &#x3D; Dog.createNew();</span><br><span class="line">dog1.wow(); &#x2F;&#x2F; 汪～汪～汪！</span><br></pre></td></tr></table></figure>
+
 <p>这种方法简单易学，可以实现OOP的特性，继承、私有属性和方法、数据共享。</p>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>比如让 Dog 继承 Animal,只要在 Dog的 createNew()方法中，调用后者的createNew()方法即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Animal = &#123;</div><div class="line">　　　　createNew: function()&#123;</div><div class="line">　　　　　　var animal = &#123;&#125;;</div><div class="line">　　　　　　animal.sleep = function()&#123; </div><div class="line">				console.log(&quot;睡懒觉&quot;);</div><div class="line">		  &#125;;</div><div class="line">　　　　　　return animal;</div><div class="line">　　　　&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var Animal &#x3D; &#123;</span><br><span class="line">　　　　createNew: function()&#123;</span><br><span class="line">　　　　　　var animal &#x3D; &#123;&#125;;</span><br><span class="line">　　　　　　animal.sleep &#x3D; function()&#123; </span><br><span class="line">				console.log(&quot;睡懒觉&quot;);</span><br><span class="line">		  &#125;;</span><br><span class="line">　　　　　　return animal;</span><br><span class="line">　　　　&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>然后，在 Dog 的 createNew() 方法中，调用 Animal 的 createNew() 方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = Animal.createNew();</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(&quot;汪～汪～汪！&quot;);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">   createNew: function()&#123;</span><br><span class="line">      var dog &#x3D; Animal.createNew();</span><br><span class="line">	  dog.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">      dog.wow &#x3D; function() &#123;</span><br><span class="line">         console.log(&quot;汪～汪～汪！&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">      return dog;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这样得到的 Dog 实例，就会同时继承 Dog 类和Animal类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.sleep() // 睡懒觉 </div><div class="line">dog1.wow() // 汪～汪～汪！</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var dog1 &#x3D; Dog.createNew();</span><br><span class="line">dog1.sleep() &#x2F;&#x2F; 睡懒觉 </span><br><span class="line">dog1.wow() &#x2F;&#x2F; 汪～汪～汪！</span><br></pre></td></tr></table></figure>
+
 <h3 id="私有属性和方法"><a href="#私有属性和方法" class="headerlink" title="私有属性和方法"></a>私有属性和方法</h3><p>在 createNew() 方法中，只要不是定义在 dog 对象上的方法和属性，都是私有的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">      var sound = &quot;汪汪汪&quot;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.wow = function() &#123;</div><div class="line">         console.log(sound);</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">   createNew: function()&#123;</span><br><span class="line">      var dog &#x3D; &#123;&#125;;</span><br><span class="line">      var sound &#x3D; &quot;汪汪汪&quot;;</span><br><span class="line">	  dog.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">      dog.wow &#x3D; function() &#123;</span><br><span class="line">         console.log(sound);</span><br><span class="line">      &#125;</span><br><span class="line">      return dog;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>上例的内部变量 sound，外部无法读取，只有通过 dog 的公有方法 wow() 来读取。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">dog1.name // 旺财</div><div class="line">dog1.sound // undefined </div><div class="line">dog1.wow() // 汪汪汪</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var dog1 &#x3D; Dog.createNew();</span><br><span class="line">dog1.name &#x2F;&#x2F; 旺财</span><br><span class="line">dog1.sound &#x2F;&#x2F; undefined </span><br><span class="line">dog1.wow() &#x2F;&#x2F; 汪汪汪</span><br></pre></td></tr></table></figure>
 <h3 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h3><p>有时候，我们需要所有实例对象，能够读写同一项内部数据。</p>
 <p>这个时候，只要把这个内部数据，封装在类对象的里面、createNew()方法的外面即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var Dog = &#123;</div><div class="line">   sound: &quot;汪汪汪&quot;,</div><div class="line">   createNew: function()&#123;</div><div class="line">      var dog = &#123;&#125;;</div><div class="line">	  dog.name = &quot;旺财&quot;;</div><div class="line">      dog.sound = function() &#123;</div><div class="line">         console.log(Dog.sound);</div><div class="line">      &#125;</div><div class="line">      dog.changSound = function(para)&#123;</div><div class="line">         Dog.sound = para</div><div class="line">      &#125;</div><div class="line">      return dog;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var Dog &#x3D; &#123;</span><br><span class="line">   sound: &quot;汪汪汪&quot;,</span><br><span class="line">   createNew: function()&#123;</span><br><span class="line">      var dog &#x3D; &#123;&#125;;</span><br><span class="line">	  dog.name &#x3D; &quot;旺财&quot;;</span><br><span class="line">      dog.sound &#x3D; function() &#123;</span><br><span class="line">         console.log(Dog.sound);</span><br><span class="line">      &#125;</span><br><span class="line">      dog.changSound &#x3D; function(para)&#123;</span><br><span class="line">         Dog.sound &#x3D; para</span><br><span class="line">      &#125;</span><br><span class="line">      return dog;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>生成两个实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var dog1 = Dog.createNew();</div><div class="line">var dog2 = Dog.createNew();</div><div class="line">dog1.sound(); // 汪汪汪</div><div class="line">dog2.sound(); // 汪汪汪</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var dog1 &#x3D; Dog.createNew();</span><br><span class="line">var dog2 &#x3D; Dog.createNew();</span><br><span class="line">dog1.sound(); &#x2F;&#x2F; 汪汪汪</span><br><span class="line">dog2.sound(); &#x2F;&#x2F; 汪汪汪</span><br></pre></td></tr></table></figure>
 <p>这时，如果有一个实例对象，修改了共享的数据，另一个实例对象也会受到影响。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dog2.changSound(&quot;呱呱呱&quot;);</div><div class="line">dog1.sound(); // 呱呱呱</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dog2.changSound(&quot;呱呱呱&quot;);</span><br><span class="line">dog1.sound(); &#x2F;&#x2F; 呱呱呱</span><br></pre></td></tr></table></figure>
+
 <hr>
 <blockquote>
-<p>本文转载引用自 <a href="http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html" target="_blank" rel="external">Javascript定义类（class）的三种方法</a></p>
+<p>本文转载引用自 <a href="http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html" target="_blank" rel="noopener">Javascript定义类（class）的三种方法</a></p>
 </blockquote>
 
       
@@ -324,7 +331,7 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -332,7 +339,7 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -365,7 +372,9 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -381,8 +390,12 @@ Javascript语言不支持”类”，但是可以用一些变通的方法，模�
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 

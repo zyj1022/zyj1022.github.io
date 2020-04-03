@@ -6,27 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>设计模式之职责链模式(Chain of responsibility) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
-职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
+  <meta name="description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。 职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之职责链模式(Chain of responsibility)">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-chain-of-responsibility.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
-职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
-<meta property="og:updated_time" content="2017-04-18T09:24:40.000Z">
+<meta property="og:description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。 职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
+<meta property="article:published_time" content="2017-04-17T09:46:19.000Z">
+<meta property="article:modified_time" content="2017-04-18T09:24:40.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之职责链模式(Chain of responsibility)">
-<meta name="twitter:description" content="定义职责链模式的定义：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
-职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -115,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -209,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 	</div>
 
         
@@ -227,6 +228,8 @@
         <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>职责链模式的定义</strong>：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间 5 的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
 <p>职责链模式的名字非常形象，一系列可能会处理请求的对象被连接成一条链，请求在这些对 象之间依次传递，直到遇到一个可以处理它的对象，我们把这些对象称为链中的节点。</p>
 <a id="more"></a>
+
+
 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><p>假设我们负责一个售卖手机的电商网站，经过分别交纳 500 元定金和 200 元定金的两轮预定<br>后(订单已在此时生成)，现在已经到了正式购买的阶段。</p>
 <p>公司针对支付过定金的用户有一定的优惠政策。在正式购买后，已经支付过 500 元定金的用 户会收到 100 元的商城优惠券，200 元定金的用户可以收到 50 元的优惠券，而之前没有支付定金 的用户只能进入普通购买模式，也就是没有优惠券，且在库存有限的情况下不一定保证能买到。</p>
 <p>在页面加载之初，后端会传递给页面几个字段。</p>
@@ -238,18 +241,23 @@
 <p>看到上面的需求，简单点可以想到有用 <code>if</code> <code>else</code> 分之来实现，但肯定会比较难以维护及扩展。</p>
 <p>那么就将此需求用职责链模式重构代码：</p>
 <p>首先需要 3 种购买模式的节点函数，我们约定，如果某个节点不能处理请<br>求，则返回一个特定的字符串 ‘nextSuccessor’来表示该请求需要继续往后面传递:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 500 元订单</div><div class="line">var order500 = function(orderType, pay, stock) &#123;</div><div class="line">     if (orderType === 1 &amp;&amp; pay === true ) &#123;</div><div class="line">         console.log(&apos;500 元定金预购, 得到 100 优惠券&apos;);</div><div class="line">    &#125; else &#123;</div><div class="line">        return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 200 元订单</div><div class="line">var order200 = function(orderType, pay, stock) &#123;</div><div class="line">    if (orderType === 2 &amp;&amp; pay === true ) &#123;</div><div class="line">        console.log(&apos;200 元定金预购, 得到 50 优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       return &apos;nextSuccessor&apos;; // 我不知道下一个节点是谁，反正把请求往后面传递</div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line">// 普通购买订单</div><div class="line">var orderNormal = function(orderType, pay, stock) &#123;</div><div class="line">    if (stock &gt; 0) &#123;</div><div class="line">        console.log(&apos;普通购买, 无优惠券&apos;);</div><div class="line">   &#125; else &#123;</div><div class="line">       console.log( &apos;手机库存不足&apos; );</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 500 元订单</span><br><span class="line">var order500 &#x3D; function(orderType, pay, stock) &#123;</span><br><span class="line">     if (orderType &#x3D;&#x3D;&#x3D; 1 &amp;&amp; pay &#x3D;&#x3D;&#x3D; true ) &#123;</span><br><span class="line">         console.log(&#39;500 元定金预购, 得到 100 优惠券&#39;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return &#39;nextSuccessor&#39;; &#x2F;&#x2F; 我不知道下一个节点是谁，反正把请求往后面传递</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 200 元订单</span><br><span class="line">var order200 &#x3D; function(orderType, pay, stock) &#123;</span><br><span class="line">    if (orderType &#x3D;&#x3D;&#x3D; 2 &amp;&amp; pay &#x3D;&#x3D;&#x3D; true ) &#123;</span><br><span class="line">        console.log(&#39;200 元定金预购, 得到 50 优惠券&#39;);</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">       return &#39;nextSuccessor&#39;; &#x2F;&#x2F; 我不知道下一个节点是谁，反正把请求往后面传递</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; 普通购买订单</span><br><span class="line">var orderNormal &#x3D; function(orderType, pay, stock) &#123;</span><br><span class="line">    if (stock &gt; 0) &#123;</span><br><span class="line">        console.log(&#39;普通购买, 无优惠券&#39;);</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">       console.log( &#39;手机库存不足&#39; );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>接下来需要把函数包装进职责链节点，我们定义一个构造函数 Chain，在 new Chain 的时候传 递的参数即为需要被包装的函数， 同时它还拥有一个实例属性 this.successor，表示在链中的下 一个节点。</p>
 <p>此外 Chain 的 prototype 中还有两个函数，它们的作用如下所示:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// Chain.prototype.setNextSuccessor 指定在链中的下一个节点</div><div class="line">// Chain.prototype.passRequest 传递请求给某个节点</div><div class="line"></div><div class="line">var Chain = function(fn)&#123;</div><div class="line">    this.fn = fn;</div><div class="line">    this.successor = null;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.setNextSuccessor = function(successor) &#123;</div><div class="line">    return this.successor = successor;</div><div class="line">&#125;;</div><div class="line">Chain.prototype.passRequest = function() &#123;</div><div class="line">    var ret = this.fn.apply(this, arguments);</div><div class="line">    if (ret === &apos;nextSuccessor&apos;) &#123;</div><div class="line">        return this.successor &amp;&amp; this.successor.passRequest.apply( this.successor, arguments );</div><div class="line">    &#125;</div><div class="line">    return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Chain.prototype.setNextSuccessor 指定在链中的下一个节点</span><br><span class="line">&#x2F;&#x2F; Chain.prototype.passRequest 传递请求给某个节点</span><br><span class="line"></span><br><span class="line">var Chain &#x3D; function(fn)&#123;</span><br><span class="line">    this.fn &#x3D; fn;</span><br><span class="line">    this.successor &#x3D; null;</span><br><span class="line">&#125;;</span><br><span class="line">Chain.prototype.setNextSuccessor &#x3D; function(successor) &#123;</span><br><span class="line">    return this.successor &#x3D; successor;</span><br><span class="line">&#125;;</span><br><span class="line">Chain.prototype.passRequest &#x3D; function() &#123;</span><br><span class="line">    var ret &#x3D; this.fn.apply(this, arguments);</span><br><span class="line">    if (ret &#x3D;&#x3D;&#x3D; &#39;nextSuccessor&#39;) &#123;</span><br><span class="line">        return this.successor &amp;&amp; this.successor.passRequest.apply( this.successor, arguments );</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>现在我们把 3 个订单函数分别包装成职责链的节点:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var chainOrder500 = new Chain(order500);</div><div class="line">var chainOrder200 = new Chain(order200);</div><div class="line">var chainOrderNormal = new Chain(orderNormal);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var chainOrder500 &#x3D; new Chain(order500);</span><br><span class="line">var chainOrder200 &#x3D; new Chain(order200);</span><br><span class="line">var chainOrderNormal &#x3D; new Chain(orderNormal);</span><br></pre></td></tr></table></figure>
 <p>然后指定节点在职责链中的顺序:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chainOrder500.setNextSuccessor(chainOrder200);</div><div class="line">chainOrder200.setNextSuccessor(chainOrderNormal);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chainOrder500.setNextSuccessor(chainOrder200);</span><br><span class="line">chainOrder200.setNextSuccessor(chainOrderNormal);</span><br></pre></td></tr></table></figure>
+
 <p>最后把请求传递给第一个节点:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chainOrder500.passRequest(1, true, 500); // 输出:500 元定金预购，得到 100 优惠券</div><div class="line">chainOrder500.passRequest(2, true, 500); // 输出:200 元定金预购，得到 50 优惠券</div><div class="line">chainOrder500.passRequest(3, true, 500); // 输出:普通购买，无优惠券</div><div class="line">chainOrder500.passRequest(1, false, 0);  // 输出:手机库存不足</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chainOrder500.passRequest(1, true, 500); &#x2F;&#x2F; 输出:500 元定金预购，得到 100 优惠券</span><br><span class="line">chainOrder500.passRequest(2, true, 500); &#x2F;&#x2F; 输出:200 元定金预购，得到 50 优惠券</span><br><span class="line">chainOrder500.passRequest(3, true, 500); &#x2F;&#x2F; 输出:普通购买，无优惠券</span><br><span class="line">chainOrder500.passRequest(1, false, 0);  &#x2F;&#x2F; 输出:手机库存不足</span><br></pre></td></tr></table></figure>
+
+
 <p>通过改进，我们可以自由灵活地增加、移除和修改链中的节点顺序，假如某天网站运营人员 又想出了支持 300 元定金购买，那我们就在该链中增加一个节点即可:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var order300 = function()&#123;</div><div class="line">	// 具体实现略</div><div class="line">&#125;;</div><div class="line">chainOrder300= new Chain( order300 );</div><div class="line">chainOrder500.setNextSuccessor( chainOrder300);</div><div class="line">chainOrder300.setNextSuccessor( chainOrder200);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var order300 &#x3D; function()&#123;</span><br><span class="line">	&#x2F;&#x2F; 具体实现略</span><br><span class="line">&#125;;</span><br><span class="line">chainOrder300&#x3D; new Chain( order300 );</span><br><span class="line">chainOrder500.setNextSuccessor( chainOrder300);</span><br><span class="line">chainOrder300.setNextSuccessor( chainOrder200);</span><br></pre></td></tr></table></figure>
 <p>在这里完全不用理会原来的订单函数代码，我们要做的只是增 加一个节点，然后重新设置链中相关节点的顺序。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>职责链模式可以很好地帮助我们管理代码，降低发起请求的对象和处理请求的对象之间的耦合性。职责链中的节点数量和顺序是可以自由变化的，我们可以在运行时决定链中包含哪些节点。</p>
 <p>无论是作用域链、原型链，还是 DOM 节点中的事件冒泡，我们都能从中找到职责链模式的影子。职责链模式还可以和组合模式结合在一起，用来连接部件和父部件，或是提高组合对象的效率。</p>
@@ -257,7 +265,7 @@
 <blockquote>
 <p>参考引用资料</p>
 <p>《JavaScript设计模式与开发实践》</p>
-<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">汤姆大叔的博客——深入理解JavaScript系列</a></p>
 </blockquote>
 
       
@@ -308,7 +316,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -316,7 +324,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -349,7 +357,9 @@
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -365,8 +375,12 @@
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 

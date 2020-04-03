@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>样式库解决方案 | 智的前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="样式库解决方案目的1. 提供可复用的模式根本目的是为了代码资源的重复利用，追求前端团队职能价值的最大化 2. 更新前端开发体系业界推崇CMD模块化思想，Grunt自动化构建流程，以及对NodeJS广泛应用，这对我们是一次技术尝试，可以更新团队的开发体系。 3. 完善前端基础构架 规范 框架 工具 学习  开发规范配套检验工具，框架可以跨终端复用，工具简化开发流程，学习是对技术的不断更新。基础架构就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="样式库解决方案">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2015/2015-07-30-2.html">
+<meta property="og:site_name" content="智的前端之路">
+<meta property="og:description" content="样式库解决方案目的1. 提供可复用的模式根本目的是为了代码资源的重复利用，追求前端团队职能价值的最大化 2. 更新前端开发体系业界推崇CMD模块化思想，Grunt自动化构建流程，以及对NodeJS广泛应用，这对我们是一次技术尝试，可以更新团队的开发体系。 3. 完善前端基础构架 规范 框架 工具 学习  开发规范配套检验工具，框架可以跨终端复用，工具简化开发流程，学习是对技术的不断更新。基础架构就">
+<meta property="article:published_time" content="2015-07-30T01:34:00.000Z">
+<meta property="article:modified_time" content="2020-04-01T06:10:47.769Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">若有智，事可为</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">若有智，事可为</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2015/2015-07-30-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2015/2015-07-30-2.html" class="article-date">
+  	<time datetime="2015-07-30T01:34:00.000Z" itemprop="datePublished">2015-07-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      样式库解决方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="样式库解决方案"><a href="#样式库解决方案" class="headerlink" title="样式库解决方案"></a>样式库解决方案</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><h4 id="1-提供可复用的模式"><a href="#1-提供可复用的模式" class="headerlink" title="1. 提供可复用的模式"></a>1. 提供可复用的模式</h4><p>根本目的是为了代码资源的重复利用，追求前端团队职能价值的最大化</p>
+<h4 id="2-更新前端开发体系"><a href="#2-更新前端开发体系" class="headerlink" title="2. 更新前端开发体系"></a>2. 更新前端开发体系</h4><p>业界推崇<code>CMD</code>模块化思想，<code>Grunt</code>自动化构建流程，以及对<code>NodeJS</code>广泛应用，这对我们是一次技术尝试，可以更新团队的开发体系。</p>
+<h4 id="3-完善前端基础构架"><a href="#3-完善前端基础构架" class="headerlink" title="3. 完善前端基础构架"></a>3. 完善前端基础构架</h4><ul>
+<li>规范</li>
+<li>框架</li>
+<li>工具</li>
+<li>学习</li>
+</ul>
+<p>开发规范配套检验工具，框架可以跨终端复用，工具简化开发流程，学习是对技术的不断更新。<br>基础架构就像一个舞台，舞台布置好了，大家都可以在上面表演，我觉得这是必不可少的。</p>
+<h4 id="4-打通产品开发链"><a href="#4-打通产品开发链" class="headerlink" title="4. 打通产品开发链"></a>4. 打通产品开发链</h4><p>通过对框架的不断补充维护更新，以及对规范文档的重视，最终形成敏捷高效的开发流程，减少沟通的代价，</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h4 id="1-模块化的命名和组织方式"><a href="#1-模块化的命名和组织方式" class="headerlink" title="1. 模块化的命名和组织方式"></a>1. 模块化的命名和组织方式</h4><blockquote>
+<p>Sea.js希望是一片海，通过CMD规范，可以容纳各种各样的模块，希望能形成一个模块的生态圈，能形成生态链，能促进良性循环，能让整个前端开发界都受益。     —— 玉伯（王保平）</p>
+</blockquote>
+<p>基于<code>CMD</code>生态圈，借鉴Alice的命名规范，以模块的形式组织样式，团队中采用这种方式书写样式，不仅很好地避免样式冲突，并且可以结合Sea.js实现按需加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.ui-tab &#123;&#125;</span><br><span class="line">.ui-tab-trigger &#123;&#125;</span><br><span class="line">.ui-tab-trigger-item &#123;&#125;</span><br><span class="line">.ui-tab-trigger-item-current&#123;&#125;</span><br><span class="line"></span><br><span class="line">.ui-tab-cnt &#123;&#125;</span><br><span class="line">.ui-tab-cnt-item &#123;&#125;</span><br><span class="line">.ui-tab-cnt-item-current &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-强劲的样式预编译"><a href="#2-强劲的样式预编译" class="headerlink" title="2. 强劲的样式预编译"></a>2. 强劲的样式预编译</h4><p>样式库使用<code>Less</code>动态化样式语言来增强原生<code>CSS</code>特性，通过修改预编译文件中的变量(<code>Variables</code>)，功能(<code>Functions</code>)等属性，就能轻松完成样式库的主题修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@global-primary:rgba(0, 0, 0, 0.05);</span><br><span class="line">@gray-lighter:rgba(0, 0, 0, 0.05);</span><br><span class="line">@tab-trigger-border-color: rgba(0, 0, 0, 0.05);</span><br><span class="line">.ui-tab &#123;</span><br><span class="line">    background-color: @gray-lighter;</span><br><span class="line">    color:@global-primary;</span><br><span class="line">&#125;</span><br><span class="line">.ui-tab-trigger &#123;</span><br><span class="line">    border-top: 1px solid @tab-item-border-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-基于CMD模块的JavaScript插件"><a href="#3-基于CMD模块的JavaScript插件" class="headerlink" title="3. 基于CMD模块的JavaScript插件"></a>3. 基于CMD模块的JavaScript插件</h4><p>只有样式模块是无法开发页面的，提供JavaScript 插件配合其完成交互功能，这些插件是基于 jQuery.js 开发，并且遵循<code>CMD</code>模块定义规范，使用 Sea.js 组织、管理模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seajs.use([&quot;ui.tab&quot;],function()&#123;</span><br><span class="line">    $(&#39;.ui-tab&#39;).tab();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-扩展Hbs模块化的Web组件"><a href="#4-扩展Hbs模块化的Web组件" class="headerlink" title="4. 扩展Hbs模块化的Web组件"></a>4. 扩展Hbs模块化的Web组件</h4><p>模板（hbs）将数据和 HTML 分离，这是 Web 组件的价值之一；通过定义数据接口API，结合预编译好的hbs，按需加载JS模块，数据化的组件使用起来一样是清晰方便。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seajs.use([&quot;widget.tab&quot;],function(tab)&#123;</span><br><span class="line">    $(dom).html(tab.init());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="5-使用Grunt实现自动化部署"><a href="#5-使用Grunt实现自动化部署" class="headerlink" title="5. 使用Grunt实现自动化部署"></a>5. 使用Grunt实现自动化部署</h4><p>骄傲的使用<code>Grunt</code>来帮助我们实现自动化压缩、合并，预编译等，简化前端开发流程，减轻重复性工作带来的负担。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">grunt-contrib-less：&#x2F;&#x2F;编译LESS代码编译为CSS</span><br><span class="line">grunt-contrib-ugligy： &#x2F;&#x2F;压缩JS源文件</span><br><span class="line">grunt-contrib-concat：&#x2F;&#x2F;合并文件，减少HTTP请求</span><br><span class="line">grunt-contrib-imagemin：&#x2F;&#x2F;对PNG, JPEG和GIF等格式的图像进行批量压缩</span><br><span class="line">grunt-contrib-cssmin：&#x2F;&#x2F;压缩以及合并CSS文件</span><br><span class="line">grunt-contrib-handlebars:  &#x2F;&#x2F;预编译Handlebars模板文件</span><br><span class="line">grunt-contrib-watch:  &#x2F;&#x2F;监视文件变更，自动运行一系列指定任务，例如编译、压缩等</span><br><span class="line">grunt-contrib-jshint:  &#x2F;&#x2F;检查JavaScript代码质量，类似JSLint</span><br></pre></td></tr></table></figure>
+<h4 id="6-站在巨人的肩膀上"><a href="#6-站在巨人的肩膀上" class="headerlink" title="6. 站在巨人的肩膀上"></a>6. 站在巨人的肩膀上</h4><p>团队样式库是参考众多优秀的开源框架的产出，前辈们超前的设计思想，优秀的代码，完善的技术体系，以及对技术保持的卓越性，始终是我们学习的目标。 感谢Github上的开源项目：<code>Bootstrap</code>,<code>jQuery</code>,<code>Seajs</code>,<code>Less</code>等</p>
+<h2 id="样式库"><a href="#样式库" class="headerlink" title="样式库"></a>样式库</h2><h4 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h4><p><strong>1.1 电脑端</strong></p>
+<blockquote>
+<p><strong>Ai-UI</strong> ( Asiainfo - User Interface ) 是亚信UED部门的样式解决方案，是一套基于 CMD 生态圈的样式模块集合，拥有模块化的样式命名和组织规范，配合模块化的jQuery插件，产出更多的数据Web组件，还有自动化部署工具的完善方案。</p>
+</blockquote>
+<p><strong>1.2 移动端</strong></p>
+<blockquote>
+<p><strong>Ai-MUI</strong> ( Asiainfo - Mobile User Interface ) 是 <strong>Ai-UI</strong> 的一个子集，继承其优点，且拥有一套采用业内先进的 Mobile first 理念，从小屏逐步扩展到大屏，最终实现所有移动终端屏幕适配的解决方案。</p>
+</blockquote>
+<h4 id="2-开始使用"><a href="#2-开始使用" class="headerlink" title="2. 开始使用"></a>2. 开始使用</h4><p><strong>2.1 目录结构</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">├── assets</span><br><span class="line">│   └── aiui</span><br><span class="line">│      ├── less</span><br><span class="line">│      ├── js</span><br><span class="line">│      ├── widget</span><br><span class="line">│      ├── dist</span><br><span class="line">│      │ ├── css</span><br><span class="line">│      │ ├── js</span><br><span class="line">│      │ └── widgtet</span><br><span class="line">│      └── docs</span><br><span class="line">│         └── examples</span><br><span class="line">│</span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
+<p><code>less/</code>、<code>js/</code>、<code>widget/</code> 目录分别包含了 CSS、JS、Handlebars的源码。dist/ 目录包含了上面所说预编译后的文件，<code>docs/</code> 包含了所有官方文档的源码文件 ，<code>examples/</code> 目录是提供的示例文件。</p>
+<p><strong>2.2 文档类型</strong><br>使用 HTML5的文档类型，确保你的 HTML 第一行是 <!DOCTYPE html></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">...</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>####3.全局CSS样式</p>
+<blockquote>
+<p>样式大致分为七个部分，重设样式，布局系统，字体图标，元素样式，页面组件，常用工具，动画库</p>
+</blockquote>
+<p><strong>3.1  重设样式</strong><br>基于<code>normalize.css</code> 的全新 CSS Reset，对于一些基础样式做了细节调整，兼容 IE 6+ 以及其他现代浏览器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*! normalize.css v3.0.1 | MIT License | git.io&#x2F;normalize *&#x2F;</span><br><span class="line">html &#123;</span><br><span class="line">  -ms-text-size-adjust: 100%;</span><br><span class="line">  -webkit-text-size-adjust: 100%;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>3.2  布局系统</strong><br>借鉴<code>Bootstrap</code>一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;ui-row&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;ui-col-md-8&quot;&gt;.ui-col-md-8&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;ui0col-md-4&quot;&gt;.ui-col-md-4&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3  字体图标</strong><br>使用了来自<code>Glyphicon</code>的200个字体图标，字体图标具有良好的兼容性，矢量，规范，减少图片请求，适应性强等特点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class&#x3D;&quot;iconfont icon-star&quot;&gt;&lt;&#x2F;i&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.4  元素样式</strong><br>对于一些基础元素定义更多状态的样式，如按钮，表单，表格，列表，图片等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-default&quot;&gt;Default&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-primary&quot;&gt;Primary&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-secondary&quot;&gt;Secondary&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-success&quot;&gt;Success&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-warning&quot;&gt;Warning&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-danger&quot;&gt;Danger&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;ui-btn ui-btn-link&quot;&gt;Link&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.5  页面组件</strong><br>定义网页中常用的、多个元素组合在一起的组件样式，如页签，分页、面包屑导航等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;ui-tab&quot;&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;ui-tab-items&quot;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;ui-tab-item ui-tab-item-current&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;javascript:;&quot;&gt;全部&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;ui-tab-item&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;javascript:;&quot;&gt;精简&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.6  常用工具</strong><br>一些常用样式的 class，与 LESS minxins 的区别在于：mixins 在样式中调用，而 utility 直接在 HTML 中引用。比如要对一个元素清除浮动，在元素上添加 fn-clear 这个 class 即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;fn-clear&quot;&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.7 动画库</strong><br>一个优秀的 CSS3 动画库，你可以通过简单的增减类名的方式实现数多种动画效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;test1&quot;&gt;逐渐放大&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(&quot;#test1&quot;).click(function() &#123;</span><br><span class="line">        $(this).addClass(&#39;.an-scale-up&#39;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-JavaScript插件"><a href="#4-JavaScript插件" class="headerlink" title="4. JavaScript插件"></a>4. JavaScript插件</h4><blockquote>
+<p>只有样式模块是无法开发页面的，现在我们需要一些 JavaScript 的交互功能，如页签切换，折叠，弹层，轮播等。</p>
+</blockquote>
+<p><strong>4.1 基于 jQuery.js</strong><br>插件基于 <code>jQuery</code> 开发，使用时确保在脚本之前引入了 jQuery.js。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;libs&#x2F;jquery&#x2F;1.11.0&#x2F;jquery.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.2 基于 Sea.js</strong><br>插件遵循CMD模块定义规范，使用 Sea.js 统一组织、管理模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;libs&#x2F;seajs&#x2F;2.2.0&#x2F;sea.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>4.3 如何使用</strong><br><code>html</code> 页面中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seajs.use([&quot;ui.tab&quot;],function()&#123;</span><br><span class="line">    $(&#39;.ui-tab&#39;).tab();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>CMD</code> 模块中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&quot;ui.tab&quot;);</span><br></pre></td></tr></table></figure>
+<h4 id="5-Web-组件"><a href="#5-Web-组件" class="headerlink" title="5. Web 组件"></a>5. Web 组件</h4><blockquote>
+<p>Web 组件是把一些常见的网页组件通过模板（Handlebars）将数据和 HTML 分离，然后进行模版(Hds)，数据(Data)，交互(Js)，样式(CSS)的模块化封装，使用时只需要和页面的DOM绑定即可。</p>
+</blockquote>
+<p><strong>5.1 模块定义</strong><br>使用<code>Handlebars</code>作为模板引擎，<code>Grunt</code>进行预编译模版文件，引入<code>seajs-text</code>文本插件，便可直接在模块代码中获取编译后的模版函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define(&quot;widget.tab&quot;,function(require,exports) &#123;</span><br><span class="line">    exports.init &#x3D; function()&#123;</span><br><span class="line">        var compiled &#x3D; require(&#39;tab.handlebars&#39;);   </span><br><span class="line">        var data &#x3D; require(&#39;tab.json&#39;);</span><br><span class="line">        require.async(&#39;ui.tab&#39;,function($)&#123;</span><br><span class="line">            $(&#39;.ui-tab&#39;).tab();</span><br><span class="line">        &#125;);   </span><br><span class="line">        return compiled(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>5.2 数据API</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var data &#x3D; [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;header&quot; : &quot;&quot;,     &#x2F;&#x2F;每一个选项的标题</span><br><span class="line">        &quot;substance&quot; : &quot;&quot;   &#x2F;&#x2F;内容部分</span><br><span class="line">    &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.3 使用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seajs.use([&quot;widget.tab&quot;],function(tab)&#123;</span><br><span class="line">    $(dom).html(tab.init());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/posts/frontend/2015/2015-07-30-3.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          通用 CSS 笔记、建议与指导
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/frontend/2015/2015-07-30-1.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端开发工具库</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2020 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

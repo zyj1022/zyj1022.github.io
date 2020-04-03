@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>掌握React生命周期(Lifecycle) | 智的前端之路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言首先, 当面对一些问题:  1 React 用了这么久，经常遇到的问题是setState在这里写合适吗？ 2 为什么setState写在这里造成了重复渲染多次？ 3 为什么你的setState用的这么乱? 4 组件传入props是更新呢？重新挂载呢？还是怎样？ 5 …其次, 生命周期可以看到整个Component的运行过程, 在coding的时候很自然的找好他们的位置, 合作起来就会方便多了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="掌握React生命周期(Lifecycle)">
+<meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2018/2018-07-03.html">
+<meta property="og:site_name" content="智的前端之路">
+<meta property="og:description" content="前言首先, 当面对一些问题:  1 React 用了这么久，经常遇到的问题是setState在这里写合适吗？ 2 为什么setState写在这里造成了重复渲染多次？ 3 为什么你的setState用的这么乱? 4 组件传入props是更新呢？重新挂载呢？还是怎样？ 5 …其次, 生命周期可以看到整个Component的运行过程, 在coding的时候很自然的找好他们的位置, 合作起来就会方便多了，">
+<meta property="article:published_time" content="2018-07-03T07:26:00.000Z">
+<meta property="article:modified_time" content="2020-04-01T06:00:13.487Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="react">
+<meta property="article:tag" content="Lifecycle">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">若有智，事可为</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/categories/frontend">前端</a></li>
+				        
+							<li><a href="/categories/life">生活</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/illidan.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">KINGZHI</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">若有智，事可为</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/categories/frontend">前端</a></li>
+		        
+					<li><a href="/categories/life">生活</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2018/2018-07-03" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/frontend/2018/2018-07-03.html" class="article-date">
+  	<time datetime="2018-07-03T07:26:00.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      掌握React生命周期(Lifecycle)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lifecycle/" rel="tag">Lifecycle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/" rel="tag">react</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/frontend/">frontend</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>首先, 当面对一些问题:</p>
+<ul>
+<li>1 React 用了这么久，经常遇到的问题是setState在这里写合适吗？</li>
+<li>2 为什么<code>setState</code>写在这里造成了重复渲染多次？</li>
+<li>3 为什么你的<code>setState</code>用的这么乱?</li>
+<li>4 组件传入<code>props</code>是更新呢？重新挂载呢？还是怎样？</li>
+<li>5 …<br>其次, 生命周期可以看到整个Component的运行过程, 在coding的时候很自然的找好他们的位置, 合作起来就会方便多了，这里极力推荐airbnb的react coding 规范.<br>所以整理了这篇文章。如果错误，欢迎指正。<h1 id="一-生命周期的8个方法"><a href="#一-生命周期的8个方法" class="headerlink" title="一 生命周期的8个方法"></a>一 生命周期的8个方法</h1><h2 id="1-componentWillMount"><a href="#1-componentWillMount" class="headerlink" title="1 componentWillMount()"></a>1 componentWillMount()</h2></li>
+<li>执行场景<ul>
+<li>在<code>render()</code>方法之前</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>1 因为<code>componentWillMount</code>是在render之前执行，所以在这个方法中setState不会发生重新渲染(re-render);</li>
+<li>2 这是服务端渲染(server render)中唯一调用的钩子(hook);</li>
+<li>3 通常情况下，推荐用<code>constructor()</code>方法代替;<h2 id="2-render"><a href="#2-render" class="headerlink" title="2 render()"></a>2 render()</h2></li>
+</ul>
+</li>
+<li>执行场景<br>  1 在<code>componentWillMount()</code>方法之后<br>  2 在<code>componentWillReceive(nextProps, nextState)</code>方法之后<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><h2 id="3-componentDidMount"><a href="#3-componentDidMount" class="headerlink" title="3 componentDidMount()"></a>3 componentDidMount()</h2></li>
+<li>执行场景<ul>
+<li>在<code>render()</code>方法之后</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>1 这个方法会在<code>render()</code>之后立即执行；</li>
+<li>2 这里可以对DOM进行操作，这个函数之后ref变成实际的DOM(@TODO 表述可能不清晰);</li>
+<li>3 这里可以加载服务器数据，并且如果使用了redux之类的数据服务，这里可以出发加载服务器数据的action;</li>
+<li>4 这里可以使用<code>setState()</code>方法触发重新渲染(re-render);</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-componentWillReceiveProps-nextProps"><a href="#4-componentWillReceiveProps-nextProps" class="headerlink" title="4 componentWillReceiveProps(nextProps)"></a>4 componentWillReceiveProps(nextProps)</h2><ul>
+<li>执行场景<ul>
+<li>在已经挂在的组件(mounted component)接收到新props时触发;</li>
+<li>简单的说是在除了第一次生命周期(componentWillMount -&gt; render -&gt; componentDidMount)之后的生命周期中出发;</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>1 如果你需要在<code>props</code>发生变化(或者说新传入的props)来更新state，你可能需要比较<code>this.props</code>和<code>nextProps</code>, 然后使用<code>this.setState()</code>方法来改变<code>this.state</code>;</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>1 React可能会在porps传入时即使没有发生改变的时候也发生重新渲染, 所以如果你想自己处理改变，请确保比较props当前值和下一次值; 这可能造成组件重新渲染;</li>
+<li>2 如果你只是调用<code>this.setState()</code>而不是从外部传入props, 那么不会触发<code>componentWillReceiveProps(nextProps)</code>函数；这就意味着: <code>this.setState()</code>方法不会触发<code>componentWillReceiveProps()</code>, props的改变或者props没有改变才会触发这个方法;</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-shouldComponentUpdate-nextProps-nextState"><a href="#5-shouldComponentUpdate-nextProps-nextState" class="headerlink" title="5 shouldComponentUpdate(nextProps, nextState)"></a>5 shouldComponentUpdate(nextProps, nextState)</h2><ul>
+<li>执行场景<ul>
+<li>在接收到新props或state时，或者说在<code>componentWillReceiveProps(nextProps)</code>后触发</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>在接收新的props或state时确定是否发生重新渲染，默认情况返回true，表示会发生重新渲染</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>1 这个方法在首次渲染时或者forceUpdate()时不会触发;</li>
+<li>2 这个方法如果返回false, 那么props或state发生改变的时候会阻止子组件发生重新渲染;</li>
+<li>3 目前，如果<code>shouldComponentUpdate(nextProps, nextState)</code>返回false, 那么<code>componentWillUpdate(nextProps, nextState)</code>, <code>render()</code>, <code>componentDidUpdate()</code>都不会被触发;</li>
+<li>4 Take care: 在未来，React可能把<code>shouldComponentUpdate()</code>当做一个小提示(hint)而不是一个指令(strict directive)，并且它返回false仍然可能触发组件重新渲染(re-render);</li>
+</ul>
+</li>
+<li>Good Idea<br>在React 15.3以后, React.PureComponent已经支持使用，个人推荐，它代替了(或者说合并了)pure-render-mixin，实现了shallowCompare()。<a href="http://www.zcfy.cc/article/why-and-how-to-use-purecomponent-in-react-js-60devs-2344.html" target="_blank" rel="noopener">扩展阅读</a></li>
+</ul>
+<h2 id="6-componentWillUpdate-nextProps-nextState"><a href="#6-componentWillUpdate-nextProps-nextState" class="headerlink" title="6 componentWillUpdate(nextProps, nextState)"></a>6 componentWillUpdate(nextProps, nextState)</h2><ul>
+<li>执行场景<ul>
+<li>在props或state发生改变或者<code>shouldComponentUpdate(nextProps, nextState)</code>触发后, 在render()之前</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>1 这个方法在组件初始化时不会被调用;</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>1 千万不要在这个函数中调用<code>this.setState()</code>方法.;</li>
+<li>2 如果确实需要响应props的改变，那么你可以在<code>componentWillReceiveProps(nextProps)</code>中做响应操作;</li>
+<li>3 如果<code>shouldComponentUpdate(nextProps, nextState)</code>返回false，那么<code>componentWillUpdate()</code>不会被触发;</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-componentDidUpdate-prevProps-prevState"><a href="#7-componentDidUpdate-prevProps-prevState" class="headerlink" title="7 componentDidUpdate(prevProps, prevState)"></a>7 componentDidUpdate(prevProps, prevState)</h2><ul>
+<li>执行场景<ul>
+<li>在发生更新或<code>componentWillUpdate(nextProps, nextState)</code>后</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>1 该方法不会再组件初始化时触发;</li>
+<li>2 使用这个方法可以对组件中的DOM进行操作;</li>
+<li>3 只要你比较了<code>this.prop</code>s和<code>nextProps</code>，你想要发出网络请求(nextwork requests)时就可以发出, 当然你也可以不发出网络请求;</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>如果<code>shouldComponentUpdate(nextProps, nextState)</code>返回false, 那么<code>componentDidUpdate(prevProps, prevState)</code>不会被触发;</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-componentWillUnmount"><a href="#8-componentWillUnmount" class="headerlink" title="8 componentWillUnmount()"></a>8 componentWillUnmount()</h2><ul>
+<li>执行场景<ul>
+<li>在组件卸载(unmounted)或销毁(destroyed)之前</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>这个方法可以让你处理一些必要的清理操作，比如无效的timers、interval，或者取消网络请求，或者清理任何在<code>componentDidMount()</code>中创建的DOM元素(elements);</li>
+</ul>
+</li>
+<li>相关 setState(Object/Function)</li>
+<li>解释<ul>
+<li>通过事件(event handlers)或服务请求回调(server request callbacks), 触发UI更新(re-render);</li>
+</ul>
+</li>
+<li>参数<ul>
+<li>1 可以是Object类型, 这时是异步的setState, 同时接收一个在state发生改变之后的回调, 如<code>this.setState(Object, callback)</code>, 其中callback可以是() =&gt; { … this.state … };</li>
+<li>2 可以是Function类型, 这时是同步的setState, 例如: (prevState, prevProps) =&gt; nextState, 同步存在一定效率问题(不理解), 但是它有一个好处就是支持Immutable;</li>
+</ul>
+</li>
+</ul>
+<h1 id="二-两种生命周期"><a href="#二-两种生命周期" class="headerlink" title="二 两种生命周期"></a>二 两种生命周期</h1><h2 id="1-组件初始化"><a href="#1-组件初始化" class="headerlink" title="1 组件初始化"></a>1 组件初始化</h2><ul>
+<li>原因<br>  组件第一次建立</li>
+<li>触发<ul>
+<li>componentWillMount -&gt; render -&gt; componentDidMount<h2 id="2-组件更新-–-props-change"><a href="#2-组件更新-–-props-change" class="headerlink" title="2 组件更新 – props change"></a>2 组件更新 – props change</h2></li>
+</ul>
+</li>
+<li>原因<br>  props发生改变</li>
+<li>触发<ul>
+<li>componentWillReceiveProps -&gt; shouldComponentUpdate -&gt; componentWillUpdate -&gt; componentDidUpdate<h2 id="3-组件更新-–-state-change"><a href="#3-组件更新-–-state-change" class="headerlink" title="3 组件更新 – state change"></a>3 组件更新 – state change</h2></li>
+</ul>
+</li>
+<li>原因<ul>
+<li>this.setState()使state发生改变</li>
+</ul>
+</li>
+<li>触发<ul>
+<li>shoudlComponentUpdate -&gt; componentWillUpdate -&gt; componentDidUpdate<h2 id="4-组件卸载或销毁"><a href="#4-组件卸载或销毁" class="headerlink" title="4 组件卸载或销毁"></a>4 组件卸载或销毁</h2></li>
+</ul>
+</li>
+<li>原因<br>  组件卸载或销毁</li>
+<li>触发<br>  componentWillUnmount<h1 id="三-相关链接"><a href="#三-相关链接" class="headerlink" title="三 相关链接"></a>三 相关链接</h1></li>
+<li>1 <a href="https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class" target="_blank" rel="noopener">Facebook: State and Lifecycle of React</a></li>
+<li>2 <a href="http://www.zcfy.cc/article/why-and-how-to-use-purecomponent-in-react-js-60devs-2344.html" target="_blank" rel="noopener">在React.js中使用PureComponent的重要性和使用方式</a></li>
+<li>3 <a href="https://zhuanlan.zhihu.com/p/24856035?utm_medium=social&utm_source=wechat_session" target="_blank" rel="noopener">React 常用面试题目与分析</a></li>
+<li>4 <a href="https://fraserxu.me/2014/08/31/react-component-lifecycle/" target="_blank" rel="noopener">React入门教程 - 组件生命周期</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/posts/frontend/2018/2018-07-31.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          如何构建自己的cli工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/posts/frontend/2018/2018-06-15.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React 代码复用的问题 - Higher-Order Components</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zyj1022'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2020 KINGZHI
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
+<script>
+  daovoice('init', {
+    app_id: "f1075734",
+  });
+  daovoice('update');
+</script>
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', '8805d82e82e6b616']);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

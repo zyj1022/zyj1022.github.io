@@ -6,39 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>设计模式之模板模式(TemplateMethod) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。
-定义模板方法模式是一种只需使用继承就可以实现的非常简单的模式。
-模板方法模式由两部分结构组成：
-
-第一部分是抽象父类，
-第二部分是具体的">
+  <meta name="description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。 定义模板方法模式是一种只需使用继承就可以实现的非常简单的模式。 模板方法模式由两部分结构组成：  第一部分是抽象父类， 第二部分是具体的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之模板模式(TemplateMethod)">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-template.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。
-定义模板方法模式是一种只需使用继承就可以实现的非常简单的模式。
-模板方法模式由两部分结构组成：
-
-第一部分是抽象父类，
-第二部分是具体的">
-<meta property="og:updated_time" content="2017-04-06T07:50:45.000Z">
+<meta property="og:description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。 定义模板方法模式是一种只需使用继承就可以实现的非常简单的模式。 模板方法模式由两部分结构组成：  第一部分是抽象父类， 第二部分是具体的">
+<meta property="article:published_time" content="2017-04-06T09:56:39.000Z">
+<meta property="article:modified_time" content="2017-04-06T07:50:45.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之模板模式(TemplateMethod)">
-<meta name="twitter:description" content="在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。
-定义模板方法模式是一种只需使用继承就可以实现的非常简单的模式。
-模板方法模式由两部分结构组成：
-
-第一部分是抽象父类，
-第二部分是具体的">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -127,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -221,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 	</div>
 
         
@@ -245,20 +234,25 @@
 </ul>
 <p>通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。</p>
 <a id="more"></a>
+
 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="Coffee-or-Tea"><a href="#Coffee-or-Tea" class="headerlink" title="Coffee or Tea"></a>Coffee or Tea</h3><p>咖啡与茶是一个经典的例子，经常用来讲解模板方法模式</p>
 <p>泡茶和泡咖啡有同样的步骤，比如烧开水（boilWater）、冲泡（brew）、倒在杯子里（pourInCup），加小料（addCondiments）等等。</p>
 <p>但每种饮料冲泡的方法以及所加的小料不一样，所以我们可以利用模板方法实现这个主要步骤</p>
 <p>首先先来定义抽象步骤：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Beverage = function()&#123;&#125;;</div><div class="line">Beverage.prototype.boilWater = function()&#123;</div><div class="line">	 console.log( &apos;把水煮沸&apos; );</div><div class="line">&#125;;</div><div class="line">Beverage.prototype.brew = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.pourInCup = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.addCondiments = function()&#123;&#125;; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.init = function()&#123;</div><div class="line">	this.boilWater();</div><div class="line">	this.brew();</div><div class="line">	this.pourInCup();</div><div class="line">	this.addCondiments();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var Beverage &#x3D; function()&#123;&#125;;</span><br><span class="line">Beverage.prototype.boilWater &#x3D; function()&#123;</span><br><span class="line">	 console.log( &#39;把水煮沸&#39; );</span><br><span class="line">&#125;;</span><br><span class="line">Beverage.prototype.brew &#x3D; function()&#123;&#125;; &#x2F;&#x2F; 空方法，应该由子类重写</span><br><span class="line">Beverage.prototype.pourInCup &#x3D; function()&#123;&#125;; &#x2F;&#x2F; 空方法，应该由子类重写</span><br><span class="line">Beverage.prototype.addCondiments &#x3D; function()&#123;&#125;; &#x2F;&#x2F; 空方法，应该由子类重写</span><br><span class="line">Beverage.prototype.init &#x3D; function()&#123;</span><br><span class="line">	this.boilWater();</span><br><span class="line">	this.brew();</span><br><span class="line">	this.pourInCup();</span><br><span class="line">	this.addCondiments();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>接下来我们要创建咖啡类和茶类，并让它们继承抽象类:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// 冲咖啡</div><div class="line">var Coffee = function()&#123;&#125;;</div><div class="line">Coffee.prototype = new Beverage();</div><div class="line">Coffee.prototype.brew = function() &#123;</div><div class="line">	console.log( &apos;用沸水冲泡咖啡&apos; );</div><div class="line">&#125;</div><div class="line">Coffee.prototype.pourInCup = function() &#123;</div><div class="line">	console.log( &apos;把咖啡倒进杯子&apos; );</div><div class="line">&#125;</div><div class="line">Coffee.prototype.addCondiments = function() &#123;</div><div class="line">	console.log( &apos;加糖和牛奶&apos; );</div><div class="line">&#125;</div><div class="line">var Coffee = new Coffee();</div><div class="line">Coffee.init();</div><div class="line"></div><div class="line">// 冲茶叶</div><div class="line">var Tea = function()&#123;&#125;;</div><div class="line">Tea.prototype = new Beverage();</div><div class="line">Tea.prototype.brew = function() &#123;</div><div class="line">	console.log( &apos;用沸水冲泡茶叶&apos; );</div><div class="line">&#125;</div><div class="line">Tea.prototype.pourInCup = function() &#123;</div><div class="line">	console.log( &apos;把茶倒进杯子&apos; );</div><div class="line">&#125;</div><div class="line">Tea.prototype.addCondiments = function() &#123;</div><div class="line">	console.log( &apos;加柠檬&apos; );</div><div class="line">&#125;</div><div class="line">var Tea = new Tea();</div><div class="line">Tea.init();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 冲咖啡</span><br><span class="line">var Coffee &#x3D; function()&#123;&#125;;</span><br><span class="line">Coffee.prototype &#x3D; new Beverage();</span><br><span class="line">Coffee.prototype.brew &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;用沸水冲泡咖啡&#39; );</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.pourInCup &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;把咖啡倒进杯子&#39; );</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.addCondiments &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;加糖和牛奶&#39; );</span><br><span class="line">&#125;</span><br><span class="line">var Coffee &#x3D; new Coffee();</span><br><span class="line">Coffee.init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 冲茶叶</span><br><span class="line">var Tea &#x3D; function()&#123;&#125;;</span><br><span class="line">Tea.prototype &#x3D; new Beverage();</span><br><span class="line">Tea.prototype.brew &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;用沸水冲泡茶叶&#39; );</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.pourInCup &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;把茶倒进杯子&#39; );</span><br><span class="line">&#125;</span><br><span class="line">Tea.prototype.addCondiments &#x3D; function() &#123;</span><br><span class="line">	console.log( &#39;加柠檬&#39; );</span><br><span class="line">&#125;</span><br><span class="line">var Tea &#x3D; new Tea();</span><br><span class="line">Tea.init();</span><br></pre></td></tr></table></figure>
+
 <p>那么在上面的例子中，到底谁才是所谓的模板方法呢?答案是 <code>Beverage.prototype.init</code>。</p>
 <p><code>Beverage.prototype.init</code> 被称为模板方法的原因是，该方法中封装了子类的算法框架，它作为一个算法的模板，指导子类以何种顺序去执行哪些方法。在 <code>Beverage.prototype.init</code> 方法中，算法内的每一个步骤都清楚地展示在我们眼前。</p>
 <h2 id="好莱坞原则"><a href="#好莱坞原则" class="headerlink" title="好莱坞原则"></a>好莱坞原则</h2><p>我们要引入一个新的设计原则——著名的“好莱坞原则”。</p>
 <p>好莱坞原则简单来说就是：“别找我们，我们来找你”，是一种反向的控制结构，指的是父类调用一个类的操作。</p>
 <p>在这一原则的指导下，模板方法模式就是允许底层组件将自己挂钩到高层组件中，而高层组件会决定什么时候、以何种方式去使用这些底层组件。</p>
 <p>在好莱坞原则的指导之下，下面这段代码可以达到和使用继承一样的效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">var Beverage = function(param) &#123;</div><div class="line"></div><div class="line">	var boilWater = function() &#123;</div><div class="line">		console.log( &apos;0 把水煮沸&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var brew = param.brew || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 brew 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var pourInCup = param.pourInCup || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 pourInCup 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var addCondiments = param.addCondiments || function() &#123;</div><div class="line">		throw new Error( &apos;必须传递 addCondiments 方法&apos; );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	var F = function()&#123;&#125;;</div><div class="line"></div><div class="line">	F.prototype.init = function()&#123;</div><div class="line">		boilWater();</div><div class="line">	    brew();</div><div class="line">		pourInCup();</div><div class="line">		addCondiments();</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	return F;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var Coffee = Beverage(&#123;</div><div class="line">	brew: function() &#123;</div><div class="line">		console.log( &apos;1 用沸水冲泡咖啡&apos; );</div><div class="line">	&#125;,</div><div class="line">	pourInCup: function() &#123;</div><div class="line">		console.log( &apos;2 把咖啡倒进杯子&apos; );</div><div class="line">	&#125;,</div><div class="line">	addCondiments: function() &#123;</div><div class="line">		console.log( &apos;3 加糖和牛奶&apos; );</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var coffee = new Coffee();</div><div class="line">coffee.init();</div><div class="line"></div><div class="line">var Tea = Beverage(&#123;</div><div class="line">	brew: function() &#123;</div><div class="line">		console.log( &apos;1 用沸水浸泡茶叶&apos; );</div><div class="line">	&#125;,</div><div class="line">	pourInCup: function()&#123;</div><div class="line">		console.log( &apos;2 把茶倒进杯子&apos; );</div><div class="line">	&#125;,</div><div class="line">	addCondiments: function() &#123;</div><div class="line">		console.log( &apos;3 加柠檬&apos; );</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var tea = new Tea();</div><div class="line">tea.init();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">var Beverage &#x3D; function(param) &#123;</span><br><span class="line"></span><br><span class="line">	var boilWater &#x3D; function() &#123;</span><br><span class="line">		console.log( &#39;0 把水煮沸&#39; );</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	var brew &#x3D; param.brew || function() &#123;</span><br><span class="line">		throw new Error( &#39;必须传递 brew 方法&#39; );</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	var pourInCup &#x3D; param.pourInCup || function() &#123;</span><br><span class="line">		throw new Error( &#39;必须传递 pourInCup 方法&#39; );</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	var addCondiments &#x3D; param.addCondiments || function() &#123;</span><br><span class="line">		throw new Error( &#39;必须传递 addCondiments 方法&#39; );</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	var F &#x3D; function()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">	F.prototype.init &#x3D; function()&#123;</span><br><span class="line">		boilWater();</span><br><span class="line">	    brew();</span><br><span class="line">		pourInCup();</span><br><span class="line">		addCondiments();</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	return F;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var Coffee &#x3D; Beverage(&#123;</span><br><span class="line">	brew: function() &#123;</span><br><span class="line">		console.log( &#39;1 用沸水冲泡咖啡&#39; );</span><br><span class="line">	&#125;,</span><br><span class="line">	pourInCup: function() &#123;</span><br><span class="line">		console.log( &#39;2 把咖啡倒进杯子&#39; );</span><br><span class="line">	&#125;,</span><br><span class="line">	addCondiments: function() &#123;</span><br><span class="line">		console.log( &#39;3 加糖和牛奶&#39; );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var coffee &#x3D; new Coffee();</span><br><span class="line">coffee.init();</span><br><span class="line"></span><br><span class="line">var Tea &#x3D; Beverage(&#123;</span><br><span class="line">	brew: function() &#123;</span><br><span class="line">		console.log( &#39;1 用沸水浸泡茶叶&#39; );</span><br><span class="line">	&#125;,</span><br><span class="line">	pourInCup: function()&#123;</span><br><span class="line">		console.log( &#39;2 把茶倒进杯子&#39; );</span><br><span class="line">	&#125;,</span><br><span class="line">	addCondiments: function() &#123;</span><br><span class="line">		console.log( &#39;3 加柠檬&#39; );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var tea &#x3D; new Tea();</span><br><span class="line">tea.init();</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>模板方法应用于下列情况：</p>
 <ul>
 <li>一次性实现一个算法的不变的部分，并将可变的行为留给子类来实现</li>
@@ -270,7 +264,7 @@
 <blockquote>
 <p>参考引用资料</p>
 <p>《JavaScript设计模式与开发实践》</p>
-<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">汤姆大叔的博客——深入理解JavaScript系列</a></p>
 </blockquote>
 
       
@@ -321,7 +315,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -329,7 +323,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -362,7 +356,9 @@
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -378,8 +374,12 @@
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 

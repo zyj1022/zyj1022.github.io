@@ -6,30 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>设计模式之发布/订阅模式(Publish/Subscribe) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式
-遍地的发布订阅现象如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。
-有人可能也会想到经常收到的各种广告短信">
+  <meta name="description" content="发布&#x2F;订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布&#x2F;订阅模式 遍地的发布订阅现象如今的信息化时代，发布&#x2F;订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布&#x2F;订阅模式，公众号发布一条信息，所有的订阅者都会收到。 有人可能也会想到经常收到的各种广告短信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之发布/订阅模式(Publish/Subscribe)">
+<meta property="og:title" content="设计模式之发布&#x2F;订阅模式(Publish&#x2F;Subscribe)">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-publish-subscribe.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式
-遍地的发布订阅现象如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。
-有人可能也会想到经常收到的各种广告短信">
-<meta property="og:updated_time" content="2017-04-05T08:41:40.000Z">
+<meta property="og:description" content="发布&#x2F;订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布&#x2F;订阅模式 遍地的发布订阅现象如今的信息化时代，发布&#x2F;订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布&#x2F;订阅模式，公众号发布一条信息，所有的订阅者都会收到。 有人可能也会想到经常收到的各种广告短信">
+<meta property="article:published_time" content="2017-04-05T04:36:29.000Z">
+<meta property="article:modified_time" content="2017-04-05T08:41:40.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之发布/订阅模式(Publish/Subscribe)">
-<meta name="twitter:description" content="发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式
-遍地的发布订阅现象如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。
-有人可能也会想到经常收到的各种广告短信">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -118,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -212,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 	</div>
 
         
@@ -233,6 +231,8 @@
 <p>发布/订阅模式可以广泛用于异步编程中，代替传递回掉函数的方案，比如，我们可以订阅 ajax 请求的 error、succ 等事件。</p>
 <p>另外发表订阅让两个对象松耦合在一起，不必了解彼此细节，当有新的订阅者出现时，发布者的代码不需要任何修改。同样发布者需要改变时，也不会影响到之前的订阅者。只要之前约定的事件名没有变化，就可以自由地改变它们。</p>
 <a id="more"></a>
+
+
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>发布订阅模式，它定义了一种一对多的关系，让多个观察者对象同时监听某一个主题对象，这个主题对象的状态发生变化时就会通知所有的观察者对象，使得它们能够自动更新自己。</p>
 <p>使用发布订阅模式的好处：</p>
 <ul>
@@ -266,8 +266,7 @@ Weather.listen(function(weather, wind){
 
 // 发布消息
 Weather.publish(&quot;晴天&quot;,&quot;微风&quot;); // 天气：晴天 风力：微风
-Weather.publish(&quot;雷阵雨&quot;,&quot;5级风&quot;); // 天气：雷阵雨 风力：5级风
-</code></pre><p>以上，已经实现了一个最简单的发布—订阅模式，还可以为订阅者增加自选功能，订阅自己想要的消息，也可以增加取消订阅的事件。</p>
+Weather.publish(&quot;雷阵雨&quot;,&quot;5级风&quot;); // 天气：雷阵雨 风力：5级风</code></pre><p>以上，已经实现了一个最简单的发布—订阅模式，还可以为订阅者增加自选功能，订阅自己想要的消息，也可以增加取消订阅的事件。</p>
 <pre><code>var PubSub = {
     list: [],
     listen: function(key, fn){
@@ -302,28 +301,24 @@ day.listen(&apos;天气&apos;, function(wind) {
     console.log(&apos;风力：&apos;+ wind);
 });
 
-day.publish(&apos;天气&apos;, &quot;8级风&quot;);
-</code></pre><h3 id="实战之网站登录"><a href="#实战之网站登录" class="headerlink" title="实战之网站登录"></a>实战之网站登录</h3><p>网站登录是最常见的形式，通常在登录以后我们会ajax异步请求获取用户信息，比如显示用户名字、头像等信息在header模块，而这两个字段都是来自用户登录后返回的信息。至于 ajax 请求什么时候能成功返回用户信息，这点我们没有办法确定，虽然现在看起来和发布订阅模式没关系，因为异步的问题通常也可以回调函数来解决。</p>
+day.publish(&apos;天气&apos;, &quot;8级风&quot;);</code></pre><h3 id="实战之网站登录"><a href="#实战之网站登录" class="headerlink" title="实战之网站登录"></a>实战之网站登录</h3><p>网站登录是最常见的形式，通常在登录以后我们会ajax异步请求获取用户信息，比如显示用户名字、头像等信息在header模块，而这两个字段都是来自用户登录后返回的信息。至于 ajax 请求什么时候能成功返回用户信息，这点我们没有办法确定，虽然现在看起来和发布订阅模式没关系，因为异步的问题通常也可以回调函数来解决。</p>
 <p>我们不知道除了 header 头部、nav 导航、消息列表、购物车之外，将来还有哪些模块需要使用这些用户信息。如果它们和用户信息模块产生了强耦合，比如下面这样的形式:</p>
 <pre><code>login.succ(function(data){
     header.setAvatar( data.avatar);  // 设置 header 模块的头像
     nav.setAvatar( data.avatar ); // 设置导航模块的头像
     message.refresh(); // 刷新消息列表
     cart.refresh(); // 刷新购物车列表
-});
-</code></pre><p>现在登录模块是我们负责编写的，但我们还必须了解 header 模块里设置头像的方法叫 setAvatar、购物车模块里刷新的方法叫 refresh，这种耦合性会使程序变得僵硬，header 模块不能随意再改变 setAvatar 的方法名，它自身的名字也不能被改为 header1、header2。 这是针对具 体实现编程的典型例子，针对具体实现编程是不被赞同的。</p>
+});</code></pre><p>现在登录模块是我们负责编写的，但我们还必须了解 header 模块里设置头像的方法叫 setAvatar、购物车模块里刷新的方法叫 refresh，这种耦合性会使程序变得僵硬，header 模块不能随意再改变 setAvatar 的方法名，它自身的名字也不能被改为 header1、header2。 这是针对具 体实现编程的典型例子，针对具体实现编程是不被赞同的。</p>
 <p>某一个，项目新增加收获地址管理模块：</p>
 <pre><code>login.succ(function(data){
     header.setAvatar( data.avatar);
     nav.setAvatar( data.avatar );
     message.refresh();
     address.refresh(); // 新增加收获地址
-});
-</code></pre><p>现在我们用发布订阅重写，对用户信息感兴趣的业务模块将自行订阅登录成功的消息事件。 当登录成功时，登录模块只需要发布登录成功的消息，而业务方接受到消息之后，就会开始进行各自的业务处理，登录模块并不关心业务方究竟要做什么，也不想去了解它们的内部细节。改善后的代码如下:</p>
+});</code></pre><p>现在我们用发布订阅重写，对用户信息感兴趣的业务模块将自行订阅登录成功的消息事件。 当登录成功时，登录模块只需要发布登录成功的消息，而业务方接受到消息之后，就会开始进行各自的业务处理，登录模块并不关心业务方究竟要做什么，也不想去了解它们的内部细节。改善后的代码如下:</p>
 <pre><code>$.ajax( &apos;http://xxx.com?login&apos;, function(data){ // 登录成功
     login.trigger( &apos;loginSucc&apos;, data); // 发布登录成功的消息
-});
-</code></pre><p>各模块监听登录成功的消息:</p>
+});</code></pre><p>各模块监听登录成功的消息:</p>
 <pre><code>var header = (function() { // header 模块
     login.listen( &apos;loginSucc&apos;, function(data) {
         header.setAvatar( data.avatar );
@@ -355,15 +350,14 @@ var nav = (function() {  // nav 模块
             console.log( &apos;刷新收货地址列表&apos; );
         }
     }
-})();
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>发布订阅的使用场合就是：当一个对象的改变需要同时改变其它对象，并且它不知道具体有多少对象需要改变的时候，就应该考虑使用观察者模式。</p>
+})();</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>发布订阅的使用场合就是：当一个对象的改变需要同时改变其它对象，并且它不知道具体有多少对象需要改变的时候，就应该考虑使用观察者模式。</p>
 <p>总的来说，发布订阅模式所做的工作就是在解耦，让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响到另一边的变化。</p>
 <p>另外， 发布—订阅模式虽然可以弱化对象之间的联系，但如果过度使用的话，对象和对象之间的必要联系也将被深埋在背后，会导致程序难以跟踪维护和理解。特别是有多个发布者和订阅者嵌套到一起的时候，要跟踪一个 bug 不是件轻松的事情。</p>
 <hr>
 <blockquote>
 <p>参考引用资料</p>
 <p>《JavaScript设计模式与开发实践》</p>
-<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">汤姆大叔的博客——深入理解JavaScript系列</a></p>
 </blockquote>
 
       
@@ -414,7 +408,7 @@ var nav = (function() {  // nav 模块
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -422,7 +416,7 @@ var nav = (function() {  // nav 模块
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -455,7 +449,9 @@ var nav = (function() {  // nav 模块
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -471,8 +467,12 @@ var nav = (function() {  // nav 模块
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 

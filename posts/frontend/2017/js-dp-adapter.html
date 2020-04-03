@@ -6,30 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>设计模式之适配器模式(Adapter) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
-适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
-使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
+  <meta name="description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。 适配器的别名是包装器(wrapper)，这是一个相对简单的模式。 使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之适配器模式(Adapter)">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-adapter.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
-适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
-使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
-<meta property="og:updated_time" content="2017-04-24T09:15:47.000Z">
+<meta property="og:description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。 适配器的别名是包装器(wrapper)，这是一个相对简单的模式。 使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
+<meta property="article:published_time" content="2017-04-24T09:26:19.000Z">
+<meta property="article:modified_time" content="2017-04-24T09:15:47.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之适配器模式(Adapter)">
-<meta name="twitter:description" content="介绍适配器模式（Adapter）是将一个类（对象）的接口（方法或属性）转化成客户希望的另外一个接口（方法或属性），适配器模式使得原本由于接口不兼容而不能一起工作的那些类（对象）可以一些工作。
-适配器的别名是包装器(wrapper)，这是一个相对简单的模式。
-使用实例现实中的适配器——apple的各种转接头相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -118,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -212,7 +210,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 	</div>
 
         
@@ -231,21 +229,27 @@
 <p>适配器的别名是包装器(wrapper)，这是一个相对简单的模式。</p>
 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="现实中的适配器——apple的各种转接头"><a href="#现实中的适配器——apple的各种转接头" class="headerlink" title="现实中的适配器——apple的各种转接头"></a>现实中的适配器——apple的各种转接头</h3><p>相信大家对apple对各种设备设计精良，用户使用方便比较赞同，但是针对各种转接头又有各种吐槽，其实转接头是不是就对应我们但适配器呢？</p>
 <a id="more"></a>
+
 <p>如果现有的接口已经能够正常工作，那我们就永远不会用上适配器模式。适配器模式是一种 “亡羊补牢”的模式，没有人会在程序的设计之初就使用它。因为没有人可以完全预料到未来的事情，也许现在好好工作的接口，未来的某天却不再适用于新系统，那么我们可以用适配器模式 把旧接口包装成一个新的接口，使它继续保持生命力。比较典型但就是最新但 iphone7 去掉了耳机接口，提供了额外但转接头。也许以后充电口也会去掉，用无线充电，并且提供额外但转接设备。</p>
 <h3 id="地图调用"><a href="#地图调用" class="headerlink" title="地图调用"></a>地图调用</h3><p>当我们向 googleMap 和 baiduMap 都发出“显示”请求时，googleMap 和 baiduMap 分别以各自的方式在页面中展现了地图:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMap ); // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var googleMap &#x3D; &#123;</span><br><span class="line">    show: function() &#123;</span><br><span class="line">        console.log( &#39;开始渲染谷歌地图&#39; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var baiduMap &#x3D; &#123;</span><br><span class="line">    show: function()&#123;</span><br><span class="line">        console.log( &#39;开始渲染百度地图&#39; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var renderMap &#x3D; function( map ) &#123;</span><br><span class="line">    if ( map.show instanceof Function )&#123;</span><br><span class="line">        map.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">renderMap( googleMap ); &#x2F;&#x2F; 输出:开始渲染谷歌地图</span><br><span class="line">renderMap( baiduMap ); &#x2F;&#x2F; 输出:开始渲染百度地图</span><br></pre></td></tr></table></figure>
 <p>因为 googleMap 和 baiduMap 提供了一致的 show 方法，但第三方的接口方法并不在我们自己的控制范围之内，假如 baiduMap 提供的显示地图的方法不叫 show 而叫 display 呢? baiduMap 这个对象来源于第三方，正常情况下我们都没办法改动它。此时我们可以通过增加 baiduMapAdapter 来解决问题:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var googleMap = &#123;</div><div class="line">    show: function() &#123;</div><div class="line">        console.log( &apos;开始渲染谷歌地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">var baiduMap = &#123;</div><div class="line">    display: function()&#123;</div><div class="line">        console.log( &apos;开始渲染百度地图&apos; );</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var baiduMapAdapter = &#123;</div><div class="line">    show: function()&#123;</div><div class="line">        return baiduMap.display();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var renderMap = function( map ) &#123;</div><div class="line">    if ( map.show instanceof Function )&#123;</div><div class="line">        map.show();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">renderMap( googleMap ); // 输出:开始渲染谷歌地图</div><div class="line">renderMap( baiduMapAdapter );; // 输出:开始渲染百度地图</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var googleMap &#x3D; &#123;</span><br><span class="line">    show: function() &#123;</span><br><span class="line">        console.log( &#39;开始渲染谷歌地图&#39; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var baiduMap &#x3D; &#123;</span><br><span class="line">    display: function()&#123;</span><br><span class="line">        console.log( &#39;开始渲染百度地图&#39; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var baiduMapAdapter &#x3D; &#123;</span><br><span class="line">    show: function()&#123;</span><br><span class="line">        return baiduMap.display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var renderMap &#x3D; function( map ) &#123;</span><br><span class="line">    if ( map.show instanceof Function )&#123;</span><br><span class="line">        map.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">renderMap( googleMap ); &#x2F;&#x2F; 输出:开始渲染谷歌地图</span><br><span class="line">renderMap( baiduMapAdapter );; &#x2F;&#x2F; 输出:开始渲染百度地图</span><br></pre></td></tr></table></figure>
+
 <h3 id="动物叫声"><a href="#动物叫声" class="headerlink" title="动物叫声"></a>动物叫声</h3><p>鸭子但叫声为 quack, 而公鸡但叫声为 crow, 假如我们也要公鸡实现嘎嘎叫（quack）这个动作。我们就可以复用鸭子但quack方法，但发出但声音还是 crow 的。</p>
 <p>首先要先定义鸭子和火鸡的抽象行为，也就是各自的方法函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var Duck = function()&#123; &#125;</div><div class="line">Duck.prototype.quack =function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var Cock = function()&#123; &#125;</div><div class="line">Cock.prototype.crow = function() &#123;</div><div class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var Duck &#x3D; function()&#123; &#125;</span><br><span class="line">Duck.prototype.quack &#x3D;function() &#123;</span><br><span class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Cock &#x3D; function()&#123; &#125;</span><br><span class="line">Cock.prototype.crow &#x3D; function() &#123;</span><br><span class="line">    throw new Error(&quot; 该方法必须被重写 !&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然后再定义具体的鸭子和公鸡的构造函数，分别为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var MallarDuck = function() &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">&#125;</div><div class="line">MallarDuck.prototype = new Duck();</div><div class="line">MallarDuck.prototype.quack = function() &#123;</div><div class="line">    console.log(&quot;嘎嘎！嘎嘎！&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var WildCock = function() &#123;</div><div class="line">    Cock.apply(this);</div><div class="line">&#125;</div><div class="line">WildCock.prototype = new Cock();</div><div class="line">WildCock.prototype.crow = function() &#123;</div><div class="line">    console.log(&quot;咯咯！咯咯！&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var MallarDuck &#x3D; function() &#123;</span><br><span class="line">    Duck.apply(this);</span><br><span class="line">&#125;</span><br><span class="line">MallarDuck.prototype &#x3D; new Duck();</span><br><span class="line">MallarDuck.prototype.quack &#x3D; function() &#123;</span><br><span class="line">    console.log(&quot;嘎嘎！嘎嘎！&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var WildCock &#x3D; function() &#123;</span><br><span class="line">    Cock.apply(this);</span><br><span class="line">&#125;</span><br><span class="line">WildCock.prototype &#x3D; new Cock();</span><br><span class="line">WildCock.prototype.crow &#x3D; function() &#123;</span><br><span class="line">    console.log(&quot;咯咯！咯咯！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>为了让公鸡也支持quack方法，我们创建了一个新的公鸡适配器 CockAdapter</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var CockAdapter = function(ck) &#123;</div><div class="line">    Duck.apply(this);</div><div class="line">    this.ck = ck;</div><div class="line">&#125;</div><div class="line">CockAdapter.prototype = new Duck();</div><div class="line">CockAdapter.prototype.quack = function() &#123;</div><div class="line">    this.ck.crow();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var CockAdapter &#x3D; function(ck) &#123;</span><br><span class="line">    Duck.apply(this);</span><br><span class="line">    this.ck &#x3D; ck;</span><br><span class="line">&#125;</span><br><span class="line">CockAdapter.prototype &#x3D; new Duck();</span><br><span class="line">CockAdapter.prototype.quack &#x3D; function() &#123;</span><br><span class="line">    this.ck.crow();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>该构造函数接受一个公鸡的实例对象，然后使用 Duck 进行 apply，其适配器原型是 Duck，然后要重新修改其原型的quack方法，以便内部调用 ck.crow() 方法。</p>
 <p>测试一下便可以知道结果了:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var oDuck = new MallarDuck()</div><div class="line">var oCock = new WildCock()</div><div class="line">var oCkadapter = new CockAdapter(oCock);</div><div class="line"></div><div class="line">// 原有的鸭子行为</div><div class="line">oDuck.quack();  // 嘎嘎！嘎嘎！</div><div class="line">// 原有但公鸡行为</div><div class="line">oCock.crow(); // 咯咯！咯咯！</div><div class="line"></div><div class="line">// 适配器公鸡的行为</div><div class="line">oCkadapter.quack(); // 咯咯！咯咯！</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var oDuck &#x3D; new MallarDuck()</span><br><span class="line">var oCock &#x3D; new WildCock()</span><br><span class="line">var oCkadapter &#x3D; new CockAdapter(oCock);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 原有的鸭子行为</span><br><span class="line">oDuck.quack();  &#x2F;&#x2F; 嘎嘎！嘎嘎！</span><br><span class="line">&#x2F;&#x2F; 原有但公鸡行为</span><br><span class="line">oCock.crow(); &#x2F;&#x2F; 咯咯！咯咯！</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 适配器公鸡的行为</span><br><span class="line">oCkadapter.quack(); &#x2F;&#x2F; 咯咯！咯咯！</span><br></pre></td></tr></table></figure>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>那合适使用适配器模式好呢？如果有以下情况出现时，建议使用：</p>
 <ul>
 <li>1、使用一个已经存在的对象，但其方法或属性接口不符合你的要求；</li>
@@ -262,7 +266,7 @@
 <blockquote>
 <p>参考引用资料</p>
 <p>《JavaScript设计模式与开发实践》</p>
-<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">汤姆大叔的博客——深入理解JavaScript系列</a></p>
 </blockquote>
 
       
@@ -313,7 +317,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -321,7 +325,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -354,7 +358,9 @@
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -370,8 +376,12 @@
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 

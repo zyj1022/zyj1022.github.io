@@ -6,33 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>设计模式之迭代器模式(Iterator) | 智的前端之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。
-比如：JavaScript 的 Array.prototype.forEach
-jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：
-1234567$.each( [1, 2, 3], f">
+  <meta name="description" content="迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。 比如：JavaScript 的 Array.prototype.forEach jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如： 1234567$.each( [1, 2, 3], f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之迭代器模式(Iterator)">
 <meta property="og:url" content="http://www.imeetyou.net/posts/frontend/2017/js-dp-iterator.html">
 <meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。
-比如：JavaScript 的 Array.prototype.forEach
-jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：
-1234567$.each( [1, 2, 3], f">
-<meta property="og:updated_time" content="2017-04-20T08:29:07.000Z">
+<meta property="og:description" content="迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。 比如：JavaScript 的 Array.prototype.forEach jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如： 1234567$.each( [1, 2, 3], f">
+<meta property="article:published_time" content="2017-03-31T09:56:19.000Z">
+<meta property="article:modified_time" content="2017-04-20T08:29:07.000Z">
+<meta property="article:author" content="KINGZHI">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="Iterator">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之迭代器模式(Iterator)">
-<meta name="twitter:description" content="迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。
-比如：JavaScript 的 Array.prototype.forEach
-jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：
-1234567$.each( [1, 2, 3], f">
   
     <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
   <div id="container">
@@ -121,7 +117,7 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.67px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 11.67px;">css</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/frontend/" style="font-size: 18.33px;">frontend</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/iconfont/" style="font-size: 10px;">iconfont</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a>
+						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -215,7 +211,7 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/" rel="tag">Iterator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
 	</div>
 
         
@@ -233,8 +229,9 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
         <p>迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。</p>
 <p>比如：JavaScript 的 <code>Array.prototype.forEach</code></p>
 <p>jQuery里一个非常有名的迭代器就是 <code>$.each</code> 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each( [1, 2, 3], function( i, n )&#123;</div><div class="line">	console.log( &apos;当前下标为： &apos;+ i,&apos;当前值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 下标： 0 当前值:1</div><div class="line">// 下标： 1 当前值:2</div><div class="line">// 下标： 2 当前值:3</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.each( [1, 2, 3], function( i, n )&#123;</span><br><span class="line">	console.log( &#39;当前下标为： &#39;+ i,&#39;当前值为:&#39; + n );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 下标： 0 当前值:1</span><br><span class="line">&#x2F;&#x2F; 下标： 1 当前值:2</span><br><span class="line">&#x2F;&#x2F; 下标： 2 当前值:3</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>迭代器模式(Iterator)：提供一种方法顺序一个聚合对象中各个元素，而又不暴露该对象内部表示。</p>
 <p>迭代器的几个特点是：</p>
 <ul>
@@ -243,27 +240,31 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
 <li>遍历的同时更改迭代器所在的集合结构可能会导致问题（比如C#的foreach里不允许修改item）。</li>
 </ul>
 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="实现自己的迭代器"><a href="#实现自己的迭代器" class="headerlink" title="实现自己的迭代器"></a>实现自己的迭代器</h3><p>参照jQuery的<code>$.each</code> 方法, 我们来自己实现一个 each 函数，each 函数接受 2 个参数，第一个为被循环的数组，第二个为循环中的每一步后将被触发的回调函数:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var each = function( ary, callback ) &#123;</div><div class="line">	for ( var i = 0, l = ary.length; i &lt; l; i++ )&#123;</div><div class="line">		callback.call( ary[i], i, ary[ i ] );</div><div class="line">		// 把下标和元素当作参数传给callback 函数</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">each( [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ], function( i, n )&#123;</div><div class="line">	console.log( &apos;自定义下标为： &apos;+ i,&apos;自定义值为:&apos; + n );</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 自定义下标为： 0 自定义值为:a</div><div class="line">// 自定义下标为： 1 自定义值为:b</div><div class="line">// 自定义下标为： 2 自定义值为:c</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var each &#x3D; function( ary, callback ) &#123;</span><br><span class="line">	for ( var i &#x3D; 0, l &#x3D; ary.length; i &lt; l; i++ )&#123;</span><br><span class="line">		callback.call( ary[i], i, ary[ i ] );</span><br><span class="line">		&#x2F;&#x2F; 把下标和元素当作参数传给callback 函数</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">each( [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ], function( i, n )&#123;</span><br><span class="line">	console.log( &#39;自定义下标为： &#39;+ i,&#39;自定义值为:&#39; + n );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自定义下标为： 0 自定义值为:a</span><br><span class="line">&#x2F;&#x2F; 自定义下标为： 1 自定义值为:b</span><br><span class="line">&#x2F;&#x2F; 自定义下标为： 2 自定义值为:c</span><br></pre></td></tr></table></figure>
+
 <h3 id="迭代器模式的应用举例"><a href="#迭代器模式的应用举例" class="headerlink" title="迭代器模式的应用举例"></a>迭代器模式的应用举例</h3><p>以常用的上传文件功能为例，在不同的浏览器环境下，选择的上传方式是不一样的。因为使用浏览器的上传控件进行上传速度快，可以暂停和续传，所以我们首先会优先使用控件上传。如果浏览器没有安装上传控件， 则使用 Flash 上传， 如果连 Flash 也没安装，那就只好使用浏览器原生的表单上传了，代码为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var getUploadObj = function() &#123;</div><div class="line">	try &#123;</div><div class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;); // IE 上传控件</div><div class="line">	&#125; catch (e) &#123;</div><div class="line">		if (supportFlash()) &#123; // supportFlash 函数未提供</div><div class="line">			var str = &apos;&lt;object type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;;</div><div class="line">			return $(str).appendTo($(&apos;body&apos;));</div><div class="line">		&#125; else &#123;</div><div class="line">			var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot;/&gt;&apos;; // 表单上传</div><div class="line">			return $(str).appendTo($(&apos;body&apos;));</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var getUploadObj &#x3D; function() &#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;); &#x2F;&#x2F; IE 上传控件</span><br><span class="line">	&#125; catch (e) &#123;</span><br><span class="line">		if (supportFlash()) &#123; &#x2F;&#x2F; supportFlash 函数未提供</span><br><span class="line">			var str &#x3D; &#39;&lt;object type&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;&gt;&lt;&#x2F;object&gt;&#39;;</span><br><span class="line">			return $(str).appendTo($(&#39;body&#39;));</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			var str &#x3D; &#39;&lt;input name&#x3D;&quot;file&quot; type&#x3D;&quot;file&quot;&#x2F;&gt;&#39;; &#x2F;&#x2F; 表单上传</span><br><span class="line">			return $(str).appendTo($(&#39;body&#39;));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>看看上面的代码，为了得到一个 upload 对象，这个 getUploadObj 函数里面充斥了 try，catch 以及 if 条件分支。缺点是显而易见的。</p>
 <p>现在来梳理一下问题，目前一共有 3 种可能的上传方式，我们不知道目前浏览器支持那种上传方式，那就需要逐个尝试，直到成功为止，分别定义以下几个函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// IE 上传控件</div><div class="line">var getActiveUploadObj = function() &#123;</div><div class="line">	try &#123;</div><div class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;);</div><div class="line">	&#125; catch (e) &#123;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// Flash 上传</div><div class="line">var getFlashUploadObj = function() &#123;</div><div class="line">	if (supportFlash()) &#123; // supportFlash 函数未提供</div><div class="line">		var str = &apos;&lt;object type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;;</div><div class="line">		return $(str).appendTo($(&apos;body&apos;));</div><div class="line">	&#125;;</div><div class="line">	return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 表单上传</div><div class="line">var getFormUpladObj = function() &#123;</div><div class="line">	var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot; class=&quot;ui-file&quot;/&gt;&apos;;</div><div class="line">	return $(str).appendTo($(&apos;body&apos;));</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; IE 上传控件</span><br><span class="line">var getActiveUploadObj &#x3D; function() &#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;);</span><br><span class="line">	&#125; catch (e) &#123;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Flash 上传</span><br><span class="line">var getFlashUploadObj &#x3D; function() &#123;</span><br><span class="line">	if (supportFlash()) &#123; &#x2F;&#x2F; supportFlash 函数未提供</span><br><span class="line">		var str &#x3D; &#39;&lt;object type&#x3D;&quot;application&#x2F;x-shockwave-flash&quot;&gt;&lt;&#x2F;object&gt;&#39;;</span><br><span class="line">		return $(str).appendTo($(&#39;body&#39;));</span><br><span class="line">	&#125;;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 表单上传</span><br><span class="line">var getFormUpladObj &#x3D; function() &#123;</span><br><span class="line">	var str &#x3D; &#39;&lt;input name&#x3D;&quot;file&quot; type&#x3D;&quot;file&quot; class&#x3D;&quot;ui-file&quot;&#x2F;&gt;&#39;;</span><br><span class="line">	return $(str).appendTo($(&#39;body&#39;));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>在以上三个函数中，如果该函数里面的 upload 对象是可用的，则让函数返回该对象，反之返回 false，提示迭代器继续往后面进行迭代。</p>
 <p>那么迭代器只需进行下面这几步工作：</p>
 <ul>
 <li>提供一个可以被迭代的方法，使得 getActiveUploadObj，getFlashUploadObj 以及 getFlashUploadObj 依照优先级被循环迭代。</li>
 <li>如果正在被迭代的函数返回一个对象，则表示找到了正确的 upload 对象，反之如果该函数返回 false，则让迭代器继续工作。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var iteratorUpload = function() &#123;</div><div class="line">	for (var i = 0, fn; fn = arguments[i++];) &#123;</div><div class="line">		var upload = fn();</div><div class="line">		if (upload !== false) &#123;</div><div class="line">			return upload;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var uploadObj = iteratorUpload( getActiveUploadObj, getFlashUploadObj, getFormUpladObj )</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var iteratorUpload &#x3D; function() &#123;</span><br><span class="line">	for (var i &#x3D; 0, fn; fn &#x3D; arguments[i++];) &#123;</span><br><span class="line">		var upload &#x3D; fn();</span><br><span class="line">		if (upload !&#x3D;&#x3D; false) &#123;</span><br><span class="line">			return upload;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var uploadObj &#x3D; iteratorUpload( getActiveUploadObj, getFlashUploadObj, getFormUpladObj )</span><br></pre></td></tr></table></figure>
+
 <p>重构代码之后，可以看到，上传对象的各个函数彼此分离互补干扰，很方便维护和扩展，如果后期增加了 Webkit 控件上传和 HTML5 上传，我们就增加对应的函数功能并在迭代器里添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var getWebkitUploadObj = function()&#123;</div><div class="line"> // 具体代码略</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getHtml5UploadObj = function()&#123;</div><div class="line"> // 具体代码略</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 依照优先级把它们添加进迭代器</div><div class="line">var uploadObj = iteratorUploadObj( getActiveUploadObj, getWebkitUploadObj,</div><div class="line">getFlashUploadObj, getHtml5UploadObj, getFormUpladObj );</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var getWebkitUploadObj &#x3D; function()&#123;</span><br><span class="line"> &#x2F;&#x2F; 具体代码略</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var getHtml5UploadObj &#x3D; function()&#123;</span><br><span class="line"> &#x2F;&#x2F; 具体代码略</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 依照优先级把它们添加进迭代器</span><br><span class="line">var uploadObj &#x3D; iteratorUploadObj( getActiveUploadObj, getWebkitUploadObj,</span><br><span class="line">getFlashUploadObj, getHtml5UploadObj, getFormUpladObj );</span><br></pre></td></tr></table></figure>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>迭代器的使用场景是：对于集合内部结果常常变化各异，我们不想暴露其内部结构的话，但又想让客户代码透明地访问其中的元素，这种情况下我们可以使用迭代器模式。</p>
 <hr>
 <blockquote>
 <p>参考引用资料</p>
 <p>《JavaScript设计模式与开发实践》</p>
-<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="external">汤姆大叔的博客——深入理解JavaScript系列</a></p>
+<p><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank" rel="noopener">汤姆大叔的博客——深入理解JavaScript系列</a></p>
 </blockquote>
 
       
@@ -314,7 +315,7 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </section>
 
 </div>
@@ -322,7 +323,7 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 KINGZHI
+    		&copy; 2020 KINGZHI
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -355,7 +356,9 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
 
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
 
 
 <script>
@@ -371,8 +374,12 @@ jQuery里一个非常有名的迭代器就是 $.each 方法，通过each我们�
 		open_in_new: false
 	}
 </script>
+
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
 <script src="/js/main.js"></script>
+
 
 
 
