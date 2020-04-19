@@ -1,961 +1,533 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>智的前端之路</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业精于勤荒于嬉,行成于思毁于随。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="智的前端之路">
-<meta property="og:url" content="http://www.imeetyou.net/page/3/index.html">
-<meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="业精于勤荒于嬉,行成于思毁于随。">
-<meta property="article:author" content="KINGZHI">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="一个用于日常记录技术生活的博客." /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="知也无涯" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="知也无涯" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="http://localhost:1313/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="知也无涯" />
+<meta property="og:description" content="一个用于日常记录技术生活的博客." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+<meta property="og:updated_time" content="2015-03-10T00:13:27+00:00" />
+<meta itemprop="name" content="知也无涯">
+<meta itemprop="description" content="一个用于日常记录技术生活的博客."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="知也无涯"/>
+<meta name="twitter:description" content="一个用于日常记录技术生活的博客."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/illidan.png" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">若有智，事可为</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">归档</a></li>
-				        
-							<li><a href="/categories/frontend">前端</a></li>
-				        
-							<li><a href="/categories/life">生活</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-				
-				<section class="switch-part switch-part3">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
-
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/illidan.png" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">KINGZHI</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">若有智，事可为</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">归档</a></li>
-		        
-					<li><a href="/categories/frontend">前端</a></li>
-		        
-					<li><a href="/categories/life">生活</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
 </nav>
-
-      <div class="body-wrap">
-  
-    <article id="post-2017/js-dp-flyweight" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-flyweight.html" class="article-date">
-  	<time datetime="2017-04-07T04:36:39.000Z" itemprop="datePublished">2017-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-flyweight.html">设计模式之享元模式(Flyweight)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>享元(flyweight)模式是一种用于性能优化的模式，享元模式的核心是运用共享技术来有效支持大量细粒度的对象。</p>
-<p>享元模式可以避免大量非常相似类的开销，在程序设计中，有时需要生产大量细粒度的类实例来表示数据，如果能发现这些实例除了几个参数以外，开销基本相同的话，就可以大幅度较少需要实例化的类的数量。如果能把那些参数移动到类实例的外面，在方法调用的时候将他们传递进来，就可以通过共享大幅度第减少单个实例的数目。</p>
-<p>那么如果在JavaScript中应用享元模式呢？有两种方式：</p>
-<ul>
-<li>第一种是应用在数据层上，主要是应用在内存里大量相似的对象上；</li>
-<li>第二种是应用在DOM层上，享元可以用在中央事件管理器上用来避免给父容器里的每个子元素都附加事件句柄</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-flyweight.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-template" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-template.html" class="article-date">
-  	<time datetime="2017-04-06T09:56:39.000Z" itemprop="datePublished">2017-04-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-template.html">设计模式之模板模式(TemplateMethod)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 JavaScript 开发中用到继承的场景其实并不是很多，很多时候我们都喜欢用 mix-in 的方式给对象扩展属性。但这不代表继承在 JavaScript 里没有用武之地，虽然没有真正的类和继承机制，但我们可以通过原型 prototype 来变相地实现继承。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>模板方法模式是一种只需使用继承就可以实现的非常简单的模式。</p>
-<p><strong>模板方法模式由两部分结构组成：</strong></p>
-<ul>
-<li>第一部分是抽象父类，</li>
-<li>第二部分是具体的实现子类。</li>
-</ul>
-<p>通常在抽象父类中封装了子类的算法框架，包括实现一些公共方法以及封装子类中所有方法的执行顺序。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-template.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-publish-subscribe" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-publish-subscribe.html" class="article-date">
-  	<time datetime="2017-04-05T04:36:29.000Z" itemprop="datePublished">2017-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-publish-subscribe.html">设计模式之发布/订阅模式(Publish/Subscribe)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>发布/订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在 JavaScript 开发中，我们一般用事件模型来替代传统的发布/订阅模式</p>
-<h2 id="遍地的发布订阅现象"><a href="#遍地的发布订阅现象" class="headerlink" title="遍地的发布订阅现象"></a>遍地的发布订阅现象</h2><p>如今的信息化时代，发布/订阅模式的应用可以说非常广泛，比如微信公众号就是典型的发布/订阅模式，公众号发布一条信息，所有的订阅者都会收到。</p>
-<p>有人可能也会想到经常收到的各种广告短信信息（有的可能是被动订阅），其实发送短信通知或广告也是一个典型的发布/订阅模式。</p>
-<p>发布/订阅模式可以广泛用于异步编程中，代替传递回掉函数的方案，比如，我们可以订阅 ajax 请求的 error、succ 等事件。</p>
-<p>另外发表订阅让两个对象松耦合在一起，不必了解彼此细节，当有新的订阅者出现时，发布者的代码不需要任何修改。同样发布者需要改变时，也不会影响到之前的订阅者。只要之前约定的事件名没有变化，就可以自由地改变它们。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-publish-subscribe.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-strategy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-strategy.html" class="article-date">
-  	<time datetime="2017-04-01T04:53:39.000Z" itemprop="datePublished">2017-04-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-strategy.html">设计模式之策略模式(Strategy)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在程序设计中，我们也常常遇到这样的情况，要实现某一个功能有多种方案可以选择。比如一个压缩文件的程序，既可以选择 zip 算法，也可以选择 gzip 算法。<br>这些算法灵活多样，而且可以随意互相替换。这种解决方案就是将要介绍的策略模式。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>策略模式的定义是:定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</p>
-<p>从定义上看，策略模式就是用来封装算法的。但如果把策略模式仅仅用来封装算法，未免有一点大材小用。在实际开发中，我们通常会把算法的含义扩散开来，使策略模式也可以用来封装一系列的“业务规则”。只要这些业务规则指向的目标一致，并且可以被替换使用，我们就可以用策略模式来封装它们。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strategy/" rel="tag">Strategy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-strategy.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/html-safari-fixed" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/html-safari-fixed.html" class="article-date">
-  	<time datetime="2017-03-31T10:12:19.000Z" itemprop="datePublished">2017-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/html-safari-fixed.html">safari浏览器fixed后，被软键盘遮盖的问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>safari浏览器fixed后，被软键盘遮盖的问题，暂未有更好解决方案，度娘了好多方案，发现他们并未解决此问题，下文会叙述。</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><strong>测试环境：ios 10.2/10.3</strong></p>
-<p>简单来说就是在html5页面中底部有个fixed的区域，如图</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fixed/" rel="tag">fixed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/" rel="tag">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/safari/" rel="tag">safari</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/html-safari-fixed.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-iterator" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-iterator.html" class="article-date">
-  	<time datetime="2017-03-31T09:56:19.000Z" itemprop="datePublished">2017-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-iterator.html">设计模式之迭代器模式(Iterator)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>迭代器模式是一种相对简单的模式，简单到很多时候我们都不认为它是一种设计模式。目前的绝大部分语言都内置了迭代器。</p>
-<p>比如：JavaScript 的 <code>Array.prototype.forEach</code></p>
-<p>jQuery里一个非常有名的迭代器就是 <code>$.each</code> 方法，通过each我们可以传入额外的function，然后来对所有的item项进行迭代操作，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.each( [1, 2, 3], function( i, n )&#123;</span><br><span class="line">	console.log( &#39;当前下标为： &#39;+ i,&#39;当前值为:&#39; + n );</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 下标： 0 当前值:1</span><br><span class="line">&#x2F;&#x2F; 下标： 1 当前值:2</span><br><span class="line">&#x2F;&#x2F; 下标： 2 当前值:3</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/" rel="tag">Iterator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-iterator.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-proxy.html" class="article-date">
-  	<time datetime="2017-03-29T10:16:09.000Z" itemprop="datePublished">2017-03-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-proxy.html">设计模式之代理模式（Proxy）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。</p>
-<p>代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问，客户实际上访问的是替身对象。替身对象对请求做出一些处理之后，再把请求转交给本体对象。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>代理，顾名思义就是帮助别人做事，GoF对代理模式的定义如下：</p>
-<blockquote>
-<p>代理模式（Proxy），为其他对象提供一种代理以控制对这个对象的访问。</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-proxy.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-dp-singleton" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-dp-singleton.html" class="article-date">
-  	<time datetime="2017-03-29T03:36:29.000Z" itemprop="datePublished">2017-03-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-dp-singleton.html">设计模式之单例模式(Singleton)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 JavaScript 开发中，单例模式的用途非常广泛。比如，当我们单击登录按钮的时候，页面中会出现一个登录浮窗，而这个登录浮窗是唯一的，无论单击多少次登录按钮，这个浮窗都只会被创建一次，那么这个登录浮窗就适合用单例模式来创建。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>单例模式的定义是：<strong>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</strong></p>
-<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>经典Singleton模式的实现方式是，如果实例不存在，通过一个方法创建一个实例。如果已经存在，则返回实例的引用。</p>
-<p>Singleton与静态类（对象）不同的是，它可以被延迟生成，只有在需要的时候才会生成实例。</p>
-<p>在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使用对象字面量的方法，其字面量里可以包含大量的属性和方法：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/singleton/" rel="tag">singleton</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-dp-singleton.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/kindle-book" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2017/kindle-book.html" class="article-date">
-  	<time datetime="2017-03-28T04:35:39.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2017/kindle-book.html">Kindle 书籍源下载推荐</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近日重拾公司所发kindle，之前一度觉得手机阅读完全可以替代这个产品，但手机看pdf文件，还是不够舒适，虽然是无背光版的，但在上下班路上的几个小时，用kindle阅读一些书籍感觉还是挺不错的，愉快的加入kindle大家庭，多刷秘籍吧。</p>
-<h2 id="新手入门介绍"><a href="#新手入门介绍" class="headerlink" title="新手入门介绍"></a>新手入门介绍</h2><p><a href="https://kindlefere.com/" target="_blank" rel="noopener">Kindle伴侣 为静心阅读而生</a></p>
-<p>将近日下载 Kindle 书籍源地址等整理分享一下，也算服务大众吧。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kindle/" rel="tag">kindle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/" rel="tag">life</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2017/kindle-book.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2017/js-typeof-instanceof" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2017/js-typeof-instanceof.html" class="article-date">
-  	<time datetime="2017-03-26T09:24:36.000Z" itemprop="datePublished">2017-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2017/js-typeof-instanceof.html">typeof与instanceof的区别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>typeof和instanceof都可以用来判断变量，它们的用法有很大区别：</p>
-<ul>
-<li><strong>typeof：返回一个变量的基本类型，检测的是基本数据类型</strong></li>
-<li><strong>instanceof：返回的是一个布尔值，检测的是引用类型</strong></li>
-</ul>
-<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>typeof会返回一个变量的基本类型，只有以下几种：number,boolean,string,object,undefined,function；例：</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/instanceof/" rel="tag">instanceof</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typeof/" rel="tag">typeof</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2017/js-typeof-instanceof.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
-    </nav>
-  
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2020 KINGZHI
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
-<script>
-  daovoice('init', {
-    app_id: "f1075734",
-  });
-  daovoice('update');
-</script>
-<script type='text/javascript'>
-      var _vds = _vds || [];
-      window._vds = _vds;
-      (function(){
-        _vds.push(['setAccountId', '8805d82e82e6b616']);
-        (function() {
-          var vds = document.createElement('script');
-          vds.type='text/javascript';
-          vds.async = true;
-          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(vds, s);
-        })();
-      })();
-  </script>
 
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/js-array-issue/">Javascript数组常见问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-23 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1553 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
     </div>
-    
+  </header>
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
+  <div class="post-content">
+    <div class="post-summary">
+      1、删除数组里指定的某个元素 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var arr = [3,2,3,3,5,3], val = 3; var removeElement = function(arr, elm) { for (var i = 0; i &lt; arr.length; i++) { if (arr[i] == elm) { arr.splice(i, 1); i--; } } return arr; }; console.log(removeElement(arr, val)); // [2, 5]
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/js-array-issue/" class="read-more-link">阅读更多</a>
+    </div>
   </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/js-class3/">Javascript定义类（class）的三种方法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-23 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1570 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      在面向对象编程中，类（class）是对象（object）的模板，定义了同一组对象（又称&quot;实例&rdquo;）共有的属性和方法。 Ja
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/js-class3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/js-array-base/">Javascript基础之数组</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-22 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 5259 字 </span>
+        <span class="more-meta"> 预计阅读 11 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      简介 数组是编程语言中应用最广泛的存储结构，在 ECMAScript 中数组是非常常用的引用类型。很有必要将数组的内容捋一遍，加深印象。 数组属性 constructor 表示引用数组对象的
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/js-array-base/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/js-oop/">Javascript 面向对象编程详解</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-18 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 4827 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Javascript是一种基于对象的语言，秉承一切皆对象的理念。 但是，它又不是一种真正的面向对象编程（OOP）语言，因为它的语法中没有cla
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/js-oop/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/2017-03-13/">归零重来</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-13 </span>
+      <div class="post-category">
+          <a href="/categories/life/"> life </a>
+          </div>
+        <span class="more-meta"> 约 14 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      拿起前端三剑客再打磨一遍吧。
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/2017-03-13/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/div-center-middle/">div嵌套水平垂直居中方法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-12 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1352 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      总结当前知道的对div嵌套标签水平垂直居中方法，如果还有新的方法，请不吝赐教哦。好，下面开始列举代码咯。 首先给需要实现水平垂直居中的两个di
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/div-center-middle/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/div-the-holy-grail/">圣杯布局和双飞翼布局详解</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-06 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 2649 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      事实上，圣杯布局其实和双飞翼布局是一回事。它们实现的都是三栏布局，两边的盒子宽度固定，中间盒子自适应，也就是我们常说的 固-比-固 布局。它们实
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/div-the-holy-grail/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/css-margin-margin/">CSS中margin边界叠加问题及解决方案</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-02 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 505 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      边界叠加简介 边界叠加是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。 简单地说，当两个垂直边界相遇时，它们将形成一个边
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/css-margin-margin/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017/2017-03-01/">三只小猪与邋遢大王</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-01 </span>
+      <div class="post-category">
+          <a href="/categories/life/"> life </a>
+          </div>
+        <span class="more-meta"> 约 552 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      每天晚上讲给儿子的睡前故事总是在我儿时的动画片里搜索与混搭，《邋遢大王》故事里经典的智慧锁，断断续续记得一段，不得已，又陪儿子看了一遍动画片
+    </div>
+    <div class="read-more">
+      <a href="/post/2017/2017-03-01/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/atom-custom-theme/">如何自定义Atom主题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-12-08 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1182 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      使用Atom有段时间，一直使用别人的主题，想着自己也制作一款主题，便再 官网 上研究一番： aotm主题，分为两种，一种是界面主题，一种是语法主题
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/atom-custom-theme/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/hexo-node-err/">重装node导致Hexo不能正常使用解决办法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-22 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 450 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如： 在使用hexo
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/hexo-node-err/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/flex-bootstrap4-es6/">前端速查表Flex-Bootstrap4-es6</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-17 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1449 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Flexbox 属性速查表 Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下： 容器的属性有以下6个 flex-direction属性决定主轴的
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/flex-bootstrap4-es6/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/react-native-iconfont/">如何在React Native中的使用自定义iconfont</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-15 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1916 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      React Native中的iconfont 关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 react-native-vector-icons, 这个库支
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/react-native-iconfont/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/mac-os-option/">mac开机黑屏解决方法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-13 </span>
+      <div class="post-category">
+          <a href="/categories/life/"> life </a>
+          </div>
+        <span class="more-meta"> 约 1361 字 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊， 传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/mac-os-option/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016/macos-usb-install-drive/">简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-12 </span>
+      <div class="post-category">
+          <a href="/categories/life/"> life </a>
+          </div>
+        <span class="more-meta"> 约 709 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      概述 最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘， 在此做个记录教程，方便以后查看。 使用命令行
+    </div>
+    <div class="read-more">
+      <a href="/post/2016/macos-usb-install-drive/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/2/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    <a class="next" href="/page/4/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="http://localhost:1313/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+
+
+
+
+
+
+
+
 </body>
 </html>

@@ -1,976 +1,438 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>智的前端之路</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="业精于勤荒于嬉,行成于思毁于随。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="智的前端之路">
-<meta property="og:url" content="http://www.imeetyou.net/page/5/index.html">
-<meta property="og:site_name" content="智的前端之路">
-<meta property="og:description" content="业精于勤荒于嬉,行成于思毁于随。">
-<meta property="article:author" content="KINGZHI">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="智的前端之路" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>知也无涯</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZHIKING" /><meta name="description" content="一个用于日常记录技术生活的博客." /><meta name="keywords" content="Hugo, blog, 智的博客" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="知也无涯" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="知也无涯" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="http://localhost:1313/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="知也无涯" />
+<meta property="og:description" content="一个用于日常记录技术生活的博客." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+<meta property="og:updated_time" content="2015-03-10T00:13:27+00:00" />
+<meta itemprop="name" content="知也无涯">
+<meta itemprop="description" content="一个用于日常记录技术生活的博客."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="知也无涯"/>
+<meta name="twitter:description" content="一个用于日常记录技术生活的博客."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/illidan.png" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">KINGZHI</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">若有智，事可为</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">归档</a></li>
-				        
-							<li><a href="/categories/frontend">前端</a></li>
-				        
-							<li><a href="/categories/life">生活</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 13.75px;">CSS3</a> <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/Strategy/" style="font-size: 10px;">Strategy</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/ZeroNet/" style="font-size: 10px;">ZeroNet</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/array/" style="font-size: 11.25px;">array</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/call/" style="font-size: 10px;">call</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/cli/" style="font-size: 10px;">cli</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 13.75px;">css</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/fixed/" style="font-size: 10px;">fixed</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/font/" style="font-size: 10px;">font</a> <a href="/tags/frontend/" style="font-size: 20px;">frontend</a> <a href="/tags/github/" style="font-size: 13.75px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hoc/" style="font-size: 10px;">hoc</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/iconfont/" style="font-size: 11.25px;">iconfont</a> <a href="/tags/iframe/" style="font-size: 10px;">iframe</a> <a href="/tags/instanceof/" style="font-size: 10px;">instanceof</a> <a href="/tags/iphone/" style="font-size: 10px;">iphone</a> <a href="/tags/js/" style="font-size: 18.75px;">js</a> <a href="/tags/kindle/" style="font-size: 10px;">kindle</a> <a href="/tags/life/" style="font-size: 16.25px;">life</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/react/" style="font-size: 11.25px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/slider/" style="font-size: 10px;">slider</a> <a href="/tags/syntax/" style="font-size: 10px;">syntax</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tool/" style="font-size: 10px;">tool</a> <a href="/tags/typeof/" style="font-size: 10px;">typeof</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.5px;">设计模式</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-				
-				<section class="switch-part switch-part3">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">知也无涯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
-
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">KINGZHI</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/illidan.png" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">KINGZHI</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">若有智，事可为</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">归档</a></li>
-		        
-					<li><a href="/categories/frontend">前端</a></li>
-		        
-					<li><a href="/categories/life">生活</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/zyj1022" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/zyj1022" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
 </nav>
-
-      <div class="body-wrap">
-  
-    <article id="post-2016/hexo-node-err" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/hexo-node-err.html" class="article-date">
-  	<time datetime="2016-11-22T02:40:15.000Z" itemprop="datePublished">2016-11-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/hexo-node-err.html">重装node导致Hexo不能正常使用解决办法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架。最近重装了node，导致在编译博客的时候，会出现很多依赖的错误。比如：</p>
-<p>在使用hexo过程中，使用node 6.0以上版本，会出现fs版本问题。</p>
-<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ATAL Error: Module version mismatch. Expected 48, got 14.</span><br><span class="line">Template render error: Error: Module version mismatch. Expected 48, got 14.</span><br></pre></td></tr></table></figure>
-
-<p>错误提示模块的版本不匹配，可能是因为重装了node，很多模块更新或者确实，所以我们重新安装配置下Hexo,解决方法：执行以下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --no-optional</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/hexo-node-err.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/Flex-Bootstrap4-es6" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/Flex-Bootstrap4-es6.html" class="article-date">
-  	<time datetime="2016-11-17T00:53:24.000Z" itemprop="datePublished">2016-11-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/Flex-Bootstrap4-es6.html">前端速查表Flex-Bootstrap4-es6</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Flexbox-属性速查表"><a href="#Flexbox-属性速查表" class="headerlink" title="Flexbox 属性速查表"></a>Flexbox 属性速查表</h1><p>Flex属性用多了自然记住,基本概念不再赘述不过还是简单罗列一下：</p>
-<h2 id="容器的属性有以下6个"><a href="#容器的属性有以下6个" class="headerlink" title="容器的属性有以下6个"></a>容器的属性有以下6个</h2><ul>
-<li>flex-direction属性决定主轴的方向（即项目的排列方向）<br><code>flex-direction: row | row-reverse | column | column-reverse;</code><ul>
-<li>row（默认值）：主轴为水平方向，起点在左端。</li>
-<li>row-reverse：主轴为水平方向，起点在右端。</li>
-<li>column：主轴为垂直方向，起点在上沿。</li>
-<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
-</ul>
-</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/" rel="tag">flex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/Flex-Bootstrap4-es6.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/react-native-iconfont" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/react-native-iconfont.html" class="article-date">
-  	<time datetime="2016-11-15T08:46:11.000Z" itemprop="datePublished">2016-11-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/react-native-iconfont.html">如何在React Native中的使用自定义iconfont</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="React-Native中的iconfont"><a href="#React-Native中的iconfont" class="headerlink" title="React Native中的iconfont"></a>React Native中的iconfont</h1><p>关于在React Native中使用iconfont，网上已有很多非常好的解决方案，用的最多的就是 <a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="noopener">react-native-vector-icons</a>, 这个库支持很多常用的iconfont,比如FontAwesome, Ionicons, MaterialIcons等等。</p>
-<p>但是这个库依赖了不少iOS和Android的原生代码，这让一个前端开发脸上浮现了一个大大的懵逼。 而且自带的字体文件都偏大，做起精简来简直想哭，更别说加入自定义的iconfont了。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iconfont/" rel="tag">iconfont</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/" rel="tag">react-native</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/react-native-iconfont.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/mac-os-option" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2016/mac-os-option.html" class="article-date">
-  	<time datetime="2016-11-13T07:34:23.000Z" itemprop="datePublished">2016-11-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2016/mac-os-option.html">mac开机黑屏解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>真真是奔溃的不要不要的，mac重现安装了最新 Sierra 照样开机黑屏，毫无反应啊，<br>传说中的PARM大法也不好使了，无奈约了官网，下周六去检测。不过还是将折腾小记一番，<br>红烧清炖各种方法都试过了。</p>
-<h1 id="mac开机黑屏解决方法"><a href="#mac开机黑屏解决方法" class="headerlink" title="mac开机黑屏解决方法"></a>mac开机黑屏解决方法</h1><p>通常来说开机速度慢或者开机黑屏</p>
-<p>关闭电脑，开机，同时按住 <code>command+option+R+P</code> 这个时候就会听到‘当‘一声，继续按着<br>再听一次，（网上说有让听四次，我都试过了，一次、两次、三次、四次，其实无所谓，有一声足够），这个时候松开，就可以看到 苹果 下面是个进度条，不出意外的话，可以正常开机了。</p>
-<p>PS：我的是出了意外的，具体症状就是，开机即使如上操作，进度条走到一多半，关机了～～～<br>这什么情况，没折，只好继续想办法。你说再重装系统啊，那就试试看</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2016/mac-os-option.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/macos-usb-install-drive" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2016/macos-usb-install-drive.html" class="article-date">
-  	<time datetime="2016-11-12T05:38:23.000Z" itemprop="datePublished">2016-11-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2016/macos-usb-install-drive.html">简单制作 macOS Sierra 正式版U盘USB启动安装盘方法教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最近家里的Macmin重现折腾了一遍，换了一块ssd，系统要重现安装一次，需要制作U盘启动盘，<br>在此做个记录教程，方便以后查看。</p>
-<h1 id="使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘"><a href="#使用命令行创建制作-macOS-Sierra-正式版-USB-安装盘" class="headerlink" title="使用命令行创建制作 macOS Sierra 正式版 USB 安装盘"></a>使用命令行创建制作 macOS Sierra 正式版 USB 安装盘</h1><p>苹果官方系统内置的命令，优点是稳妥而且没有兼容性问题，只是需要通过命令行操作，对新手来说可能看似有点复杂，但其实步骤还是非常简单的</p>
-<ul>
-<li>首先，准备一个 8GB 或更大容量的 U盘，并备份好里面的所有资料。</li>
-<li>下载好 macOS Sierra 正式版的安装程序</li>
-<li>打开 “应用程序 → 实用工具 → 磁盘工具”，将U盘「抹掉」(格式化) 成「Mac OS X 扩展（日志式）」格式、GUID 分区图，并将U盘命名为「Sierra」。(注意：这个盘符名称将会与后面的命令一一对应，如果你改了这盘符的名字，必须保证后面的命令里的名称也要一致。)</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/life/2016/macos-usb-install-drive.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/react-native-lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/react-native-lifecycle.html" class="article-date">
-  	<time datetime="2016-11-08T04:23:46.000Z" itemprop="datePublished">2016-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/react-native-lifecycle.html">React Native 中组件的生命周期</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>就像 Android 开发中的 View 一样，React Native（RN） 中的组件也有生命周期（Lifecycle）。所谓生命周期，就是一个对象从开始生成到最后消亡所经历的状态，理解生命周期，是合理开发的关键。RN 组件的生命周期整理如下图：</p>
-<p><img src="http://og8z552x2.bkt.clouddn.com/component-lifecycle.jpg" alt="Lifecycle"></p>
-<p>如图，可以把组件生命周期大致分为三个阶段：</p>
-<ul>
-<li>第一阶段：是组件第一次绘制阶段，如图中的上面虚线框内，在这里完成了组件的加载和初始化；</li>
-<li>第二阶段：是组件在运行和交互阶段，如图中左下角虚线框，这个阶段组件可以处理用户交互，或者接收事件更新界面；</li>
-<li>第三阶段：是组件卸载消亡的阶段，如图中右下角的虚线框中，这里做一些组件的清理工作。</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/react-native-lifecycle.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/mac-u-format" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/mac-u-format.html" class="article-date">
-  	<time datetime="2016-11-07T01:44:34.000Z" itemprop="datePublished">2016-11-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/mac-u-format.html">mac格式化U盘方法（解决win下只有200MB的问题）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有些朋友会发现在Mac上格式化的U盘放到windows的电脑上就只剩下200MB了，这是因为你在格式化时选择了guid分区，而win上只能识别一个分区，所以就只显示了200MB的那一个，接下来，我具体说一下方法~</p>
-<ul>
-<li>将U盘插入Mac电脑，然后打开磁盘工具</li>
-<li>注意这一步，1号栏选exfat，因为他传输文件没有4GB的限制。2栏选主引导分布选项，这样的话就不会给你分两个区了，然后点抹掉，意思就是格式化。</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/posts/frontend/2016/mac-u-format.html#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/angular2-hero" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/angular2-hero.html" class="article-date">
-  	<time datetime="2016-10-11T09:44:34.000Z" itemprop="datePublished">2016-10-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/angular2-hero.html">Angular2 英雄练级攻略</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Angular2 英雄练级攻略</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular2/" rel="tag">angular2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/2016-09-22" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/life/2016/2016-09-22.html" class="article-date">
-  	<time datetime="2016-09-22T06:05:00.000Z" itemprop="datePublished">2016-09-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/life/2016/2016-09-22.html">iPhone丢失后除了肉疼还该做些什么</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很不幸，购买未满一年的iphone6s plus在车上被小偷摸了，除了感慨自己的不小心之外，更多的是怎么避免更多损失，找回的希望很渺茫，报警备案，聊胜于无。下面把手机丢失的后的处理罗列一下：</p>
-<ul>
-<li>速度报警（虽然警方不一定会帮忙寻找，但起码备案，为后续定位到手机找到的时候做准备）</li>
-<li>尽快用另外一台iphone在查找iphone中可以定位已经丢失的手机，如果丢失的手机关机，可以启用<strong>丢失模式</strong>，这样等对方 <strong>开机联网</strong> 的时候可以生效。这里不得不吐槽一下，拔出SIM卡，开机不联网，对方可以试11次锁屏密码（4位数的锁屏密码11次可以猜到的概率……），之后就成板砖了。</li>
-<li>用一台新的手机登录微信、支付宝、QQ等可以绑定银行支付账号的APP，最好是解绑了吧……<br>－ 如果觉得不安全，先将关联银行卡挂失。<br>－ 如果手机内资料很重要，那就抹掉iphone吧，不过定位等信息也会被抹掉。对方也不可以使用。</li>
-</ul>
-<h1 id="关于手机内的信息安全"><a href="#关于手机内的信息安全" class="headerlink" title="关于手机内的信息安全"></a>关于手机内的信息安全</h1><p>第一、开机未联：无法通过连接itunes来获取手机内的任何资料。<br>第二、开机联网：上面我们已经打开丢失模式 ，那么对方一旦联网就会被定位。<br>第三、咨询官方，手机变砖后，手机硬件是主板是加密的，即使分开零件来重新组装卖，手机内的信息也是安全的。</p>
-<h1 id="新买iphone我们应该做什么"><a href="#新买iphone我们应该做什么" class="headerlink" title="新买iphone我们应该做什么"></a>新买iphone我们应该做什么</h1><p>鉴于以上丢失手机的惨痛经历，想到了可以通过那些方式来避免这样的事情发生，当然最好的是丢不了。新买手机别着急安装微信、QQ等等，首先安装［查找我的iphone］，打开定位。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iphone/" rel="tag">iphone</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/" rel="tag">life</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/life/">life</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016/2016-05-16" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/frontend/2016/2016-05-16.html" class="article-date">
-  	<time datetime="2016-05-16T02:01:00.000Z" itemprop="datePublished">2016-05-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/frontend/2016/2016-05-16.html">Mac下提升工作效率的方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Mac系统一向以提供高效的工作环境著称，iOS，Android和server端程序员都可以轻松的在Mac上搭建舒适的开发环境。笔者主要从事iOS开发，一般在macbook上工作，以下是这些年累积下来的一些提升工作效率的方式，和大家分享。</p>
-<p>#熟记快捷键</p>
-<p>快捷键对提升效率的帮助最大，但初期掌握曲线也比较陡。熟记一些常用快捷键之后，能感受到立竿见影的效果。比较实用的有：</p>
-<p><strong><em>cmd+c， cmd+v，cmd+a</em></strong>，这几个大家都知道，不过尽量别用在代码拷贝上。</p>
-<p><strong><em>cmd+delete</em></strong>：删除当前行。选中文件的时候直接删除文件。</p>
-<p><strong><em>shift+方向键</em></strong>：这个在选择文本的时候很有用，可以选择单个字符或者整行，多使用才能找到手感。</p>
-<p><strong><em>cmd+shift+左右方向键</em></strong>：这个可以快速选择当前行，用的也很多。</p>
-<p><strong><em>ctrl+a</em></strong>：跑到当前行的最前端，使用频次很高。</p>
-<p><strong><em>ctrl+e</em></strong>：跑到当前行的最尾端，使用频次很高。</p>
-<p><strong><em>cmd+tab</em></strong>：切换应用，这是大部分人用的最多的方式，却不是最高效的方式，后面会介绍其他方式。</p>
-<p><strong><em>cmd+`</em></strong>: 切换同一应用的窗口，这个非常实用。比如打开多个xcode工程的情况下，快速的在不同项目之间切换。 Finder，Firefox等场景下都支持。</p>
-<p><strong><em>cmd+w</em></strong>：关闭当前窗口，后面会介绍其他方式，同样高效。</p>
-<p><strong><em>cmd+q</em></strong>：关闭当前应用。</p>
-<p><strong><em>cmd+n</em></strong>：新建窗口，比如打开新的Finder窗口，配合cmd+w很实用。</p>
-<p><strong><em>cmd+t</em></strong>：新建tab，支持tab模式的应用一般都支持这个快捷键。比如在safari，firefox，chrome下新建tab。</p>
-<p><strong><em>cmd+i</em></strong>: 显示当前文件的信息，查看文件大小，图片宽高的时候有用。</p>
-<p>选中文件按空格预览：预览图片或者pdf文件时有用。配合方向键可以快速预览多张图片。</p>
-<p>短按电源键：可以关闭屏幕，但不能太短，多按几次就有手感了。</p>
-<p>熟记各个应用的快捷键：每个应用的有各自的快捷键，像xcode，android studio，甚至是一些娱乐应用，比如播放器，听歌应用，都可以通过键盘去完成一些常用的操作。</p>
-<p>使用快捷键的目的在于注意力集中在屏幕上，通过肌肉记忆去完成辅助的操作，而不用分神去摸鼠标，点击菜单等。</p>
-<h1 id="全屏工作环境"><a href="#全屏工作环境" class="headerlink" title="全屏工作环境"></a>全屏工作环境</h1><p>macbook屏幕都比较小，再除去顶部状态栏，和底部dock栏，所剩下的展示区域就非常少了，可视区域变小必然会导致更频繁的窗口滚动操作。我个人习惯把状态栏，dock栏都自动隐藏，这样可以在需要长时间高注意力工作时产生更高的效率，比如写代码时可以在xcode里看到更多的代码，比如编辑文字的时候不用频繁的上下滚动。将应用全屏最大的好处在于避免注意力被其他的信息分散掉。当然全屏之后要切换出当前的工作环境就需要其他工具的辅助。</p>
-<p>#应用切换神器Snap<br>上面提到dock栏一般被我隐藏，但dock上有我最常用的app。如果要在这些常用app之间切换，频繁的呼出隐藏的dock栏显然很低效。Snap应用可以完美的解决这个问题。<br>Automatic模式，直接将dock栏上的应用从左至右一直映射到以下快捷键：</p>
-<p>cmd+1, cmd+2, cmd+3, … cmd+0。这是个组合可以让你在10个常用的应用之间切换，刚开始会有几天的适应期，一旦形成肌肉记忆之后，效率奇高。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/" rel="tag">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/frontend/">frontend</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &amp;raquo;</a>
-    </nav>
-  
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">知也无涯</a>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2020 KINGZHI
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//widget.daovoice.io/widget/f1075734.js","daovoice");</script>
-<script>
-  daovoice('init', {
-    app_id: "f1075734",
-  });
-  daovoice('update');
-</script>
-<script type='text/javascript'>
-      var _vds = _vds || [];
-      window._vds = _vds;
-      (function(){
-        _vds.push(['setAccountId', '8805d82e82e6b616']);
-        (function() {
-          var vds = document.createElement('script');
-          vds.type='text/javascript';
-          vds.async = true;
-          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(vds, s);
-        })();
-      })();
-  </script>
 
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/1/">前端开发工具库</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-30 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 791 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
     </div>
-    
+  </header>
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
+  <div class="post-content">
+    <div class="post-summary">
+      Windows 系统工具 前端开发 开发环境 NodeJS JDK + Tomcat (JAVA) Wamp (PHP) 原型工具 Visio 2013 流程图 Axure 7 交互 UID for Mobile 开发工具 Sublime Text 3 Eclipse 3.5 切图工具 Photoshop 3+ xScope 尺子 ColorPix 取色版 Dorado 标注 FastStone Capture 屏幕截图 ColorImpact 配色
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/1/" class="read-more-link">阅读更多</a>
+    </div>
   </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-30/">团队规范文档</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-30 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 4965 字 </span>
+        <span class="more-meta"> 预计阅读 10 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      目录结构 引入亚信UED的基础前端框架，包括JS底层库，UI样式库，开发规范，自动化工具，团队知识库 引入cmd,seajs,nodejs,gr
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-07-30/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2/">样式库解决方案</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-30 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 2773 字 </span>
+        <span class="more-meta"> 预计阅读 6 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      样式库解决方案 目的 1. 提供可复用的模式 根本目的是为了代码资源的重复利用，追求前端团队职能价值的最大化 2. 更新前端开发体系 业界推崇CMD模块化思想
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/3/">通用 CSS 笔记、建议与指导</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-30 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 7062 字 </span>
+        <span class="more-meta"> 预计阅读 15 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      通用 CSS 笔记、建议与指导 原文 在参与规模庞大、历时漫长且参与人数众多的项目时，所有开发者遵守如下规则极为重要： 保持 CSS 便于维护 保持代码清晰易懂 保持
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/3/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-24/">有趣的CSS技巧</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-24 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 296 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      知乎上发现一个提问《CSS 有什么奇技淫巧？》，看了一下果然很&quot;奇淫&quot;呀。 虽然有的我已经在使用了，但觉得在此记录总结一番，
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-07-24/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-23/">关于CSS3 font-face的探究</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-23 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 641 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      当前各个浏览器都支持CSS3的自定义字体(@font-face)，利用font-face我们可以将网页中常用到的各种小图标统一制作成字体，这
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-07-23/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-07-22/">CSS Reset</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-22 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 355 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      CSS Reset 下面我常用到的CSS Reset /* CSS Reset */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-07-22/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/1/">Slider</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-07-22 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 142 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      将用到的jQuery Slider搜集一下，方便懒人使用 sliderjs 好用的轮播图，左右推拉效果，但不会有到最后一个图又突然回头继续滑动的毛病，个人觉得比
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/1/">:before和:after的一些惊人用法</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-06-12 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 761 字 </span>
+        <span class="more-meta"> 预计阅读 2 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      清除浮动 clearfix hack 如果父元素容器里面的子元素是浮动元素的话，我们一般需要在父元素闭合前添加一个clear:both的元素用于清除浮动从而能使父容器
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-06-12/">CSS伪类元素:before和:after</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-06-12 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 462 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      :before和:after的作用就是在指定的元素内容（而不是元素本身）之前或者之后插入一个包含content属性指定内容的行内元素，最基本
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-06-12/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2015/2015-05-29/">Github值得关注的前端项目</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2015-05-29 </span>
+      <div class="post-category">
+          <a href="/categories/frontend/"> frontend </a>
+          </div>
+        <span class="more-meta"> 约 1976 字 </span>
+        <span class="more-meta"> 预计阅读 4 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      综合/资源 frontend-dev-bookmarks 一个巨大的前端开发资源清单。 front-end-collect 分享自己长期关注的前端开发相关的优秀网站、博客、以及活跃开发者。 Front-end-Interview-questions 史上最全前端开发面试问题及答案 f2e-hub
+    </div>
+    <div class="read-more">
+      <a href="/post/2015/2015-05-29/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zyj10222@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/zyj1022" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/zyj1022" class="iconfont icon-weibo" title="weibo"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZHIKING</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="http://localhost:1313/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+
+
+
+
+
+
+
+
 </body>
 </html>
